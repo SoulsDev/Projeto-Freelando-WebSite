@@ -4846,7 +4846,7 @@ fieldset:disabled .btn {
 }
 
 .card {
-    height: 80%;
+    height: 90vh;
     position: relative;
     display: flex;
     flex-direction: column;
