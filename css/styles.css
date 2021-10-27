@@ -1,0 +1,374 @@
+html,
+body {
+    height: 100%;
+}
+
+body.my-login-page {
+    background-color: #f7f9fb;
+    font-size: 14px;
+}
+
+.formatoLogo {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 150px;
+    width: 230px;
+}
+
+.my-login-page .brand {
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .05);
+    position: relative;
+    z-index: 1;
+}
+
+.my-login-page .brand img {
+    width: 100%;
+}
+
+.my-login-page .card-wrapper {
+    width: 400px;
+}
+
+.my-login-page .card {
+    border-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .05);
+}
+
+.my-login-page .card.fat {
+    padding: 10px;
+}
+
+.my-login-page .card .card-title {
+    margin-bottom: 30px;
+}
+
+.my-login-page .form-control {
+    border-width: 2.3px;
+}
+
+.my-login-page .form-group label {
+    width: 100%;
+}
+
+.my-login-page .btn.btn-block {
+    padding: 12px 10px;
+}
+
+.my-login-page .footer {
+    margin: 40px 0;
+    color: #888;
+    text-align: center;
+}
+
+section {
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 425px) {
+    .my-login-page .card-wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .my-login-page .card.fat {
+        padding: 0;
+    }
+    .my-login-page .card.fat .card-body {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 370px) {
+    .botaoRegistrar {
+        display: flex;
+        flex-direction: column;
+    }
+    .botaoRegistrar2 {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .loginfaceBtn {
+        margin: 10px;
+    }
+    .esqueceusenha {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .row {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.botaoLogin {
+    margin-bottom: 30px;
+    padding: 0;
+    margin-left: 0px;
+    text-align: left;
+    font-size: 33px;
+    background-color: white;
+    color: #ff6633;
+    border: 0;
+    border-bottom: 5px solid #ff6633;
+    width: 50%;
+}
+
+.desabilitado {
+    opacity: 25%;
+}
+
+.inputEmail,
+.inputSenha {
+    height: 50px;
+}
+
+.inputEmail:focus,
+.inputSenha:focus {
+    height: 50px;
+    box-shadow: none;
+}
+
+.botaoRegistrar {
+    margin-bottom: 30px;
+    padding: 0px;
+    margin-left: 0px;
+    text-align: right;
+    font-size: 33px;
+    background-color: white;
+    color: #ff6633;
+    border: 0;
+    border-bottom: 5px solid #ff6633;
+    width: 50%;
+}
+
+.botaoRegistrar2 {
+    margin-bottom: 30px;
+    padding: 0px;
+    margin-left: 0px;
+    text-align: right;
+    font-size: 33px;
+    background-color: white;
+    border: 0;
+    border-bottom: 5px solid #000;
+    width: 50%;
+}
+
+.botaoLogin2 {
+    opacity: 30%;
+    margin-bottom: 30px;
+    padding: 0;
+    margin-left: 0px;
+    text-align: left;
+    font-size: 33px;
+    background-color: white;
+    border: 0;
+    border-bottom: 5px solid #000;
+    width: 50%;
+}
+
+.row {
+    align-items: center;
+}
+
+.line {
+    width: 100%;
+    border: 1px solid #000;
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 0.7rem;
+}
+
+
+/* hr novo */
+
+.h01 {
+    background: #000;
+    width: 43%;
+    margin: 1px;
+    margin-bottom: 13px;
+    height: 1;
+}
+
+.h02 {
+    background: #000;
+    width: 43%;
+    margin: 1px;
+    margin-bottom: 13px;
+    height: 1;
+}
+
+
+/* link esqueceu a senha*/
+
+.esqueceusenha {
+    color: #ff6633;
+    /*cor a definir*/
+    padding: 0;
+    font-weight: bolder;
+}
+
+.esqueceusenha:hover {
+    text-decoration: none;
+    color: #832e11;
+}
+
+.loginfaceBtn {
+    padding: 6px;
+    background: #4267b2;
+    border-radius: 5px;
+    color: white;
+    height: 40px;
+    text-align: center;
+    width: 160px;
+    padding: 0;
+    border: 0;
+    font-size: 13px;
+}
+
+.logingoogleBtn {
+    padding: 5px;
+    background: #ec422b;
+    border-radius: 5px;
+    color: white;
+    height: 40px;
+    text-align: center;
+    width: 160px;
+    padding: 0;
+    border: 0;
+    font-size: 13px;
+}
+
+
+/* ANIMAÇÃO FUNDO */
+
+.area {
+    position: absolute;
+    background: #4e54cb;
+    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+    width: 100%;
+    height: 100vh;
+}
+
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    left: 200px;
+}
+
+.circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8) {
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 15s;
+    animation-duration: 5s;
+}
+
+.circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
