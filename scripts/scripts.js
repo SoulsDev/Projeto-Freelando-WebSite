@@ -5,6 +5,6 @@ function telaRegistrar() {
 function telaIndex() {
     window.location.href = "telaLogin.html";
 }
-function CadastroContratante(){
+function telaCadastro(){
     window.location.href = "CadastroContratante.html";
 }
