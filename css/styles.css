@@ -12,7 +12,7 @@ body.my-login-page {
     cursor: pointer;
     margin: 0;
     padding: 0;
-    height: 150px;
+    height: 100px;
     width: 230px;
 }
 
@@ -114,7 +114,6 @@ section {
 }
 
 .botaoLogin {
-    margin-bottom: 30px;
     padding: 0;
     margin-left: 0px;
     text-align: left;
@@ -142,7 +141,6 @@ section {
 }
 
 .botaoRegistrar {
-    margin-bottom: 30px;
     padding: 0px;
     margin-left: 0px;
     text-align: right;
@@ -155,7 +153,6 @@ section {
 }
 
 .botaoRegistrar2 {
-    margin-bottom: 30px;
     padding: 0px;
     margin-left: 0px;
     text-align: right;
