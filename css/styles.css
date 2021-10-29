@@ -251,8 +251,6 @@ section {
 }
 
 
-
-
 /* ANIMAÇÃO FUNDO */
 
 .area {
@@ -370,4 +368,9 @@ section {
         opacity: 0;
         border-radius: 50%;
     }
+}
+
+.container-cadprof {
+    height: 90vh;
+    width: 90vh;
 }
