@@ -1,0 +1,17 @@
+.svg{
+    position: absolute;
+    background: rgba(red, green, blue, 1);
+}
+.btnComecar{
+    background: #ff6633;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    width: 160px;
+    border: none;
+}
+.img01{
+    background-image: url(../medias/img/Rectangle_9.svg);
+    width: 100%;
+    height: 100%;
+}
