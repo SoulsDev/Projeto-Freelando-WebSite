@@ -1,4 +1,7 @@
-
+.navbar-inner{
+    background: transparent;
+    
+}
 .btnComecar{
     background: #ff6633;
     color: #fff;
