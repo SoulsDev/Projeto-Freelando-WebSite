@@ -1,13 +1,103 @@
 <?php
 
+include_once 'conexao.php';
 class Contratante{
     private string $nome;
     private string $email;
     private string $senha;
-    private DateTime $dtRegistro;
+    private string $dtRegistro;
+    private string $dtAlteracao;
 
+    $cn = new conexao();
+    
     public function Contratante()
     {
-        
+        $this("","","","","");
     }
+
+    public function __construct(string $nome, string $email, string $senha)
+    {
+        $this->nome = $nome;
+        $this->email = $email;
+        $this->senha = $senha; 
+        $this->dtRegistro =  date("Y-m-d H:i:s");
+        $this->dtAlteracao =  date("Y-m-d H:i:s");
+    } 
+
+
+    public function getNome() : string
+    {
+        return  $this->nome;
+    }
+
+    public function setNome(string $nome) : void
+    {
+        $this->nome = $nome; 
+    }
+
+    public function getEmail() : string
+    {
+        return  $this->email;
+    }
+
+    public function setEmail(string $email) : void
+    {
+        $this->email = $email; 
+    }
+
+    public function getSenha() : string
+    {
+        return  $this->senha;
+    }
+
+    public function setSenha(string $senha) : void
+    {
+        $this->senha = $senha; 
+    }
+
+    public function getDataRegistro() : string
+    {
+        return  $this->dtRegistro;
+    }
+
+    public function setDataRegistro(string $dtRegistro) : void
+    {
+        $this->dtRegistro = $dtRegistro; 
+    }
+
+    public function getDataAlteracao() : string
+    {
+        return  $this->dtAlteracao;
+    }
+
+    public function setDataAlteracao(string $dtAlteracao) : void
+    {
+        $this->dtAlteracao = $dtAlteracao; 
+    }
+    
+    public function inserirContratante(string $nome, string $email, string $senha, String $dtRegistro, String $dtAlteracao){
+       
+        try{
+    
+            echo $nome;
+            echo $email;
+            echo $senha;
+            echo $dtRegistro;
+            echo $dtAlteracao;
+
+            $inserir = $cn->prepare('CALL Cadastrar_Contratante(nome, email, senha, hora_registro, hora_atualizacao) 
+            VALUES (?, ?, ?, ?, ?)');
+            $inserir->bindValue(1, $nome);
+            $inserir->bindValue(2, $email);
+            $inserir->bindValue(3, $senha);
+            $inserir->bindValue(4, $dtRegistro);
+            $inserir->bindValue(5, $dtAlteracao);
+            $inserir->execute();
+            header('Location:../pages/CadastroProfissional.html');
+               
+        }catch(PDOException $e){
+            echo 'Erro'.$e->getMessage();
+        }
+    }
+
 } 
