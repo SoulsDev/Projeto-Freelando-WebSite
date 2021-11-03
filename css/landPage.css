@@ -1,11 +1,15 @@
-body{
+body {
     background-image: url(../medias/img/fundo.png);
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
-.navbar-inner{
+
+.navbar-inner {
     background: transparent;
 }
-.btnComecar{
+
+.btnComecar {
     background: #ff6633;
     color: #fff;
     border-radius: 20px;
@@ -13,35 +17,64 @@ body{
     width: 160px;
     border: none;
 }
-.navbar{
+
+.navbar {
     margin-top: 10px;
 }
-.navbar-nav > .nav-item > .nav-link{
+
+.container-notebook {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem-notebook {
+    margin-top: 41%;
+    margin-bottom: 100px;
+    width: 90%;
+    text-align: center;
+}
+
+.navbar-nav>.nav-item>.nav-link {
     color: #fff;
     margin-left: 15px;
-  }
-  .navbar-nav > .nav-item:hover > .nav-link,
-  .navbar-nav > .nav-item.active > .nav-link
-  {
+}
+
+.navbar-nav>.nav-item:hover>.nav-link,
+.navbar-nav>.nav-item.active>.nav-link {
     color: #ff6633;
-  }
+}
 
-
-.container-texto{
+.container-texto {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     flex-direction: column;
 }
-.texto-s{   
-    color: #fff;
-    text-align: center;
-    font-size: 18px;
+
+.container-texto-2 {
+    margin: 0;
 }
-.texto-p{
+
+.texto-s {
     color: #fff;
     text-align: center;
-    font-size: 50px;
-    
+    font-size: 28px;
+}
+
+.texto-p {
+    color: #fff;
+    text-align: center;
+    font-size: 70px;
+}
+
+.texto-s-dark {
+    color: #252B42;
+}
+
+.texto-p-dark {
+    color: #252B42;
+    text-align: center;
+    font-size: 70px;
 }
