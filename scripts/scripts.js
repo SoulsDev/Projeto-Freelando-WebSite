@@ -8,3 +8,7 @@ function telaIndex() {
 function telaCadastro(){
     window.location.href = "CadastroContratante.html";
 }
+
+function telaLogin(){
+    window.location.href = "telaLogin.html";
+}

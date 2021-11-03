@@ -1,0 +1,47 @@
+body{
+    background-image: url(../medias/img/fundo.png);
+    background-repeat: no-repeat;
+}
+.navbar-inner{
+    background: transparent;
+}
+.btnComecar{
+    background: #ff6633;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    width: 160px;
+    border: none;
+}
+.navbar{
+    margin-top: 10px;
+}
+.navbar-nav > .nav-item > .nav-link{
+    color: #fff;
+    margin-left: 15px;
+  }
+  .navbar-nav > .nav-item:hover > .nav-link,
+  .navbar-nav > .nav-item.active > .nav-link
+  {
+    color: #ff6633;
+  }
+
+
+.container-texto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.texto-s{   
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+}
+.texto-p{
+    color: #fff;
+    text-align: center;
+    font-size: 50px;
+    
+}
