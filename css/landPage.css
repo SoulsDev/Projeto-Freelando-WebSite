@@ -3,6 +3,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    height: 230vh;
 }
 
 .navbar-inner {
@@ -29,7 +30,7 @@ body {
 }
 
 .imagem-notebook {
-    margin-top: 41%;
+    margin-top: 16%;
     margin-bottom: 100px;
     width: 90%;
     text-align: center;
@@ -55,6 +56,8 @@ body {
 
 .container-texto-2 {
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .texto-s {
@@ -71,10 +74,100 @@ body {
 
 .texto-s-dark {
     color: #252B42;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .texto-p-dark {
     color: #252B42;
-    text-align: center;
     font-size: 70px;
+    text-align: center;
+}
+
+.texto-imagem{
+    margin-top: 150px;
+}
+.text-cor{
+    color: #374754;
+    text-align: justify;
+    display: block;
+}
+.conteudo-01{
+    margin-bottom: 50px;
+}
+
+.imagem-fundo{
+    background-image: url(../medias/img/desktop\ Hero\ Light\ 9.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 200px;
+}
+
+.conteudo-imagem{
+    display: flex;
+    flex-direction: column;
+}
+.texto,.texto-grande{
+    text-align: center;
+    color: #fff;
+}
+.texto-grande{
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 50px;
+}
+.texto{
+    margin-bottom: 80px;
+}
+.botao-navegar{
+    display: flex;
+    justify-content: center;
+}
+.btn-navegar{
+    padding: 5px 50px;
+    border: none;
+    background: #FA824C;
+    border-radius: 20px;
+    color: #fff;
+    margin-bottom: 100px;
+}
+
+
+.row-text{
+    display: flex;
+    flex-direction: column;
+}
+.row-h1{
+    font-size: 50px;
+    line-height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.btn-cad{
+    padding: 8px 30px;
+    margin-top: 50px;
+    border: none;
+    background: #FA824C;
+    border-radius: 20px;
+    color: #fff;
+}
+
+
+footer{
+    background: #252B42;
+
+}
+.h4-text{
+    margin-bottom: 25px;
+    color: #fff;
+    margin-top: 50px;
+}
+.p-texto{
+    color: #fff;
+    margin-bottom: 10px;
+}
+.icone{
+    margin-top: 50px;
+    margin-bottom: 25px;
 }
