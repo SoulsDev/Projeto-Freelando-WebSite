@@ -3,10 +3,10 @@
     try{
     $servidor = "Localhost";
     $usuario = "root";
-    $senha = "";
+    $password = "root";
     $banco = "freelando";
 
-    $cn = new PDO("mysql:host=$servidor;dbname=$banco", $usuario, $senha);
+    $cn = new PDO("mysql:host=$servidor;dbname=$banco", $usuario, $password);
     }catch(Exception $e ){
         echo 'Erro '.$e->getMessage();
     }

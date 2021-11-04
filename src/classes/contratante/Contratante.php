@@ -78,14 +78,14 @@ class Contratante{
             echo $dtRegistro;
             echo $dtAlteracao."<br>";
 
-            var_dump($this->senha);
+            var_dump($senha);
             echo '<br>';
             var_dump($nome);
 
             $inserir = $cn->prepare("CALL Cadastrar_Contratante(?, ?, ?, ?, ?)");
             $inserir->bindValue(1, $nome);
             $inserir->bindValue(2, $email);
-            $inserir->bindValue(3, $this->senha);
+            $inserir->bindValue(3, $senha);
             $inserir->bindValue(4, $dtRegistro);
             $inserir->bindValue(5, $dtAlteracao);
             $inserir->execute();
