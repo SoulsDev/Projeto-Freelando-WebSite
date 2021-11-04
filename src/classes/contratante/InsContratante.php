@@ -16,16 +16,7 @@ $senha = md5($senha);
 
 // print_r($exibe);
 
-
-$Contratante = new Contratante($nome, $email, 'amanha');
+$Contratante = new Contratante($nome, $email, $senha);
 
 
 $Contratante->inserirContratante($Contratante->getNome(), $Contratante->getEmail(), $Contratante->getSenha(), $Contratante->getDataRegistro(), $Contratante->getDataAlteracao());
-
-
-
-
-
-
-
-

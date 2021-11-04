@@ -1,5 +1,20 @@
 <?php
-
+    // function consultar($nome_tabela, $campo_comparado, $campo): bool{
+    //     include_once '../conexao.php';
+    //     $consultar = $cn->prepare('SELECT * FROM ? where ? = ?');
+    //     $consultar->bindValue(1, $nome_tabela);
+    //     $consultar->bindValue(2, $campo_comparado);
+    //     $consultar->bindValue(3, $campo);
+    //     $consultar->execute();
+        
+    //     if($consultar->rowCount() > 0){
+    //         echo "<script>alert('a')</script>";
+            
+    //         return TRUE;
+    //     }
+    //     echo "<script>alert('b')</script>";
+    //     return FALSE;
+    // }
 
 class Contratante{
     private string $nome;
@@ -67,31 +82,31 @@ class Contratante{
     {
         $this->dtAlteracao = $dtAlteracao; 
     }
-    
+
+
     public function inserirContratante(string $nome, string $email, string $senha, String $dtRegistro, String $dtAlteracao){
         include_once '../conexao.php';
         try{
-    
-            echo $nome;
-            echo $email;
-            echo $senha;
-            echo $dtRegistro;
-            echo $dtAlteracao."<br>";
-
-            var_dump($this->senha);
-            echo '<br>';
-            var_dump($nome);
-
-            $inserir = $cn->prepare("CALL Cadastrar_Contratante(?, ?, ?, ?, ?)");
-            $inserir->bindValue(1, $nome);
-            $inserir->bindValue(2, $email);
-            $inserir->bindValue(3, $this->senha);
-            $inserir->bindValue(4, $dtRegistro);
-            $inserir->bindValue(5, $dtAlteracao);
-            $inserir->execute();
+            //$as = consultar('contratante', 'email', $email);
+            
+            $consultar = $cn->prepare('SELECT * FROM contratante where email = ?');
+            $consultar->bindValue(1, $email);
+            $consultar->execute();
+            if($consultar->rowCount() == 0){
+                $inserir = $cn->prepare("CALL Cadastrar_Contratante(?, ?, ?, ?, ?)");
+                $inserir->bindValue(1, $nome);
+                $inserir->bindValue(2, $email);
+                $inserir->bindValue(3, $senha);
+                $inserir->bindValue(4, $dtRegistro);
+                $inserir->bindValue(5, $dtAlteracao);
+                $inserir->execute();    
+            }
+            
+            
             // header('Location:../../../pages/CadastroProfissional.html');
                
         }catch(PDOException $e){
+            echo "email ja cadastrado";
             echo 'Erro'.$e->getMessage();
         }
     }
