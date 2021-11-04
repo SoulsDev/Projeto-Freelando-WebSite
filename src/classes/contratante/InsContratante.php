@@ -1,23 +1,18 @@
 <?php 
 
-include_once 'Contratante.php';
+// include_once 'Contratante.php';
+include_once 'validaContratante.php';
 
 $nome = $_POST['name'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-//$senha = md5($senha);
+$validador = validaContratante($email);
 
-// include_once '../conexao.php';
-
-// $consulta = $cn->prepare("select * from contratante");
-
-// $exibe = $consulta->fetch(PDO::FETCH_ASSOC);
-
-// print_r($exibe);
+ header('Location: ../../../pages/CadastroContratante.php');
 
 
-$Contratante = new Contratante($nome, $email, $senha);
+// $Contratante = new Contratante($nome, $email, $senha);
 
 
-$Contratante->inserirContratante($Contratante->getNome(), $Contratante->getEmail(), $Contratante->getSenha(), $Contratante->getDataRegistro(), $Contratante->getDataAlteracao());
+// $Contratante->inserirContratante($Contratante->getNome(), $Contratante->getEmail(), $Contratante->getSenha(), $Contratante->getDataRegistro(), $Contratante->getDataAlteracao());

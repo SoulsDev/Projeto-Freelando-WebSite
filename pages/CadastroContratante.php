@@ -1,3 +1,6 @@
+<?php 
+    include_once('../src/classes/contratante/validaContratante.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -45,24 +48,38 @@
                             <img onclick="telaIndex()" class="formatoLogo" src="../medias/img/freelando.svg" alt="logo">
                         </div>
 
-                            <form method="POST" action="../src/classes/contratante/InsContratante.php" class="my-login-validation" novalidate="">
+                            <form method="POST" action="../src/classes/contratante/InsContratante.php" class="my-login-validation need-validate" novalidate="">
                                 <div class="form-group">
-
-                                    <input id="name" type="text" class="form-control inputEmail" placeholder="Nome" name="name" value="" required autofocus>
+                                    <input id="name" type="text" class="form-control inputEmail" placeholder="Nome" name="name" value="" required autofocus minlength="8">
+                                    <div class="invalid-feedback">
+                                        Preencha seu nome completo
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
                                     <input id="email" type="email" class="form-control inputEmail" placeholder="Email" name="email" value="" required autofocus>
                                     <div class="invalid-feedback">
-                                        Email is invalid
+                                        Email inválido
+                                        <?php
+                                            if($validador){
+                                                echo getMensagemErro();
+                                            }
+
+                                            else{
+                                                echo "Tanto faz saporra";
+                                            }
+                                        ?>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
 
-                                    <input id="name" type="password" class="form-control inputSenha" placeholder="Senha" name="password" required data-eye>
+                                    <input id="name" type="password" class="form-control inputSenha" placeholder="Senha" name="senha" required data-eye minlength="6">
+                                    
                                     <div class="invalid-feedback">
-                                        Password is required
+                                        Preencha sua senha
+                                        <br>
+                                        Seua senha deve ter no mínino 6 dígitos
                                     </div>
 
                                 </div>
@@ -80,7 +97,7 @@
 
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block botaoEntrar">
+                                    <button type="#" class="btn btn-primary btn-block botaoEntrar">
 										CADASTRAR
 									</button>
                                 </div>
@@ -102,6 +119,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="../scripts/scripts.js"></script>
+    <script src="../scripts/form_validation.js"></script>
 
 </body>
 
