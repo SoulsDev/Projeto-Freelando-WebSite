@@ -1,19 +1,12 @@
 <?php
 
-include_once 'conexao.php';
+
 class Contratante{
     private string $nome;
     private string $email;
     private string $senha;
     private string $dtRegistro;
     private string $dtAlteracao;
-
-    $cn = new conexao();
-    
-    public function Contratante()
-    {
-        $this("","","","","");
-    }
 
     public function __construct(string $nome, string $email, string $senha)
     {
@@ -76,24 +69,27 @@ class Contratante{
     }
     
     public function inserirContratante(string $nome, string $email, string $senha, String $dtRegistro, String $dtAlteracao){
-       
+        include_once '../conexao.php';
         try{
     
             echo $nome;
             echo $email;
             echo $senha;
             echo $dtRegistro;
-            echo $dtAlteracao;
+            echo $dtAlteracao."<br>";
 
-            $inserir = $cn->prepare('CALL Cadastrar_Contratante(nome, email, senha, hora_registro, hora_atualizacao) 
-            VALUES (?, ?, ?, ?, ?)');
+            var_dump($this->senha);
+            echo '<br>';
+            var_dump($nome);
+
+            $inserir = $cn->prepare("CALL Cadastrar_Contratante(?, ?, ?, ?, ?)");
             $inserir->bindValue(1, $nome);
             $inserir->bindValue(2, $email);
-            $inserir->bindValue(3, $senha);
+            $inserir->bindValue(3, $this->senha);
             $inserir->bindValue(4, $dtRegistro);
             $inserir->bindValue(5, $dtAlteracao);
             $inserir->execute();
-            header('Location:../pages/CadastroProfissional.html');
+            // header('Location:../../../pages/CadastroProfissional.html');
                
         }catch(PDOException $e){
             echo 'Erro'.$e->getMessage();

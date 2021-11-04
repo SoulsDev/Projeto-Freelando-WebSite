@@ -8,15 +8,16 @@ CREATE TABLE contratante
     nome VARCHAR(35) NOT NULL,
     email VARCHAR(30) NOT NULL,
     senha VARCHAR(50) NOT NULL,
-    dt_registro DATE NOT NULL,
+    dt_registro DATETIME NOT NULL,
+    dt_atualizacao DATETIME NOT NULL,
     PRIMARY KEY(id_contratante)
 	/*
 	OBSERVAÇÕES:
     /////////
 	*/
 );
-CREATE PROCEDURE Cadastrar_Contratante(nome VARCHAR(35), email VARCHAR(30), senha VARCHAR(50), dt_registro DATETIME) 
-INSERT INTO cliente VALUES (default, nome, email, senha, nivel, dt_registro); 
+CREATE PROCEDURE Cadastrar_Contratante(nick VARCHAR(35), email VARCHAR(30), senha VARCHAR(50), dt_registro DATETIME, dt_atualizacao DATETIME) 
+INSERT INTO contratante (nome, email, senha, dt_registro, dt_atualizacao) VALUES (nick, email, senha, dt_registro, dt_atualizacao); 
 
 
 
