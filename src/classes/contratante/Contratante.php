@@ -101,10 +101,7 @@ class Contratante{
                 $inserir->bindValue(5, $dtAlteracao);
                 $inserir->execute();    
             }
-            
-            
-            // header('Location:../../../pages/CadastroProfissional.html');
-               
+
         }catch(PDOException $e){
             echo "email ja cadastrado";
             echo 'Erro'.$e->getMessage();

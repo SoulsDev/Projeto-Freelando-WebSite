@@ -4,9 +4,9 @@ include_once 'Contratante.php';
 
 $nome = $_POST['name'];
 $email = $_POST['email'];
-$senha = $_POST['password'];
+$senha = $_POST['senha'];
 
-$senha = md5($senha);
+//$senha = md5($senha);
 
 // include_once '../conexao.php';
 
@@ -15,6 +15,7 @@ $senha = md5($senha);
 // $exibe = $consulta->fetch(PDO::FETCH_ASSOC);
 
 // print_r($exibe);
+
 
 $Contratante = new Contratante($nome, $email, $senha);
 
