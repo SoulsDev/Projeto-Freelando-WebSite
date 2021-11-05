@@ -1,12 +1,10 @@
 <?php 
-include_once('../conexao/con_test.php');
+include_once('Postagem.php');
 
-$nome = $_POST['postagem_corpo'];
+$autonomo_id = $_POST['autonomo_id'];
+$conteudo = $_POST['postagem_corpo'];
 
-echo $nome;
-echo get_current_user(); 
 
-$result = $collection->insertOne( [ 'name' => 'Hinterland', 'brewery' => 'BrewDog' ] );        
-echo "Inserted with Object ID '{$result->getInsertedId()}'";
-
+$Postagem = new Postagem($autonomo_id, $conteudo);
+$Postagem->inserirPostagem($Postagem->getAutonomo(), $Postagem->getConteudo(), $Postagem->getDataRegistro());
 // header('Location: ../../../pages/CadastroContratante.php');

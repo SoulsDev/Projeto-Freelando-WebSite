@@ -25,6 +25,7 @@
                             <div class="form-group">
                                 <textarea name="postagem_corpo" class="form-control" id="postagem_corpo" cols="30" rows="10"></textarea>
                             </div>
+                            <input type="hidden" name="autonomo_id" value="1">
                             <div class="form-group">
                                 <input type="submit" value="enviar">
                             </div>

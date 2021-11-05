@@ -44,28 +44,18 @@ class Postagem{
 
 
     public function inserirPostagem(int $autonomo_id, $conteudo, String $dtRegistro){
-        include_once '../conexao.php';
+        include_once('../conexao/con_test.php');
         try{
-            
-            $inserir = $db_mongo->prepare("CALL Cadastrar_Contratante(?, ?, ?, ?, ?)");
-            $inserir->bindValue(1, $nome);
-            $inserir->bindValue(2, $email);
-            $inserir->bindValue(3, $senha);
-            $inserir->bindValue(4, $dtRegistro);
-            $inserir->bindValue(5, $dtAlteracao);
-            $inserir->execute();    
-
-
-            $insertOneResult = $collection->insertOne([
-
-                'name' => $_POST['name'],
-         
-                'detail' => $_POST['detail'],
-         
-            ]);
+            $colecao = $mongo_db->postagem;
+            $result = $colecao->insertOne( 
+                [ 
+                    'autonomo' => $autonomo_id, 
+                    'conteudo' => $conteudo,
+                    'dt_registro' => $dtRegistro
+                ]
+            );          
 
         }catch(PDOException $e){
-            echo "email ja cadastrado";
             echo 'Erro'.$e->getMessage();
         }
     }   
