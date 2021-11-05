@@ -8,7 +8,7 @@ Repositório Projeto DemoDay - Freelando
 - Alyson, Claudio, Flávio(Back-End)🌐
 - Guilherme(Banco de Dados)💾
 
- ### Linguagens que Estamos/Estaremos usando no momento♨
+ ### _Linguagens que Estamos/Estaremos usando no momento♨_
 
 <div style="display: inline_block"><br>
     <img align="center" alt="Felix-JS" height="40" width="30" src= "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
