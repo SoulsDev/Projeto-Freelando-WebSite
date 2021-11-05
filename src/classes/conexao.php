@@ -1,4 +1,5 @@
 <?php
+    
     try{
         $servidor_bd_sql = "Localhost";
         $usuario_bd_sql = "root";
@@ -12,11 +13,16 @@
     catch(Exception $e ){
         echo 'Erro '.$e->getMessage();
     }
+    
     try{
-        $mongo_database = "freelando";
-        $con_mongo = new MongoClient(); // cliente mongo, ele conecta por padrão no localhost, caso queira pode 
-        // inserir o endereço e porta
-        $db_mongo = $con_mongo->$mongo_database; // seleciona o banco do mongo
+        require '../../vendor/autoload.php';
+        $mongo_client = new MongoDB\Client("mongodb://localhost:27017");
+        $collection = $mongo_client->freelando->postagem;  // seleciona o banco do mongo -> seleciona a coleção do mongo 
+        
+        $result = $collection->insertOne( [ 'name' => 'Hinterland', 'brewery' => 'BrewDog' ] );
+        
+        echo "Inserted with Object ID '{$result->getInsertedId()}'";
+
     }
     catch(Exception $e ){
         echo 'Erro '.$e->getMessage();
