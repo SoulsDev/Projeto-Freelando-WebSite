@@ -1,5 +1,5 @@
 <?php 
-include_once('../conexao.php');
+include_once('../conexao/con_test.php');
 
 $nome = $_POST['postagem_corpo'];
 
@@ -10,9 +10,3 @@ $result = $collection->insertOne( [ 'name' => 'Hinterland', 'brewery' => 'BrewDo
 echo "Inserted with Object ID '{$result->getInsertedId()}'";
 
 // header('Location: ../../../pages/CadastroContratante.php');
-
-
-// $Contratante = new Contratante($nome, $email, $senha);
-
-
-// $Contratante->inserirContratante($Contratante->getNome(), $Contratante->getEmail(), $Contratante->getSenha(), $Contratante->getDataRegistro(), $Contratante->getDataAlteracao());

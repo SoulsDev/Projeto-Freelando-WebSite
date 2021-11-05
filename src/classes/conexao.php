@@ -16,9 +16,10 @@
     
     try{
         require '../../vendor/autoload.php';
-        $mongo_client = new MongoDB\Client("mongodb://localhost:27017");
+        $mongo_client = new MongoDB\Client;
         $collection = $mongo_client->freelando->postagem;  // seleciona o banco do mongo -> seleciona a coleção do mongo 
 
+        echo "<script>alert('a') </script>";
     }
     catch(Exception $e ){
         echo 'Erro '.$e->getMessage();
