@@ -20,8 +20,9 @@ body {
 }
 
 .container {
+    height: 100vh;
     position: absolute;
-    width: 80vw;
+    width: 55vw;
     background-color: rgb(255, 255, 255);
     text-align: center;
     border-radius: 5px;
@@ -29,161 +30,113 @@ body {
 }
 
 .container .form-outer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     overflow: hidden;
 }
 
 .container .form-outer form {
+    margin: 0;
     display: flex;
-    width: 400%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .form-outer form .page {
-    width: 25%;
+    -webkit-box-shadow: 0px 0px 9px 4px rgba(148, 145, 145, 0.53);
+    box-shadow: 0px 0px 9px 4px rgba(148, 145, 145, 0.53);
+    margin: 2vw 4vw 2vw 4vw;
+    width: 95%;
     transition: margin-left 0.3s ease-in-out;
+    margin-top: 10px;
 }
 
-.form-outer form .page .title {
+.form-outer form .title {
+    padding: 13px 0px 13px 50px;
+    border-bottom: #ABA9A9 solid 2px;
+    color: #ABA9A9;
     text-align: left;
-    font-size: 25px;
-    font-weight: 500;
+    font-size: 13px;
 }
 
-.form-outer form .page .field {
-    width: 330px;
+.conteudo-dados {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-outer form .field {
+    width: 250px;
     height: 45px;
-    margin: 45px 0;
+    margin: 35px 0;
+    margin-bottom: 0;
     display: flex;
     position: relative;
+    margin-left: 50px;
 }
 
-form .page .field .label {
+form .field .label {
     position: absolute;
     top: -30px;
     font-weight: 500;
 }
 
-form .page .field input {
-    height: 100%;
+form .field input {
+    height: 50%;
     width: 100%;
     border: 1px solid lightgrey;
     border-radius: 5px;
-    padding-left: 15px;
-    font-size: 18px;
+    font-size: 15px;
+    padding: 2px;
 }
 
-form .page .field select {
+form .field select {
     width: 100%;
     padding-left: 10px;
     font-size: 17px;
     font-weight: 500;
 }
 
-form .page .field button {
-    width: 100%;
-    height: calc(100% + 5px);
-    border: none;
-    background: #d33f8d;
-    margin-top: -20px;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: 0.5s ease;
-}
-
-form .page .field button:hover {
-    background: #000;
-}
-
-form .page .btns button {
-    margin-top: -20px!important;
-}
-
-form .page .btns button.prev {
-    margin-right: 3px;
-    font-size: 17px;
-}
-
-form .page .btns button.next {
-    margin-left: 3px;
-}
-
-.container .progress-bar {
-    display: flex;
-    margin: 40px 0;
-    user-select: none;
-}
-
 .container .progress-bar .step {
-    text-align: center;
     width: 100%;
     position: relative;
-}
-
-.container .progress-bar .step p {
-    font-weight: 500;
-    font-size: 15px;
-    color: #000;
-    margin-bottom: 8px;
 }
 
 .progress-bar .step .bullet {
-    height: 50px;
-    width: 50px;
-    border: 2px solid #ff6d3c;
+    height: 70px;
+    width: 70px;
+    border: 5px solid #ff6d3c;
     display: inline-block;
     border-radius: 50%;
     position: relative;
-    transition: 0.2s;
+    transition: 1s;
     font-weight: 500;
     font-size: 17px;
-    line-height: 25px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5vw;
 }
 
 .progress-bar .step .bullet.active {
-    border-color: #d43f8d;
-    background: #d43f8d;
+    color: #fff;
+    background: #ff6d3c;
+}
+
+.progress-bar .step .line {
+    position: fixed;
+    height: 7px;
+    width: 55vw;
+    background: #ff6d3c;
+    border: none;
 }
 
 .progress-bar .step .bullet span {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.progress-bar .step .bullet.active span {
-    display: none;
-}
-
-.progress-bar .step .bullet:before,
-.progress-bar .step .bullet:after {
-    position: absolute;
-    content: '';
-    bottom: 20px;
-    right: -17.447916666666668vw;
-    height: 3px;
-    width: 17.447916666666668vw;
-    background: #ff6d3c;
-}
-
-.progress-bar .step .bullet .aa {
-    position: absolute;
-    content: '';
-    bottom: 20px;
-    right: -17.447916666666668vw;
-    height: 3px;
-    width: 17.447916666666668vw;
-    background: #ff6d3c;
-}
-
-.progress-bar .step .bullet.active:after {
-    background: #d43f8d;
-    transform: scaleX(0);
-    transform-origin: left;
+    font-size: 25px;
 }
 
 @keyframes animate {
@@ -214,4 +167,95 @@ form .page .btns button.next {
 .progress-bar .step .check.active {
     display: block;
     color: #fff;
+}
+
+.container .progress-bar {
+    display: flex;
+    margin: 40px 0;
+    user-select: none;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(194, 194, 194);
+    opacity: 1;
+    padding: 5px;
+    font-size: 15px;
+    /* Firefox */
+}
+
+
+/* BUTTONS */
+
+.container-btns {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.btnAvancar {
+    width: 100%;
+    height: calc(100% + 5px);
+    border: none;
+    background: #ff6d3c;
+    margin-top: -20px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s ease;
+}
+
+.btnAvancar:hover {
+    width: 100%;
+    height: calc(100% + 5px);
+    border: none;
+    background: #ff6d3c;
+    margin-top: -20px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s ease;
+}
+
+.btnCancelar {
+    width: 100%;
+    height: calc(100% + 5px);
+    border: none;
+    background: #ffff;
+    margin-top: -20px;
+    border-radius: 5px;
+    color: rgb(109, 24, 134);
+    border: 2px solid rgb(109, 24, 134);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s ease;
+}
+
+.btnCancelar:hover {
+    width: 100%;
+    height: calc(100% + 5px);
+    border: none;
+    background: rgb(109, 24, 134);
+    margin-top: -20px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(109, 24, 134);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s ease;
 }
