@@ -52,6 +52,7 @@ body {
 @media (max-width:500px) {
     .titulo-1{
         font-size: 25px;
+        padding-bottom: 5px;
     }
     .texto-1{
         font-size: 12px;
