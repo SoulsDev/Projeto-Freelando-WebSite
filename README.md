@@ -5,9 +5,10 @@ Repositório Projeto DemoDay - Freelando
  
 - Izabel(Scrum Master)⚜
 - Felipe(Marketing/Design)🗯
+- Gustavo e Matheus(Front-End)➡🔚
 - Alyson, Claudio e Flávio(Back-End)🌐
 - Guilherme(Banco de Dados)💾
-- Gustavo e Matheus(Front-End)➡🔚
+
 
  ### _Linguagens que Estamos/Estaremos usando no momento♨_
 
