@@ -4,7 +4,7 @@ Repositório Projeto DemoDay - Freelando
  ### _Integrantes e seus Cargos_ 👩‍💻👨‍💻
  
 - Izabel(Scrum Master)⚜
-- Felipe(Marketing/Design)🗯
+- Felipe(Marketing/Design)🗯🎨
 - Gustavo e Matheus(Front-End)➡🔚
 - Alyson, Claudio e Flávio(Back-End)🌐
 - Guilherme(Banco de Dados)💾
