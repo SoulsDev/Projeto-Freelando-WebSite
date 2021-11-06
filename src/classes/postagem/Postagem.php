@@ -44,8 +44,8 @@ class Postagem{
 
 
     public function inserirPostagem(int $autonomo_id, $conteudo, String $dtRegistro){
-        include_once('../conexao/con_test.php');
         try{
+            include_once('../conexao/mongo_con.php');
             $colecao = $mongo_db->postagem;
             $result = $colecao->insertOne( 
                 [ 
@@ -59,5 +59,16 @@ class Postagem{
             echo 'Erro'.$e->getMessage();
         }
     }   
+
+    public static function listarPostagens(){
+        try{
+            include_once('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao/mongo_con.php');
+            $colecao = $mongo_db->postagem;
+            return $colecao->find([]);
+
+        }catch(PDOException $e){
+            echo 'Erro'.$e->getMessage();
+        }
+    }
 
 } 
