@@ -7,10 +7,14 @@ function setMensagemErro(string $erro) : void{
 }
 
 function getMensagemErro() : ?string{
-     if(isset($_SESSION['mensagem-erro'])){
-          return $_SESSION['mensagem-erro'];
+     if(isset($_SESSION['mensagem_erro'])){
+          return $_SESSION['mensagem_erro'];
      }
      else{
           return null;
      }
+}
+
+function destroiMensagemErro(){
+      session_destroy();
 }

@@ -1,18 +1,21 @@
-<?php 
+<?php
 
-// include_once 'Contratante.php';
-include_once 'validaContratante.php';
+include_once 'Contratante.php';
+include_once 'mensagemErro.php';
 
 $nome = $_POST['name'];
 $email = $_POST['email'];
-$senha = $_POST['senha'];
+$senha = $_POST['password'];
 
-$validador = validaContratante($email);
+$contratante = new Contratante($nome, $email, $senha);
+$consulta = $contratante-> consultaEmail($email);
 
- header('Location: ../../../pages/CadastroContratante.php');
+if($consulta){
+     setMensagemErro("Email já cadastrado");
+     header('Location: ../../../pages/CadastroContratante.php');
+}
+else{
+     $contratante->inserirContratante($contratante->getNome(), $contratante->getEmail(), $contratante->getSenha(), $contratante->getDataRegistro(), $contratante->getDataAlteracao());
+}
 
 
-// $Contratante = new Contratante($nome, $email, $senha);
-
-
-// $Contratante->inserirContratante($Contratante->getNome(), $Contratante->getEmail(), $Contratante->getSenha(), $Contratante->getDataRegistro(), $Contratante->getDataAlteracao());

@@ -6,8 +6,9 @@ class Contratante{
     private string $dtRegistro;
     private string $dtAlteracao;
 
-    public function __construct(string $nome, string $email, string $senha)
-    {
+    
+
+    public function __construct(string $nome, string $email, string $senha){
         $this->nome = $nome;
         $this->email = $email;
         $this->senha = $senha; 
@@ -16,61 +17,45 @@ class Contratante{
     } 
 
 
-    public function getNome() : string
-    {
+    public function getNome() : string{
         return  $this->nome;
     }
-
-    public function setNome(string $nome) : void
-    {
+    public function setNome(string $nome) : void{
         $this->nome = $nome; 
     }
 
-    public function getEmail() : string
-    {
+    public function getEmail() : string{
         return  $this->email;
     }
-
-    public function setEmail(string $email) : void
-    {
+    public function setEmail(string $email) : void{
         $this->email = $email; 
     }
 
-    public function getSenha() : string
-    {
+    public function getSenha() : string{
         return  $this->senha;
     }
-
-    public function setSenha(string $senha) : void
-    {
+    public function setSenha(string $senha) : void{
         $this->senha = $senha; 
     }
 
-    public function getDataRegistro() : string
-    {
+    public function getDataRegistro() : string{
         return  $this->dtRegistro;
     }
-
-    public function setDataRegistro(string $dtRegistro) : void
-    {
+    public function setDataRegistro(string $dtRegistro) : void{
         $this->dtRegistro = $dtRegistro; 
     }
 
-    public function getDataAlteracao() : string
-    {
+    public function getDataAlteracao() : string{
         return  $this->dtAlteracao;
     }
-
-    public function setDataAlteracao(string $dtAlteracao) : void
-    {
+    public function setDataAlteracao(string $dtAlteracao) : void{
         $this->dtAlteracao = $dtAlteracao; 
     }
 
 
     public function inserirContratante(string $nome, string $email, string $senha, String $dtRegistro, String $dtAlteracao){
-        include_once '../conexao.php';
         try{
-            
+            include ('../conexao.php');
             $inserir = $con->prepare("CALL Cadastrar_Contratante(?, ?, ?, ?, ?)");
             $inserir->bindValue(1, $nome);
             $inserir->bindValue(2, $email);
@@ -78,11 +63,32 @@ class Contratante{
             $inserir->bindValue(4, $dtRegistro);
             $inserir->bindValue(5, $dtAlteracao);
             $inserir->execute();    
-
+            
         }catch(PDOException $e){
-            echo "email ja cadastrado";
             echo 'Erro'.$e->getMessage();
         }
     }   
 
+    public function consultaEmail($email) : bool{
+        try{
+            include('../conexao.php');
+            $consultar = $con->prepare("SELECT * FROM contratante WHERE email = ? ");
+            $consultar->bindValue(1, $email);
+            $consultar->execute();
+            $row = $consultar->rowCount();
+
+            if($row != 0){
+                $inserir = '';
+                $con = '';
+                return true;
+            }
+            else{
+                return false;
+            }
+
+     }
+     catch(PDOException $e){
+          echo 'Erro'.$e->getMessage(); 
+     }
+    }
 } 
