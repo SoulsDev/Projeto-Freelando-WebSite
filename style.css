@@ -1,0 +1,343 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f1f1;
+}
+
+#regForm {
+    background-color: #ffffff;
+    margin: 20px auto;
+    width: 55vw;
+    min-width: 300px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+}
+
+select {
+    width: 200px;
+    height: 20px;
+    margin-top: 3px;
+    border-radius: 5px;
+    border: 1px solid rgb(131, 131, 131);
+}
+
+
+/* Mark input boxes that gets an error on validation: */
+
+input.invalid {
+    background-color: #ffdddd;
+}
+
+
+/* Hide all steps by default: */
+
+.tab {
+    display: none;
+    align-self: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.container-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    overflow: auto;
+}
+
+.botao-avancar {
+    background-color: orangered;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.botao-cancelar {
+    background-color: #ffff;
+    color: purple;
+    border: 1px solid purple;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 5px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+#prevBtn {
+    background-color: #ffff;
+}
+
+.barra-progresso {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+/* Make circles that indicate the steps of the form: */
+
+.step {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.step .circulo {
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    border: 5px solid orangered;
+    font-size: 25px;
+    color: orangered;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.step .circulo span {
+    margin: 0;
+}
+
+.step.active .circulo {
+    opacity: 1;
+}
+
+.step p {
+    margin: 0;
+    font-size: 15px;
+}
+
+
+/* Mark the steps that are finished and valid: */
+
+.step.finish .circulo {
+    background-color: orangered;
+    color: white;
+}
+
+.formulario {
+    box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0;
+    width: 100%;
+    margin-bottom: 45px;
+}
+
+.formulario .titulo {
+    width: 100%;
+    border-bottom: #ABA9A9 solid 1px;
+    color: #ABA9A9;
+    text-align: left;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.formulario .titulo p {
+    text-align: left;
+    margin-left: 25px;
+}
+
+.conteudo-dados {
+    margin: 0px 0px 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0px 0px 0px 0px;
+    justify-content: left;
+    align-items: flex-start;
+    margin-left: 25px;
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-bottom: 30px;
+    margin-right: 80px;
+}
+
+.dados input {
+    width: 200px;
+    height: 20px;
+    margin-top: 3px;
+    border-radius: 5px;
+    border: 1px solid rgb(131, 131, 131);
+}
+
+.line {
+    content: '';
+    width: 55%;
+    height: 5px;
+    background-color: orangered;
+    position: absolute;
+    z-index: 0;
+    margin-top: 5vh;
+    border-radius: 10px;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1080px) {}
+
+.area {
+    position: absolute;
+    background: #5d00d2;
+    background: -webkit-linear-gradient(to left, #ff6d3c, #ff551c);
+    width: 100%;
+    height: 100vh;
+}
+
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    left: 200px;
+}
+
+.circles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8) {
+    left: 50%;
+    width: 2px;
+    height: 2px;
+    animation-delay: 15s;
+    animation-duration: 5s;
+}
+
+.circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.text-step {
+    width: 100px;
+    text-align: center;
+}
