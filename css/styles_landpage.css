@@ -243,6 +243,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 .conteudo-c{
     display: flex;
@@ -402,7 +403,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh;
+    /* height: 20vh; */
 }
 
 @media (max-width:800px) {
