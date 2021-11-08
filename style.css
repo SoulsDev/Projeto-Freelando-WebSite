@@ -9,6 +9,7 @@ body {}
 #regForm {
     background-color: #ffffff;
     margin: auto;
+    margin-bottom: 70px;
     width: 55vw;
     min-width: 300px;
     border-radius: 5px;
@@ -21,6 +22,7 @@ section {}
 
 h1 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .margem {
@@ -71,6 +73,7 @@ input.invalid {
     justify-content: space-around;
     overflow: auto;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .botao-avancar {
@@ -185,6 +188,7 @@ button:hover {
 .formulario .titulo p {
     text-align: left;
     margin-left: 25px;
+    margin: 18px;
 }
 
 
@@ -220,6 +224,7 @@ button:hover {
 .formulario-2 .titulo-2 p {
     text-align: left;
     margin-left: 25px;
+    margin: 18px;
 }
 
 
@@ -257,6 +262,7 @@ button:hover {
 .formulario-3 .titulo-3 p {
     text-align: left;
     margin-left: 25px;
+    margin: 18px;
 }
 
 
@@ -357,7 +363,7 @@ button:hover {
     background-color: orangered;
     position: absolute;
     z-index: 0;
-    margin-top: 5vh;
+    margin-top: 8vh;
     border-radius: 10px;
 }
 
@@ -367,7 +373,7 @@ button:hover {
 @media (max-width: 1080px) {}
 
 .area {
-    position: absolute;
+    position: fixed;
     background: #5d00d2;
     background: -webkit-linear-gradient(to left, #ff6d3c, #ff551c);
     width: 100%;
