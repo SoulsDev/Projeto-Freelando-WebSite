@@ -10,7 +10,7 @@ Repositório Projeto DemoDay - Freelando
 - Guilherme(Banco de Dados)💾
 
 
- ### _Linguagens e tecnlogias que Estamos/Estaremos usando no momento♨_
+ ### _Linguagens e tecnologias que Estamos/Estaremos usando no momento♨_
 
 <div style="display: inline_block"><br>
     <img align="center" alt="Felix-JS" height="40" width="30" src= "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
