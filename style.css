@@ -54,11 +54,8 @@ input.invalid {
     margin-right: 20px;
 }
 
+
 /* tab-2 */
-.container-2{
-    display: flex;
-    justify-content: space-around;
-}
 
 .container-btns {
     display: flex;
@@ -160,11 +157,9 @@ button:hover {
 
 .formulario {
     box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
-    margin: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 0;
     width: 100%;
     margin-bottom: 45px;
 }
@@ -186,17 +181,25 @@ button:hover {
 
 /* formulário-2 */
 
+.container-2 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .formulario-2 {
     box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     margin: 0;
     width: 45%;
     margin-bottom: 45px;
 }
+
 .formulario-2 .titulo-2 {
+    align-self: flex-start;
     width: 100%;
     border-bottom: #ABA9A9 solid 1px;
     color: #ABA9A9;
@@ -205,10 +208,47 @@ button:hover {
     margin-bottom: 10px;
 }
 
+.formulario-2 .titulo-2 p {
+    text-align: left;
+    margin-left: 25px;
+}
 
 
+/* formulário-2 */
 
+.container-3 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
 
+.formulario-3 {
+    box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    width: 35%;
+    margin-bottom: 30px;
+    margin-right: 30px
+}
+
+.formulario-3 .titulo-3 {
+    align-self: flex-start;
+    width: 100%;
+    border-bottom: #ABA9A9 solid 1px;
+    color: #ABA9A9;
+    text-align: left;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.formulario-3 .titulo-3 p {
+    text-align: left;
+    margin-left: 25px;
+}
 
 .conteudo-dados {
     margin: 0px 0px 0px 0px;
@@ -219,6 +259,20 @@ button:hover {
     justify-content: left;
     align-items: flex-start;
     margin-left: 25px;
+}
+
+.container-btn-form2 {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    margin-bottom: 30px;
+    margin-right: 80px;
+    justify-content: flex-end;
+}
+
+.btn-form2 {
+    margin-left: 5px;
+    cursor: pointer;
 }
 
 .dados {
