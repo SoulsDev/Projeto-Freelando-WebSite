@@ -5,10 +5,15 @@ function telaRegistrar() {
 function telaIndex() {
     window.location.href = "telaLogin.html";
 }
-function telaCadastro(){
+
+function telaCadastroContratante() {
     window.location.href = "CadastroContratante.html";
 }
 
-function telaLogin(){
+function telaLogin() {
     window.location.href = "telaLogin.html";
+}
+
+function telaCadastroProfissional() {
+    window.location.href = "CadastroProfissional.html";
 }
