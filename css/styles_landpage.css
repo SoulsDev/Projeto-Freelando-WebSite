@@ -258,6 +258,9 @@ body {
     margin-top: 5px;
     margin: 15px;
 }
+.conteudo-h1{
+    font-size: 4rem;
+}
 .c-2{
     margin-top: 80px;
 }
@@ -309,9 +312,14 @@ body {
     margin-bottom: 50px;
     padding: 5px 20px;
     border: none;
-    background: #FA824C;
+    background: #fff;
     border-radius: 20px;
+    color: #FA824C;
+}
+.btn-navegar:hover{
+    background: #FA824C;
     color: #fff;
+    transition: 0.5s;
 }
 
 @media (max-width:500px) {
