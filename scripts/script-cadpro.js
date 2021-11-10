@@ -1,11 +1,13 @@
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+var currentTab = 0; // A guia atual é definida para ser a primeira guia (0)
+showTab(currentTab); // Exibe a guia atual
+
+
 
 function showTab(n) {
-    // This function will display the specified tab of the form...
+    // Esta função irá exibir a guia especificada do formulário ...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
-    //... and fix the Previous/Next buttons:
+    // ... e corrija os botões Anterior / Próximo:
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
     } else {
@@ -16,57 +18,64 @@ function showTab(n) {
     } else {
         document.getElementById("nextBtn").innerHTML = "Avançar";
     }
-    //... and run a function that will display the correct step indicator:
+    // ... e execute uma função que exibirá o indicador de etapa correto:
     fixStepIndicator(n)
 }
 
 function nextPrev(n) {
-    // This function will figure out which tab to display
+
+    // Esta função descobrirá qual guia exibir
     var x = document.getElementsByClassName("tab");
-    // Exit the function if any field in the current tab is invalid:
+    // Saia da função se algum campo da guia atual for inválido:
     if (n == 1 && !validateForm()) return false;
-    // Hide the current tab:
+    // Ocultar a guia atual:
     x[currentTab].style.display = "none";
-    // Increase or decrease the current tab by 1:
+    // Aumentar ou diminuir a guia atual em 1:
     currentTab = currentTab + n;
     // if you have reached the end of the form...
     if (currentTab >= x.length) {
-        // ... the form gets submitted:
+        // se você chegou ao final do formulário ...
         document.getElementById("regForm").submit();
         return false;
     }
-    // Otherwise, display the correct tab:
+    // Caso contrário, exiba a guia correta:
     showTab(currentTab);
 }
 
 function validateForm() {
-    // This function deals with validation of the form fields
+    // Esta função trata da validação dos campos do formulário
     var x, y, i, valid = true;
     x = document.getElementsByClassName("tab");
     y = x[currentTab].getElementsByTagName("input");
-    // A loop that checks every input field in the current tab:
+    // Um loop que verifica cada campo de entrada na guia atual:
     for (i = 0; i < y.length; i++) {
-        // If a field is empty...
-        if (y[i].value == "m") {
-            // add an "invalid" class to the field:
+        // Se um campo estiver vazio ...
+        if (y[i].value == "a") {
+            // adiciona uma classe "inválida" ao campo:
             y[i].className += " invalid";
-            // and set the current valid status to false
+            // e definir o status válido atual para falso
             valid = false;
         }
     }
-    // If the valid status is true, mark the step as finished and valid:
+    // Se o status válido for verdadeiro, marque a etapa como concluída e válida:
     if (valid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";
     }
-    return valid; // return the valid status
+    return valid; // retorna o status válido
 }
 
 function fixStepIndicator(n) {
-    // This function removes the "active" class of all steps...
+    // Esta função remove a classe "ativa" de todas as etapas ...
     var i, x = document.getElementsByClassName("step");
     for (i = 0; i < x.length; i++) {
         x[i].className = x[i].className.replace(" active", "");
     }
-    //... and adds the "active" class on the current step:
+    // ... e adiciona a classe "ativa" na etapa atual:
+
+    if (n < 3) {
+        x[n + 1].className = x[n + 1].className.replace(" finish", "");
+    }
+
+
     x[n].className += " active";
 }
