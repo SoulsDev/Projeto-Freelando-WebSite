@@ -17,6 +17,7 @@ class Contratante{
     } 
 
 
+
     public function getNome() : string{
         return  $this->nome;
     }
