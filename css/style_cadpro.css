@@ -69,15 +69,19 @@ input.invalid {
 
 .container-btns {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
-    overflow: auto;
-    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
+    width: 100%;
+    margin: 20px 0px 20px 0px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .botao-avancar {
-    background-color: orangered;
+    background-color: #ff6d3c;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -86,7 +90,8 @@ input.invalid {
     cursor: pointer;
     width: 200px;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-bottom: 20px;
+    margin: 10px;
 }
 
 .botao-cancelar {
@@ -99,6 +104,8 @@ input.invalid {
     cursor: pointer;
     width: 200px;
     border-radius: 5px;
+    margin-bottom: 20px;
+    margin: 10px;
 }
 
 button:hover {
@@ -130,7 +137,7 @@ button:hover {
     content: '';
     width: 100%;
     height: 5px;
-    background-color: orangered;
+    background-color: #ff6d3c;
     border-radius: 10px;
 }
 
@@ -151,9 +158,9 @@ button:hover {
     background-color: white;
     border-radius: 50%;
     display: inline-block;
-    border: 5px solid orangered;
+    border: 5px solid #ff6d3c;
     font-size: 20px;
-    color: orangered;
+    color: #ff6d3c;
     z-index: 1;
     display: flex;
     flex-direction: row;
@@ -178,7 +185,7 @@ button:hover {
 }
 
 .step.finish .circulo {
-    background-color: orangered;
+    background-color: #ff6d3c;
     color: white;
 }
 
@@ -186,7 +193,7 @@ button:hover {
 /* Mark the steps that are finished and valid: */
 
 .step.finish .circulo {
-    background-color: orangered;
+    background-color: #ff6d3c;
     color: white;
 }
 
@@ -439,13 +446,15 @@ button:hover {
 
 @media (max-width: 1080px) {}
 
+@media (max-width: 1270px) {}
+
 
 /* EFEITO BACKGROUND */
 
 .area {
     position: fixed;
     background: #5d00d2;
-    background: -webkit-linear-gradient(to left, #ff6d3c, #ff551c);
+    background: -webkit-linear-gradient(to left, #ff6d3c, #ff6d3c);
     width: 100%;
     height: 100%;
     z-index: -1;
