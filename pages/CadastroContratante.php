@@ -1,6 +1,7 @@
 <?php 
-    include_once('../src/classes/contratante/validaContratante.php');
+include_once '../src/classes/contratante/mensagemErro.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -60,21 +61,22 @@
                                     <input id="email" type="email" class="form-control inputEmail" placeholder="Email" name="email" value="" required autofocus>
                                     <div class="invalid-feedback">
                                         Email inválido
-                                        <?php
-                                            if($validador){
-                                                echo getMensagemErro();
-                                            }
-
-                                            else{
-                                                echo "Tanto faz saporra";
-                                            }
-                                        ?>
                                     </div>
+                                    <?php
+                                        $mensagem = getMensagemErro();
+                                        if(!empty($mensagem)){
+                                            echo $mensagem;
+                                            destroiMensagemErro();
+                                        }
+                                        else{
+                                            echo "okay";
+                                        }
+                                    ?>
                                 </div>
 
                                 <div class="form-group">
 
-                                    <input id="name" type="password" class="form-control inputSenha" placeholder="Senha" name="senha" required data-eye minlength="6">
+                                    <input id="name" type="password" class="form-control inputSenha" placeholder="Senha" name="password" required data-eye minlength="6">
                                     
                                     <div class="invalid-feedback">
                                         Preencha sua senha
@@ -86,7 +88,7 @@
 
                                 <div class="form-group">
                                     <div>
-                                        <input type="checkbox" class="checkboxes" id="checkbox" name="checkbox" checked>
+                                        <input type="checkbox" class="checkboxes" id="checkbox" name="checkbox">
                                         <a class="chebox-text" href="#">Aceito termos de uso</a>
                                         
                                     </div>
@@ -97,7 +99,7 @@
 
 
                                 <div class="form-group">
-                                    <button type="#" class="btn btn-primary btn-block botaoEntrar">
+                                    <button type="submit" class="btn btn-primary btn-block botaoEntrar">
 										CADASTRAR
 									</button>
                                 </div>
