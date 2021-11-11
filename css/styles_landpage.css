@@ -96,11 +96,42 @@ body {
         height: 160vh;
     }
 }
-.container-notebook {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (min-width:800px){
+    .container-notebook {
+        background-image: url(../medias/img/notbook.png);
+        background-size: contain;
+        width: 100%;
+        height: 80%;
+        background-repeat: no-repeat;
+    }
 }
+@media (min-width:500px) and (max-width:799px){
+    .container-notebook{
+        background-image: url(../medias/img/image-removebg-preview.png);
+        background-size: contain;
+        width: 100%;
+        height: 60%;
+        background-repeat: no-repeat;
+    }
+}
+@media screen and (max-width: 499px){
+    .container-notebook {
+    background-image: url(../medias/img/image-removebg-celular.png);
+    background-size: contain;
+    width: 100%;
+    height: 80%;
+    background-repeat: no-repeat;
+}
+
+}
+/* .container-notebook {
+    background-image: url(../medias/img/notbook.png);
+    background-size: contain;
+    width: 100%;
+    height: 80%;
+    background-repeat: no-repeat;
+} */
+
 
 .imagem-notebook {
     margin-top: 7%;
