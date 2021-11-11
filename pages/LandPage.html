@@ -5,29 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LandPage</title>
+    <link rel="shortcut icon" href="../medias/img/Group.svg" type="image/x-icon">
+    <title>FreeLando</title>
 
-
-    <!-- BOOTSTRAP -->
+    <!-- bootstrap -->
     <link rel="stylesheet" href="../bootstrap-5.1.3/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="landPage.css"> <!-- css separado -->
 
+
+    <link rel="stylesheet" href="../css/styles_landpage.css">
 </head>
 
 <body>
+
+
     <nav class="navbar navbar-expand-lg navbar-light" style="position: relative; z-index: 12;">
         <div class="collapse navbar-collapse d-flex justify-content-center">
             <a class="navbar-brand img" href="#">
-                <img src="../medias/img/freelando.svg" class="img" alt="logo" width="170px" height="50px">
+                <img src="../medias/img/freelando_branco.svg" class="img" alt="logo" width="225px" height="113px">
             </a>
         </div>
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+
+
+
+
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="#">Recursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contato</a>
+                    <a class="nav-link" href="#">Contatos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Cadastre-se</a>
@@ -36,30 +43,179 @@
         </div>
 
         <div class="collapse navbar-collapse d-flex justify-content-center">
-            <a href="#">
-                <form class="btn">
-                    <button class="btnComecar" type="submit">COMECE AGORA</button>
-                </form>
-            </a>
+            <button class="btnComecar" type="submit" onclick="telaLogin()">COMECE AGORA</button>
         </div>
     </nav>
 
-    <section style="position: relative; top: 0px;">
-        <svg width="100%" height="100%" viewBox="0 0 1439 1243" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path opacity="0.19" d="M0 57H1439V733.5C1439 733.5 1185 1065.75 703 914.5C221 763.25 0 1243 0 1243V57Z" fill="url(#paint0_linear_65:828)"/>
-            <path d="M0 0H1439V733.5C1439 733.5 1180.5 1054.75 698.5 903.5C216.5 752.25 0 1120 0 1120V0Z" fill="url(#paint1_linear_65:828)"/>
-            <defs>
-            <linearGradient id="paint0_linear_65:828" x1="25.0001" y1="1243" x2="844.088" y2="128.451" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FF6633"/>
-            <stop offset="1" stop-color="#5D00D2"/>
-            </linearGradient>
-            <linearGradient id="paint1_linear_65:828" x1="25.0001" y1="1120" x2="784.272" y2="25.9614" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FF6633"/>
-            <stop offset="1" stop-color="#5D00D2"/>
-            </linearGradient>
-            </defs>
-        </svg>
-    </section>
+
+    <!-- primeiro conteudo -->
+
+    <div class="primeiro-conteudo">
+        <p class="texto-1">Está com dificuldade no mercado de trabalho?</p>
+        <h1 class="titulo-1"> <strong>Torne-se um profissional reconhecido</strong> </h1>
+        <p class="texto-1">Uma rede social profissional especializada no <br> mercado de autônomos</p>
+    </div>
+
+    <div class="container-notebook">
+        <img class="imagem-notebook" src="../medias/img/container_1.svg" alt="imagem-do-not">
+    </div>
+
+    <!-- fim do primeiro conteúdo -->
+
+
+    <!-- segundo conteudo -->
+
+    <div class="segundo-conteudo">
+        <div class="conteudo">
+            <h1 class="conteudo-h1">Recursos</h1>
+            <p class="conteudo-p-2">Funcionalidades que ajudam você a escolher o profissional!</p>
+        </div>
+
+
+        <div class="conteudo d-flex flex-row">
+
+            <div class="conteudo-c">
+
+                <img class="imagem-nevagacao" src="../medias/img/navegadorzinho.png" alt="tela" width="80%">
+
+                <div class="c-1">
+                    <img src="../medias/img/location.png" alt="icone" width="40px">
+                    <span class="titulo-2">Perto de você</span>
+
+                    <p class="conteudo-p-2">Com base no seu endereço, mostramos a distância do freela em relação a você.
+                    </p>
+
+                    <div class="c-2">
+                        <img src="../medias/img/star.png" alt="icone" width="40px">
+                        <span class="titulo-2">Nível</span>
+
+                        <p class="conteudo-p-2">Para melhorar a credibilidade dos profissionais, temos um sistema de nível que os classifica.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- fim do segundo conteúdo -->
+
+    <!-- terceiro conteúdo -->
+    <div class="terceiro-conteudo">
+
+        <div class="conteudo-3">
+
+            <h3 class="titulo-3">Uma rede social feita para Freelancers</h3>
+
+            <!-- <p class="texto-3">Entre sem necessitar de login aqui!</p> -->
+
+            <button class="btn-navegar">
+                NAVEGUE AGORA
+            </button>
+        </div>
+
+    </div>
+
+    <!-- fim do terceiro conteúdo -->
+
+
+    <!-- quarto conteúdo -->
+
+    <div class="quarto-conteudo">
+
+        <div class="conteudo-quarto">
+
+            <img src="../medias/img/homem.png" alt="homem" width="90%">
+
+            <div class="conteudo-4">
+                <p class="texto-4">Tenha mais oportunidades</p>
+                <h1 class="titulo-4">Cadastre-se no nosso site</h1>
+                <!-- <p class="texto-4-4">E seja ou procure um freela!</p> -->
+
+                <div class="botao">
+                    <button class="botao1">
+                        Cadastrar
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- fim do quarto conteúdo -->
+
+
+    <!-- footer -->
+
+    <footer>
+        <div class="footer">
+
+            <div class="pagina">
+                <h5>Páginas</h5>
+
+                <p>Início</p>
+                <p>Recursos</p>
+                <p>Cadastre</p>
+
+            </div>
+
+            <div class="SoulDev">
+                <h5>SoulDev</h5>
+
+                <p>Alyson</p>
+                <p>Izabel</p>
+                <p>Gustavo</p>
+                <p>Guilherme</p>
+                <p>Flavio</p>
+                <p>Felipe</p>
+                <p>Matheus</p>
+                <p>Claudio</p>
+
+            </div>
+
+            <div class="orientacao">
+                <h5>Orientação</h5>
+
+                <p>Gabriel</p>
+                <p>Martinha</p>
+                <p>Adriana</p>
+
+            </div>
+
+
+            <div class="termo">
+
+                <div class="icones">
+                    <p>
+                        <img src="../medias/img/twitter.png" alt="icone-twitter" width="50px" height="50px">
+                    </p>
+
+                    <p>
+                        <img src="../medias/img/logotipo-do-aplicativo-do-facebook.png" alt="icone-facebook" width="40px" height="40px">
+                    </p>
+                    <img src="../medias/img/linkedin.png" alt="icone-linkedin" width="40px" height="40px">
+                    <p>
+
+                    </p>
+                </div>
+
+                <p>&copy; 2021 Frellando. Todos direitos reservados</p>
+
+                <div class="logo-empresa">
+                    <img src="../medias/img/SoulDev-Atualizado.png" alt="logo-empresa" width="180px">
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+
+    <!-- fim do footer -->
+
+
+    <script src="../scripts/scripts.js" defer></script>
 </body>
 
 </html>

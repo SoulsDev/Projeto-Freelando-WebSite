@@ -1,0 +1,424 @@
+body {
+    background-image: url(../medias/img/fundo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200vh;
+}
+
+/* menu */
+.btnComecar {
+    background: #ff6633;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    width: 160px;
+    border: none;
+}
+
+.navbar {
+    margin-top: 10px;
+}
+.navbar-nav .nav-item .nav-link {
+    color: #fff;
+    padding: 20px;
+}
+
+.navbar-nav .nav-item .nav-link:hover{
+    color: #FA824C;
+}
+
+/* fim menu */
+
+
+/* primeiro conteudo =) */
+
+.primeiro-conteudo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.titulo-1{
+    font-size: 55px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.texto-1{
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.texto-1, .titulo-1{
+    text-align: center;
+    color: #fff;
+}
+@media (max-width:500px) {
+    .titulo-1{
+        font-size: 25px;
+        padding-bottom: 5px;
+    }
+    .texto-1{
+        font-size: 12px;
+        text-align: center;
+    }
+    .imagem-notebook {
+        margin-top: 7%;
+        margin-bottom: 10px;
+        width: 90%;
+        text-align: center;
+    }
+    body {
+        background-image: url(../medias/img/fundo.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+    }
+    
+}
+@media (max-width:1000px) {
+    .primeiro-conteudo{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 50vh;;
+    }
+    .imagem-notebook {
+        margin-top: 7%;
+        margin-bottom: 10px;
+        width: 90%;
+        text-align: center;
+    }
+    body {
+        background-image: url(../medias/img/fundo.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 160vh;
+    }
+}
+.container-notebook {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem-notebook {
+    margin-top: 7%;
+    margin-bottom: 100px;
+    width: 90%;
+    text-align: center;
+}
+
+/* animação */
+@media screen and (max-width: 2000px) {
+    .texto-1{
+        font-size: 24px;
+        text-align: center;
+    }
+    .titulo-1{
+    font-size: 50px;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
+}
+
+@keyframes digitando{
+    from{
+        width: 0;
+    }
+    to{
+        width: 55rem;
+    }
+}
+@keyframes cursor{
+        from{
+            border-right: 2px solid rgba(255, 255, 255, 0.75);
+        }
+        to{
+            border-right: transparent;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .texto-1{
+        font-size: 20px;
+        text-align: center;
+    }
+    .titulo-1{
+    font-size: 40px;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
+}
+
+@keyframes digitando{
+    from{
+        width: 0;
+    }
+    to{
+        width: 45rem;
+    }
+}
+@keyframes cursor{
+        from{
+            border-right: 2px solid rgba(255, 255, 255, 0.75);
+        }
+        to{
+            border-right: transparent;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .texto-1{
+        font-size: 15px;
+        text-align: center;
+    }
+    .titulo-1{
+    font-size: 28px;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
+}
+
+@keyframes digitando{
+    from{
+        width: 0;
+    }
+    to{
+        width: 30rem;
+    }
+}
+@keyframes cursor{
+    from{
+        border-right: 2px solid rgba(255, 255, 255, 0.75);
+    }
+    to{
+        border-right: transparent;
+    }
+    }
+}
+
+@media (max-width:500px) {
+    .titulo-1{
+        font-size: 15px;
+        border-right: 2px solid rgba(255, 255, 255, 0.75);
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
+    }
+    @keyframes digitando{
+        from{
+            width: 0;
+        }
+        to{
+            width: 17rem;
+        }
+    }
+    @keyframes cursor{
+        from{
+            border-right: 2px solid rgba(255, 255, 255, 0.75);
+        }
+        to{
+            border-right: transparent;
+        }
+    }
+}
+
+/* fim do primeiro conteúdo */
+
+/* segundo conteúdo */
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.conteudo-c{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.titulo-2{
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.conteudo-p-2{
+    margin-top: 5px;
+    margin: 15px;
+}
+.conteudo-h1{
+    font-size: 4rem;
+}
+.c-2{
+    margin-top: 80px;
+}
+
+@media (max-width:800px) {
+    .conteudo-c{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .c-2{
+        margin-top: 10px;
+    }
+    .imagem-nevagacao{
+        margin-bottom: 10px;
+    }
+}
+/* fim do segundo conteúdo */
+
+/* terceiro conteúdo */
+
+.terceiro-conteudo{
+    background-image: url(../medias/img/desktop\ Hero\ Light\ 9.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.conteudo-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titulo-3{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: normal;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.texto-3{
+    margin-bottom: 50px;
+    color: #fff;
+    font-size: 18px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn-navegar{
+    margin-bottom: 50px;
+    padding: 5px 20px;
+    border: none;
+    background: #fff;
+    border-radius: 20px;
+    color: #FA824C;
+}
+.btn-navegar:hover{
+    background: #FA824C;
+    color: #fff;
+    transition: 0.5s;
+}
+
+@media (max-width:500px) {
+    .titulo-3{
+        margin-top: 50px;
+        margin-bottom: 20px;
+        color: #fff;
+        font-size: 22px;
+        font-weight: normal;
+    }
+    .texto-3{
+        margin-bottom: 50px;
+        color: #fff;
+        font-size: 12px;
+    }
+}
+/* fim do terceiro conteúdo */
+
+
+/* quarto conteúdo */
+
+.quarto-conteudo{
+    margin: 100px;
+}
+.conteudo-quarto{
+    display: flex;
+    flex-direction: row;
+}
+.conteudo-4{
+    margin: 20px;
+}
+.titulo-4, .texto-4-4{
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.texto-4{
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+}
+
+.botao1{
+    padding: 8px 30px;
+    margin-top: 50px;
+    border: none;
+    background: #FA824C;
+    border-radius: 20px;
+    color: #fff;
+}
+
+@media (max-width:800px) {
+    .conteudo-quarto{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .quarto-conteudo{
+        margin: 10px;
+    }
+}
+
+/* fim do quarto conteúdo */
+
+
+/* footer */
+
+
+footer{
+    background: #252B42;
+}
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+}
+.pagina, .SoulDev, .orientacao{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    color: #fff;
+}
+.icones{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+.termo{
+    color: #fff;
+}
+.logo-empresa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 20vh; */
+}
+
+@media (max-width:800px) {
+    .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* fim do footer */
