@@ -4,8 +4,6 @@
     padding: 0;
 }
 
-body {}
-
 #regForm {
     background-color: #ffffff;
     margin: auto;
@@ -17,8 +15,6 @@ body {}
     flex-direction: column;
     align-items: center;
 }
-
-section {}
 
 h1 {
     text-align: center;
@@ -103,6 +99,10 @@ input.invalid {
 
 button:hover {
     opacity: 0.8;
+}
+
+#cidade, #uf, #logradouro{
+    background-color: rgb(201, 201, 201);
 }
 
 #prevBtn {

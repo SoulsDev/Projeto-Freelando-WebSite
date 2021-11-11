@@ -4,15 +4,12 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <meta charset="utf-8">
     <link href="../css/style_cadpro.css" rel="stylesheet" type="text/css">
     <title>Cadastro do profissional</title>
     <link rel="shortcut icon" href="../medias/img/Group.svg" type="image/x-icon">
 
 </head>
-
-
-
-
 <body>
 
     <div class="area">
@@ -128,7 +125,7 @@
                         <div class="campos-input">
 
                             <labe for="cpf">CPF<span style="color: rgb(145, 145, 145)">*</span></labe>
-                            <input type="number" name="cpf" id="cpf">
+                            <input type="text" name="cpf" id="cpf" maxlength="14">
 
 
                         </div>
@@ -195,7 +192,7 @@
                         <div class="campos-input">
 
                             <labe for="cep">CEP<span style="color: rgb(145, 145, 145)">*</span></labe>
-                            <input type="number" name="cep" id="cep">
+                            <input type="text" name="cep" id="cep" onblur="pesquisacep(this.value);">
 
 
                         </div>
@@ -203,7 +200,7 @@
                         <div class="campos-input">
 
                             <labe for="cidade">Cidade<span style="color: rgb(145, 145, 145)">*</span></labe>
-                            <input type="text" name="cidade" id="cidade">
+                            <input type="text" name="cidade" id="cidade" disabled>
 
 
                         </div>
@@ -212,7 +209,7 @@
                         <div class="campos-input">
 
                             <labe for="uf">UF<span style="color: rgb(145, 145, 145)">*</span></labe>
-                            <input type="text" name="uf" id="uf">
+                            <input type="text" name="uf" id="uf" disabled>
 
 
                         </div>
@@ -220,7 +217,7 @@
                         <div class="campos-input">
 
                             <labe for="logradouro">Logradouro<span style="color: rgb(145, 145, 145)">*</span></labe>
-                            <input type="text" name="logradouro" id="logradouro">
+                            <input type="text" name="logradouro" id="logradouro" disabled>
 
 
                         </div>
@@ -228,7 +225,7 @@
                         <div class="campos-input">
 
                             <labe for="numero">Número<span style="color: rgb(145, 145, 145)">*</span></labe>
-                            <input type="number" name="numero" id="numero">
+                            <input type="text" name="numero" id="numero">
                         </div>
 
                         <div class="campos-input">
