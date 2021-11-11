@@ -27,6 +27,7 @@
                                 echo "data de publicação: $postagem->dt_registro<br>";
                                 echo "Conteudo: $postagem->conteudo<br><br>";
                             }
+                            
                        ?> 
                     </div>
                 </div>
