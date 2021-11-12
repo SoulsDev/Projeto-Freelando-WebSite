@@ -13,6 +13,8 @@
 
 
     <link rel="stylesheet" href="../css/styles_landpage.css">
+
+    <script src="../scripts/progressbar.min.js"></script>
 </head>
 
 <body>
@@ -31,13 +33,13 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Recursos</a>
+                    <a class="nav-link" href="#Recursos">Recursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contatos</a>
+                    <a class="nav-link" href="#Footer">Contatos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cadastre-se</a>
+                    <a class="nav-link" onclick="telaRegistrar()" href="#">Cadastre-se</a>
                 </li>
             </ul>
         </div>
@@ -57,7 +59,7 @@
     </div>
 
     <div class="container-notebook">
-        <img class="imagem-notebook" src="../medias/img/container_1.svg" alt="imagem-do-not">
+        <!-- <img class="imagem-notebook" src="../medias/img/container_1.svg" alt="imagem-do-not"> -->
     </div>
 
     <!-- fim do primeiro conteúdo -->
@@ -67,7 +69,7 @@
 
     <div class="segundo-conteudo">
         <div class="conteudo">
-            <h1 class="conteudo-h1">Recursos</h1>
+            <h1 id="Recursos" class="conteudo-h1">Recursos</h1>
             <p class="conteudo-p-2">Funcionalidades que ajudam você a escolher o profissional!</p>
         </div>
 
@@ -126,11 +128,11 @@
 
         <div class="conteudo-quarto">
 
-            <img src="../medias/img/homem.png" alt="homem" width="90%">
+            <img class="d-flex align-self center" src="../medias/img/undraw_newsletter_vovu.svg" alt="homem" width="60%">
 
             <div class="conteudo-4">
                 <p class="texto-4">Tenha mais oportunidades</p>
-                <h1 class="titulo-4">Cadastre-se no nosso site</h1>
+                <h1 class="titulo-4">Cadastre-se<br> no nosso site</h1>
                 <!-- <p class="texto-4-4">E seja ou procure um freela!</p> -->
 
                 <div class="botao">
@@ -150,7 +152,7 @@
     <!-- footer -->
 
     <footer>
-        <div class="footer">
+        <div id="Footer" class="footer">
 
             <div class="pagina">
                 <h5>Páginas</h5>

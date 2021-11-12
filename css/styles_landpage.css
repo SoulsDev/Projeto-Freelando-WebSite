@@ -6,7 +6,9 @@ body {
     height: 200vh;
 }
 
+
 /* menu */
+
 .btnComecar {
     background: #ff6633;
     color: #fff;
@@ -19,44 +21,51 @@ body {
 .navbar {
     margin-top: 10px;
 }
+
 .navbar-nav .nav-item .nav-link {
     color: #fff;
     padding: 20px;
 }
 
-.navbar-nav .nav-item .nav-link:hover{
+.navbar-nav .nav-item .nav-link:hover {
     color: #FA824C;
 }
+
 
 /* fim menu */
 
 
 /* primeiro conteudo =) */
 
-.primeiro-conteudo{
+.primeiro-conteudo {
     display: flex;
     justify-content: center;
     flex-direction: column;
     height: 100vh;
 }
-.titulo-1{
+
+.titulo-1 {
     font-size: 55px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.texto-1{
+
+.texto-1 {
     font-size: 24px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.texto-1, .titulo-1{
+
+.texto-1,
+.titulo-1 {
     text-align: center;
     color: #fff;
 }
+
 @media (max-width:500px) {
-    .titulo-1{
+    .titulo-1 {
         font-size: 25px;
         padding-bottom: 5px;
     }
-    .texto-1{
+    .texto-1 {
         font-size: 12px;
         text-align: center;
     }
@@ -73,14 +82,15 @@ body {
         background-size: cover;
         height: 100vh;
     }
-    
 }
+
 @media (max-width:1000px) {
-    .primeiro-conteudo{
+    .primeiro-conteudo {
         display: flex;
         justify-content: center;
         flex-direction: column;
-        height: 50vh;;
+        height: 50vh;
+        ;
     }
     .imagem-notebook {
         margin-top: 7%;
@@ -96,11 +106,45 @@ body {
         height: 160vh;
     }
 }
-.container-notebook {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+@media (min-width:800px) {
+    .container-notebook {
+        background-image: url(../medias/img/notbook.png);
+        background-size: contain;
+        width: 100%;
+        height: 80%;
+        background-repeat: no-repeat;
+    }
 }
+
+@media (min-width:500px) and (max-width:799px) {
+    .container-notebook {
+        background-image: url(../medias/img/image-removebg-preview.png);
+        background-size: contain;
+        width: 100%;
+        height: 60%;
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .container-notebook {
+        background-image: url(../medias/img/image-removebg-celular.png);
+        background-size: contain;
+        width: 100%;
+        height: 80%;
+        background-repeat: no-repeat;
+    }
+}
+
+
+/* .container-notebook {
+    background-image: url(../medias/img/notbook.png);
+    background-size: contain;
+    width: 100%;
+    height: 80%;
+    background-repeat: no-repeat;
+} */
 
 .imagem-notebook {
     margin-top: 7%;
@@ -109,106 +153,104 @@ body {
     text-align: center;
 }
 
+
 /* animação */
+
 @media screen and (max-width: 2000px) {
-    .texto-1{
+    .texto-1 {
         font-size: 24px;
         text-align: center;
     }
-    .titulo-1{
-    font-size: 50px;
-    border-right: 2px solid rgba(255, 255, 255, 0.75);
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
-}
-
-@keyframes digitando{
-    from{
-        width: 0;
+    .titulo-1 {
+        font-size: 50px;
+        border-right: 2px solid rgba(255, 255, 255, 0.75);
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
     }
-    to{
-        width: 55rem;
+    @keyframes digitando {
+        from {
+            width: 0;
+        }
+        to {
+            width: 55rem;
+        }
     }
-}
-@keyframes cursor{
-        from{
+    @keyframes cursor {
+        from {
             border-right: 2px solid rgba(255, 255, 255, 0.75);
         }
-        to{
-            border-right: transparent;
+        to {
+            border-right: 2px solid transparent;
         }
     }
 }
 
-
 @media screen and (max-width: 1000px) {
-    .texto-1{
+    .texto-1 {
         font-size: 20px;
         text-align: center;
     }
-    .titulo-1{
-    font-size: 40px;
-    border-right: 2px solid rgba(255, 255, 255, 0.75);
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
-}
-
-@keyframes digitando{
-    from{
-        width: 0;
+    .titulo-1 {
+        font-size: 40px;
+        border-right: 2px solid rgba(255, 255, 255, 0.75);
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
     }
-    to{
-        width: 45rem;
+    @keyframes digitando {
+        from {
+            width: 0;
+        }
+        to {
+            width: 45rem;
+        }
     }
-}
-@keyframes cursor{
-        from{
+    @keyframes cursor {
+        from {
             border-right: 2px solid rgba(255, 255, 255, 0.75);
         }
-        to{
-            border-right: transparent;
+        to {
+            border-right: 2px solid transparent;
         }
     }
 }
 
 @media screen and (max-width: 800px) {
-    .texto-1{
+    .texto-1 {
         font-size: 15px;
         text-align: center;
     }
-    .titulo-1{
-    font-size: 28px;
-    border-right: 2px solid rgba(255, 255, 255, 0.75);
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
-}
-
-@keyframes digitando{
-    from{
-        width: 0;
-    }
-    to{
-        width: 30rem;
-    }
-}
-@keyframes cursor{
-    from{
+    .titulo-1 {
+        font-size: 28px;
         border-right: 2px solid rgba(255, 255, 255, 0.75);
+        margin: 0 auto;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
     }
-    to{
-        border-right: transparent;
+    @keyframes digitando {
+        from {
+            width: 0;
+        }
+        to {
+            width: 30rem;
+        }
     }
+    @keyframes cursor {
+        from {
+            border-right: 2px solid rgba(255, 255, 255, 0.75);
+        }
+        to {
+            border-right: 2px solid transparent;
+        }
     }
 }
 
 @media (max-width:500px) {
-    .titulo-1{
+    .titulo-1 {
         font-size: 15px;
         border-right: 2px solid rgba(255, 255, 255, 0.75);
         margin: 0 auto;
@@ -216,99 +258,112 @@ body {
         overflow: hidden;
         animation: cursor 600ms steps(40) infinite normal, digitando 3.5s steps(40) normal;
     }
-    @keyframes digitando{
-        from{
+    @keyframes digitando {
+        from {
             width: 0;
         }
-        to{
+        to {
             width: 17rem;
         }
     }
-    @keyframes cursor{
-        from{
+    @keyframes cursor {
+        from {
             border-right: 2px solid rgba(255, 255, 255, 0.75);
         }
-        to{
-            border-right: transparent;
+        to {
+            border-right: 2px solid transparent;
         }
     }
 }
 
+
 /* fim do primeiro conteúdo */
+
 
 /* segundo conteúdo */
 
-.conteudo{
+.conteudo {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    
 }
-.conteudo-c{
+
+.conteudo-c {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.titulo-2{
+
+.titulo-2 {
     font-size: 22px;
     font-family: Arial, Helvetica, sans-serif;
 }
-.conteudo-p-2{
+
+.conteudo-p-2 {
     margin-top: 5px;
     margin: 15px;
 }
-.conteudo-h1{
+
+.conteudo-h1 {
     font-size: 4rem;
 }
-.c-2{
+
+.c-2 {
     margin-top: 80px;
 }
 
 @media (max-width:800px) {
-    .conteudo-c{
+    .conteudo-c {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    .c-2{
+    .c-2 {
         margin-top: 10px;
     }
-    .imagem-nevagacao{
+    .imagem-nevagacao {
         margin-bottom: 10px;
     }
 }
+
+
 /* fim do segundo conteúdo */
+
 
 /* terceiro conteúdo */
 
-.terceiro-conteudo{
+.terceiro-conteudo {
     background-image: url(../medias/img/desktop\ Hero\ Light\ 9.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-.conteudo-3{
+
+.conteudo-3 {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.titulo-3{
+
+.titulo-3 {
     margin-top: 50px;
     margin-bottom: 20px;
     color: #fff;
     font-size: 40px;
     font-weight: normal;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.texto-3{
+
+.texto-3 {
     margin-bottom: 50px;
     color: #fff;
     font-size: 18px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.btn-navegar{
+
+.btn-navegar {
     margin-bottom: 50px;
     padding: 5px 20px;
     border: none;
@@ -316,51 +371,61 @@ body {
     border-radius: 20px;
     color: #FA824C;
 }
-.btn-navegar:hover{
+
+.btn-navegar:hover {
     background: #FA824C;
     color: #fff;
     transition: 0.5s;
 }
 
 @media (max-width:500px) {
-    .titulo-3{
+    .titulo-3 {
         margin-top: 50px;
         margin-bottom: 20px;
         color: #fff;
         font-size: 22px;
         font-weight: normal;
     }
-    .texto-3{
+    .texto-3 {
         margin-bottom: 50px;
         color: #fff;
         font-size: 12px;
     }
 }
+
+
 /* fim do terceiro conteúdo */
 
 
 /* quarto conteúdo */
 
-.quarto-conteudo{
+.quarto-conteudo {
     margin: 100px;
 }
-.conteudo-quarto{
+
+.conteudo-quarto {
+    justify-content: center;
     display: flex;
     flex-direction: row;
 }
-.conteudo-4{
+
+.conteudo-4 {
     margin: 20px;
 }
-.titulo-4, .texto-4-4{
+
+.titulo-4,
+.texto-4-4 {
     font-weight: normal;
     font-family: Arial, Helvetica, sans-serif;
 }
-.texto-4{
+
+.texto-4 {
     font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    ;
 }
 
-.botao1{
+.botao1 {
     padding: 8px 30px;
     margin-top: 50px;
     border: none;
@@ -370,44 +435,51 @@ body {
 }
 
 @media (max-width:800px) {
-    .conteudo-quarto{
+    .conteudo-quarto {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .quarto-conteudo{
+    .quarto-conteudo {
         margin: 10px;
     }
 }
+
 
 /* fim do quarto conteúdo */
 
 
 /* footer */
 
-
-footer{
+footer {
     background: #252B42;
 }
-.footer{
+
+.footer {
     display: flex;
     justify-content: space-evenly;
 }
-.pagina, .SoulDev, .orientacao{
+
+.pagina,
+.SoulDev,
+.orientacao {
     display: flex;
     flex-direction: column;
     margin-top: 40px;
     color: #fff;
 }
-.icones{
+
+.icones {
     display: flex;
     justify-content: space-evenly;
     margin-top: 40px;
 }
-.termo{
+
+.termo {
     color: #fff;
 }
-.logo-empresa{
+
+.logo-empresa {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -415,10 +487,9 @@ footer{
 }
 
 @media (max-width:800px) {
-    .footer{
+    .footer {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 }
-/* fim do footer */

@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-x? hidden;
 }
 
 #regForm {
@@ -66,15 +67,19 @@ input.invalid {
 
 .container-btns {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
-    overflow: auto;
-    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
+    width: 100%;
+    margin: 20px 0px 20px 0px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .botao-avancar {
-    background-color: orangered;
+    background-color: #ff6d3c;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -83,7 +88,8 @@ input.invalid {
     cursor: pointer;
     width: 200px;
     border-radius: 5px;
-    margin-left: 10px;
+    margin-bottom: 20px;
+    margin: 10px;
 }
 
 .botao-cancelar {
@@ -96,13 +102,18 @@ input.invalid {
     cursor: pointer;
     width: 200px;
     border-radius: 5px;
+    margin-bottom: 20px;
+    margin: 10px;
+    box-sizing: none !important;
 }
 
 button:hover {
     opacity: 0.8;
 }
 
-#cidade, #uf, #logradouro{
+#cidade,
+#uf,
+#logradouro {
     background-color: rgb(201, 201, 201);
 }
 
@@ -127,12 +138,11 @@ button:hover {
 }
 
 .line {
-    margin-top: 50px;
+    margin-top: 46px;
     content: '';
-    width: 100%;
-    height: 5px;
-    background-color: orangered;
-    border-radius: 10px;
+    width: 55vw;
+    height: 7px;
+    background-color: #ff6d3c;
 }
 
 
@@ -152,9 +162,9 @@ button:hover {
     background-color: white;
     border-radius: 50%;
     display: inline-block;
-    border: 5px solid orangered;
+    border: 5px solid #ff6d3c;
     font-size: 20px;
-    color: orangered;
+    color: #ff6d3c;
     z-index: 1;
     display: flex;
     flex-direction: row;
@@ -174,12 +184,19 @@ button:hover {
 }
 
 .step.active .circulo {
+    background-color: #ff6d3c;
+    color: white;
     opacity: 1;
     font-size: 30px;
+    padding: 30px;
+}
+
+.step.active p {
+    font-weight: ;
 }
 
 .step.finish .circulo {
-    background-color: orangered;
+    background-color: #ff6d3c;
     color: white;
 }
 
@@ -187,7 +204,7 @@ button:hover {
 /* Mark the steps that are finished and valid: */
 
 .step.finish .circulo {
-    background-color: orangered;
+    background-color: #ff6d3c;
     color: white;
 }
 
@@ -295,6 +312,13 @@ button:hover {
     flex-wrap: wrap;
     align-content: center;
     padding: 0px 50px 0px 50px;
+}
+
+.container-4 h1 {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 30px;
+    word-break: break-word;
 }
 
 .container-zona-arquivo {
@@ -436,17 +460,12 @@ button:hover {
 }
 
 
-/* MEDIA QUERIES */
-
-@media (max-width: 1080px) {}
-
-
 /* EFEITO BACKGROUND */
 
 .area {
     position: fixed;
     background: #5d00d2;
-    background: -webkit-linear-gradient(to left, #ff6d3c, #ff551c);
+    background: -webkit-linear-gradient(to left, #ff6d3c, #ff6d3c);
     width: 100%;
     height: 100%;
     z-index: -1;
@@ -554,6 +573,7 @@ button:hover {
         opacity: 1;
         border-radius: 0;
     }
+
     100% {
         transform: translateY(-1000px) rotate(720deg);
         opacity: 0;
@@ -566,8 +586,401 @@ button:hover {
     text-align: center;
 }
 
-.invalid-feedback{
-    display: none; 
-    color: #dc3545; 
-    font-size:0.875em;
-}
+.invalid-feedback {
+    display: none;
+    color: #dc3545;
+    font-size: 0.875em;
+
+    /* MEDIA QUERIES */
+
+
+    /* Wider than desktop  */
+
+    @media (min-width: 1200px) {}
+
+
+    /* Landscape phone to desktop  */
+
+    @media (max-width: 1199px) {
+        .container-zona-arquivo {
+            flex-direction: column;
+        }
+
+        .arquivos-list {
+            border-right: none;
+            border-bottom: solid 2px #000;
+        }
+
+        .conteudo-formulario {
+            margin: 0 px 0 px 0 px 0 px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            padding: 0 px 0 px 0 px 0 px;
+            justify-content: center;
+            align-items: flex-start;
+            margin-left: 25 px;
+        }
+
+        .container-4 p {
+            font-size: 10px;
+        }
+
+        .container-2 {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .formulario-2 {
+            width: 45vw;
+        }
+
+        .botao-cancelar {
+            width: 45vw;
+        }
+
+        .botao-avancar {
+            width: 45vw;
+        }
+    }
+
+
+    /* Landscape phone to landscape tablet  */
+
+    @media (max-width: 979px) {}
+
+
+    /* Small desktop  */
+
+    @media (min-width: 768px) and (max-width: 1220px) {
+        .container-3 {
+            flex-direction: column;
+        }
+
+        .conteudo-formulario {
+            justify-content: left;
+        }
+
+        .formulario-3 {
+            width: 45vw;
+        }
+
+        .botao-cancelar {
+            width: 45vw;
+        }
+
+        .botao-avancar {
+            width: 45vw;
+        }
+    }
+
+
+    /* Landscape phone to portrait tablet  */
+
+    @media (max-width: 767px) {
+        .container-4 p {
+            font-size: 25px;
+        }
+
+        #regForm {
+            width: 100vw;
+        }
+
+        .formulario-3 {
+            width: 65vw;
+        }
+
+        .container-3 {
+            flex-direction: column;
+        }
+
+        .barra-progresso {
+            width: 100vw;
+        }
+
+        .conteudo-formulario {
+            justify-content: left;
+        }
+
+        .step p {
+            opacity: 1;
+        }
+
+        .step.active p {
+            display: flex;
+            margin: 0;
+            font-size: 15px;
+            opacity: 1;
+        }
+
+        .step .circulo {
+            height: 55px;
+            width: 55px;
+            background-color: white;
+            border-radius: 50%;
+            display: inline-block;
+            border: 5px solid #ff6d3c;
+            font-size: 20px;
+            color: #ff6d3c;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+
+        .step .circulo span {
+            margin: 0;
+        }
+
+        .step p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .step.active .circulo {
+            background-color: #ff6d3c;
+            color: white;
+            opacity: 1;
+            font-size: 30px;
+            padding: 25px;
+        }
+
+        .line {
+            width: 100vw;
+        }
+
+        .botao-cancelar {
+            width: 60vw;
+        }
+
+        .botao-avancar {
+            width: 60vw;
+        }
+    }
+
+    @media(max-width: 630px) {
+        .conteudo-formulario {
+            justify-content: center;
+        }
+
+        .formulario-2 {
+            width: 60vw;
+        }
+    }
+
+    @media (max-width: 610px) {
+        .botao-cancelar {
+            width: 80vw;
+        }
+
+        .botao-avancar {
+            width: 80vw;
+        }
+    }
+
+
+    /* Landscape phones and smaller  */
+
+    @media (max-width: 480px) {
+        #regForm {
+            width: 100vw;
+        }
+
+        * {
+            box-sizing: none;
+        }
+
+        .barra-progresso {
+            width: 100vw;
+        }
+
+        .formulario-2 {
+            width: 85%;
+        }
+
+        .formulario-3 {
+            width: 95%;
+        }
+
+        .container-btns {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .step p {
+            opacity: 1;
+        }
+
+        .step.active p {
+            display: inline;
+            margin: 0;
+            font-size: 16px;
+            opacity: 1;
+        }
+
+        .step .circulo {
+            height: 40px;
+            width: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: inline-block;
+            border: 3px solid #ff6d3c;
+            font-size: 15px;
+            color: #ff6d3c;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+
+        .step .circulo span {}
+
+        .step p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .step.active .circulo {
+            height: 40px;
+            width: 40px;
+            background-color: #ff6d3c;
+            color: white;
+            opacity: 1;
+            font-size: 15px;
+            padding: 0;
+        }
+
+        .line {
+            width: 100vw;
+            margin-top: 38px;
+            height: 4px;
+        }
+
+        .botao-cancelar {
+            width: 75%;
+        }
+
+        .botao-avancar {
+            width: 75%;
+        }
+    }
+
+    @media (max-width: 350px) {
+        .container-4 p {
+            font-size: 20px;
+        }
+
+        .formulario-2 {
+            width: 95%;
+        }
+
+        .formulario-3 {
+            width: 100%;
+        }
+
+        .campos-input {
+            margin-left: 10px;
+        }
+
+        .step p {
+            opacity: 1;
+            font-size: 12px;
+        }
+
+        .step.active p {
+            display: inline;
+            margin: 0;
+            font-size: 12px;
+            opacity: 1;
+        }
+
+        .line {
+            width: 100vw;
+            margin-top: 38px;
+            height: 4px;
+        }
+    }
+
+    @media (max-width: 280px) {
+        #regForm {
+            width: 100vw;
+        }
+
+        .barra-progresso {
+            width: 100vw;
+        }
+
+        .step p {
+            opacity: 0;
+        }
+
+        .step.active p {
+            display: inline;
+            margin: 0;
+            display: none;
+            opacity: 0;
+        }
+
+        .step .circulo {
+            height: 25px;
+            width: 25px;
+            background-color: white;
+            border-radius: 50%;
+            display: inline-block;
+            border: 3px solid #ff6d3c;
+            font-size: 15px;
+            color: #ff6d3c;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
+
+        .step .circulo span {
+            opacity: 0;
+        }
+
+        .step p {
+            margin: 0;
+            display: none;
+        }
+
+        .step.active .circulo {
+            height: 25px;
+            width: 25px;
+            background-color: #ff6d3c;
+            color: white;
+            opacity: 1;
+            font-size: 15px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .line {
+            width: 105vw;
+            margin-top: 30px;
+            height: 4px;
+        }
+
+        .container-btns {
+            width: 100vw;
+        }
+
+        .botao-cancelar {
+            width: 100vw;
+        }
+
+        .botao-avancar {
+            width: 300px;
+        }
+    }

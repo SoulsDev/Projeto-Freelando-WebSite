@@ -83,6 +83,7 @@ function validateForm() {
         y[i].children[2].style.display = "none";
     }
 
+    //AQUI ESTAVA COM UM CONFLITO
 
     for (i = 0; i < y.length; i++) {
         
@@ -117,6 +118,11 @@ function validateForm() {
                 y[i].children[2].innerHTML = 'O CPF deve ter 11 dígitos';
                 valid = false;
             }
+        if (y[i].value == "dshf") {
+            // adiciona uma classe "inválida" ao campo:
+            y[i].className += " invalid";
+            // e definir o status válido atual para falso
+            valid = false;
         }
     }
     // Se o status válido for verdadeiro, marque a etapa como concluída e válida:
