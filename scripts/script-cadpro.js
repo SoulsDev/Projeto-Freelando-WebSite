@@ -5,6 +5,12 @@ const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))
 
 var cpf_input = document.getElementById('cpf');
 
+var birth_input = document.getElementById('data_nascimento');
+
+var today = new Date();
+
+birth_input.setAttribute('max', (today.getFullYear() - 18)+'-'+(today.getMonth()+1)+'-'+today.getDate());
+
 // Validação e mascara para input CPF
 cpf_input.addEventListener('keydown', function(event){
     // Verifica se o que foi digitado não é um numero ou não é digito delete ou backspace
@@ -91,20 +97,24 @@ function validateForm() {
                 valid = false;
             }
         }
-        if(y[i].id === 'email'){
+        if(y[i].children[1].id === 'email'){
             // Caso o email informado não tenha ao menos um '@', '.', dois digitos apos o ponto, e ao menos um char antes do @ ele não 
             // é um email válido 
-            if(!(email_regex.test(y[i].value.toLowerCase()))){
-                y[i].className += " invalid";
+            if(!(email_regex.test(y[i].children[1].value.toLowerCase()))){
+                y[i].children[1].style.border = "1px solid #dc3545";
+                y[i].children[2].style.display = "block";
+                y[i].children[2].innerHTML = 'O e-mail deve conter ao menos um "@" e um ".".';
                 valid = false;
             }
         }
         // validação de cpf deve pedir para ser do tamanho máximo do campo
-        if(y[i].id === 'cpf'){
-            if(y[i].value.length === 14){
+        if(y[i].children[1].id === 'cpf'){
+            if(y[i].children[1].value.length === 14){
                 valid = true;
             }else{
-                y[i].className += " invalid";
+                y[i].children[1].style.border = "1px solid #dc3545";
+                y[i].children[2].style.display = "block";
+                y[i].children[2].innerHTML = 'O CPF deve ter 11 dígitos';
                 valid = false;
             }
         }
