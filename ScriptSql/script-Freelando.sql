@@ -1,97 +1,97 @@
 /*DROP DATABASE freelando;*/
+
+/*
+	COMO LER O NOSSO BANCO;
+    
+    1 - Tudo, com exeção de procedures e functions devem ser escritos em letras minusculas;
+    2 - Procedures e functions devem ser declaradas inteiramente em letras MAIUSCULAS;
+    3 - As identificações dos atributos são separados por "_" sendo:
+		tipoDeDado_conteudo_nomeTabela;
+*/
 CREATE DATABASE freelando;
 USE freelando;
 
 CREATE TABLE contratante
 (
-	id_contratante INT AUTO_INCREMENT ,
-    nome VARCHAR(35) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    senha VARCHAR(40) NOT NULL,
-    dt_registro DATETIME NOT NULL,
-    dt_modificacao DATETIME,
-    PRIMARY KEY(id_contratante)
+	n_id_contratante INT AUTO_INCREMENT ,
+    c_nome_contratante VARCHAR(35) NOT NULL,
+    c_email_contratante VARCHAR(50) NOT NULL,
+    c_senha_contratante VARCHAR(40) NOT NULL,
+    d_registro_contratante DATETIME NOT NULL,
+    d_modificacao_contratante DATETIME,
+    PRIMARY KEY(n_id_contratante)
 );
-CREATE PROCEDURE Cadastrar_Contratante(nome VARCHAR(35), email VARCHAR(50), senha VARCHAR(40), dt_registro DATETIME) 
-INSERT INTO contratante VALUES (default, nome, email, senha, dt_registro, null); 
+CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), email VARCHAR(50), senha VARCHAR(40), registro DATETIME) 
+	INSERT INTO contratante VALUES (default, nome, email, senha, registro, null); 
 
-CREATE TABLE autonomo
-(
-	id_autonomo INT AUTO_INCREMENT,
-    nome VARCHAR(35) NOT NULL,
-    cpf CHAR(11) NOT NULL,
-    genero SMALLINT NOT NULL,
-    dt_nasc DATE NOT NULL,
-    cep VARCHAR(8) NOT NULL,
-    uf CHAR(2) NOT NULL,
-    cidade VARCHAR(50) NOT NULL,
-    logradouro VARCHAR(100) NOT NULL,
-    numero_logradouro INT NOT NULL,
-    complemento VARCHAR(5) NOT NULL,
-    email VARCHAR(25) NOT NULL,
-    senha VARCHAR(50) NOT NULL,
-    dt_registro DATETIME NOT NULL,
-    dt_modificacao DATETIME,
-    PRIMARY KEY (id_autonomo)
+/*/////////////////////////////////////////////////////////////////////////////////////////////*/
+CREATE TABLE autonomo(
+	n_id_autonomo INT AUTO_INCREMENT,
+    c_nome_autonomo VARCHAR(35) NOT NULL,
+    c_cpf_autonomo CHAR(11) NOT NULL,
+    c_genero_autonomo SMALLINT NOT NULL,
+    d_nascimento_autonomo DATE NOT NULL,
+    c_cep_autonomo VARCHAR(8) NOT NULL,
+    c_uf_autonomo CHAR(2) NOT NULL,
+    c_cidade_autonomo VARCHAR(50) NOT NULL,
+    c_logradouro_autonomo VARCHAR(100) NOT NULL,
+    n_numero_autonomo INT NOT NULL,
+    c_complemento_autonomo VARCHAR(5) NOT NULL,
+    c_email_autonomo VARCHAR(25) NOT NULL,
+    c_senha_autonomo VARCHAR(50) NOT NULL,
+    d_registro_autonomo DATETIME NOT NULL,
+    d_modificacao_autonomo DATETIME,
+    PRIMARY KEY (n_id_autonomo)
 );
-CREATE PROCEDURE Cadastrar_Autonomo(nome VARCHAR(35), cpf VARCHAR(11), dt_nasc DATE, genero SMALLINT,
-									cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), logradouro VARCHAR(100),
-                                    numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(50), 
-                                    dt_registro DATETIME)
-INSERT INTO autonomo VALUES (default, nome, cpf, dt_nasc, genero, cep, uf, cidade, logradouro, numero, complemento, senha, dt_registro);
+CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
+									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(50), registro DATETIME)
+	INSERT INTO autonomo VALUES (default, nome, cpf, nascimento, genero, cep, uf, cidade, logradouro, numero, complemento, senha, registro);
 
-
-CREATE TABLE numero_contato(
-	id_numero_contato iNT AUTO_INCREMENT,
-	numero_celular VARCHAR(17),
-    numero_telefone VARCHAR(18),
-	id_autonomo INT,
-    PRIMARY KEY (id_numero_contato),
-	FOREIGN KEY (id_autonomo) REFERENCES autonomo(id_autonomo)
-	/*
-	numero é varchar pra poder usar o dado pra comparação no backend e para ocupar menos espaço
-	+xx(xx)xxxxx-xxxx	ou	+xx(xx)xxxx-xxxx
-	*/
+/*/////////////////////////////////////////////////////////////////////////////////////////////*/
+CREATE TABLE telefone_autonomo(
+	n_id_telefone_autonomo iNT AUTO_INCREMENT,
+	c_telefone_autonomo VARCHAR(17),
+	n_id_autonomo INT,
+    PRIMARY KEY (n_id_telefone_autonomo),
+	FOREIGN KEY (n_id_autonomo) REFERENCES autonomo(n_id_autonomo)
 );
-CREATE PROCEDURE Cadastrar_Numero_Contato(id_autonomo INT, numero VARCHAR(17))
-INSERT INTO numero_contato VALUES (default, id_autonomo, numero);
+CREATE PROCEDURE CADASTRAR_TELEFONE_AUTONOMO (telefone VARCHAR(17), id_autonomo INT)
+	INSERT INTO telefone_autonomo VALUES (default, telefone, id_autonomo);
 
 
-
+/*/////////////////////////////////////////////////////////////////////////////////////////////*/
 CREATE TABLE formacao_academica
 (
-	id_formacao_academica INT AUTO_INCREMENT,
-    ensino VARCHAR(25) NOT NULL,
-    nivel VARCHAR(15) NOT NULL,
-    curso VARCHAR(15) NOT NULL,
-    carga_horaria INT NOT NULL,
-    id_autonomo INT NOT NULL,
-    PRIMARY KEY (id_formacao_academica),
-    FOREIGN KEY (id_autonomo) REFERENCES autonomo(id_autonomo)
-    /*
-	OBSERVAÇÕES:
-    /////////
-	*/
+	n_id_formacao_academica INT AUTO_INCREMENT,
+    c_ensino_formacao_academica VARCHAR(25) NOT NULL,
+    c_nivel_formacao_academica VARCHAR(15) NOT NULL,
+    c_curso_formacao_academica VARCHAR(15) NOT NULL,
+    n_carga_horaria_formacao_academica INT NOT NULL,
+    n_id_autonomo INT NOT NULL,
+    PRIMARY KEY (n_id_formacao_academica),
+    FOREIGN KEY (n_id_autonomo) REFERENCES autonomo(n_id_autonomo)
 );
-CREATE PROCEDURE Cadastrar_Formacao_Academica (ensino VARCHAR(25), nivel VARCHAR(15), curso VARCHAR(25), carga_horaria INT, id_autonomo INT)
-INSERT INTO formacao_academica VALUES (DEFAULT, ensino, nivel, curso, carga_horaria, id_autonomo);
 
-CREATE TABLE dados_profissionais(
-	id_dados_profissional INT AUTO_INCREMENT,
-    area VARCHAR(50) NOT NULL,
-    profissao VARCHAR(50) NOT NULL,
-    nivel_experiencia VARCHAR(50) NOT NULL,
-    id_autonomo INT NOT NULL,
-    PRIMARY KEY (id_dados_profissional),
-    FOREIGN KEY (id_autonomo) REFERENCES autonomo(id_autonomo)
-    /*
-    OBSERVAÇÕES: 
-    /////////
-    */
+CREATE PROCEDURE CADASTRAR_FORMACAO_ACADEMICA (ensino VARCHAR(25), nivel VARCHAR(15), curso VARCHAR(25), carga_horaria INT, id_autonomo INT)
+	INSERT INTO formacao_academica VALUES (default, ensino, nivel, curso, carga_horaria, id_autonomo);
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////*/
+CREATE TABLE experiencia_profissional(
+	n_id_experiencia_profissional INT AUTO_INCREMENT,
+    c_area_experiencia_profissional VARCHAR(50) NOT NULL,
+    c_profissao_experiencia_profissional VARCHAR(50) NOT NULL,
+    c_nivel_experiencia_profissional VARCHAR(50) NOT NULL,
+    n_id_autonomo INT NOT NULL,
+    PRIMARY KEY (n_id_experiencia_profissional),
+    FOREIGN KEY (n_id_autonomo) REFERENCES autonomo(n_id_autonomo)
 );
-CREATE PROCEDURE Cadastrar_Dados_Profissionais (area VARCHAR(30), profissão VARCHAR(50), nivel_experiencia VARCHAR(50), id_autonomo INT)
-INSERT INTO dados_profissionais VALUES (DEFAULT, area, profissao, nivel_experiencia, id_autonomo);
 
+CREATE PROCEDURE CADASTRAR_EXPERIENCIA_PROFISSIONAL (area_profissional VARCHAR(30), profissao VARCHAR(50), nivel_experiencia VARCHAR(50), id_autonomo INT)
+INSERT INTO dados_profissionais VALUES (default, area_profissional, profissao, nivel_experiencia, id_autonomo);
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////*/
+/*
 CREATE TABLE contrato(
 	id_contrato INT AUTO_INCREMENT,
     valor FLOAT NOT NULL,
@@ -102,12 +102,12 @@ CREATE TABLE contrato(
     PRIMARY KEY (id_contrato),
     FOREIGN KEY (id_autonomo) REFERENCES autonomo(id_autonomo),
     FOREIGN KEY (id_contratante) REFERENCES contratante(id_contratante)
-    /*
+    
 	OBSERVAÇÕES:
     /////////
-    */
-);
 
+);
+*/
 /*
 
 	TABELAS COMENTADAS POIS AINDA NÃO TEMOS DEFINIÇÕES SOBRE ELAS AINDA.
