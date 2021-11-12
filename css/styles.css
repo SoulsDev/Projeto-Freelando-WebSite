@@ -136,6 +136,7 @@ section {
 
 .inputEmail:focus,
 .inputSenha:focus {
+    border-color: #5d00d2;
     height: 50px;
     box-shadow: none;
 }
@@ -356,6 +357,7 @@ section {
     animation-delay: 0s;
     animation-duration: 11s;
 }
+
 .circles li:nth-child(11) {
     left: 16%;
     width: 100px;
@@ -363,6 +365,7 @@ section {
     animation-delay: 0s;
     animation-duration: 11s;
 }
+
 .circles li:nth-child(12) {
     left: 89%;
     width: 80px;
@@ -370,6 +373,7 @@ section {
     animation-delay: 2s;
     animation-duration: 13s;
 }
+
 .circles li:nth-child(13) {
     left: 68%;
     width: 50px;
@@ -377,6 +381,7 @@ section {
     animation-delay: 0s;
     animation-duration: 15s;
 }
+
 .circles li:nth-child(14) {
     left: 9%;
     width: 50px;
@@ -384,6 +389,7 @@ section {
     animation-delay: 2s;
     animation-duration: 11s;
 }
+
 .circles li:nth-child(15) {
     left: 5%;
     width: 50px;
