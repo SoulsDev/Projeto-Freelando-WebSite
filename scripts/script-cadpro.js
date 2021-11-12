@@ -118,11 +118,6 @@ function validateForm() {
                 y[i].children[2].innerHTML = 'O CPF deve ter 11 dígitos';
                 valid = false;
             }
-        if (y[i].value == "dshf") {
-            // adiciona uma classe "inválida" ao campo:
-            y[i].className += " invalid";
-            // e definir o status válido atual para falso
-            valid = false;
         }
     }
     // Se o status válido for verdadeiro, marque a etapa como concluída e válida:
@@ -131,7 +126,7 @@ function validateForm() {
     }
     return valid; // retorna o status válido
 }
-}
+
 
 function fixStepIndicator(n) {
     // Esta função remove a classe "ativa" de todas as etapas ...
@@ -160,7 +155,6 @@ function meu_callback(conteudo) {
     } //end if.
     else {
         //CEP não Encontrado.
-        limpa_formulário_cep();
         alert("CEP não encontrado.");
     }
 }
@@ -190,8 +184,6 @@ function pesquisacep(valor) {
 
         } //end if.
         else {
-            //cep é inválido.
-            limpa_formulário_cep();
             alert("Formato de CEP inválido.");
         }
     }
