@@ -65,11 +65,8 @@ include_once '../src/classes/contratante/mensagemErro.php';
                                     <?php
                                         $mensagem = getMensagemErro();
                                         if(!empty($mensagem)){
-                                            echo $mensagem;
+                                            echo '<p style="color: red;">'. $mensagem .'</p>';
                                             destroiMensagemErro();
-                                        }
-                                        else{
-                                            echo "okay";
                                         }
                                     ?>
                                 </div>
