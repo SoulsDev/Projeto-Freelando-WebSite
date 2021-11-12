@@ -7,6 +7,8 @@
     2 - Procedures e functions devem ser declaradas inteiramente em letras MAIUSCULAS;
     3 - As identificações dos atributos são separados por "_" sendo:
 		tipoDeDado_conteudo_nomeTabela;
+        
+        ////////////////////////////////////
 */
 CREATE DATABASE freelando;
 USE freelando;
