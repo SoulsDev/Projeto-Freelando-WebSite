@@ -81,7 +81,7 @@ include_once '../src/classes/contratante/mensagemErro.php';
                                     <div class="invalid-feedback">
                                         Preencha sua senha
                                         <br>
-                                        Seua senha deve ter no mínino 6 dígitos
+                                        Sua senha deve ter no mínino 6 dígitos
                                     </div>
 
                                 </div>

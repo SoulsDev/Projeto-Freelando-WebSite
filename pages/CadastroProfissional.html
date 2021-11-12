@@ -112,21 +112,24 @@
 
                     <div class="conteudo-formulario">
 
-                        <div class="campos-input">
+                        <div class="campos-input" id="nome_form_div">
 
                             <labe for="nome">Nome Completo<span style="color: rgb(145, 145, 145)">*</span>
 
                             </labe>
                             <input type="text" name="nome" id="nome">
-
-
+                            <div class="invalid-feedback">
+                                Preencha com seu nome
+                            </div>
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input" id="cpf_form_div">
 
                             <labe for="cpf">CPF<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="text" name="cpf" id="cpf" maxlength="14">
-
+                            <div class="invalid-feedback">
+                                Preencha com seu CPF
+                            </div>
 
                         </div>
 
@@ -145,32 +148,43 @@
 
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input" id="dt_nasc_form_div">
 
                             <labe for="data_nascimento">Data de Nascimento<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="date" name="data_nascimento" id="data_nascimento">
 
+                            <div class="invalid-feedback">
+                                Preencha com sua data de nascimento
+                            </div>
 
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input" id="email_form_div">
 
                             <labe for="email">Email<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="email" name="email" id="email">
-
+                            <div class="invalid-feedback">
+                                Preencha com seu email
+                            </div>
 
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input" id="celular_form_div">
 
                             <labe for="celular">Celular<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="tel" name="celular" id="celular">
+                            <div class="invalid-feedback">
+                                Preencha com um número de celular válido
+                            </div>
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input" id="senha_form_div">
 
                             <labe for="senha">Senha<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="password" name="senha" id="senha">
+                            <div class="invalid-feedback">
+                                Preencha este campo
+                            </div>
                         </div>
 
 
@@ -189,11 +203,13 @@
 
                     <div class="conteudo-formulario">
 
-                        <div class="campos-input">
+                        <div class="campos-input" id="cep_form_div">
 
                             <labe for="cep">CEP<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="text" name="cep" id="cep" onblur="pesquisacep(this.value);">
-
+                            <div class="invalid-feedback">
+                                Preencha este campo
+                            </div>
 
                         </div>
 
@@ -201,7 +217,7 @@
 
                             <labe for="cidade">Cidade<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="text" name="cidade" id="cidade" disabled>
-
+                            <div></div>
 
                         </div>
 
@@ -210,7 +226,7 @@
 
                             <labe for="uf">UF<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="text" name="uf" id="uf" disabled>
-
+                            <div></div>
 
                         </div>
 
@@ -218,19 +234,22 @@
 
                             <labe for="logradouro">Logradouro<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="text" name="logradouro" id="logradouro" disabled>
-
+                            <div></div>
 
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input" id="numero_form_div">
 
                             <labe for="numero">Número<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="text" name="numero" id="numero">
+                            <div class="invalid-feedback">
+                                Preencha este campo
+                            </div>
                         </div>
 
                         <div class="campos-input">
 
-                            <labe for="complemento">Complemento<span style="color: rgb(145, 145, 145)">*</span></labe>
+                            <labe for="complemento">Complemento</labe>
                             <input type="text" name="complemento" id="complemento">
                         </div>
 
@@ -355,7 +374,7 @@
                             <p>Formação acadêmica</p>
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input"  id="ensino_form_div">
 
                             <labe for="ensino">Ensino<span style="color: rgb(145, 145, 145)">*</span></labe>
 
@@ -377,7 +396,7 @@
                             <p>Graduação</p>
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input" id="graducao_form_div">
 
                             <labe for="instituicao">Instituição<span style="color: rgb(145, 145, 145)">*</span></labe>
 

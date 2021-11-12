@@ -33,6 +33,7 @@ input {
     font-size: 17px;
     font-family: Raleway;
     border: 1px solid #aaaaaa;
+    border-radius: 0.25rem;
 }
 
 select {
@@ -563,4 +564,10 @@ button:hover {
 .text-step {
     width: 100px;
     text-align: center;
+}
+
+.invalid-feedback{
+    display: none; 
+    color: #dc3545; 
+    font-size:0.875em;
 }

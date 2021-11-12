@@ -27,6 +27,7 @@ function showTab(n) {
     // Esta função irá exibir a guia especificada do formulário ...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
+    x[n].classList.add("block");
     // ... e corrija os botões Anterior / Próximo:
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
@@ -52,6 +53,7 @@ function nextPrev(n) {
     }
     // Ocultar a guia atual:
     x[currentTab].style.display = "none";
+    x[currentTab].classList.remove("block");
     // Aumentar ou diminuir a guia atual em 1:
     currentTab = currentTab + n;
     // if you have reached the end of the form...
@@ -68,18 +70,25 @@ function validateForm() {
     // Esta função trata da validação dos campos do formulário
     var x, y, i, valid = true;
     x = document.getElementsByClassName("tab");
-    y = x[currentTab].getElementsByTagName("input");
+    y = x[currentTab].getElementsByClassName("campos-input");
     // Um loop que verifica cada campo de entrada na guia atual:
     for (i = 0; i < y.length; i++) {
+        y[i].children[1].style.border = "1px solid #000";
+        y[i].children[2].style.display = "none";
+    }
+
+
+    for (i = 0; i < y.length; i++) {
+        
         // Se um campo estiver vazio ...
-        if (y[i].value == "") {
+        if (y[i].children[1].value == "") {
             // complemento é um campo opcional
-            if (y[i].id !== 'complemento'){
-            // adiciona uma classe "inválida" ao campo:
-            y[i].className += " invalid";
-            // e definir o status válido atual para falso
-            valid = false;
-            // validação de cpf devve pedir para ser do tamanho máximo do campo
+            if (y[i].children[1].id !== 'complemento' && y[i].children[1].id !== 'cidade' && y[i].children[1].id !== 'uf' && y[i].children[1].id !== 'logradouro'){
+                // adiciona uma classe "inválida" ao campo:
+                y[i].children[1].style.border = "1px solid #dc3545";
+                y[i].children[2].style.display = "block";
+                // e definir o status válido atual para falso
+                valid = false;
             }
         }
         if(y[i].id === 'email'){
@@ -90,6 +99,7 @@ function validateForm() {
                 valid = false;
             }
         }
+        // validação de cpf deve pedir para ser do tamanho máximo do campo
         if(y[i].id === 'cpf'){
             if(y[i].value.length === 14){
                 valid = true;
