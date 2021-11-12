@@ -12,17 +12,14 @@
         echo 'ERROR: ' . $e->getMessage();
     }
     
-    try{
-        require '../../vendor/autoload.php';
-        $mongo_client = new MongoDB\Client;
-        $collection = $mongo_client->freelando->postagem;  // seleciona o banco do mongo -> seleciona a coleção do mongo 
+    // try{
+    //     require '../../vendor/autoload.php';
+    //     $mongo_client = new MongoDB\Client;
+    //     $collection = $mongo_client->freelando->postagem;  // seleciona o banco do mongo -> seleciona a coleção do mongo 
 
-        echo "<script>alert('a') </script>";
-    }
-    catch(Exception $e ){
-        echo 'Erro '.$e->getMessage();
-    }
-
-    
-
+    //     echo "<script>alert('a') </script>";
+    // }
+    // catch(Exception $e ){
+    //     echo 'Erro '.$e->getMessage();
+    // }
 ?>

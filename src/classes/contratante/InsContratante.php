@@ -3,12 +3,14 @@
 include_once 'Contratante.php';
 include_once 'mensagemErro.php';
 
-$nome = $_POST['name'];
-$email = $_POST['email'];
-$senha = $_POST['password'];
+// nunca vii não
+
+$nome = addslashes($_POST['name']); //addslaches impede SQLInjection;
+$email = addslashes($_POST['email']);
+$senha = addslashes(sha1($_POST['password'])); // Sha1 ta funcionando. // 256 que num vai // teria que ficar azul
 
 $contratante = new Contratante($nome, $email, $senha);
-$consulta = $contratante-> consultaEmail($email);
+$consulta = $contratante-> consultaEmail($email); /// Aqui terminamo.
 
 if($consulta){
      setMensagemErro("Email já cadastrado");
