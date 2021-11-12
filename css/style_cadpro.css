@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow-x? hidden;
+    overflow-x: hidden;
 }
 
 #regForm {
@@ -191,9 +191,9 @@ button:hover {
     padding: 30px;
 }
 
-.step.active p {
+/* .step.active p {
     font-weight: ;
-}
+} */
 
 .step.finish .circulo {
     background-color: #ff6d3c;
@@ -984,3 +984,4 @@ button:hover {
             width: 300px;
         }
     }
+}

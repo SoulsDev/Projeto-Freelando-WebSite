@@ -131,6 +131,7 @@ function validateForm() {
     }
     return valid; // retorna o status válido
 }
+}
 
 function fixStepIndicator(n) {
     // Esta função remove a classe "ativa" de todas as etapas ...
@@ -194,4 +195,4 @@ function pesquisacep(valor) {
             alert("Formato de CEP inválido.");
         }
     }
-};
+}
