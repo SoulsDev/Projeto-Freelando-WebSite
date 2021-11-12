@@ -6,20 +6,14 @@ CREATE TABLE contratante
 (
 	id_contratante INT AUTO_INCREMENT ,
     nome VARCHAR(35) NOT NULL,
-    email VARCHAR(30) NOT NULL,
-    senha VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    senha VARCHAR(40) NOT NULL,
     dt_registro DATETIME NOT NULL,
-    dt_atualizacao DATETIME NOT NULL,
+    dt_modificacao DATETIME,
     PRIMARY KEY(id_contratante)
-	/*
-	OBSERVAÇÕES:
-    /////////
-	*/
 );
-CREATE PROCEDURE Cadastrar_Contratante(nick VARCHAR(35), email VARCHAR(30), senha VARCHAR(50), dt_registro DATETIME, dt_atualizacao DATETIME) 
-INSERT INTO contratante (nome, email, senha, dt_registro, dt_atualizacao) VALUES (nick, email, senha, dt_registro, dt_atualizacao); 
-
-
+CREATE PROCEDURE Cadastrar_Contratante(nome VARCHAR(35), email VARCHAR(50), senha VARCHAR(40), dt_registro DATETIME) 
+INSERT INTO contratante VALUES (default, nome, email, senha, dt_registro, null); 
 
 CREATE TABLE autonomo
 (
@@ -37,18 +31,14 @@ CREATE TABLE autonomo
     email VARCHAR(25) NOT NULL,
     senha VARCHAR(50) NOT NULL,
     dt_registro DATETIME NOT NULL,
+    dt_modificacao DATETIME,
     PRIMARY KEY (id_autonomo)
-    /*
-    Modelagem Feita;
-    sexo fica como integer (0-feminino, 1-masculino, 2-outro)
-    dt_registro como datetime (pegar o horário de cadastro)
-    */
 );
 CREATE PROCEDURE Cadastrar_Autonomo(nome VARCHAR(35), cpf VARCHAR(11), dt_nasc DATE, genero SMALLINT,
 									cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), logradouro VARCHAR(100),
                                     numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(50), 
                                     dt_registro DATETIME)
-INSERT INTO autonomo VALUES (DEFAULT, nome, cpf, dt_nasc, genero, cep, uf, cidade, logradouro, numero, complemento, senha, dt_registro);
+INSERT INTO autonomo VALUES (default, nome, cpf, dt_nasc, genero, cep, uf, cidade, logradouro, numero, complemento, senha, dt_registro);
 
 
 CREATE TABLE numero_contato(

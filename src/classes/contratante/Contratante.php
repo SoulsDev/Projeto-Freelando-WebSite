@@ -53,15 +53,14 @@ class Contratante{
     }
 
 
-    public function inserirContratante(string $nome, string $email, string $senha, String $dtRegistro, String $dtAlteracao){
+    public function inserirContratante(string $nome, string $email, string $senha, String $dtRegistro){
         try{
             include ('../conexao.php');
-            $inserir = $con->prepare("CALL Cadastrar_Contratante(?, ?, ?, ?, ?)");
+            $inserir = $con->prepare("CALL Cadastrar_Contratante(?, ?, ?, ?)");
             $inserir->bindValue(1, $nome);
             $inserir->bindValue(2, $email);
             $inserir->bindValue(3, $senha);
             $inserir->bindValue(4, $dtRegistro);
-            $inserir->bindValue(5, $dtAlteracao);
             $inserir->execute();    
             
         }catch(PDOException $e){
