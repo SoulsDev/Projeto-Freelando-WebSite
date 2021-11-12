@@ -50,7 +50,7 @@ function validateForm() {
     // Um loop que verifica cada campo de entrada na guia atual:
     for (i = 0; i < y.length; i++) {
         // Se um campo estiver vazio ...
-        if (y[i].value == "a") {
+        if (y[i].value == "dshf") {
             // adiciona uma classe "inválida" ao campo:
             y[i].className += " invalid";
             // e definir o status válido atual para falso

@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow-x? hidden;
 }
 
 body {}
@@ -310,6 +311,13 @@ button:hover {
     padding: 0px 50px 0px 50px;
 }
 
+.container-4 h1 {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 30px;
+    word-break: break-word;
+}
+
 .container-zona-arquivo {
     border: 2px dashed #5d00d2;
     height: 50vh;
@@ -586,6 +594,13 @@ button:hover {
 /* Landscape phone to desktop  */
 
 @media (max-width: 1199px) {
+    .container-zona-arquivo {
+        flex-direction: column;
+    }
+    .arquivos-list {
+        border-right: none;
+        border-bottom: solid 2px #000;
+    }
     .conteudo-formulario {
         margin: 0 px 0 px 0 px 0 px;
         display: flex;
@@ -596,13 +611,16 @@ button:hover {
         align-items: flex-start;
         margin-left: 25 px;
     }
+    .container-4 p {
+        font-size: 10px;
+    }
     .container-2 {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
     .formulario-2 {
-        width: 65%;
+        width: 45vw;
     }
     .botao-cancelar {
         width: 45vw;
@@ -620,9 +638,15 @@ button:hover {
 
 /* Small desktop  */
 
-@media (min-width: 990px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1220px) {
+    .container-3 {
+        flex-direction: column;
+    }
     .conteudo-formulario {
         justify-content: left;
+    }
+    .formulario-3 {
+        width: 45vw;
     }
     .botao-cancelar {
         width: 45vw;
@@ -636,8 +660,17 @@ button:hover {
 /* Landscape phone to portrait tablet  */
 
 @media (max-width: 767px) {
+    .container-4 p {
+        font-size: 25px;
+    }
     #regForm {
         width: 100vw;
+    }
+    .formulario-3 {
+        width: 65vw;
+    }
+    .container-3 {
+        flex-direction: column;
     }
     .barra-progresso {
         width: 100vw;
@@ -696,9 +729,12 @@ button:hover {
     }
 }
 
-@media(max-width: 626px) {
+@media(max-width: 630px) {
     .conteudo-formulario {
         justify-content: center;
+    }
+    .formulario-2 {
+        width: 60vw;
     }
 }
 
@@ -718,11 +754,21 @@ button:hover {
     #regForm {
         width: 100vw;
     }
+    * {
+        box-sizing: none;
+    }
     .barra-progresso {
         width: 100vw;
     }
     .formulario-2 {
         width: 85%;
+    }
+    .formulario-3 {
+        width: 95%;
+    }
+    .container-btns {
+        padding: 0px;
+        margin: 0px;
     }
     .step p {
         opacity: 1;
@@ -770,16 +816,25 @@ button:hover {
         height: 4px;
     }
     .botao-cancelar {
-        width: 100vw;
+        width: 75%;
     }
     .botao-avancar {
-        width: 100vw;
+        width: 75%;
     }
 }
 
 @media (max-width: 350px) {
+    .container-4 p {
+        font-size: 20px;
+    }
     .formulario-2 {
         width: 95%;
+    }
+    .formulario-3 {
+        width: 100%;
+    }
+    .campos-input {
+        margin-left: 10px;
     }
     .step p {
         opacity: 1;
