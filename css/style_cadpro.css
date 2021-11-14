@@ -381,6 +381,8 @@
                                 align-items: center;
                                 justify-content: space-around;
                                 flex-wrap: wrap;
+                                padding: 10px;
+                                padding-top: 20px;
                             }
                             
                             .container-arquivos-list {
@@ -721,6 +723,7 @@
                                     flex-direction: column;
                                     flex-wrap: nowrap;
                                     padding: 10px;
+                                    padding-top: 20px;
                                 }
                                 .container-arquivos-list {
                                     order: 2;
