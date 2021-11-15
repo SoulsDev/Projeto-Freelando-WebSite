@@ -719,6 +719,23 @@
                                     padding-left: 15px;
                                     padding-right: 15px;
                                 }
+                            }
+                            /* Wider than desktop */
+                            
+                            @media (max-width: 1270px) {
+                                .conteudo-formulario {
+                                    justify-content: center;
+                                }
+                                .container-2 {
+                                    flex-direction: column;
+                                }
+                                .container-3 {
+                                    flex-direction: column;
+                                }
+                            }
+                            /* Landscape phone to desktop */
+                            
+                            @media (max-width: 1199px) {
                                 .container-zona-arquivo {
                                     flex-direction: column;
                                     flex-wrap: nowrap;
@@ -738,22 +755,6 @@
                                     font-size: 14px;
                                 }
                             }
-                            /* Wider than desktop */
-                            
-                            @media (max-width: 1270px) {
-                                .conteudo-formulario {
-                                    justify-content: center;
-                                }
-                                .container-2 {
-                                    flex-direction: column;
-                                }
-                                .container-3 {
-                                    flex-direction: column;
-                                }
-                            }
-                            /* Landscape phone to desktop */
-                            
-                            @media (max-width: 1199px) {}
                             /* Landscape phone to landscape tablet */
                             
                             @media (max-width: 979px) {
