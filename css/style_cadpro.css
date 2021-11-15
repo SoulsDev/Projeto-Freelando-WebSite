@@ -7,7 +7,7 @@
                             #regForm {
                                 background-color: #ffffff;
                                 margin: auto;
-                                margin-bottom: 70px;
+                                margin-bottom: 30px;
                                 width: 50vw;
                                 min-width: 300px;
                                 border-radius: 5px;
@@ -23,7 +23,7 @@
                             
                             .margem {
                                 content: '';
-                                height: 30px;
+                                height: 40px;
                                 width: 100%;
                             }
                             
@@ -540,7 +540,7 @@
                             /* Handle */
                             
                              ::-webkit-scrollbar-thumb {
-                                background: #5d00d2;
+                                background: #ff6d3c;
                                 border-radius: 10px;
                             }
                             /* Handle on hover */
