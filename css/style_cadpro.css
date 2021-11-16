@@ -223,7 +223,7 @@
                                 flex-wrap: wrap;
                                 justify-content: center;
                                 margin: 0;
-                                width: 42%;
+                                width: 45%;
                                 margin-bottom: 45px;
                             }
                             
@@ -700,13 +700,13 @@
                             }
                             /* MEDIA QUERIES */
                             
-                            @media (max-width: 1380px) {
+                            @media (max-width: 1200px) {
                                 .container-2 {
                                     flex-direction: column;
                                     align-items: center;
                                 }
                                 .formulario-2 {
-                                    width: 60%;
+                                    width: 70%;
                                 }
                                 .container-3 {
                                     flex-direction: column;
@@ -729,7 +729,7 @@
                             }
                             /* Wider than desktop */
                             
-                            @media (max-width: 1270px) {
+                            @media (max-width: 1200px) {
                                 .conteudo-formulario {
                                     justify-content: center;
                                 }
