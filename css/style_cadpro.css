@@ -4,6 +4,12 @@
                                 padding: 0;
                             }
                             
+                            .margem {
+                                content: '';
+                                height: 40px;
+                                width: 100%;
+                            }
+                            
                             #regForm {
                                 background-color: #ffffff;
                                 margin: auto;
@@ -21,12 +27,6 @@
                                 margin-bottom: 20px;
                             }
                             
-                            .margem {
-                                content: '';
-                                height: 40px;
-                                width: 100%;
-                            }
-                            
                             input {
                                 padding: 10px;
                                 width: 100%;
@@ -34,6 +34,10 @@
                                 font-family: Raleway;
                                 border: 1px solid #aaaaaa;
                                 border-radius: 0.25rem;
+                            }
+                            
+                            input.invalid {
+                                background-color: #ffdddd;
                             }
                             
                             select {
@@ -44,16 +48,13 @@
                                 border: 1px solid rgb(131, 131, 131);
                             }
                             
-                            input.invalid {
-                                background-color: #ffdddd;
-                            }
-                            
                             .tab {
                                 display: none;
                                 align-self: center;
                                 margin-left: 20px;
                                 margin-right: 20px;
                             }
+                            /* BOTÕES  */
                             
                             .container-btns {
                                 display: flex;
@@ -101,15 +102,10 @@
                                 opacity: 0.8;
                             }
                             
-                            #cidade,
-                            #uf,
-                            #logradouro {
-                                background-color: rgb(230, 230, 230);
-                            }
-                            
                             #prevBtn {
                                 background-color: #ffff;
                             }
+                            /* BARRA PROGRESSO E PASSOS */
                             
                             .barra-progresso {
                                 padding: 20px;
@@ -185,6 +181,7 @@
                                 background-color: #ff6d3c;
                                 color: white;
                             }
+                            /* FORMULARIO PASSO 1 */
                             
                             .formulario {
                                 box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
@@ -208,7 +205,13 @@
                                 text-align: left;
                                 margin: 10px 0px 10px 25px;
                             }
-                            /* formulário-2 */
+                            
+                            #cidade,
+                            #uf,
+                            #logradouro {
+                                background-color: rgb(230, 230, 230);
+                            }
+                            /* FORMULARIO PASSO 2 */
                             
                             .container-2 {
                                 display: flex;
@@ -285,7 +288,7 @@
                                 margin-left: 5px;
                                 cursor: pointer;
                             }
-                            /* formulário-3 */
+                            /* FORMULARIO PASSO 3*/
                             
                             .container-3 {
                                 display: flex;
@@ -355,7 +358,7 @@
                                 margin: 4px;
                                 cursor: pointer;
                             }
-                            /* formulário-4 */
+                            /* FORMULARIO PASSO 4 */
                             
                             .container-4 {
                                 display: flex;
@@ -524,7 +527,7 @@
                             .campos-input-pequeno datalist {
                                 font-size: small;
                             }
-                            /* ScrollBar Customizado*/
+                            /* SCROLLBAR CUSTOMIZADO*/
                             /* width */
                             
                              ::-webkit-scrollbar {
@@ -544,7 +547,6 @@
                                 border-radius: 10px;
                             }
                             /* Handle on hover */
-                            /* Efeito mouse na imagem*/
                             
                             .hover13 figure:hover img {
                                 opacity: 1;
@@ -719,7 +721,6 @@
                                     padding-left: 15px;
                                     padding-right: 15px;
                                 }
-
                                 .container-4 p {
                                     font-size: 25px;
                                 }
