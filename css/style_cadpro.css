@@ -22,7 +22,18 @@
                                 align-items: center;
                             }
                             
+                            p {
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 13px;
+                            }
+                            
+                            span {
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 13px;
+                            }
+                            
                             h1 {
+                                font-family: Arial, Helvetica, sans-serif;
                                 text-align: center;
                                 margin-bottom: 20px;
                             }
@@ -31,12 +42,13 @@
                                 padding: 10px;
                                 width: 100%;
                                 font-size: 17px;
-                                font-family: Raleway;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 border: 1px solid #aaaaaa;
                                 border-radius: 0.25rem;
                             }
                             
                             input.invalid {
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 background-color: #ffdddd;
                             }
                             
@@ -44,8 +56,10 @@
                                 width: 200px;
                                 height: 20px;
                                 margin-top: 3px;
-                                border-radius: 5px;
-                                border: 1px solid rgb(131, 131, 131);
+                                border: 1px solid #aaaaaa;
+                                border-radius: 0.25rem;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 17px;
                             }
                             
                             .tab {
@@ -75,7 +89,7 @@
                                 border: none;
                                 padding: 10px 20px;
                                 font-size: 17px;
-                                font-family: Raleway;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 cursor: pointer;
                                 width: 200px;
                                 border-radius: 5px;
@@ -89,7 +103,7 @@
                                 border: 1px solid purple;
                                 padding: 10px 20px;
                                 font-size: 17px;
-                                font-family: Raleway;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 cursor: pointer;
                                 width: 200px;
                                 border-radius: 5px;
@@ -158,12 +172,15 @@
                             }
                             
                             .step .circulo span {
+                                font-size: 20px;
                                 margin: 0;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                             }
                             
                             .step p {
                                 margin: 0;
-                                font-size: 15px;
+                                font-size: 13px;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                             }
                             
                             .step.active .circulo {
@@ -202,6 +219,7 @@
                             }
                             
                             .formulario .titulo p {
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 text-align: left;
                                 margin: 10px 0px 10px 25px;
                             }
@@ -237,12 +255,14 @@
                                 color: #ABA9A9;
                                 text-align: left;
                                 font-size: 15px;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 margin-bottom: 10px;
                             }
                             
                             .formulario-2 .titulo-2 p {
                                 text-align: left;
                                 margin: 10px 0px 10px 25px;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                             }
                             
                             .cargo-list {
@@ -267,6 +287,7 @@
                                 padding-right: 5px;
                                 color: #5d00d2;
                                 font-size: normal;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 margin: 4px;
                                 cursor: pointer;
                             }
@@ -315,12 +336,14 @@
                                 color: #ABA9A9;
                                 text-align: left;
                                 font-size: 15px;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 margin-bottom: 10px;
                             }
                             
                             .formulario-3 .titulo-3 p {
                                 text-align: left;
                                 margin: 10px 0px 10px 25px;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                             }
                             
                             .btn-deletecurso {
@@ -355,6 +378,7 @@
                                 padding-right: 5px;
                                 color: #5d00d2;
                                 font-size: normal;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 margin: 4px;
                                 cursor: pointer;
                             }
@@ -371,7 +395,8 @@
                             
                             .container-4 p {
                                 text-align: center;
-                                font-size: 35px;
+                                font-size: 25px;
+                                font-family: Arial, Helvetica, sans-serif;
                                 margin-bottom: 30px;
                                 word-break: break-word;
                             }
@@ -406,9 +431,10 @@
                             }
                             
                             .selecionar-arquivo p {
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 text-align: center;
                                 margin: 0;
-                                font-size: 18px;
+                                font-size: 15px;
                             }
                             
                             .conteudo-formulario {
@@ -440,11 +466,26 @@
                                 padding-right: 5px;
                                 color: #5d00d2;
                                 font-size: 15px;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 margin: 10px;
                                 cursor: pointer;
                                 display: flex;
                                 flex-wrap: nowrap;
                                 justify-content: space-between;
+                            }
+                            /* TERMOS DE USO */
+                            
+                            .container-termos-uso {
+                                margin-top: 10px;
+                            }
+                            
+                            .container-termos-uso input {
+                                width: auto;
+                            }
+                            
+                            .container-termos-uso label {
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                text-align: center;
                             }
                             /* DADOS DE INPUT */
                             
@@ -454,6 +495,8 @@
                                 width: 255px;
                                 margin-bottom: 30px;
                                 margin-right: 30px;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 13px;
                             }
                             
                             .campos-input input {
@@ -486,6 +529,8 @@
                             
                             .campos-input datalist {
                                 font-size: small;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 13px;
                             }
                             
                             .campos-input-pequeno {
@@ -494,6 +539,8 @@
                                 width: 200px;
                                 margin-bottom: 30px;
                                 margin-right: 50px;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 13px;
                             }
                             
                             .campos-input-pequeno input {
@@ -722,7 +769,7 @@
                                     padding-right: 15px;
                                 }
                                 .container-4 p {
-                                    font-size: 25px;
+                                    font-size: 20px;
                                 }
                                 .selecionar-arquivo p {
                                     font-size: 14px;
@@ -757,7 +804,7 @@
                                     border-top: 1px solid #000;
                                 }
                                 .container-4 p {
-                                    font-size: 30px;
+                                    font-size: 20px;
                                 }
                                 .selecionar-arquivo p {
                                     font-size: 14px;

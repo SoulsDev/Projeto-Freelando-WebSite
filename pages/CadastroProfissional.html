@@ -41,7 +41,7 @@
         <form id="regForm" action="../src/classes/profssional/InsProfissional.php">
 
 
-            <div class="barra-line" >
+            <div class="barra-line">
                 <div class="line"></div>
 
             </div>
@@ -138,6 +138,7 @@
 
 
                             <select name="genero" id="genero">
+                                <option value="" disabled selected>Selecione</option>
                                 <option>Masculino</option>
                                 <option>Feminino</option>
                                 <option>Outros</option>
@@ -192,7 +193,6 @@
 
 
                 </div>
-
 
                 <div class="formulario">
 
@@ -259,9 +259,6 @@
 
                 </div>
 
-
-
-
             </div>
 
             <!-- segunda parte do formulário -->
@@ -280,6 +277,7 @@
                             <labe for="area_profissao">Área</labe>
 
                             <select name="area_profissao" id="area_profissao">
+                                <option value="" disabled selected>Selecione</option>
                                 <option>Assistência Técnica</option>
                                 <option>Beleza</option>
                                 <option>Educação/aprendizagem</option>
@@ -297,6 +295,7 @@
                             <labe for="profissao">Profissão<span style="color: rgb(145, 145, 145)">*</span></labe>
 
                             <select name="profissao" id="profissao">
+                                <option value="" disabled selected>Selecione</option>
                                 <option>Animador de festas</option>
                                 <option>Babá</option>
                                 <option>Barbeiro</option>
@@ -346,6 +345,7 @@
                             <labe for="nivel_experiencia">Nível de experiência<span style="color: rgb(145, 145, 145)">*</span></labe>
 
                             <select name="nivel_experiencia" id="nivel_experiencia">
+                                <option value="" disabled selected>Selecione</option>
                                 <option>6 meses</option>
                                 <option>9 meses</option>
                                 <option>1 ano</option>
@@ -379,49 +379,11 @@
 
 
                             <li>
-                                <a id="cargo" name="cargo">Cabeleireiro
+                                <a id="cargo" name="cargo">Exemplo
                                     <img onclick="" id="cargo-apagar" name="cargo-apagar" style="cursor: pointer;"
                                         src="../medias/img/btn-x2.svg">
                                 </a>
                             </li>
-
-                            <li>
-                                <a id="cargo" name="cargo">DJ
-                                    <img onclick="" id="cargo-apagar" name="cargo-apagar" style="cursor: pointer;"
-                                        src="../medias/img/btn-x2.svg">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a id="cargo" name="cargo">Manicure
-                                    <img onclick="" id="cargo-apagar" name="cargo-apagar" style="cursor: pointer;"
-                                        src="../medias/img/btn-x2.svg">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a id="cargo" name="cargo">Editor de fotos
-                                    <img onclick="" id="cargo-apagar" name="cargo-apagar" style="cursor: pointer;"
-                                        src="../medias/img/btn-x2.svg">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a id="cargo" name="cargo">Pedreiro
-                                    <img onclick="" id="cargo-apagar" name="cargo-apagar" style="cursor: pointer;"
-                                        src="../medias/img/btn-x2.svg">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a id="cargo" name="cargo">Vidraceiro
-                                    <img onclick="" id="cargo-apagar" name="cargo-apagar" style="cursor: pointer;"
-                                        src="../medias/img/btn-x2.svg">
-                                </a>
-                            </li>
-
-
-
 
                         </ul>
 
@@ -429,7 +391,14 @@
 
                 </div>
 
+
+
+
             </div>
+
+
+
+
 
             <!-- terceira parte do formulário -->
             <div class="tab">
@@ -447,6 +416,7 @@
                             <labe for="ensino">Ensino<span style="color: rgb(145, 145, 145)">*</span></labe>
 
                             <select id="ensino" name="ensino">
+                                <option value="" disabled selected>Selecione</option>
                                 <option>Fundamental</option>
                                 <option>Médio</option>
                                 <option>Superior</option>
@@ -468,7 +438,7 @@
 
                             <labe for="instituicao">Instituição<span style="color: rgb(145, 145, 145)">*</span></labe>
 
-                            <input name="instituicao" id="instituicao" list="dtlist-instituicao">
+                            <input name="instituicao" id="instituicao" list="dtlist-instituicao" Placeholder="Insira sua Instituição">
                             <div class="invalid-feedback">
                                 Preencha este campo
                             </div>
@@ -487,7 +457,7 @@
 
                             <labe for="curso_graducao">Curso<span style="color: rgb(145, 145, 145)">*</span></labe>
 
-                            <input name="curso_graducao" id="curso_graducao" list="dtlist-curso_graducao">
+                            <input name="curso_graducao" id="curso_graducao" list="dtlist-curso_graducao" Placeholder="Insira o Curso">
                             <div class="invalid-feedback">
                                 Preencha este campo
                             </div>
@@ -515,6 +485,7 @@
                             <labe for="nivel_curso">Nível<span style="color: rgb(145, 145, 145)">*</span></labe>
 
                             <select name="nivel_curso" id="nivel_curso">
+                                <option value="" disabled selected>Selecione</option>
                                 <option>Tecnólogo</option>
                                 <option>Técnico</option>
 
@@ -526,15 +497,20 @@
 
                             <labe for="curso">Curso<span style="color: rgb(145, 145, 145)">*</span></labe>
 
-                            <select name="curso" id="curso">
+                            <input name="curso_graducao" id="curso_graducao" list="dtlist-curso_graducao" Placeholder="Insira o Curso">
+                            <div class="invalid-feedback">
+                                Preencha este campo
+                            </div>
+
+                            <datalist name="curso" id="curso">
                                 <option>Eletricista</option>
                                 <option>Desenvolvedor</option>
                                 <option>Mecânico Automotivo</option>
                                 <option>Pedreiro</option>
                                 <option>Manicure</option>
 
-                            </select>
-                            <div></div>
+                            </datalist>
+
                         </div>
 
                         <div class="campos-input-pequeno">
@@ -543,6 +519,7 @@
                             </labe>
 
                             <select name="cargahoraria_curso" id="cargahoraria_curso">
+                                <option value="" disabled selected>Selecione</option>
                                 <option>40 horas</option>
                                 <option>80 horas</option>
                                 <option>120 horas</option>
@@ -571,32 +548,11 @@
                             <p>Cursos cadastrados</p>
                         </div>
 
-
+                        <!-- CAMPO DE ITENS DO CURSOS CADASTRADOS -->
                         <ul class="curso-list">
 
                             <li>
-                                <a id="curso" name="curso">Eletricista
-                                    <img onclick="" id="curso-apagar" name="curso-apagar" style="cursor: pointer;"
-                                        src="../medias/img/btn-x2.svg">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a id="curso" name="curso">Desenvolvedor
-                                    <img onclick="" id="curso-apagar" name="curso-apagar" style="cursor: pointer;"
-                                        src="../medias/img/btn-x2.svg">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a id="curso" name="curso">Manicure
-                                    <img onclick="" id="curso-apagar" name="curso-apagar" style="cursor: pointer;"
-                                        src="../medias/img/btn-x2.svg">
-                                </a>
-                            </li>
-
-                            <li>
-                                <a id="curso" name="curso">Informatica
+                                <a id="curso" name="curso">Exemplo 1
                                     <img onclick="" id="curso-apagar" name="curso-apagar" style="cursor: pointer;"
                                         src="../medias/img/btn-x2.svg">
                                 </a>
@@ -604,15 +560,15 @@
 
                         </ul>
 
-
                     </div>
 
                 </div>
 
             </div>
 
-            <!-- quarta parte do foormário -->
+            <!-- quarta parte do formLário -->
             <div class="tab">
+
                 <div class="container-4">
                     <p>Adicione fotos ou vídeos para que as pessoas possam ver sua experiência e nível do seu serviço
                     </p>
@@ -621,117 +577,13 @@
 
                         <div class="container-arquivos-list">
 
+                            <!-- LISTA ARQUIVOS -->
                             <ul class="arquivo-list">
 
                                 <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
+                                    <a id="arquivo" name="arquivo">Exemplo.png</a>
                                     <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
                                 </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Arquivo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-
-
-
 
                             </ul>
 
@@ -745,24 +597,35 @@
                         </div>
 
                     </div>
+
+                    <div class="container-termos-uso">
+                        <input type="checkbox" id="termos" name="termos" checked>
+                        <label for="termos">Li estou de acordo com o <a style="color: #ff6d3c">Termo de Uso e Política
+                                de Privacidade</a></label>
+                    </div>
+
                 </div>
-                </p>
+
             </div>
 
             <!-- botões -->
             <div class="container-btns">
 
+                <button class="botao-cancelar" id="prevRegistrar" type="button" onclick="telaRegistrar()">Voltar</button>
                 <button class="botao-cancelar" type="button" id="prevBtn" onclick="nextPrev(-1)">Voltar</button>
-                <a href="#topo"><button href="#" class="botao-avancar" type="button" id="nextBtn" onclick="nextPrev(1)"> Avançar</button> </a>
+
+                <a href="#topo">
+                    <button href="#" class="botao-avancar" type="button" id="nextBtn" onclick="nextPrev(1)">Avançar</button>
+                </a>
 
             </div>
-
 
         </form>
 
     </section>
 
     <script src="../scripts/script-cadpro.js"></script>
+    <script src="../scripts/scripts.js"></script>
 
 </body>
 
