@@ -1,26 +1,29 @@
 <?php
 
-include_once 'Contratante.php';
+include_once 'Profissional.php';
 include_once 'mensagemErro.php';
 
-$nome = $_POST['nome'];
-$cpf = $_POST['cpf'];
-$genero = $_POST['genero'];
-$dtNasc = $_POST['data_nascimento'];
-$email = $_POST['email'];
-$numCelular = $_POST['celular'];
-$senha = $_POST['senha'];
-$cep = $_POST['cep'];
+$nome = addslashes($_POST['nome']);
+$cpf = addslashes($_POST['cpf']);
+$genero = addslashes($_POST['genero']);
+$dtNasc = addslashes($_POST['data_nascimento']);
+$email = addslashes($_POST['email']);
+$numCelular = addslashes($_POST['celular']);
+$senha = addslashes($_POST['senha']);
+$cep = addslashes($_POST['cep']);
+$cidade = addslashes($_POST['cidade']);
+$uf = addslashes($_POST['uf']);
+$logradouro = addslashes($_POST['logradouro']);
+$numero = addslashes($_POST['numero']);
+$complemento = addslashes($_POST['complemento']);
 
-$contratante = new Contratante($nome, $email, $senha);
-//$consulta = $contratante-> consultaEmail($email);
+echo "<script>alert('a')</script>";
+$profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha, $numCelular);
+echo "<script>alert('b')</script>";
+$profissional->inserirProfissional($profissional->getNome(), $profissional->getCpf(), $profissional->getDtNacs(), $profissional->getGenero(), $profissional->getCep(), $profissional->getUf(), $profissional->getCidade(), $profissional->getLogradouro(), $profissional->getNumero(), $profissional->getComplemento(), $profissional->getEmail(), $profissional->getSenha(), $profissional->getNumCelular(), $profissional->getDataRegistro());
 
-//if($consulta){
-//     setMensagemErro("Email já cadastrado");
-//     header('Location: ../../../pages/CadastroContratante.php');
-//}
-//else{
-     $contratante->inserirContratante($contratante->getNome(), $contratante->getEmail(), $contratante->getSenha(), $contratante->getDataRegistro(), $contratante->getDataAlteracao());
-//}
+echo "<script>alert('a')</script>";
+
+
 
 

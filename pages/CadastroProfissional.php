@@ -13,26 +13,18 @@
     <link rel="shortcut icon" href="../medias/img/Group.svg" type="image/x-icon">
 
 </head>
-<?php 
-            if(Contratante::consultaEmail('asd@das.asddddd')){
-                echo "Email inválido";
-            }else{
-                echo "Email válido";
-            }
-        ?>
 <script>
     
     function verifica_email(email){
-        var a = email;
-        var b;
-        <?php $a = 'a';
-            if(Contratante::consultaEmail($a)){
-                echo "b=false;";
+        var email_validado;
+        <?php $a = 'email';
+            if(Profissional::consultaEmail($a)){
+                echo "email_validado=false;";
             }else{
-                echo "b=true;";
+                echo "email_validado=true;";
             }
         ?>
-        if(!b){
+        if(!email_validado){
             document.getElementById('error_message_email_div').innerHTML = "Este email já esta sendo utilizado"
             document.getElementById('error_message_email_div').style.display="block"
             document.getElementById('nextBtn').disabled = true;
@@ -70,7 +62,7 @@
 
         <div class="margem"> </div>
 
-        <form id="regForm" action="../src/classes/profssional/InsProfissional.php">
+        <form id="regForm" method="POST" action="../src/classes/profissional/InsProfissional.php">
 
 
 
