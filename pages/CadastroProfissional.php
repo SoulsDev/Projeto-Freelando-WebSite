@@ -14,24 +14,55 @@
 
 </head>
 <script>
-    
-    function verifica_email(email){
-        var email_validado;
-        <?php $a = 'email';
-            if(Profissional::consultaEmail($a)){
-                echo "email_validado=false;";
-            }else{
-                echo "email_validado=true;";
+    function checkEmail(){
+        let input = document.querySelector('#email');
+        let ajax=new XMLHttpRequest();
+        let params='email='+input.value;
+        ajax.open('POST','../src/classes/chamada_ajax/profissional_email_ajax.php');
+        ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        ajax.onreadystatechange=function(){
+            if(ajax.status===200 && ajax.readyState===4){
+                let json=ajax.responseText;
+                if(json ==  1){
+                    document.getElementById('error_message_email_div').innerHTML = "Este email já esta sendo utilizado"
+                    document.getElementById('error_message_email_div').style.display="block"
+                    input.style.border = "1px solid #000";
+                    document.getElementById('nextBtn').disabled = true;
+                } else{
+                    document.getElementById('nextBtn').disabled = false;
+                    document.getElementById('error_message_email_div').style.display="none"
+                    input.style.border = "1px solid rgb(0, 0, 0);";
+                }
             }
-        ?>
-        if(!email_validado){
-            document.getElementById('error_message_email_div').innerHTML = "Este email já esta sendo utilizado"
-            document.getElementById('error_message_email_div').style.display="block"
-            document.getElementById('nextBtn').disabled = true;
-        }else{
-            document.getElementById('nextBtn').disabled = false;
-        }
-        
+        };
+        ajax.send(params);
+    }
+    function checkCPF(){
+        let input = document.querySelector('#cpf');
+        let ajax=new XMLHttpRequest();
+        var cpf = input.value;
+        cpf = cpf.replaceAll(".", "");
+        cpf = cpf.replace('-', '');
+        let params='cpf='+cpf;
+        ajax.open('POST','../src/classes/chamada_ajax/profissional_cpf_ajax.php');
+        ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        ajax.onreadystatechange=function(){
+            if(ajax.status===200 && ajax.readyState===4){
+                let json=ajax.responseText;
+                console.log(json);
+                if(json ==  1){
+                    document.getElementById('error_message_cpf_div').innerHTML = "Este CPF já esta sendo utilizado"
+                    document.getElementById('error_message_cpf_div').style.display="block"
+                    input.style.border = "1px solid #000";
+                    document.getElementById('nextBtn').disabled = true;
+                } else{
+                    document.getElementById('nextBtn').disabled = false;
+                    document.getElementById('error_message_cpf_div').style.display="none"
+                    input.style.border = "1px solid rgb(0, 0, 0);";
+                }
+            }
+        };
+        ajax.send(params);
     }
 </script>
 <body>
@@ -62,7 +93,8 @@
 
         <div class="margem"> </div>
 
-        <form id="regForm" method="POST" action="../src/classes/profissional/InsProfissional.php">
+        <!-- <form id="regForm" method="POST" action="../src/classes/profissional/InsProfissional.php"> -->
+        <form id="regForm" method="POST" action="../src/classes/ajax.php">
 
 
 
@@ -150,8 +182,8 @@
                         <div class="campos-input" id="cpf_form_div">
 
                             <labe for="cpf">CPF<span style="color: rgb(145, 145, 145)">*</span></labe>
-                            <input type="text" name="cpf" id="cpf" maxlength="14">
-                            <div class="invalid-feedback">
+                            <input type="text" name="cpf" id="cpf" maxlength="14" onblur="checkCPF(this.value)">
+                            <div id="error_message_cpf_div" class="invalid-feedback">
                                 Preencha com seu CPF
                             </div>
 
@@ -187,7 +219,7 @@
                         <div class="campos-input" id="email_form_div">
 
                             <labe for="email">Email<span style="color: rgb(145, 145, 145)">*</span></labe>
-                            <input type="email" name="email" id="email" onblur="verifica_email(this.value)">
+                            <input type="email" name="email" id="email" onblur="checkEmail(this.value)">
                             <div id="error_message_email_div" class="invalid-feedback">
                                 Preencha com seu email
                             </div>

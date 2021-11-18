@@ -45,6 +45,7 @@ CREATE TABLE autonomo(
     c_email_autonomo VARCHAR(25) NOT NULL,
     c_senha_autonomo VARCHAR(50) NOT NULL,
     d_registro_autonomo DATETIME NOT NULL,
+    /* data de alteração dos dados, por exemplo cursos, interesses */ 
     PRIMARY KEY (n_id_autonomo)
 );
 CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
