@@ -26,7 +26,7 @@
                 if(json ==  1){
                     document.getElementById('error_message_email_div').innerHTML = "Este email já esta sendo utilizado"
                     document.getElementById('error_message_email_div').style.display="block"
-                    input.style.border = "1px solid #000";
+                    input.style.border = "1px solid #dc3545";
                     document.getElementById('nextBtn').disabled = true;
                 } else{
                     document.getElementById('nextBtn').disabled = false;
@@ -53,7 +53,7 @@
                 if(json ==  1){
                     document.getElementById('error_message_cpf_div').innerHTML = "Este CPF já esta sendo utilizado"
                     document.getElementById('error_message_cpf_div').style.display="block"
-                    input.style.border = "1px solid #000";
+                    input.style.border = "1px solid #dc3545";
                     document.getElementById('nextBtn').disabled = true;
                 } else{
                     document.getElementById('nextBtn').disabled = false;
