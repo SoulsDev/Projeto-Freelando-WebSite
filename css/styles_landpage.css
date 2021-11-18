@@ -6,7 +6,6 @@ body {
     height: 200vh;
 }
 
-
 /* menu */
 
 .btnComecar {
@@ -16,6 +15,7 @@ body {
     padding: 10px;
     width: 160px;
     border: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar {
@@ -69,18 +69,12 @@ body {
         font-size: 12px;
         text-align: center;
     }
-    .imagem-notebook {
-        margin-top: 7%;
-        margin-bottom: 10px;
-        width: 90%;
-        text-align: center;
-    }
     body {
         background-image: url(../medias/img/fundo.png);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        height: 100vh;
+        /* height: 100vh; */
     }
 }
 
@@ -89,51 +83,69 @@ body {
         display: flex;
         justify-content: center;
         flex-direction: column;
-        height: 50vh;
-        ;
-    }
-    .imagem-notebook {
-        margin-top: 7%;
-        margin-bottom: 10px;
-        width: 90%;
-        text-align: center;
+        height: 40vh;
     }
     body {
         background-image: url(../medias/img/fundo.png);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        height: 160vh;
+        height: 200vh;
     }
 }
 
-@media (min-width:800px) {
-    .container-notebook {
-        background-image: url(../medias/img/notbook.png);
-        background-size: contain;
+@media (min-width:800px){
+    .notebook {
         width: 100%;
-        height: 80%;
-        background-repeat: no-repeat;
+        height: 100%;
+        display: flex;
+        margin-top: 30%;
+        margin-bottom: 10%;
+        display: flex;
+        justify-content: center;
+    }
+    .tablet{
+        display: none;
+    }
+    .celular{
+        display: none;
     }
 }
 
-@media (min-width:500px) and (max-width:799px) {
-    .container-notebook {
-        background-image: url(../medias/img/image-removebg-preview.png);
-        background-size: contain;
+@media (min-width:500px) and (max-width:800px) {
+    .tablet {
         width: 100%;
-        height: 60%;
-        background-repeat: no-repeat;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20%;
+        margin-top: 27%;
+    }  
+    /* .primeiro-conteudo{
+        height: 18vh;
+    } */
+    .celular{
+        display: none;
+    }
+    .notebook{
+        display: none;
     }
 }
 
-@media screen and (max-width: 499px) {
-    .container-notebook {
-        background-image: url(../medias/img/image-removebg-celular.png);
-        background-size: contain;
+@media screen and (max-width: 500px) {
+    .celular {
         width: 100%;
-        height: 80%;
-        background-repeat: no-repeat;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20%;
+        margin-top: 80%;
+    }
+    .tablet{
+        display: none;
+    }
+    .notebook{
+        display: none;
     }
 }
 
@@ -146,20 +158,30 @@ body {
     background-repeat: no-repeat;
 } */
 
-.imagem-notebook {
+/* .imagem-notebook {
     margin-top: 7%;
     margin-bottom: 100px;
     width: 90%;
     text-align: center;
-}
+} */
 
 
 /* animação */
 
-@media screen and (max-width: 2000px) {
+@media (min-width:1000px) and (max-width: 2000px) {
+    .notebook {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        display: flex;
+        justify-content: center;
+    }
     .texto-1 {
-        font-size: 24px;
+        font-size: 33px;
         text-align: center;
+        margin-top: 1rem;
     }
     .titulo-1 {
         font-size: 50px;
@@ -293,6 +315,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 8%;
 }
 
 .titulo-2 {
@@ -312,7 +335,6 @@ body {
 .c-2 {
     margin-top: 80px;
 }
-
 @media (max-width:800px) {
     .conteudo-c {
         display: flex;
@@ -348,8 +370,7 @@ body {
 }
 
 .titulo-3 {
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin: 20px 50px;
     color: #fff;
     font-size: 40px;
     font-weight: normal;
@@ -367,21 +388,19 @@ body {
     margin-bottom: 50px;
     padding: 5px 20px;
     border: none;
-    background: #fff;
+    background: #FA824C;
     border-radius: 20px;
-    color: #FA824C;
+    color: #fff;
 }
 
 .btn-navegar:hover {
-    background: #FA824C;
-    color: #fff;
+    background: rgb(192, 85, 36);
     transition: 0.5s;
 }
 
 @media (max-width:500px) {
     .titulo-3 {
-        margin-top: 50px;
-        margin-bottom: 20px;
+        
         color: #fff;
         font-size: 22px;
         font-weight: normal;
@@ -408,7 +427,16 @@ body {
     display: flex;
     flex-direction: row;
 }
-
+@media (max-width: 800px){
+    .conteudo-quarto{
+        display: flex;
+        align-items: center;
+    }
+    .botao{
+        display: flex;
+        justify-content: center;
+    }
+}
 .conteudo-4 {
     margin: 20px;
 }
@@ -459,7 +487,9 @@ footer {
     display: flex;
     justify-content: space-evenly;
 }
-
+footer p{
+    text-align: center;
+}
 .pagina,
 .SoulDev,
 .orientacao {
@@ -485,7 +515,6 @@ footer {
     align-items: center;
     /* height: 20vh; */
 }
-
 @media (max-width:800px) {
     .footer {
         display: flex;
@@ -493,7 +522,11 @@ footer {
         align-items: center;
     }
 }
-
+@media (max-width: 750px){
+    .logo-empresa{
+        margin-bottom: 50px;
+    }
+}
 
 /* SCROLLBAR CUSTOMIZADO*/
 

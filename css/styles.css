@@ -117,12 +117,13 @@ section {
     padding: 0;
     margin-left: 0px;
     text-align: left;
-    font-size: 33px;
+    font-size: 30px;
     background-color: white;
     color: #ff6633;
     border: 0;
     border-bottom: 5px solid #ff6633;
     width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .desabilitado {
@@ -145,23 +146,25 @@ section {
     padding: 0px;
     margin-left: 0px;
     text-align: right;
-    font-size: 33px;
+    font-size: 30px;
     background-color: white;
     color: #ff6633;
     border: 0;
     border-bottom: 5px solid #ff6633;
     width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .botaoRegistrar2 {
     padding: 0px;
     margin-left: 0px;
     text-align: right;
-    font-size: 33px;
+    font-size: 30px;
     background-color: white;
     border: 0;
     border-bottom: 5px solid #000;
     width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .botaoLogin2 {
@@ -170,12 +173,30 @@ section {
     padding: 0;
     margin-left: 0px;
     text-align: left;
-    font-size: 33px;
+    font-size: 30px;
     background-color: white;
     border: 0;
     border-bottom: 5px solid #000;
     width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+/* media do login e registrar */
+@media (max-width: 360px){
+    .botaoRegistrar{
+        font-size: 23px;
+    }
+    .botaoRegistrar2{
+        font-size: 23px;
+    }
+    .botaoLogin{
+        font-size: 23px;
+    }
+    .botaoLogin2{
+        font-size: 23px;
+    }
+}
+
 
 .row {
     align-items: center;
@@ -189,6 +210,7 @@ section {
 
 .form-group {
     margin-bottom: 0.7rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
