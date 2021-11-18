@@ -139,7 +139,21 @@ class Profissional{
     }
 
 
-    public function inserirProfissional(string $nome, string $cpf, string $dtNasc, string $genero, string $cep, string $uf, string $cidade, string $logradouro, string $numero, string $complemento, string $email, string $senha, string $numCelular ,String $dtRegistro){
+    public function inserirProfissional(
+        string $nome, 
+        string $cpf, 
+        string $dtNasc, 
+        string $genero, 
+        string $cep, 
+        string $uf, 
+        string $cidade, 
+        string $logradouro, 
+        string $numero, 
+        string $complemento, 
+        string $email, 
+        string $senha, 
+        string $numCelular, 
+        String $dtRegistro){
 
         if($genero == 'Masculino'){
             $genero = 1;

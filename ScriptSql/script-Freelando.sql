@@ -45,12 +45,11 @@ CREATE TABLE autonomo(
     c_email_autonomo VARCHAR(25) NOT NULL,
     c_senha_autonomo VARCHAR(50) NOT NULL,
     d_registro_autonomo DATETIME NOT NULL,
-    d_modificacao_autonomo DATETIME,
     PRIMARY KEY (n_id_autonomo)
 );
 CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
-									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(50), registro DATETIME)
-	INSERT INTO autonomo VALUES (default, nome, cpf, nascimento, genero, cep, uf, cidade, logradouro, numero, complemento, senha, registro);
+									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(50), registro DATETIME) 
+	INSERT INTO autonomo VALUES (default, nome, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro);
     
 CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
 	SELECT * FROM autonomo WHERE c_cpf_autonomo = cpf;
