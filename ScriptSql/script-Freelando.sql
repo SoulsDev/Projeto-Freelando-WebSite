@@ -29,7 +29,7 @@ CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), email VARCHAR(50), sen
 CREATE PROCEDURE SELECIONA_CONTRATANTE_EMAIL (email VARCHAR(50))
 	SELECT * FROM contratantes WHERE c_email_contratante = email;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
-CREATE TABLE autonomo(
+CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,
     c_nome VARCHAR(35) NOT NULL,
     c_cpf CHAR(11) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE autonomo(
 );
 CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
 									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(50), registro DATETIME) 
-	INSERT INTO autonomos VALUES (default, nome, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro);
+	INSERT INTO autonomos VALUES (default, nome, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro, null);
     
 CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
 	SELECT * FROM autonomos WHERE c_cpf = cpf;
