@@ -9,22 +9,22 @@ var birth_input = document.getElementById('data_nascimento');
 
 var today = new Date();
 
-birth_input.setAttribute('max', (today.getFullYear() - 18)+'-'+(today.getMonth()+1)+'-'+today.getDate());
+birth_input.setAttribute('max', (today.getFullYear() - 18) + '-' + (today.getMonth() + 1) + '-' + today.getDate());
 
 // Validação e mascara para input CPF
-cpf_input.addEventListener('keydown', function(event){
+cpf_input.addEventListener('keydown', function(event) {
     // Verifica se o que foi digitado não é um numero ou não é digito delete ou backspace
-    if (isNaN(event.key) && (event.keyCode !== 8 && event.keyCode !== 46)){
+    if (isNaN(event.key) && (event.keyCode !== 8 && event.keyCode !== 46)) {
         // O caractere digitado não é adicionado ao input
         event.preventDefault()
     }
     // A mascara só deve ser usada quando a tecla não for a tecla delete ou backspace
     // Caso contrario fica num loop eterno
-    if (event.keyCode !== 8 && event.keyCode !== 46){
-        if(cpf_input.value.length === 3 ||cpf_input.value.length === 7){
+    if (event.keyCode !== 8 && event.keyCode !== 46) {
+        if (cpf_input.value.length === 3 || cpf_input.value.length === 7) {
             cpf_input.value = cpf_input.value + '.'
         }
-        if(cpf_input.value.length === 11)cpf_input.value = cpf_input.value + '-'
+        if (cpf_input.value.length === 11) cpf_input.value = cpf_input.value + '-'
     }
 })
 
@@ -35,6 +35,15 @@ function showTab(n) {
     x[n].style.display = "block";
     x[n].classList.add("block");
     // ... e corrija os botões Anterior / Próximo:
+
+    if (n != 0) {
+        document.getElementById("prevRegistrar").style.display = "none";
+    } else {
+        document.getElementById("prevRegistrar").style.display = "inline";
+    }
+
+    console.log("" + n);
+
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
     } else {
@@ -86,11 +95,11 @@ function validateForm() {
     //AQUI ESTAVA COM UM CONFLITO
 
     for (i = 0; i < y.length; i++) {
-        
+
         // Se um campo estiver vazio ...
         if (y[i].children[1].value == "") {
             // complemento é um campo opcional
-            if (y[i].children[1].id !== 'complemento' && y[i].children[1].id !== 'cidade' && y[i].children[1].id !== 'uf' && y[i].children[1].id !== 'logradouro'){
+            if (y[i].children[1].id !== 'complemento' && y[i].children[1].id !== 'cidade' && y[i].children[1].id !== 'uf' && y[i].children[1].id !== 'logradouro') {
                 // adiciona uma classe "inválida" ao campo:
                 y[i].children[1].style.border = "1px solid #dc3545";
                 y[i].children[2].style.display = "block";
@@ -98,10 +107,10 @@ function validateForm() {
                 valid = false;
             }
         }
-        if(y[i].children[1].id === 'email'){
+        if (y[i].children[1].id === 'email') {
             // Caso o email informado não tenha ao menos um '@', '.', dois digitos apos o ponto, e ao menos um char antes do @ ele não 
             // é um email válido 
-            if(!(email_regex.test(y[i].children[1].value.toLowerCase()))){
+            if (!(email_regex.test(y[i].children[1].value.toLowerCase()))) {
                 y[i].children[1].style.border = "1px solid #dc3545";
                 y[i].children[2].style.display = "block";
                 y[i].children[2].innerHTML = 'O e-mail deve conter ao menos um "@" e um ".".';
@@ -109,10 +118,10 @@ function validateForm() {
             }
         }
         // validação de cpf deve pedir para ser do tamanho máximo do campo
-        if(y[i].children[1].id === 'cpf'){
-            if(y[i].children[1].value.length === 14){
+        if (y[i].children[1].id === 'cpf') {
+            if (y[i].children[1].value.length === 14) {
                 valid = true;
-            }else{
+            } else {
                 y[i].children[1].style.border = "1px solid #dc3545";
                 y[i].children[2].style.display = "block";
                 y[i].children[2].innerHTML = 'O CPF deve ter 11 dígitos';
@@ -147,11 +156,11 @@ function fixStepIndicator(n) {
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
-        document.getElementById('logradouro').value=(conteudo.logradouro);
+        document.getElementById('logradouro').value = (conteudo.logradouro);
         // TODO adicionar o input pra podermos fazer o radar
         //document.getElementById('bairro').value=(conteudo.bairro);
-        document.getElementById('cidade').value=(conteudo.localidade);
-        document.getElementById('uf').value=(conteudo.uf);
+        document.getElementById('cidade').value = (conteudo.localidade);
+        document.getElementById('uf').value = (conteudo.uf);
     } //end if.
     else {
         //CEP não Encontrado.
@@ -172,12 +181,12 @@ function pesquisacep(valor) {
         var validacep = /^[0-9]{8}$/;
 
         //Valida o formato do CEP.
-        if(validacep.test(cep)) {
+        if (validacep.test(cep)) {
 
             var script = document.createElement('script');
 
             //Sincroniza com o callback.
-            script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+            script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
 
             //Insere script no documento e carrega o conteúdo.
             document.body.appendChild(script);
