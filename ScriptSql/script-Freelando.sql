@@ -30,26 +30,27 @@ CREATE PROCEDURE SELECIONA_CONTRATANTE_EMAIL (email VARCHAR(50))
 	SELECT * FROM contratantes WHERE c_email_contratante = email;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 CREATE TABLE autonomo(
-	n_id_autonomo INT AUTO_INCREMENT,
-    c_nome_autonomo VARCHAR(35) NOT NULL,
-    c_cpf_autonomo CHAR(11) NOT NULL,
-    c_genero_autonomo SMALLINT NOT NULL,
-    d_nascimento_autonomo DATE NOT NULL,
-    c_cep_autonomo VARCHAR(8) NOT NULL,
-    c_uf_autonomo CHAR(2) NOT NULL,
-    c_cidade_autonomo VARCHAR(50) NOT NULL,
-    c_logradouro_autonomo VARCHAR(100) NOT NULL,
+	n_id INT AUTO_INCREMENT,
+    c_nome VARCHAR(35) NOT NULL,
+    c_cpf CHAR(11) NOT NULL,
+    c_genero SMALLINT NOT NULL,
+    d_nascimento DATE NOT NULL,
+    c_cep VARCHAR(8) NOT NULL,
+    c_uf CHAR(2) NOT NULL,
+    c_cidade VARCHAR(50) NOT NULL,
+    c_logradouro VARCHAR(100) NOT NULL,
     n_numero_autonomo INT NOT NULL,
-    c_complemento_autonomo VARCHAR(5) NOT NULL,
-    c_email_autonomo VARCHAR(25) NOT NULL,
-    c_senha_autonomo VARCHAR(50) NOT NULL,
-    d_registro_autonomo DATETIME NOT NULL,
+    c_complemento VARCHAR(5) NOT NULL,
+    c_email VARCHAR(25) NOT NULL,
+    c_senha VARCHAR(50) NOT NULL,
+    d_registro DATETIME NOT NULL,
+    d_alteracao DATETIME,
     /* data de alteração dos dados, por exemplo cursos, interesses */ 
     PRIMARY KEY (n_id_autonomo)
 );
 CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
 									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(50), registro DATETIME) 
-	INSERT INTO autonomo VALUES (default, nome, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro);
+	INSERT INTO autonomos VALUES (default, nome, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro);
     
 CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
 	SELECT * FROM autonomos WHERE c_cpf = cpf;
