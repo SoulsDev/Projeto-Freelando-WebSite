@@ -50,8 +50,14 @@ function showTab(n) {
         document.getElementById("prevBtn").style.display = "inline";
     }
     if (n == (x.length - 1)) {
+        document.getElementById('cidade').disabled = false;
+        document.getElementById('uf').disabled = false;
+        document.getElementById('logradouro').disabled = false;
         document.getElementById("nextBtn").innerHTML = "Confirmar";
     } else {
+        document.getElementById('cidade').disabled = true;
+        document.getElementById('uf').disabled = true;
+        document.getElementById('logradouro').disabled = true;
         document.getElementById("nextBtn").innerHTML = "Avançar";
     }
     // ... e execute uma função que exibirá o indicador de etapa correto:
