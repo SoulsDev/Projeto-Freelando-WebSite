@@ -68,10 +68,11 @@ class Contratante{
         }
     }   
 
-    public function consultaEmail($email) : bool{
+    public static function consultaEmail($email) : bool{
+
         try{
-            include('../conexao.php');
-            $consultar = $con->prepare("SELECT * FROM contratante WHERE email = ? ");
+            include('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+            $consultar = $con->prepare("SELECT * FROM contratante WHERE c_email_contratante = ? ");
             $consultar->bindValue(1, $email);
             $consultar->execute();
             $row = $consultar->rowCount();

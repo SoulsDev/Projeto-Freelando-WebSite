@@ -16,6 +16,30 @@ include_once '../src/classes/contratante/mensagemErro.php';
 
 
 </head>
+<script>
+    function checkEmail(){
+        let input = document.querySelector('#email');
+        let ajax=new XMLHttpRequest();
+        let params='email='+input.value;
+        ajax.open('POST','../src/classes/chamada_ajax/contratante_email_ajax.php');
+        ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        ajax.onreadystatechange=function(){
+            if(ajax.status===200 && ajax.readyState===4){
+                let json=ajax.responseText;
+                if(json ==  1){
+                    document.getElementById('error_message_email_div').innerHTML = "Este email já esta sendo utilizado"
+                    document.getElementById('error_message_email_div').style.display="block"
+                    input.style.border = "1px solid #dc3545";
+                } else{
+                    input.style.border = "1px solid #ced4da;";
+                    document.getElementById('error_message_email_div').style.display="none"
+                }
+            }
+        };
+        ajax.send(params);
+    }
+
+</script>
 <body class="my-login-page">
 
     <div class="area">
@@ -58,8 +82,8 @@ include_once '../src/classes/contratante/mensagemErro.php';
                                 </div>
 
                                 <div class="form-group">
-                                    <input id="email" type="email" class="form-control inputEmail" placeholder="Email" name="email" value="" required autofocus>
-                                    <div class="invalid-feedback">
+                                    <input id="email" type="email" class="form-control inputEmail" placeholder="Email" name="email" value="" required autofocus onblur="checkEmail(this.value)">
+                                    <div class="invalid-feedback" id="error_message_email_div">
                                         Email inválido
                                     </div>
                                     <?php
