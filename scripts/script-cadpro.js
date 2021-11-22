@@ -33,16 +33,15 @@ function showTab(n) {
     // Esta função irá exibir a guia especificada do formulário ...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
-    x[n].classList.add("block");
     // ... e corrija os botões Anterior / Próximo:
 
-    if (n != 0) {
-        document.getElementById("prevRegistrar").style.display = "none";
-    } else {
-        document.getElementById("prevRegistrar").style.display = "inline";
-    }
+    // if (n != 0) {
+    //     document.getElementById("prevRegistrar").style.display = "none";
+    // } else {
+    //     document.getElementById("prevRegistrar").style.display = "inline";
+    // }
 
-    console.log("" + n);
+    // console.log("" + n);
 
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
@@ -98,8 +97,6 @@ function validateForm() {
         y[i].children[2].style.display = "none";
     }
 
-    //AQUI ESTAVA COM UM CONFLITO
-
     for (i = 0; i < y.length; i++) {
 
         // Se um campo estiver vazio ...
@@ -124,7 +121,7 @@ function validateForm() {
             }
         }
         // validação de cpf deve pedir para ser do tamanho máximo do campo
-        if (y[i].children[1].id === 'cpf') {
+        if (y[i].children[0].id === 'cpf') {
             if (y[i].children[1].value.length === 14) {
                 valid = true;
             } else {
@@ -158,6 +155,52 @@ function fixStepIndicator(n) {
     x[n].className += " active";
 }
 
+function addCargo(){
+    b = document.getElementById('profissao');
+    c = document.getElementById('nivel_experiencia');
+
+    lista = document.getElementById('cargo_ul');
+
+    indice = lista.children.length + 1;
+
+    link = document.createElement('a');
+    link.setAttribute('name', 'cargo');
+    link.innerHTML = b.value;
+
+    item = document.createElement('li');
+    item.setAttribute('id', 'item_'+indice);
+    item.appendChild(link);
+
+    
+    lista.appendChild(item);
+
+    document.getElementById("lista-cargos").value= document.getElementById("lista-cargos").value + b.value + "," + c.value +";";
+}
+
+
+
+function addCurso(){
+    a = document.getElementById('nivel_curso');
+    b = document.getElementById('curso');
+    c = document.getElementById('cargahoraria_curso');
+
+    lista = document.getElementById('curso_ul');
+
+    indice = lista.children.length + 1;
+
+    link = document.createElement('a');
+    link.setAttribute('name', 'curso_'+indice);
+    link.innerHTML = b.value;
+
+    item = document.createElement('li');
+    item.setAttribute('id', 'curso_'+indice);
+    item.appendChild(link);
+
+    
+    lista.appendChild(item);
+    document.getElementById("lista-cursos").value= document.getElementById("lista-cursos").value + a.value + ","+ b.value + "," + c.value +";";
+}
+
 
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
@@ -176,7 +219,6 @@ function meu_callback(conteudo) {
 
 
 function pesquisacep(valor) {
-
     //Nova variável "cep" somente com dígitos.
     var cep = valor.replace(/\D/g, '');
 

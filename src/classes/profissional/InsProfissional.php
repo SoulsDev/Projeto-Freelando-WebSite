@@ -39,6 +39,29 @@ $profissional->inserirProfissional(
     $profissional->getDataRegistro());
 
 
+// $cursos = addslashes($_POST['cursos']);
+// $cargos = addslashes($_POST['cargos']);
 
+// $cursos = explode(';', $cursos);
+// $cargos = explode(';', $cargos);
+
+
+// foreach ($cursos as $value) {
+//     // TODO usar procedure para adicionar ao banco de dados
+//     $value = explode(',', $value);
+//     $profissional->cadastrarDadoAcademico(
+//         'ensino?',
+//         $value[0],
+//         $value[1],
+//         40,
+//         $profissional->getId
+//     );
+    
+// }
+
+// foreach ($cargos as &$value) {
+//     // TODO usar procedure para adicionar ao banco de dados
+//     echo ($value . "<br>");
+// }
 
 

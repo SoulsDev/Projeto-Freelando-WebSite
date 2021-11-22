@@ -1,5 +1,6 @@
 <?php
 class Profissional{
+    private int $id;
     private string $nome;
     private string $email;
     private string $senha;
@@ -180,6 +181,16 @@ class Profissional{
             $inserir->bindValue(13, $dtRegistro);
             $inserir->execute();    
             
+            $consulta = $con->prepare("SELECT n_id FROM autonomos WHERE c_cpf=?");
+            $consulta->bindValue(1, $cpf);
+            $consulta->execute();
+
+            // TODO ver como visualiza a consulta do banco de dados para inserir o id od autonomo.
+            $result = mysql_query($consulta);
+            while($row = mysql_fetch_array($result)) {
+                echo $row['n_id']; 
+            }
+
         }catch(PDOException $e){
             echo 'Erro'.$e->getMessage();
         }
@@ -199,6 +210,28 @@ class Profissional{
         //     echo 'Erro'.$e->getMessage();
         // }
     }   
+
+    public function cadastrarDadoAcademico(
+        string $ensino,
+        string $nivel,
+        string $curso,
+        int $carga_horaria,
+        int $id_autonomo
+    ){
+        try{
+            include ('../conexao.php');
+            $inserir = $con->prepare("CALL CADASTRAR_DADO_ACADEMICO(?, ?, ?, ?, ?)");
+            $inserir->bindValue(1, $ensino);
+            $inserir->bindValue(2, $nivel);
+            $inserir->bindValue(3, $curso);
+            $inserir->bindValue(4, $carga_horaria);
+            $inserir->bindValue(5, $id_autonomo);
+            $inserir->execute();    
+            
+        }catch(PDOException $e){
+            echo 'Erro'.$e->getMessage();
+        }
+    }
 
     public static function consultaEmail($email) : bool{
         try{
@@ -245,4 +278,6 @@ class Profissional{
           echo 'Erro'.$e->getMessage(); 
      }
     }
+
+   
 } 

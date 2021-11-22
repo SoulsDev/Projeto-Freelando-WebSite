@@ -1,6 +1,3 @@
-<?php 
-    include_once('../src/classes/profissional/Profissional.php');
-?>
 <!DOCTYPE html>
 <html>
 
@@ -93,8 +90,7 @@
 
         <div class="margem"> </div>
 
-        <!-- <form id="regForm" method="POST" action="../src/classes/profissional/InsProfissional.php"> -->
-        <form id="regForm" method="POST" action="../src/classes/ajax.php">
+        <form id="regForm" method="POST" action="../src/classes/profissional/InsProfissional.php">
 
 
 
@@ -105,19 +101,13 @@
 
 
             <div class="barra-progresso">
-
-
                 <div class="step">
-
-
                     <div class="circulo">
                         <span>1</span>
                     </div>
-
                     <p>Dados </p>
                     <p>pessoais</p>
                     <p>⠀⠀⠀⠀</p>
-
                 </div>
 
                 <div class="step">
@@ -421,8 +411,7 @@
 
 
                         <div class="container-btn-form2">
-                            <img name="btncargo-cancelar" id="btncargo-cancelar" class="btn-form2" src="../medias/img/btn-x.png" alt="adicionar">
-                            <img name="btncargo-add" id="btncargoadd" src="../medias/img/btn-add.png" alt="adicionar">
+                            <img name="btncargo-add" id="btncargoadd" class="btn-addcargo" src="../medias/img/btn-add.png" alt="adicionar"  onclick="addCargo();">
 
                         </div>
 
@@ -433,9 +422,10 @@
                         <div class="titulo-2">
                             <p>Cargos cadastrados</p>
                         </div>
+                        <input type="hidden" name="cargos" id="lista-cargos">
+                        <ul class="cargo-list" id="cargo_ul">
 
-
-
+                        </ul>
 
 
 
@@ -464,7 +454,7 @@
                             <p>Formação acadêmica</p>
                         </div>
 
-                        <div class="campos-input"  id="ensino_form_div">
+                        <div class="campos-input-pequeno"  id="ensino_form_div">
 
                             <labe for="ensino">Ensino<span style="color: rgb(145, 145, 145)">*</span></labe>
 
@@ -486,7 +476,7 @@
                             <p>Graduação</p>
                         </div>
 
-                        <div class="campos-input" id="graducao_form_div">
+                        <div class="campos-input-pequeno" id="graducao_form_div">
 
                             <labe for="instituicao">Instituição<span style="color: rgb(145, 145, 145)">*</span></labe>
 
@@ -505,7 +495,7 @@
                         </div>
 
 
-                        <div class="campos-input">
+                        <div class="campos-input-pequeno">
 
                             <labe for="curso_graducao">Curso<span style="color: rgb(145, 145, 145)">*</span></labe>
 
@@ -532,7 +522,7 @@
                             <p>Cursos</p>
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input-pequeno">
 
                             <labe for="nivel_curso">Nível<span style="color: rgb(145, 145, 145)">*</span></labe>
 
@@ -544,7 +534,7 @@
                             <div></div>
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input-pequeno">
 
                             <labe for="curso">Curso<span style="color: rgb(145, 145, 145)">*</span></labe>
 
@@ -559,7 +549,7 @@
                             <div></div>
                         </div>
 
-                        <div class="campos-input">
+                        <div class="campos-input-pequeno">
 
                             <labe for="cargahoraria_curso">Carga horária<span style="color: rgb(145, 145, 145)">*</span>
                             </labe>
@@ -580,8 +570,7 @@
 
 
                         <div class="container-btn-form2">
-                            <img class="btncurso-cancelar" src="../medias/img/btn-x.png" alt="adicionar">
-                            <img class="btncurso-add" src="../medias/img/btn-add.png" alt="adicionar">
+                            <img class="btncurso-add btn-click" src="../medias/img/btn-add.png" alt="adicionar" onclick="addCurso()">
 
                         </div>
 
@@ -592,14 +581,10 @@
                         <div class="titulo-3">
                             <p>Cursos cadastrados</p>
                         </div>
-
-
-
-
-
-
-
-
+                        <input type="hidden" name="cursos" id="lista-cursos">
+                        <ul class="curso-list" id="curso_ul">
+                            
+                        </ul>
                     </div>
 
 
@@ -625,7 +610,7 @@
                         </div>
 
                         <div class="selecionar-arquivo">
-                            <img name="btnarquivo-add" id="btnmedia-add" src="../medias/img/btn-add2.png" alt="Carregar Arquivos">
+                            <img name="btnarquivo-add btn-click" id="btnmedia-add" src="../medias/img/btn-add2.png" alt="Carregar Arquivos">
                             <p>Carregue seus arquivos.</p>
                             <p>pressionando o botão ou.</p>
                             <p>solte-os aqui.</p>
@@ -658,13 +643,8 @@
 
 
     </section>
-
-
-
-
-
     <script src="../scripts/script-cadpro.js"></script>
-
+    <script src="../scripts/scripts.js"></script>
 </body>
 
 </html>
