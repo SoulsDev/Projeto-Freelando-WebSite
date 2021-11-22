@@ -332,20 +332,14 @@
 
                             <labe for="area_profissao">Área</labe>
 
-                            <select name="area_profissao" id="area_profissao" onchange="listarProfissoes()">
+                            <select name="area_profissao" id="area_profissao" onchange="listarProfissoes(this.value)">
                                 <option value="">Selecione</option>
                                     <?php 
                                         $listaArea = Cargo::listaArea();
                                         while($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
                                             ?>
-                                            <option value="
-                                                <?php 
-                                                    echo $row['n_id'];
-                                                ?>
-                                            ">
-                                                <?php 
-                                                    echo $row['c_nome'];
-                                                ?>
+                                            <option value="<?php echo $row['n_id'];?>">
+                                                <?php echo $row['c_nome']; ?>
                                             </option>
                                         <?php
                                         }
@@ -365,21 +359,13 @@
                                     $listaArea = Cargo::listaProfissoes();
                                     while($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
                                         ?>
-                                        <option value="
-                                            <?php 
-                                                echo $row['n_id']; 
-                                            ?>
-                                        "
-                                        area="
-                                            <?php 
-                                                echo $row['n_id_area'];                                  
-                                            ?>
-                                        " style="display:none;"
-                                        >
-                                            <?php 
+                                        <option value="<?php echo $row['n_id']; ?>"
+                                        area="<?php echo $row['n_id_area']; ?>" 
+                                        class = "profissoes_dinamico"
+                                        style="display:none;"
+                                        ><?php 
                                                 echo $row['c_nome'];
-                                            ?>
-                                        </option>
+                                            ?></option>
                                     <?php
                                     }
                                     ?>

@@ -29,6 +29,7 @@ CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), email VARCHAR(50), sen
 CREATE PROCEDURE SELECIONA_CONTRATANTE_EMAIL (email VARCHAR(50))
 	SELECT * FROM contratantes WHERE c_email_contratante = email;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
+
 CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,
     c_nome VARCHAR(35) NOT NULL,
@@ -46,7 +47,7 @@ CREATE TABLE autonomos(
     d_registro DATETIME NOT NULL,
     d_alteracao DATETIME,
     /* data de alteração dos dados, por exemplo cursos, interesses */ 
-    PRIMARY KEY (n_id_autonomo)
+    PRIMARY KEY (n_id)
 );
 CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
 									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(50), registro DATETIME) 
@@ -69,20 +70,19 @@ CREATE PROCEDURE CADASTRAR_TELEFONE_AUTONOMO (telefone VARCHAR(17), id_autonomo 
 	INSERT INTO telefones_autonomo VALUES (default, telefone, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
-
 DROP TABLE IF EXISTS dados_academicos;
 CREATE TABLE dados_academicos(
 	n_id INT AUTO_INCREMENT,
     c_ensino VARCHAR(25) NOT NULL,
     c_nivel VARCHAR(15) NOT NULL,
-    c_curso VARCHAR(15) NOT NULL,
+    c_curso VARCHAR(30) NOT NULL,
     n_carga_horaria INT NOT NULL,
     n_id_autonomo INT NOT NULL,
     PRIMARY KEY (n_id),
     FOREIGN KEY (n_id_autonomo) REFERENCES autonomos(n_id)
 );
 
-CREATE PROCEDURE CADASTRAR_DADO_ACADEMICO (ensino VARCHAR(25), nivel VARCHAR(15), curso VARCHAR(25), carga_horaria INT, id_autonomo INT)
+CREATE PROCEDURE CADASTRAR_DADO_ACADEMICO (ensino VARCHAR(25), nivel VARCHAR(15), curso VARCHAR(30), carga_horaria INT, id_autonomo INT)
 	INSERT INTO dados_academicos VALUES (default, ensino, nivel, curso, carga_horaria, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -113,20 +113,18 @@ CREATE PROCEDURE LISTAR_PROFISSOES (id_area INT)
 	SELECT * FROM profissoes WHERE n_id_area = id_area;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
-
 DROP TABLE IF EXISTS dados_profissionais;
 CREATE TABLE dados_profissionais(
 	n_id INT AUTO_INCREMENT,
-    n_id_area INT NOT NULL,
     n_id_profissao INT NOT NULL,
     n_experiencia INT NOT NULL,
+    n_id_autonomo INT NOT NULL,
     PRIMARY KEY (n_id),
-    FOREIGN KEY (n_id_area) REFERENCES areas (n_id),
     FOREIGN KEY (n_id_profissao) REFERENCES profissoes (n_id)
 );
 
-CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (area_profissional VARCHAR(30), profissao VARCHAR(50), nivel_experiencia VARCHAR(50), id_autonomo INT)
-INSERT INTO dados_profissionais VALUES (default, area_profissional, profissao, nivel_experiencia, id_autonomo);
+CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (profissao INT, nivel_experiencia INT, id_autonomo INT)
+INSERT INTO dados_profissionais VALUES (default, profissao, nivel_experiencia, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
 INSERT INTO areas VALUES (default, 'Administração e Contabilidade'),

@@ -165,7 +165,7 @@ function addCargo(){
 
     link = document.createElement('a');
     link.setAttribute('name', 'cargo');
-    link.innerHTML = b.value;
+    link.innerHTML = b.options[b.selectedIndex].text;
 
     item = document.createElement('li');
     item.setAttribute('id', 'item_'+indice);
@@ -201,9 +201,15 @@ function addCurso(){
     document.getElementById("lista-cursos").value= document.getElementById("lista-cursos").value + a.value + ","+ b.value + "," + c.value +";";
 }
 
-function listarProfissoes(){
-    area = document.getElementById("profissao");
-    alert(area.options[area.selectedIndex].value);
+function listarProfissoes(area_id){
+    profissoes = document.getElementsByClassName("profissoes_dinamico");
+    for (let item of profissoes) {
+        item.style.display="none";
+        atributo = item.getAttribute('area');
+        if(atributo == area_id){
+            item.style.display="block";
+        }
+    }
 }
 
 
