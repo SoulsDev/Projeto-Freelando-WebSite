@@ -22,6 +22,10 @@
                                 align-items: center;
                             }
                             
+                            input:checked {
+                                background-color: #5d00d2;
+                            }
+                            
                             p {
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 font-size: 13px;
@@ -99,8 +103,8 @@
                             
                             .botao-cancelar {
                                 background-color: #ffff;
-                                color: purple;
-                                border: 1px solid purple;
+                                color: #5d00d2;
+                                border: 1px solid #5d00d2;
                                 padding: 10px 20px;
                                 font-size: 17px;
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -486,6 +490,121 @@
                             .container-termos-uso label {
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 text-align: center;
+                            }
+                            /* MODAL TERMOS DE USO */
+                            
+                            .modal-container {
+                                background: rgba(0, 0, 0, .5);
+                                width: 100vw;
+                                height: 100vh;
+                                position: fixed;
+                                top: 0px;
+                                left: 0px;
+                                z-index: 200;
+                                display: none;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            
+                            .modal-container.ativo {
+                                display: flex;
+                            }
+                            
+                            .modal {
+                                background-color: #fff;
+                                width: 60%;
+                                min-width: 300px;
+                                border-radius: 5px;
+                                padding: 50px;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                overflow: scroll;
+                            }
+                            /* MODAL PERGUNTAS */
+                            
+                            .modal-container2 {
+                                background: rgba(0, 0, 0, .5);
+                                width: 100vw;
+                                height: 100vh;
+                                position: fixed;
+                                top: 0px;
+                                left: 0px;
+                                z-index: 200;
+                                display: none;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            
+                            .modal-container2.ativo {
+                                display: flex;
+                            }
+                            
+                            .modal2 {
+                                background-color: #fff;
+                                width: 55%;
+                                min-width: 300px;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                border-radius: 5px;
+                            }
+                            
+                            .modal2 .titulo {
+                                display: flex;
+                                background-color: #5d00d2;
+                                width: 100%;
+                                color: #fff;
+                                align-items: left;
+                                justify-content: space-between;
+                                padding: 5px;
+                                padding-left: 10px;
+                                border-radius: 5px 5px 0px 0px;
+                                margin-bottom: 15px;
+                            }
+                            
+                            .modal2 .titulo h2 {
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-size: 18px;
+                            }
+                            
+                            .modal2 .titulo p {
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                font-size: 15px;
+                            }
+                            
+                            .modal2 p {
+                                align-self: flex-start;
+                                font-size: 18px;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                margin-left: 10px;
+                                margin-bottom: 10px;
+                            }
+                            
+                            .modal2 input {
+                                width: 98%;
+                                align-self: center;
+                                margin-bottom: 10px;
+                            }
+                            
+                            .modal2 input:focus {
+                                outline: none;
+                            }
+                            
+                            .modal2 button {
+                                background-color: #ffff;
+                                color: #5d00d2;
+                                border: 1px solid #5d00d2;
+                                padding: 10px 20px;
+                                font-size: 17px;
+                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                cursor: pointer;
+                                width: 200px;
+                                border-radius: 5px;
+                                margin-bottom: 15px;
+                                box-sizing: none !important;
+                                align-self: flex-start;
+                                margin-left: 10px;
                             }
                             /* DADOS DE INPUT */
                             
