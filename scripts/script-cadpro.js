@@ -201,6 +201,11 @@ function addCurso(){
     document.getElementById("lista-cursos").value= document.getElementById("lista-cursos").value + a.value + ","+ b.value + "," + c.value +";";
 }
 
+function listarProfissoes(){
+    area = document.getElementById("profissao");
+    alert(area.options[area.selectedIndex].value);
+}
+
 
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {

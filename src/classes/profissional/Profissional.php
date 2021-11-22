@@ -1,6 +1,5 @@
 <?php
 class Profissional{
-    private int $id;
     private string $nome;
     private string $email;
     private string $senha;
@@ -154,7 +153,7 @@ class Profissional{
         string $email, 
         string $senha, 
         string $numCelular, 
-        String $dtRegistro){
+        String $dtRegistro) : int{
 
         if($genero == 'Masculino'){
             $genero = 1;
@@ -183,13 +182,13 @@ class Profissional{
             
             $consulta = $con->prepare("SELECT n_id FROM autonomos WHERE c_cpf=?");
             $consulta->bindValue(1, $cpf);
-            $consulta->execute();
-
-            // TODO ver como visualiza a consulta do banco de dados para inserir o id od autonomo.
-            $result = mysql_query($consulta);
-            while($row = mysql_fetch_array($result)) {
-                echo $row['n_id']; 
+            $consulta->execute();         
+        
+            while($row = $consulta->fetch(PDO::FETCH_BOTH)) {
+                $user_id =  $row['n_id']; 
             }
+
+            return $user_id;
 
         }catch(PDOException $e){
             echo 'Erro'.$e->getMessage();
@@ -211,32 +210,10 @@ class Profissional{
         // }
     }   
 
-    public function cadastrarDadoAcademico(
-        string $ensino,
-        string $nivel,
-        string $curso,
-        int $carga_horaria,
-        int $id_autonomo
-    ){
-        try{
-            include ('../conexao.php');
-            $inserir = $con->prepare("CALL CADASTRAR_DADO_ACADEMICO(?, ?, ?, ?, ?)");
-            $inserir->bindValue(1, $ensino);
-            $inserir->bindValue(2, $nivel);
-            $inserir->bindValue(3, $curso);
-            $inserir->bindValue(4, $carga_horaria);
-            $inserir->bindValue(5, $id_autonomo);
-            $inserir->execute();    
-            
-        }catch(PDOException $e){
-            echo 'Erro'.$e->getMessage();
-        }
-    }
-
     public static function consultaEmail($email) : bool{
         try{
             include('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
-            $consultar = $con->prepare("SELECT * FROM autonomo WHERE c_email_autonomo = ? ");
+            $consultar = $con->prepare("SELECT * FROM autonomos WHERE c_email = ? ");
             $consultar->bindValue(1, $email);
             $consultar->execute();
             $row = $consultar->rowCount();
@@ -250,16 +227,15 @@ class Profissional{
                 return false;
             }
 
-     }
-     catch(PDOException $e){
-          echo 'Erro'.$e->getMessage(); 
-     }
+        }catch(PDOException $e){
+            echo 'Erro'.$e->getMessage(); 
+        }
     }
 
     public static function consultaCpf($cpf) : bool{
         try{
             include('../conexao.php');
-            $consultar = $con->prepare("SELECT * FROM autonomo WHERE c_cpf_autonomo = ?");
+            $consultar = $con->prepare("SELECT * FROM autonomos WHERE c_cpf = ?");
             $consultar->bindValue(1, $cpf);
             $consultar->execute();
             $row = $consultar->rowCount();

@@ -1,3 +1,7 @@
+<?php 
+    include ('../src/classes/cargo/Cargo.php');
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -328,16 +332,26 @@
 
                             <labe for="area_profissao">Área</labe>
 
-                            <select name="area_profissao" id="area_profissao">
-                                <option>Assistência Técnica</option>
-                                <option>Beleza</option>
-                                <option>Educação/aprendizagem</option>
-                                <option>Reforma/Manutenção</option>
-                                <option>Serviços Domésticos</option>
-                                <option>Eventos</option>
-                                <option>Tecnologia</option>
-
+                            <select name="area_profissao" id="area_profissao" onchange="listarProfissoes()">
+                                <option value="">Selecione</option>
+                                    <?php 
+                                        $listaArea = Cargo::listaArea();
+                                        while($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
+                                            ?>
+                                            <option value="
+                                                <?php 
+                                                    echo $row['n_id'];
+                                                ?>
+                                            ">
+                                                <?php 
+                                                    echo $row['c_nome'];
+                                                ?>
+                                            </option>
+                                        <?php
+                                        }
+                                        ?>
                             </select>
+
                             <div></div>
                         </div>
 
@@ -346,45 +360,29 @@
                             <labe for="profissao">Profissão<span style="color: rgb(145, 145, 145)">*</span></labe>
 
                             <select name="profissao" id="profissao">
-                                <option>Animador de festas</option>
-                                <option>Babá</option>
-                                <option>Barbeiro</option>
-                                <option>Cabeleireiro(a)</option>
-                                <option>Cantor</option>
-                                <option>Decorador</option>
-                                <option>Dedetizador</option>
-                                <option>Depilador(a)</option>
-                                <option>Desentupidor</option>
-                                <option>Desenvolvedor de software/aplicativos</option>
-                                <option>Desenvolvedor Web</option>
-                                <option>Designer de sobrancelhas</option>
-                                <option>Diarista</option>
-                                <option>DJ</option>
-                                <option>Editor de fotos</option>
-                                <option>Editor de vídeo</option>
-                                <option>Eletricista</option>
-                                <option>Empreiteiro</option>
-                                <option>Encanador</option>
-                                <option>Fotógrafo</option>
-                                <option>Jardineiro</option>
-                                <option>Lash designer</option>
-                                <option>Luthier</option>
-                                <option>Manicure/pedicure</option>
-                                <option>Maquiador(a)</option>
-                                <option>Marceneiro</option>
-                                <option>Músico</option>
-                                <option>Pedreiro</option>
-                                <option>Professor de Dança</option>
-                                <option>Professor de Ensino Fundamental</option>
-                                <option>Professor de Ensino Médio</option>
-                                <option>Professor de Idiomas</option>
-                                <option>Professor de Luta</option>
-                                <option>Professor de Música</option>
-                                <option>Professor de Tecnologia</option>
-                                <option>Técnico de informática</option>
-                                <option>Técnico em equipamentos eletrônicos</option>
-                                <option>Vidraceiro</option>
-                                <option>Web designer</option>
+                                <option value="">Selecione</option>
+                                <?php 
+                                    $listaArea = Cargo::listaProfissoes();
+                                    while($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
+                                        ?>
+                                        <option value="
+                                            <?php 
+                                                echo $row['n_id']; 
+                                            ?>
+                                        "
+                                        area="
+                                            <?php 
+                                                echo $row['n_id_area'];                                  
+                                            ?>
+                                        " style="display:none;"
+                                        >
+                                            <?php 
+                                                echo $row['c_nome'];
+                                            ?>
+                                        </option>
+                                    <?php
+                                    }
+                                    ?>
                             </select>
                             <div></div>
 
@@ -395,14 +393,14 @@
                             <labe for="nivel_experiencia">Nível de experiência<span style="color: rgb(145, 145, 145)">*</span></labe>
 
                             <select name="nivel_experiencia" id="nivel_experiencia">
-                                <option>6 meses</option>
-                                <option>9 meses</option>
-                                <option>1 ano</option>
-                                <option>2 ano</option>
-                                <option>2 ano</option>
-                                <option>3 ano</option>
-                                <option>4 ano</option>
-                                <option>Mais</option>
+                                <option value=6>6 meses</option>
+                                <option value=9>9 meses</option>
+                                <option value=12>1 ano</option>
+                                <option value=24>2 ano</option>
+                                <option value=36>2 ano</option>
+                                <option value=48>3 ano</option>
+                                <option value=60>4 ano</option>
+                                <option value=61>Mais</option>
 
 
                             </select>
@@ -555,14 +553,14 @@
                             </labe>
 
                             <select name="cargahoraria_curso" id="cargahoraria_curso">
-                                <option>40 horas</option>
-                                <option>80 horas</option>
-                                <option>120 horas</option>
-                                <option>200 horas</option>
-                                <option>260 horas</option>
-                                <option>360 horas</option>
-                                <option>400 horas</option>
-                                <option>Mais</option>
+                                <option value=40>40 horas</option>
+                                <option value=80>80 horas</option>
+                                <option value=120>120 horas</option>
+                                <option value=200>200 horas</option>
+                                <option value=260>260 horas</option>
+                                <option value=360>360 horas</option>
+                                <option value=400>400 horas</option>
+                                <option value=401>Mais</option>
 
                             </select>
                             <div></div>

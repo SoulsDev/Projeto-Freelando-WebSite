@@ -1,6 +1,8 @@
 <?php
 
 include_once 'Profissional.php';
+include_once '../dado_academico/DadoAcademico.php';
+include_once '../cargo/Cargo.php';
 include_once 'mensagemErro.php';
 
 $nome = addslashes($_POST['nome']);
@@ -22,46 +24,51 @@ $cpf = str_replace("-", "", $cpf);
 
 $profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha, $numCelular);
 
-$profissional->inserirProfissional(
-    $profissional->getNome(), 
-    $profissional->getCpf(), 
-    $profissional->getDtNacs(), 
-    $profissional->getGenero(), 
-    $profissional->getCep(), 
-    $profissional->getUf(), 
-    $profissional->getCidade(), 
-    $profissional->getLogradouro(), 
-    $profissional->getNumero(), 
-    $profissional->getComplemento(), 
-    $profissional->getEmail(), 
-    $profissional->getSenha(), 
-    $profissional->getNumCelular(), 
-    $profissional->getDataRegistro());
+$id= $profissional->inserirProfissional(
+        $profissional->getNome(), 
+        $profissional->getCpf(), 
+        $profissional->getDtNacs(), 
+        $profissional->getGenero(), 
+        $profissional->getCep(), 
+        $profissional->getUf(), 
+        $profissional->getCidade(), 
+        $profissional->getLogradouro(), 
+        $profissional->getNumero(), 
+        $profissional->getComplemento(), 
+        $profissional->getEmail(), 
+        $profissional->getSenha(), 
+        $profissional->getNumCelular(), 
+        $profissional->getDataRegistro()
+    );
 
+$cursos = addslashes($_POST['cursos']);
+$cargos = addslashes($_POST['cargos']);
 
-// $cursos = addslashes($_POST['cursos']);
-// $cargos = addslashes($_POST['cargos']);
+$cursos = explode(';', $cursos);
+$cargos = explode(';', $cargos);
 
-// $cursos = explode(';', $cursos);
-// $cargos = explode(';', $cargos);
-
-
-// foreach ($cursos as $value) {
-//     // TODO usar procedure para adicionar ao banco de dados
-//     $value = explode(',', $value);
-//     $profissional->cadastrarDadoAcademico(
-//         'ensino?',
-//         $value[0],
-//         $value[1],
-//         40,
-//         $profissional->getId
-//     );
+// for($i=0; $i<=(count($cursos)-1); $i++){
+//     $itens = explode(',', $cursos[$i]);
     
+//     $dado_academico = new DadoAcademico('ensino', $itens[0], $itens[1], $itens[2], $id);
+
+//     $dado_academico->cadastrarDadoAcademico(
+//         $dado_academico->getEnsino(),
+//         $dado_academico->getNivel(),
+//         $dado_academico->getCurso(),
+//         $dado_academico->getCargaHoraria(),
+//         $dado_academico->getIdAutonomo()
+//     );
 // }
 
-// foreach ($cargos as &$value) {
-//     // TODO usar procedure para adicionar ao banco de dados
-//     echo ($value . "<br>");
+// for($i=0; $i<=(count($cargos)-1); $i++){
+//     $itens = explode(',', $cargos[$i]);
+    
+//     $dado_academico = new Cargo($itens[0], $itens[1], $id);
+
+//     $dado_academico->cadastrarDadoAcademico(
+//         $dado_academico->getEnsino(),
+//         $dado_academico->getNivel(),
+//         $dado_academico->getIdAutonomo()
+//     );
 // }
-
-
