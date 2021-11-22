@@ -47,7 +47,7 @@ $cargos = addslashes($_POST['cargos']);
 $cursos = explode(';', $cursos);
 $cargos = explode(';', $cargos);
 
-for($i=0; $i<=(count($cargos)-1); $i++){
+for($i=0; $i<(count($cargos)-1); $i++){
     $itens = explode(',', $cargos[$i]);
     
     $dado_academico = new Cargo($itens[0], $itens[1], $id);
@@ -59,7 +59,7 @@ for($i=0; $i<=(count($cargos)-1); $i++){
     );
 }
 
-for($i=0; $i<=(count($cursos)-1); $i++){
+for($i=0; $i<(count($cursos)-1); $i++){
     $itens = explode(',', $cursos[$i]);
     
     $dado_academico = new DadoAcademico('ensino', $itens[0], $itens[1], $itens[2], $id);
