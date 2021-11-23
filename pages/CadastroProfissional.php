@@ -12,6 +12,18 @@
     <link href="../css/style_cadpro.css" rel="stylesheet" type="text/css">
     <title>FreeLando | Cadastro do profissional</title>
     <link rel="shortcut icon" href="../medias/img/Group.svg" type="image/x-icon">
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../scripts/jquery.mask.js"></script>
+
+    <script>
+        $(document).ready(function(){
+        $("#cpf").mask("999.999.999-99", {placeholder: "___.___.___-__"});
+        $('#celular').mask('(00)00000-0000');
+        $('#cep').mask('00000-000');
+    })
+    </script>
+    
 
 </head>
 <script>

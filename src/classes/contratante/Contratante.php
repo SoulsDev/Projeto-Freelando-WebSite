@@ -72,7 +72,7 @@ class Contratante{
 
         try{
             include('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
-            $consultar = $con->prepare("SELECT * FROM contratante WHERE c_email_contratante = ? ");
+            $consultar = $con->prepare("SELECT * FROM contratantes WHERE c_email = ? ");
             $consultar->bindValue(1, $email);
             $consultar->execute();
             $row = $consultar->rowCount();
