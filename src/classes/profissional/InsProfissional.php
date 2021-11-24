@@ -22,6 +22,12 @@ $complemento = addslashes($_POST['complemento']);
 $cpf = str_replace(".", "", $cpf);
 $cpf = str_replace("-", "", $cpf);
 
+$cep = str_replace("-", "", $cep);
+
+$numCelular = str_replace("-", "", $numCelular);
+$numCelular = str_replace("(", "", $numCelular);
+$numCelular = str_replace(")", "", $numCelular);
+
 $profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha, $numCelular);
 
 $id= $profissional->inserirProfissional(
