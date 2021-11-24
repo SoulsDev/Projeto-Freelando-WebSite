@@ -9,7 +9,6 @@
 ////////////////////////////////////
 */
 
-
 CREATE DATABASE freelando;
 USE freelando;
 
@@ -57,7 +56,6 @@ CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
 	SELECT * FROM autonomos WHERE c_cpf = cpf;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
-
 DROP TABLE IF EXISTS telefones_autonomo;
 CREATE TABLE telefones_autonomo(
 	n_id iNT AUTO_INCREMENT,
@@ -69,6 +67,7 @@ CREATE TABLE telefones_autonomo(
 CREATE PROCEDURE CADASTRAR_TELEFONE_AUTONOMO (telefone VARCHAR(17), id_autonomo INT)
 	INSERT INTO telefones_autonomo VALUES (default, telefone, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
+
 
 DROP TABLE IF EXISTS dados_academicos;
 CREATE TABLE dados_academicos(
@@ -120,11 +119,39 @@ CREATE TABLE dados_profissionais(
     n_experiencia INT NOT NULL,
     n_id_autonomo INT NOT NULL,
     PRIMARY KEY (n_id),
-    FOREIGN KEY (n_id_profissao) REFERENCES profissoes (n_id)
+    FOREIGN KEY (n_id_profissao) REFERENCES profissoes (n_id),
+    FOREIGN KEY (n_id_autonomo) REFERENCES autonomos (n_id)
 );
 
 CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (profissao INT, nivel_experiencia INT, id_autonomo INT)
 INSERT INTO dados_profissionais VALUES (default, profissao, nivel_experiencia, id_autonomo);
+/*/////////////////////////////////////////////////////////////////////////////////////////////*/
+
+DROP TABLE IF EXISTS fotos_profissional;
+CREATE TABLE fotos_profissional(
+	n_id INT AUTO_INCREMENT,
+    c_caminho INT NOT NULL,
+    n_id_autonomo INT NOT NULL,
+    PRIMARY KEY (n_id),
+    FOREIGN KEY (n_id_autonomo) REFERENCES autonomos (n_id)
+);
+
+CREATE PROCEDURE CADASTRAR_FOTO_PROFISSIONAL (caminho VARCHAR(50),  id_autonomo INT)
+INSERT INTO fotos VALUES (default, caminho, id_autonomo);
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////*/
+
+DROP TABLE IF EXISTS videos_profissional;
+CREATE TABLE videos_profissional(
+	n_id INT AUTO_INCREMENT,
+    c_caminho INT NOT NULL,
+    n_id_autonomo INT NOT NULL,
+    PRIMARY KEY (n_id),
+    FOREIGN KEY (n_id_autonomo) REFERENCES autonomos (n_id)
+);
+
+	CREATE PROCEDURE CADASTRAR_VIDEO_PROFISSIONAL (caminho VARCHAR(50),  id_autonomo INT)
+	INSERT INTO videos_profissional VALUES (default, caminho, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
 INSERT INTO areas VALUES (default, 'Administração e Contabilidade'),
@@ -261,8 +288,7 @@ INSERT INTO profissoes VALUES (default, 'Banco de Dados', 12),
                               (default, 'Teste de Software', 12),
                               (default, 'UX/UI e Web Design', 12);
                               
-                              
-SELECT * FROM profissoes;
+                            
                               
 
                               
