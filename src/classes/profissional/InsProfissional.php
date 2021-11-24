@@ -3,6 +3,7 @@
 include_once 'Profissional.php';
 include_once '../dado_academico/DadoAcademico.php';
 include_once '../cargo/Cargo.php';
+include_once '../contato_autonomo/ContatoAutonomo.php';
 include_once 'mensagemErro.php';
 
 $nome = addslashes($_POST['nome']);
@@ -28,7 +29,7 @@ $numCelular = str_replace("-", "", $numCelular);
 $numCelular = str_replace("(", "", $numCelular);
 $numCelular = str_replace(")", "", $numCelular);
 
-$profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha, $numCelular);
+$profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha);
 
 $id= $profissional->inserirProfissional(
         $profissional->getNome(), 
@@ -42,10 +43,16 @@ $id= $profissional->inserirProfissional(
         $profissional->getNumero(), 
         $profissional->getComplemento(), 
         $profissional->getEmail(), 
-        $profissional->getSenha(), 
-        $profissional->getNumCelular(), 
+        $profissional->getSenha(),
         $profissional->getDataRegistro()
     );
+
+$contato_autonomo = new ContatoAutonomo($numCelular, $id);
+
+$contato_autonomo->cadastrarContatoAutonomo(
+    $contato_autonomo->getTelefone(),
+    $contato_autonomo->getIdAutonomo(),
+);
 
 $cursos = addslashes($_POST['cursos']);
 $cargos = addslashes($_POST['cargos']);
@@ -53,22 +60,29 @@ $cargos = addslashes($_POST['cargos']);
 $cursos = explode(';', $cursos);
 $cargos = explode(';', $cargos);
 
+$experiencia_profissional = new Cargo(0, 0, $id);
+
 for($i=0; $i<(count($cargos)-1); $i++){
     $itens = explode(',', $cargos[$i]);
     
-    $dado_academico = new Cargo($itens[0], $itens[1], $id);
+    $experiencia_profissional->setProfissao($itens[0]);
+    $experiencia_profissional->setExperiencia($itens[1]);
 
-    $dado_academico->cadastrarCargo(
-        $dado_academico->getProfissao(),
-        $dado_academico->getExperiencia(),
-        $dado_academico->getIdAutonomo()
+    $experiencia_profissional->cadastrarCargo(
+        $experiencia_profissional->getProfissao(),
+        $experiencia_profissional->getExperiencia(),
+        $experiencia_profissional->getIdAutonomo()
     );
 }
 
+$dado_academico = new DadoAcademico('ensino', 'inicial', 'inicial', 0, $id);
+
 for($i=0; $i<(count($cursos)-1); $i++){
     $itens = explode(',', $cursos[$i]);
-    
-    $dado_academico = new DadoAcademico('ensino', $itens[0], $itens[1], $itens[2], $id);
+
+    $dado_academico->setNivel($itens[0]);
+    $dado_academico->setCurso($itens[1]);
+    $dado_academico->setCargaHoraria($itens[2]);
 
     $dado_academico->cadastrarDadoAcademico(
         $dado_academico->getEnsino(),
@@ -78,5 +92,6 @@ for($i=0; $i<(count($cursos)-1); $i++){
         $dado_academico->getIdAutonomo()
     );
 }
+
 
 

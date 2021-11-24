@@ -16,7 +16,7 @@ class Profissional{
     private string $numero;
     private string $complemento;
     
-    public function __construct(string $nome, string $cpf, string $dtNasc, string $genero, string $cep, string $uf, string $cidade, string $logradouro, string $numero, string $complemento, string $email, string $senha, string $numCelular){
+    public function __construct(string $nome, string $cpf, string $dtNasc, string $genero, string $cep, string $uf, string $cidade, string $logradouro, string $numero, string $complemento, string $email, string $senha){
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->dtNasc = $dtNasc;
@@ -29,7 +29,6 @@ class Profissional{
         $this->complemento = $complemento;
         $this->email = $email;
         $this->senha = $senha;
-        $this->numCelular = $numCelular;
         $this->dtRegistro =  date("Y-m-d H:i:s");
     } 
 
@@ -73,13 +72,6 @@ class Profissional{
     }
     public function setCep(string $cep) : void{
         $this->cep = $cep; 
-    }
-
-    public function getNumCelular() : string{
-        return  $this->numCelular;
-    }
-    public function setNumCelular(string $numCelular) : void{
-        $this->numCelular = $numCelular; 
     }
 
     public function getDtNacs() : string{
@@ -152,7 +144,6 @@ class Profissional{
         string $complemento, 
         string $email, 
         string $senha, 
-        string $numCelular, 
         String $dtRegistro) : int{
 
         if($genero == 'Masculino'){

@@ -156,8 +156,8 @@ function fixStepIndicator(n) {
 }
 
 function addCargo(){
-    b = document.getElementById('profissao');
-    c = document.getElementById('nivel_experiencia');
+    profissao = document.getElementById('profissao');
+    tempo_atuacao = document.getElementById('nivel_experiencia');
 
     lista = document.getElementById('cargo_ul');
 
@@ -165,7 +165,7 @@ function addCargo(){
 
     link = document.createElement('a');
     link.setAttribute('name', 'cargo');
-    link.innerHTML = b.options[b.selectedIndex].text;
+    link.innerHTML = profissao.options[profissao.selectedIndex].text;
 
     item = document.createElement('li');
     item.setAttribute('id', 'item_'+indice);
@@ -174,15 +174,15 @@ function addCargo(){
     
     lista.appendChild(item);
 
-    document.getElementById("lista-cargos").value= document.getElementById("lista-cargos").value + b.value + "," + c.value +";";
+    document.getElementById("lista-cargos").value= document.getElementById("lista-cargos").value + profissao.value + "," + tempo_atuacao.value +";";
 }
 
 
 
 function addCurso(){
-    a = document.getElementById('nivel_curso');
-    b = document.getElementById('curso');
-    c = document.getElementById('cargahoraria_curso');
+    nivel_curso = document.getElementById('nivel_curso');
+    nome_curso = document.getElementById('curso_extra');
+    duracao = document.getElementById('cargahoraria_curso');
 
     lista = document.getElementById('curso_ul');
 
@@ -190,7 +190,7 @@ function addCurso(){
 
     link = document.createElement('a');
     link.setAttribute('name', 'curso_'+indice);
-    link.innerHTML = b.value;
+    link.innerHTML = nome_curso.value;
 
     item = document.createElement('li');
     item.setAttribute('id', 'curso_'+indice);
@@ -198,7 +198,7 @@ function addCurso(){
 
     
     lista.appendChild(item);
-    document.getElementById("lista-cursos").value= document.getElementById("lista-cursos").value + a.value + ","+ b.value + "," + c.value +";";
+    document.getElementById("lista-cursos").value= document.getElementById("lista-cursos").value + nivel_curso.value + ","+ nome_curso.value + "," + duracao.value +";";
 }
 
 function listarProfissoes(area_id){

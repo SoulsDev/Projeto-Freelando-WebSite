@@ -189,7 +189,7 @@
 
                             <labe for="cpf">CPF<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="text" name="cpf" id="cpf" maxlength="14" onblur="checkCPF(this.value)">
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback" id="error_message_cpf_div">
                                 Preencha com seu CPF
                             </div>
 
@@ -534,7 +534,7 @@
 
                             <labe for="curso">Curso<span style="color: rgb(145, 145, 145)">*</span></labe>
 
-                            <input name="curso_graducao" id="curso_graducao" list="dtlist-curso_graducao" Placeholder="Insira o Curso">
+                            <input name="curso_extra" id="curso_extra" list="curso" Placeholder="Insira o Curso">
                             <div class="invalid-feedback">
                                 Preencha este campo
                             </div>
