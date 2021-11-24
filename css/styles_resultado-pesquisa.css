@@ -99,6 +99,7 @@ p {
 
 .categoria {
     border-radius: 5px;
+    box-shadow: 1px 1px 7px rgb(199, 199, 199);
     box-sizing: none !important;
     display: flex !important;
     flex-direction: column !important;
