@@ -103,7 +103,7 @@
 
         <div class="margem" id="topo"> </div>
 
-        <form id="regForm" method="POST" action="../src/classes/profissional/InsProfissional.php">
+        <form id="regForm" method="POST" action="../src/classes/profissional/InsProfissional.php" enctype="multipart/form-data">
 
 
             <div class="barra-line">
@@ -616,12 +616,14 @@
                                     <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
                                 </li>
 
+
                             </ul>
 
                         </div>
 
                         <div class="selecionar-arquivo">
-                            <img onclick="" name="btnarquivo-add" id="btnarquivo-add" src="../medias/img/btn-add2.svg" style="cursor: pointer; margin-bottom: 3px;" alt="Carregar Arquivos">
+                            <img onclick="document.getElementById('files').click()" name="btnarquivo-add" id="btnarquivo-add" src="../medias/img/btn-add2.svg" style="cursor: pointer; margin-bottom: 3px;" alt="Carregar Arquivos">
+                            <input type="file" name="files[]" style="display:none;" id="files" multiple>
                             <p>Carregue seus arquivos.</p>
                             <p>pressionando o botão ou.</p>
                             <p>solte-os aqui.</p>

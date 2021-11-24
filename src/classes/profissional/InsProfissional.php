@@ -29,69 +29,78 @@ $numCelular = str_replace("-", "", $numCelular);
 $numCelular = str_replace("(", "", $numCelular);
 $numCelular = str_replace(")", "", $numCelular);
 
-$profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha);
+// $profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha);
 
-$id= $profissional->inserirProfissional(
-        $profissional->getNome(), 
-        $profissional->getCpf(), 
-        $profissional->getDtNacs(), 
-        $profissional->getGenero(), 
-        $profissional->getCep(), 
-        $profissional->getUf(), 
-        $profissional->getCidade(), 
-        $profissional->getLogradouro(), 
-        $profissional->getNumero(), 
-        $profissional->getComplemento(), 
-        $profissional->getEmail(), 
-        $profissional->getSenha(),
-        $profissional->getDataRegistro()
-    );
+// $id= $profissional->inserirProfissional(
+//         $profissional->getNome(), 
+//         $profissional->getCpf(), 
+//         $profissional->getDtNacs(), 
+//         $profissional->getGenero(), 
+//         $profissional->getCep(), 
+//         $profissional->getUf(), 
+//         $profissional->getCidade(), 
+//         $profissional->getLogradouro(), 
+//         $profissional->getNumero(), 
+//         $profissional->getComplemento(), 
+//         $profissional->getEmail(), 
+//         $profissional->getSenha(),
+//         $profissional->getDataRegistro()
+//     );
 
-$contato_autonomo = new ContatoAutonomo($numCelular, $id);
 
-$contato_autonomo->cadastrarContatoAutonomo(
-    $contato_autonomo->getTelefone(),
-    $contato_autonomo->getIdAutonomo(),
-);
 
-$cursos = addslashes($_POST['cursos']);
-$cargos = addslashes($_POST['cargos']);
 
-$cursos = explode(';', $cursos);
-$cargos = explode(';', $cargos);
+foreach($_FILES['files']['name'] as $id=>$val){
+    echo $_FILES['files']['name'][$id];
 
-$experiencia_profissional = new Cargo(0, 0, $id);
+}
 
-for($i=0; $i<(count($cargos)-1); $i++){
-    $itens = explode(',', $cargos[$i]);
+
+// $contato_autonomo = new ContatoAutonomo($numCelular, $id);
+
+// $contato_autonomo->cadastrarContatoAutonomo(
+//     $contato_autonomo->getTelefone(),
+//     $contato_autonomo->getIdAutonomo(),
+// );
+
+// $cursos = addslashes($_POST['cursos']);
+// $cargos = addslashes($_POST['cargos']);
+
+// $cursos = explode(';', $cursos);
+// $cargos = explode(';', $cargos);
+
+// $experiencia_profissional = new Cargo(0, 0, $id);
+
+// for($i=0; $i<(count($cargos)-1); $i++){
+//     $itens = explode(',', $cargos[$i]);
     
-    $experiencia_profissional->setProfissao($itens[0]);
-    $experiencia_profissional->setExperiencia($itens[1]);
+//     $experiencia_profissional->setProfissao($itens[0]);
+//     $experiencia_profissional->setExperiencia($itens[1]);
 
-    $experiencia_profissional->cadastrarCargo(
-        $experiencia_profissional->getProfissao(),
-        $experiencia_profissional->getExperiencia(),
-        $experiencia_profissional->getIdAutonomo()
-    );
-}
+//     $experiencia_profissional->cadastrarCargo(
+//         $experiencia_profissional->getProfissao(),
+//         $experiencia_profissional->getExperiencia(),
+//         $experiencia_profissional->getIdAutonomo()
+//     );
+// }
 
-$dado_academico = new DadoAcademico('ensino', 'inicial', 'inicial', 0, $id);
+// $dado_academico = new DadoAcademico('ensino', 'inicial', 'inicial', 0, $id);
 
-for($i=0; $i<(count($cursos)-1); $i++){
-    $itens = explode(',', $cursos[$i]);
+// for($i=0; $i<(count($cursos)-1); $i++){
+//     $itens = explode(',', $cursos[$i]);
 
-    $dado_academico->setNivel($itens[0]);
-    $dado_academico->setCurso($itens[1]);
-    $dado_academico->setCargaHoraria($itens[2]);
+//     $dado_academico->setNivel($itens[0]);
+//     $dado_academico->setCurso($itens[1]);
+//     $dado_academico->setCargaHoraria($itens[2]);
 
-    $dado_academico->cadastrarDadoAcademico(
-        $dado_academico->getEnsino(),
-        $dado_academico->getNivel(),
-        $dado_academico->getCurso(),
-        $dado_academico->getCargaHoraria(),
-        $dado_academico->getIdAutonomo()
-    );
-}
+//     $dado_academico->cadastrarDadoAcademico(
+//         $dado_academico->getEnsino(),
+//         $dado_academico->getNivel(),
+//         $dado_academico->getCurso(),
+//         $dado_academico->getCargaHoraria(),
+//         $dado_academico->getIdAutonomo()
+//     );
+// }
 
 
 

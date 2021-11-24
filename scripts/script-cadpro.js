@@ -11,23 +11,6 @@ var today = new Date();
 
 birth_input.setAttribute('max', (today.getFullYear() - 18) + '-' + (today.getMonth() + 1) + '-' + today.getDate());
 
-// Validação e mascara para input CPF
-// cpf_input.addEventListener('keydown', function(event) {
-//     // Verifica se o que foi digitado não é um numero ou não é digito delete ou backspace
-//     if (isNaN(event.key) && (event.keyCode !== 8 && event.keyCode !== 46)) {
-//         // O caractere digitado não é adicionado ao input
-//         event.preventDefault()
-//     }
-//     // A mascara só deve ser usada quando a tecla não for a tecla delete ou backspace
-//     // Caso contrario fica num loop eterno
-//     if (event.keyCode !== 8 && event.keyCode !== 46) {
-//         if (cpf_input.value.length === 3 || cpf_input.value.length === 7) {
-//             cpf_input.value = cpf_input.value + '.'
-//         }
-//         if (cpf_input.value.length === 11) cpf_input.value = cpf_input.value + '-'
-//     }
-// })
-
 
 function showTab(n) {
     // Esta função irá exibir a guia especificada do formulário ...
@@ -68,9 +51,9 @@ function nextPrev(n) {
     // Esta função descobrirá qual guia exibir
     var x = document.getElementsByClassName("tab");
     // Saia da função se algum campo da guia atual for inválido:
-    if (n == 1 && !validateForm()) {
-        return false;
-    }
+    // if (n == 1 && !validateForm()) {
+    //     return false;
+    // }
     // Ocultar a guia atual:
     x[currentTab].style.display = "none";
     x[currentTab].classList.remove("block");
