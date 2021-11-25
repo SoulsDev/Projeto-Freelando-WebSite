@@ -141,14 +141,15 @@ img {
 }
 
 .received_withd_msg {
-    width: 57%;
+    width: 90%;
 }
 
 .mesgs {
+    border-radius: 0px 10px 10px 0px;
     float: left;
     padding: 30px 15px 0 25px;
     width: 30%;
-    height: 100%;
+    /* border-left: 4px solid #CECED0; */
 }
 
 .sent_msg p {
@@ -204,6 +205,423 @@ img {
 }
 
 .msg_history {
-    height: 516px;
+    height: 90%;
     overflow-y: auto;
+}
+
+.postagem {
+    display: flex;
+    padding: 0px;
+    width: auto;
+    height: auto;
+    justify-content: center;
+}
+
+.offset-lg-1 {
+    margin: 0px !important;
+}
+
+
+/*
+*
+* ===========================================================
+*     HERO SECTION
+* ===========================================================
+*
+*/
+
+body {
+    background-color: #F7F7F9;
+}
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+    margin: 0;
+}
+
+.row {
+    padding-right: 0px !important;
+    --bs-gutter-x: 0rem !important;
+}
+
+.hero {
+    padding: 6.25rem 0px !important;
+    margin: 0px !important;
+}
+
+.cardbox {
+    padding: 0px !important;
+}
+
+
+/* ------------------------------- */
+
+.categoria {
+    border-radius: 5px;
+    box-sizing: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start;
+    justify-content: start;
+    margin-bottom: 20px;
+}
+
+.categoria-top {
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #ff6d3c;
+    border-radius: 5px 5px 0px 0px;
+    padding: 2px 0px 5px 15px;
+}
+
+.categoria ul {
+    padding: 2px 0px 5px 15px;
+}
+
+
+/* Cardbox Heading
+  ---------------------------------- */
+
+.cardbox .cardbox-heading {
+    padding: 10px 0px 10px 10px;
+    margin: 0;
+}
+
+.cardbox .btn-flat.btn-flat-icon {
+    border-radius: 50%;
+    font-size: 24px;
+    height: 32px;
+    width: 32px;
+    padding: 0;
+    overflow: hidden;
+    color: #fff !important;
+    background: #b5b6b6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cardbox .float-right .dropdown-menu {
+    position: relative;
+    left: 13px !important;
+}
+
+.cardbox .float-right a:hover {
+    background: #f4f4f4 !important;
+}
+
+.cardbox .float-right a.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 4px 0px 4px 10px;
+    clear: both;
+    font-weight: 400;
+    font-family: 'Abhaya Libre', serif;
+    font-size: 14px !important;
+    color: #848484;
+    text-align: inherit;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
+}
+
+
+/* ------------------------------- */
+
+
+/* Media Section
+  ---------------------------------- */
+
+.media {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.d-flex {
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.media .mr-3 {
+    margin-right: 1rem !important;
+}
+
+.media img {
+    border: none !important;
+    width: 58px !important;
+    height: 58px !important;
+    padding: 2px;
+    border: 2px solid #f4f4f4;
+}
+
+.media .link {
+    border: none !important;
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid #f4f4f4;
+}
+
+.media-body {
+    -ms-flex: 1;
+    flex: 1;
+    padding: .4rem !important;
+}
+
+.media-body p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500 !important;
+    font-size: 15px;
+    color: #000000;
+}
+
+.media-body small span {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    color: #aaa;
+    margin-right: 10px;
+}
+
+
+/* ------------------------------- */
+
+
+/* Cardbox Item
+  ---------------------------------- */
+
+.cardbox .cardbox-item {
+    position: relative;
+    display: block;
+}
+
+.cardbox .cardbox-item img {}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.fw {
+    width: 100% !important;
+    height: auto;
+}
+
+
+/* ------------------------------- */
+
+
+/* Cardbox Base
+  ---------------------------------- */
+
+.cardbox-base {}
+
+.cardbox-base ul {
+    margin: 10px 0px 10px 15px!important;
+    padding: 10px !important;
+    font-size: 0px;
+    display: inline-block;
+}
+
+.cardbox-base li {
+    list-style: none;
+    margin: 0px 5px 0px 0px !important;
+    padding: 0px 0px 0px 0px !important;
+    display: inline-block;
+}
+
+.cardbox-base li a {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.cardbox-base li a i {
+    position: relative;
+    top: 4px;
+    font-size: 16px;
+    color: #8d8d8d;
+    margin-right: 15px;
+}
+
+.cardbox-base li a span {
+    font-family: 'Rokkitt', serif;
+    font-size: 14px;
+    color: #8d8d8d;
+    margin-left: 20px;
+    position: relative;
+    top: 5px;
+}
+
+.cardbox-base li a em {
+    font-family: 'Rokkitt', serif;
+    font-size: 14px;
+    color: #8d8d8d;
+    position: relative;
+    top: 3px;
+}
+
+.cardbox-base li a img {
+    width: 30px;
+    height: 30px;
+    margin: 0px !important;
+    border: 2px solid #fff;
+}
+
+
+/* ------------------------------- */
+
+
+/* Cardbox Comments
+  ---------------------------------- */
+
+.cardbox-comments {
+    padding: 10px 40px 20px 40px !important;
+    font-size: 0px;
+    text-align: center;
+    display: inline-block;
+}
+
+.cardbox-comments .comment-avatar img {
+    margin-top: 1px;
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+}
+
+.cardbox-comments .comment-body {
+    overflow: auto;
+}
+
+.search {
+    position: relative;
+    right: -60px;
+    top: -40px;
+    margin-bottom: -40px;
+    border: 2px solid #f4f4f4;
+    width: 100%;
+    overflow: hidden;
+}
+
+.search input[type="text"] {
+    background-color: #fff;
+    line-height: 10px;
+    padding: 15px 60px 20px 10px;
+    border: none;
+    border-radius: 4px;
+    width: 350px;
+    font-family: 'Rokkitt', serif;
+    font-size: 14px;
+    color: #8d8d8d;
+    height: inherit;
+    font-weight: 700;
+}
+
+.search button {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    border: none;
+    background-color: transparent;
+    color: #bbbbbb;
+    padding: 15px 25px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.search button i {
+    font-size: 20px;
+    line-height: 30px;
+    display: block;
+}
+
+
+/* ------------------------------- */
+
+
+/* SCROLLBAR CUSTOMIZADO*/
+
+
+/* width */
+
+ ::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #ff6d3c;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+.hover13 figure:hover img {
+    opacity: 1;
+    -webkit-animation: flash 1.5s;
+    animation: flash 1.5s;
+}
+
+@-webkit-keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.publicacao {
+    border-radius: 10px 0px 0px 10px;
+}
+
+
+/* Author
+  ---------------------------------- */
+
+@media ( max-width:991px) {
+    .categoria {
+        order: 0;
+    }
+    .publicacao {
+        order: 1;
+    }
 }
