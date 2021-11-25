@@ -203,13 +203,42 @@ img {
 }
 
 .msg_send_btn {
-    color: #fff;
+    background: none;
+    border: none;
     cursor: pointer;
-    height: 25px;
+    height: 3px;
     position: absolute;
-    right: 0;
-    top: 11px;
-    width: 25px;
+    right: 10px;
+    top: 8px;
+    width: 33px;
+}
+
+
+/* ícone da mãozinha */
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    width: 2.200rem;
+    height: 2.200rem;
+    line-height: 2.375rem;
+    text-align: center;
+    cursor: pointer;
+    color: #aaa;
+    margin-top: 7px;
+    margin-left: 0;
+    padding-left: 5px;
+}
+
+.enviar-botao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 3px;
+    position: absolute;
+    width: 50px;
+    margin-top: 10px;
 }
 
 .messaging {
