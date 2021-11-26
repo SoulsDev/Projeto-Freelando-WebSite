@@ -29,31 +29,26 @@ $numCelular = str_replace("-", "", $numCelular);
 $numCelular = str_replace("(", "", $numCelular);
 $numCelular = str_replace(")", "", $numCelular);
 
-// $profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha);
+$senha = hash('sha256', $senha);
 
-// $id= $profissional->inserirProfissional(
-//         $profissional->getNome(), 
-//         $profissional->getCpf(), 
-//         $profissional->getDtNacs(), 
-//         $profissional->getGenero(), 
-//         $profissional->getCep(), 
-//         $profissional->getUf(), 
-//         $profissional->getCidade(), 
-//         $profissional->getLogradouro(), 
-//         $profissional->getNumero(), 
-//         $profissional->getComplemento(), 
-//         $profissional->getEmail(), 
-//         $profissional->getSenha(),
-//         $profissional->getDataRegistro()
-//     );
+$profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha);
 
+$id= $profissional->inserirProfissional(
+        $profissional->getNome(), 
+        $profissional->getCpf(), 
+        $profissional->getDtNacs(), 
+        $profissional->getGenero(), 
+        $profissional->getCep(), 
+        $profissional->getUf(), 
+        $profissional->getCidade(), 
+        $profissional->getLogradouro(), 
+        $profissional->getNumero(), 
+        $profissional->getComplemento(), 
+        $profissional->getEmail(), 
+        $profissional->getSenha(),
+        $profissional->getDataRegistro()
+    );
 
-
-
-foreach($_FILES['files']['name'] as $id=>$val){
-    echo $_FILES['files']['name'][$id];
-
-}
 
 
 // $contato_autonomo = new ContatoAutonomo($numCelular, $id);
