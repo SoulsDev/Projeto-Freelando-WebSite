@@ -7,8 +7,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
     <meta charset="utf-8">
-    <link href="../css/style_cadpro.css" rel="stylesheet" type="text/css">
+    
     <title>FreeLando | Cadastro do profissional</title>
     <link rel="shortcut icon" href="../medias/img/Group.svg" type="image/x-icon">
     <!-- Jquery -->
@@ -23,6 +24,7 @@
     })
     </script>
 
+    <link href="../css/style_cadpro.css" rel="stylesheet" type="text/css">
 </head>
 <script>
     function checkEmail(){
