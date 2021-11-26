@@ -249,7 +249,7 @@ class Profissional{
 
     public static function listar(string $email, string $senha){
         include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
-        $consulta = $con->prepare("CALL LISTAR_AUONOMOS(?, ?)");
+        $consulta = $con->prepare("CALL LISTAR_AUTONOMO(?, ?)");
         $consulta->bindValue(1, $email);
         $consulta->bindValue(2, $senha);
         $consulta->execute();

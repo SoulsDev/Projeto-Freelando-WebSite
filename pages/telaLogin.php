@@ -90,12 +90,12 @@
                                 }
                             ?>
                             </div>
-                            <form method="POST" class="my-login-validation" novalidate="" action="verifica_login.php">
+                            <form method="POST" class="my-login-validation" novalidate="" action="verifica_login.php" id="form_login">
                                 <div class="form-group">
 
                                     <input id="email" type="email" class="form-control inputEmail" placeholder="EMAIL" name="email" value="" required autofocus>
                                     <div class="invalid-feedback">
-                                        Email is invalid
+                                        O e-mail deve conter ao menos um "@" e um ".".
                                     </div>
                                 </div>
 
@@ -105,7 +105,7 @@
                                     </label>
                                     <input id="password" type="password" class="form-control inputSenha" placeholder="SENHA" name="password" required data-eye>
                                     <div class="invalid-feedback">
-                                        Password is required
+                                        Preencha com sua senha
                                     </div>
 
                                     <div class="mt-2 align-self-start">
@@ -118,7 +118,7 @@
 
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block botaoEntrar">
+                                    <button type="submit" class="btn btn-primary btn-block botaoEntrar" id="login_btn">
 										ENTRAR
 									</button>
                                 </div>
@@ -160,6 +160,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="../scripts/scripts.js"></script>
+    <script src="../scripts/login_fields_validation.js"></script>
 
 </body>
 

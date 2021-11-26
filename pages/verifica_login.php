@@ -1,39 +1,39 @@
 <?php
     // Verifica se as variaveis do post estão preenchidas
-    if(isset($_POST['email']) && isset($_POST['password'])){
-        include ('../src/classes/profissional/Profissional.php');
-        include ('../src/classes/contratante/Contratante.php');
+    include ('../src/classes/profissional/Profissional.php');
+    include ('../src/classes/contratante/Contratante.php');
 
-        $email = $_POST['email'];
-        $senha = hash('sha256', $_POST['password']);
+    $email = $_POST['email'];
+    $senha = hash('sha256', $_POST['password']);
+    // Realiza o primeiro teste de login enviando o email, senha e tabela a ser pesquisada
+
+    $acesso = Profissional::login($email, $senha);
+    session_start();
+
+    // caso não haja resultado na primera busca ele segue para a segunda
+    if(!$acesso){
         // Realiza o primeiro teste de login enviando o email, senha e tabela a ser pesquisada
-
-        $acesso = Profissional::login($email, $senha);
-        session_start();
-
-        // caso não haja resultado na primera busca ele segue para a segunda
+        $acesso = Contratante::login($email, $senha);
         if(!$acesso){
-            // Realiza o primeiro teste de login enviando o email, senha e tabela a ser pesquisada
-            $acesso = Contratante::login($email, $senha);
-            if(!$acesso){
-                $_SESSION['erro'] = 'E-mail ou senha incorretos';
-                header('Location: telaLogin.php');
-                exit;
-            }
-            // TODO verificar se aq iremos pegar todos os dados do usuário
-            //$_SESSION['tipo'] = 'contratante';
-            header('Location: integrador_para_back/test_login.php');
+            $_SESSION['erro'] = 'E-mail ou senha incorretos';
+            header('Location: telaLogin.php');
             exit;
         }
         // TODO verificar se aq iremos pegar todos os dados do usuário
-        //$_SESSION['tipo'] = 'autonomo';
-        header('Location: integrador_para_back/test_login.php');
-    }else{
-        
-        $_SESSION['erro'] = 'Informe seu e-mail e senha';
-        header('Location: telaLogin.php');
+        $dados = Contratante::listar($email, $senha);
+        while($row = $dados->fetch(PDO::FETCH_BOTH)) {
+            var_dump($row);
+        }
+        //$_SESSION['tipo'] = 'contratante';
+        //header('Location: integrador_para_back/test_login.php');
+        exit;
     }
-        
-    
+    // TODO verificar se aq iremos pegar todos os dados do usuário
+    //$_SESSION['tipo'] = 'autonomo';
+    $dados = Profissional::listar($email, $senha);
+        while($row = $dados->fetch(PDO::FETCH_BOTH)) {
+            var_dump($row);
+        }
+    //header('Location: integrador_para_back/test_login.php');
 ?>
 
