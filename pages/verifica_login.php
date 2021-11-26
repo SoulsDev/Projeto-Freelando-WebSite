@@ -1,21 +1,39 @@
 <?php
-    include ('../src/classes/login.php');
+    // Verifica se as variaveis do post estão preenchidas
+    if(isset($_POST['email']) && isset($_POST['password'])){
+        include ('../src/classes/profissional/Profissional.php');
+        include ('../src/classes/contratante/Contratante.php');
 
-    $email = $_POST['email'];
-    $senha = $_POST['password'];
-    $senha = hash('sha256', $senha);
+        $email = $_POST['email'];
+        $senha = hash('sha256', $_POST['password']);
+        // Realiza o primeiro teste de login enviando o email, senha e tabela a ser pesquisada
 
-    $acesso = consulta_login($email, $senha, 'autonomos');
+        $acesso = Profissional::login($email, $senha);
+        session_start();
 
-    if(!$acesso){
-        $acesso = consulta_login($email, $senha, 'contratantes');
-        echo "contratante";
+        // caso não haja resultado na primera busca ele segue para a segunda
         if(!$acesso){
-            // adicionar os erros na sessão?
-            echo "retornar pra pagina de login com erros";
-            header('Location: telaLogin.html');
+            // Realiza o primeiro teste de login enviando o email, senha e tabela a ser pesquisada
+            $acesso = Contratante::login($email, $senha);
+            if(!$acesso){
+                $_SESSION['erro'] = 'E-mail ou senha incorretos';
+                header('Location: telaLogin.php');
+                exit;
+            }
+            // TODO verificar se aq iremos pegar todos os dados do usuário
+            //$_SESSION['tipo'] = 'contratante';
+            header('Location: integrador_para_back/test_login.php');
+            exit;
         }
+        // TODO verificar se aq iremos pegar todos os dados do usuário
+        //$_SESSION['tipo'] = 'autonomo';
+        header('Location: integrador_para_back/test_login.php');
+    }else{
+        
+        $_SESSION['erro'] = 'Informe seu e-mail e senha';
+        header('Location: telaLogin.php');
     }
+        
     
 ?>
 

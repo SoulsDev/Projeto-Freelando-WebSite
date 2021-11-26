@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -79,10 +83,13 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
+                            <div style="display: flex; justify-content:center; color: red">
+                            <?php
+                                if(array_key_exists('erro', $_SESSION)){
+                                    echo $_SESSION['erro'];
+                                }
+                            ?>
+                            </div>
                             <form method="POST" class="my-login-validation" novalidate="" action="verifica_login.php">
                                 <div class="form-group">
 

@@ -12,7 +12,7 @@ $genero = addslashes($_POST['genero']);
 $dtNasc = addslashes($_POST['data_nascimento']);
 $email = addslashes($_POST['email']);
 $numCelular = addslashes($_POST['celular']);
-$senha = addslashes($_POST['senha']);
+$senha = addslashes(hash('sha256', $_POST['senha']));
 $cep = addslashes($_POST['cep']);
 $cidade = addslashes($_POST['cidade']);
 $uf = addslashes($_POST['uf']);
@@ -28,8 +28,6 @@ $cep = str_replace("-", "", $cep);
 $numCelular = str_replace("-", "", $numCelular);
 $numCelular = str_replace("(", "", $numCelular);
 $numCelular = str_replace(")", "", $numCelular);
-
-$senha = hash('sha256', $senha);
 
 $profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha);
 
@@ -97,5 +95,5 @@ $id= $profissional->inserirProfissional(
 //     );
 // }
 
-
+header('Location: ../../../pages/telaLogin.php');
 

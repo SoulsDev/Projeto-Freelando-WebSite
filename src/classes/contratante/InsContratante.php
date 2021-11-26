@@ -7,7 +7,7 @@ include_once 'mensagemErro.php';
 
 $nome = addslashes($_POST['name']); //addslaches impede SQLInjection;
 $email = addslashes($_POST['email']);
-$senha = addslashes(sha1($_POST['password'])); // Sha1 ta funcionando. // 256 que num vai // teria que ficar azul
+$senha = addslashes(hash('sha256', $_POST['password'])); // Sha1 ta funcionando. // 256 que num vai // teria que ficar azul
 
 $contratante = new Contratante($nome, $email, $senha);
 $consulta = $contratante-> consultaEmail($email); /// Aqui terminamo.
@@ -18,6 +18,7 @@ if($consulta){
 }
 else{
      $contratante->inserirContratante($contratante->getNome(), $contratante->getEmail(), $contratante->getSenha(), $contratante->getDataRegistro(), $contratante->getDataAlteracao());
+     header('Location: ../../../pages/telaLogin.php');
 }
 
 

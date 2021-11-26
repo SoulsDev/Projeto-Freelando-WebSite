@@ -231,5 +231,31 @@ class Profissional{
      }
     }
 
+    public static function login(string $email, string $senha){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        $consulta = $con->prepare("CALL LOGIN_AUTONOMO(?, ?)");
+        $consulta->bindValue(1, $email);
+        $consulta->bindValue(2, $senha);
+        $consulta->execute();
+
+        while($row = $consulta->fetch(PDO::FETCH_BOTH)) {
+            if ($row['count(n_id)'] ==0){
+                return false;
+            }else{
+                return true;
+            }
+        }
+    }
+
+    public static function listar(string $email, string $senha){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        $consulta = $con->prepare("CALL LISTAR_AUONOMOS(?, ?)");
+        $consulta->bindValue(1, $email);
+        $consulta->bindValue(2, $senha);
+        $consulta->execute();
+
+        return $consulta;
+    }
+
    
 } 
