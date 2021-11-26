@@ -241,6 +241,16 @@ img {
     margin-top: 10px;
 }
 
+.fechar-botao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 3px;
+    position: absolute;
+    width: 670px;
+    margin-top: 10px;
+}
+
 .messaging {
     padding: 0 0 50px 0;
 }
