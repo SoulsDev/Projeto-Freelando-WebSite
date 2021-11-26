@@ -1,0 +1,175 @@
+
+body {
+    background-color: #F7F7F9;
+    overflow-x:hidden;
+}
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
+    margin: 0;
+}
+
+.conteudo {
+    margin-left: 190px;
+}
+
+.marg-cat {
+   margin-left: 75px;
+}
+
+.card {
+    border-radius: 12px;
+    box-shadow: 1px 1px 7px rgb(199, 199, 199);
+}
+
+.icone-perfil {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userName {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.level {
+    font-size: 14px;
+    color: #5C01D2;
+    margin-left: 5px;
+}
+
+.icon-level {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.col-md-9 {
+    border-left: 1.5px solid #E2670E;
+}
+
+.card-title {
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.card-text {
+    font-size: 15px;
+}
+
+.icons-int {
+    margin: 20px 0px 0px 175px;
+}
+
+.seguir {
+    color: #fff;
+    font-size: 12px;
+    font-weight: lighter;
+    background-color: #0094FF;
+    padding: 6px;
+    border-radius: 8px;
+    margin-right: 7px;
+}
+
+.icon-chat1 {
+    margin-right: 7px;
+}
+
+
+.serv-1 {
+    color: #fff;
+    font-size: 12px;
+    font-weight: lighter;
+    background-color: #FF6633;
+    padding: 5px;
+    border-radius: 22px;
+}
+
+.serv-2 {
+    color: #fff;
+    font-size: 12px;
+    font-weight: lighter;
+    background-color: #5C01D2;
+    padding: 5px;
+    border-radius: 22px;
+}
+
+.loc {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.order {
+    margin-left: 80px;
+}
+
+.hero {
+    padding: 6.25rem 0px !important;
+    margin: 0px !important;
+}
+
+
+.categoria {
+    border-radius: 5px;
+    box-shadow: 1px 1px 7px rgb(199, 199, 199);
+    box-sizing: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start;
+    justify-content: start;
+    margin-bottom: 20px;
+}
+
+.categoria-top {
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #ff6d3c;
+    border-radius: 5px 5px 0px 0px;
+    padding: 2px 0px 5px 15px;
+}
+
+.categoria ul {
+    padding: 2px 0px 5px 15px;
+}
+
+
+@-webkit-keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Author
+  ---------------------------------- */
+
+@media ( max-width:991px) {
+    .categoria {
+        order: 0;
+    }
+    .publicacao {
+        order: 1;
+    }
+}

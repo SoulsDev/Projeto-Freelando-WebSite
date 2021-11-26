@@ -440,8 +440,6 @@
             </div>
 
 
-
-
             <!-- terceira parte do formulário -->
             <div class="tab">
 
@@ -625,6 +623,16 @@
 
 
 
+                    <div class="container-termos-uso">
+                        <input type="checkbox" id="termos" name="termos" checked>
+                        <label>Li estou de acordo com o
+
+                            <a id="labeltermos" style="color: #ff6d3c; cursor: pointer;">
+                                Termo de Uso e Políticade Privacidade
+                            </a>
+
+                        </label>
+                    </div>
 
 
 
@@ -636,7 +644,58 @@
 
             </div>
 
+            <!-- Modal Termos de Uso -->
 
+            <div id="termosUso" class="modal-container">
+                <div class="modal">
+                    <h1>Termos de uso</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae tempus enim, ut elementum justo. Morbi congue pretium libero eget dapibus. Quisque non dapibus augue, nec accumsan enim. Nulla et risus non libero maximus venenatis.
+                        Sed aliquet ligula ut porta vehicula. Pellentesque eros ex, congue vel arcu nec, hendrerit cursus augue. In hac habitasse platea dictumst. Donec iaculis mauris risus, in pellentesque neque accumsan condimentum. Aenean ut ante a
+                        erat dapibus tristique eget id metus. Ut sit amet aliquet velit. Proin id luctus purus. Proin at rhoncus risus. Vestibulum pretium vel tortor faucibus pretium. Nunc elementum, ligula a varius dictum, ligula eros pharetra ligula,
+                        eu placerat mi lectus at nunc. Proin semper pulvinar nisl, et condimentum nisi maximus vel. Pellentesque consequat tellus in dictum mattis. Duis elementum dignissim tempus. Nulla imperdiet vitae massa vel fermentum. Aenean convallis
+                        tellus in tellus vestibulum, et mattis nibh porta. Morbi tincidunt ante sed diam ultricies, sed posuere ante maximus. Curabitur tempus imperdiet purus, et venenatis magna aliquet sit amet. Aliquam ut ex convallis, consequat quam
+                        vitae, facilisis orci. Mauris quis hendrerit lacus. Sed viverra tincidunt mauris et rhoncus. Sed sed massa a odio suscipit suscipit nec sit amet tellus. Etiam eu semper elit, consectetur pretium turpis. Etiam nulla neque, bibendum
+                        a tincidunt quis, pulvinar eget eros. Mauris imperdiet diam at iaculis tincidunt. Vestibulum malesuada ex ut iaculis euismod. Phasellus laoreet augue ac est imperdiet sollicitudin. Fusce maximus dui vitae nibh bibendum semper.
+                        Praesent eget magna augue. Aliquam pharetra risus quis dolor facilisis condimentum. Maecenas vel tincidunt tellus, sit amet sagittis purus. Ut diam neque, pharetra in nisl a, hendrerit tempor purus. Phasellus purus turpis, finibus
+                        in maximus ac, vehicula et magna. Mauris id sagittis magna. Curabitur pellentesque quam metus, quis finibus lectus mollis vel. Proin feugiat magna mi, id sodales libero auctor sit amet. Aliquam blandit magna felis, in tincidunt
+                        sem iaculis in. Proin ullamcorper cursus dui ut imperdiet. Etiam nec nibh in ante mollis dapibus eu quis metus. Ut posuere, tellus sit amet lacinia vehicula, ligula orci rutrum tortor, non tristique tellus enim ac eros. Aliquam
+                        iaculis eros orci, eget egestas ante euismod at. Donec sit amet viverra est, condimentum pharetra mauris. Vivamus elit ipsum, imperdiet at laoreet ut, aliquet quis tortor. Fusce tincidunt nisl convallis enim finibus rhoncus. Vestibulum
+                        nec ligula hendrerit, volutpat turpis eu, tempus lectus. Cras suscipit nisi eget tellus maximus rhoncus. Duis sed euismod magna. Cras nec interdum mauris, vel vulputate ligula. Aliquam imperdiet justo non orci vulputate, vitae
+                        volutpat nisl congue. Duis a sem ut diam tincidunt pharetra. Duis rhoncus magna id dui pulvinar porttitor. In aliquam nunc sit amet mollis cursus. Ut euismod magna in eros condimentum suscipit. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos himenaeos. Sed non elit non velit auctor vestibulum quis vel nisi. Mauris aliquet sit amet nibh et faucibus. Curabitur sed libero eget mi rhoncus commodo a a urna. In hac habitasse platea
+                        dictumst. Phasellus sagittis, lectus vitae fringilla porta, nunc ex convallis est, sit amet interdum nunc odio quis augue. Suspendisse id erat magna. Aenean tempor enim in tortor viverra, et faucibus enim rhoncus. Integer sed velit
+                        in nulla malesuada pretium. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras pharetra libero non congue blandit. Etiam molestie ac sem ac mattis. Proin a bibendum mauris. Proin a posuere
+                        ipsum. Maecenas fermentum ante nec urna aliquam, in finibus urna malesuada. Donec varius mi ac efficitur dictum. Maecenas et metus in lorem hendrerit tempus. Nunc commodo mauris vitae porta bibendum. Sed rhoncus, neque id mollis
+                        aliquet, leo mauris mollis purus, in mollis nisl elit at purus. Vivamus lobortis leo a egestas consectetur. Quisque laoreet ornare arcu. Nam molestie, eros in interdum accumsan, quam mauris gravida massa, eu sollicitudin est ante
+                        in metus. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam lobortis diam magna, vel interdum mi congue eget. Nunc facilisis velit ac viverra sagittis. Nullam lectus
+                        mauris, interdum quis semper in, volutpat ultrices mi. Maecenas iaculis et orci at eleifend. Ut consectetur ipsum ut magna molestie, vitae vestibulum dolor tempor.</p>
+
+                    <button class="botao-avancar" type="button" id="okTermos" onclick="">OK</button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Modal perguntas -->
+
+            <div id="questoes" class="modal-container2">
+
+                <div class="modal2">
+
+                    <div class="titulo">
+                        <h2>Prove que sabe dessa área respondendo a pergunta: </h2>
+                        <p name="tentativa" id="tentativa">Tentativa : 0</p>
+
+                    </div>
+
+                    <p>Pergunta:</p>
+                    <input type="text">
+                    <button>Confirmar</button>
+
+                </div>
+
+            </div>
 
         </form>
 

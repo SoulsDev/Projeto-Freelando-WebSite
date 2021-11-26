@@ -24,7 +24,6 @@ function showTab(n) {
     //     document.getElementById("prevRegistrar").style.display = "inline";
     // }
 
-    // console.log("" + n);
 
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
@@ -51,9 +50,11 @@ function nextPrev(n) {
     // Esta função descobrirá qual guia exibir
     var x = document.getElementsByClassName("tab");
     // Saia da função se algum campo da guia atual for inválido:
-    // if (n == 1 && !validateForm()) {
-    //     return false;
-    // }
+    if (n == 1 && !validateForm()) {
+        return false;
+    }
+
+
     // Ocultar a guia atual:
     if(currentTab < 2){
         x[currentTab].style.display = "none";
@@ -251,3 +252,38 @@ function pesquisacep(valor) {
         }
     }
 }
+
+
+// Modal Termos Funções
+
+function modalAtiva(modalID) {
+    const modal = document.getElementById(modalID);
+    modal.classList.add('ativo');
+
+    modal.addEventListener('click', (e) => {
+        if (e.target.id == modalID || e.target.id == 'okTermos') {
+            modal.classList.remove('ativo');
+        }
+    });
+}
+
+const termos = document.getElementById('labeltermos');
+termos.addEventListener('click', () => modalAtiva('termosUso'));
+
+
+
+// Modal perguntas Funções
+
+// function modalAtivaP(modalID) {
+//     const modal = document.getElementById(modalID);
+//     modal.classList.add('ativo');
+
+//     modal.addEventListener('click', (e) => {
+//         if (e.target.id == modalID || e.target.id == 'okTermos') {
+//             modal.classList.remove('ativo');
+//         }
+//     });
+// }
+
+// const perguntas = document.getElementById('labeltermos');
+// termos.addEventListener('click', () => modalAtivaP('termosUso'));
