@@ -29,41 +29,26 @@ $numCelular = str_replace("-", "", $numCelular);
 $numCelular = str_replace("(", "", $numCelular);
 $numCelular = str_replace(")", "", $numCelular);
 
-// $profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha);
+$senha = hash('sha256', $senha);
 
-// $id= $profissional->inserirProfissional(
-//         $profissional->getNome(), 
-//         $profissional->getCpf(), 
-//         $profissional->getDtNacs(), 
-//         $profissional->getGenero(), 
-//         $profissional->getCep(), 
-//         $profissional->getUf(), 
-//         $profissional->getCidade(), 
-//         $profissional->getLogradouro(), 
-//         $profissional->getNumero(), 
-//         $profissional->getComplemento(), 
-//         $profissional->getEmail(), 
-//         $profissional->getSenha(),
-//         $profissional->getDataRegistro()
-//     );
+$profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cidade, $logradouro, $numero, $complemento, $email, $senha);
 
+$id= $profissional->inserirProfissional(
+        $profissional->getNome(), 
+        $profissional->getCpf(), 
+        $profissional->getDtNacs(), 
+        $profissional->getGenero(), 
+        $profissional->getCep(), 
+        $profissional->getUf(), 
+        $profissional->getCidade(), 
+        $profissional->getLogradouro(), 
+        $profissional->getNumero(), 
+        $profissional->getComplemento(), 
+        $profissional->getEmail(), 
+        $profissional->getSenha(),
+        $profissional->getDataRegistro()
+    );
 
-// $recebe_foto1 = $_FILES['files'];
-
-// $destino = "../../imagens/";  
-
-// preg_match("/\.(jpg|jpeg|png|gif|mp4){1}$/i",$recebe_foto1['name'],$extencao1);
-
-// $img_nome1 = md5(uniqid(time())).".".$extencao1[1];
-
-// move_uploaded_file($recebe_foto1['tmp_name'], $destino.$img_nome1);  
-
-// var_dump($img_nome1);
-
-
-// foreach($_FILES['files']['name'] as $id=>$val){
-//      echo $_FILES['files']['name'][$id];
-// }
 
 
 // $contato_autonomo = new ContatoAutonomo($numCelular, $id);

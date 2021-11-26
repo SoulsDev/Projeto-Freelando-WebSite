@@ -184,21 +184,6 @@ class Profissional{
         }catch(PDOException $e){
             echo 'Erro'.$e->getMessage();
         }
-        // try{
-
-        //     include ('../conexao.php');
-        //     $consultar = $con->prepare("SELECT * FROM autonomo");
-        //     $consultar->execute();
-        //     $row = $consultar->rowCount();
-        //     $idContratante = $row + 1;
-        //     $idContratante+=1;
-        //     $inserir = $con->prepare("CALL Cadastrar_telefone_autonomo(?, ?)");
-        //     $inserir->bindValue(1, $numCelular);
-        //     $inserir->bindValue(2, $idContratante);
-        //     $inserir->execute();
-        // }catch(PDOException $e){
-        //     echo 'Erro'.$e->getMessage();
-        // }
     }   
 
     public static function consultaEmail($email) : bool{

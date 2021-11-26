@@ -17,12 +17,12 @@ CREATE TABLE contratantes(
 	n_id INT AUTO_INCREMENT ,
     c_nome VARCHAR(35) NOT NULL,
     c_email VARCHAR(50) NOT NULL,
-    c_senha VARCHAR(40) NOT NULL,
+    c_senha VARCHAR(70) NOT NULL,
     d_registro DATETIME NOT NULL,
     d_modificacao DATETIME,
     PRIMARY KEY(n_id)
 );
-CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), email VARCHAR(50), senha VARCHAR(40), registro DATETIME) 
+CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), email VARCHAR(50), senha VARCHAR(70), registro DATETIME) 
 	INSERT INTO contratantes VALUES (default, nome, email, senha, registro, null);
     
 CREATE PROCEDURE SELECIONA_CONTRATANTE_EMAIL (email VARCHAR(50))
@@ -42,14 +42,14 @@ CREATE TABLE autonomos(
     n_numero_autonomo INT NOT NULL,
     c_complemento VARCHAR(5) NOT NULL,
     c_email VARCHAR(25) NOT NULL,
-    c_senha VARCHAR(50) NOT NULL,
+    c_senha VARCHAR(70) NOT NULL,
     d_registro DATETIME NOT NULL,
     d_alteracao DATETIME,
     /* data de alteração dos dados, por exemplo cursos, interesses */ 
     PRIMARY KEY (n_id)
 );
 CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
-									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(50), registro DATETIME) 
+									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(70), registro DATETIME) 
 	INSERT INTO autonomos VALUES (default, nome, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro, null);
     
 CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
