@@ -1,4 +1,6 @@
-/*DROP DATABASE freelando;*/
+DROP DATABASE IF EXISTS freelando;
+CREATE DATABASE freelando;
+USE freelando;
 /*
 	COMO LER O NOSSO BANCO;
     0 - Nomes de tabela no plural;
@@ -10,24 +12,27 @@
 */
 
 
-CREATE DATABASE freelando;
-USE freelando;
-
 DROP TABLE IF EXISTS contratantes;
 CREATE TABLE contratantes(
 	n_id INT AUTO_INCREMENT ,
     c_nome VARCHAR(35) NOT NULL,
     c_email VARCHAR(50) NOT NULL,
-    c_senha VARCHAR(40) NOT NULL,
+    c_senha VARCHAR(70) NOT NULL,
     d_registro DATETIME NOT NULL,
     d_modificacao DATETIME,
     PRIMARY KEY(n_id)
 );
-CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), email VARCHAR(50), senha VARCHAR(40), registro DATETIME) 
+CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), email VARCHAR(50), senha VARCHAR(70), registro DATETIME) 
 	INSERT INTO contratantes VALUES (default, nome, email, senha, registro, null);
     
 CREATE PROCEDURE SELECIONA_CONTRATANTE_EMAIL (email VARCHAR(50))
 	SELECT * FROM contratantes WHERE c_email_contratante = email;
+    
+CREATE PROCEDURE LOGIN_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
+	SELECT count(n_id) FROM contratantes WHERE c_email = email AND c_senha = senha;
+    
+CREATE PROCEDURE LISTAR_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
+	SELECT * FROM contratantes WHERE c_email = email AND c_senha = senha;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,
@@ -42,18 +47,27 @@ CREATE TABLE autonomos(
     n_numero_autonomo INT NOT NULL,
     c_complemento VARCHAR(5) NOT NULL,
     c_email VARCHAR(25) NOT NULL,
-    c_senha VARCHAR(50) NOT NULL,
+    c_senha VARCHAR(70) NOT NULL,
     d_registro DATETIME NOT NULL,
     d_alteracao DATETIME,
     /* data de alteração dos dados, por exemplo cursos, interesses */ 
-    PRIMARY KEY (n_id_autonomo)
+    PRIMARY KEY (n_id)
 );
 CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
-									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(50), registro DATETIME) 
+									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(70), registro DATETIME) 
 	INSERT INTO autonomos VALUES (default, nome, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro, null);
     
 CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
 	SELECT * FROM autonomos WHERE c_cpf = cpf;
+    
+CREATE PROCEDURE LOGIN_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
+	SELECT count(n_id) FROM autonomos WHERE c_email = email AND c_senha = senha;
+    
+CREATE PROCEDURE LISTAR_AUONOMOS (email VARCHAR(50), senha VARCHAR(70))
+	SELECT * FROM autonomos 
+		INNER JOIN telefones_autonomo ON autonomos.n_id = telefones_autonomo.n_id_autonomo
+			INNER JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomo
+				INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
@@ -262,136 +276,3 @@ INSERT INTO profissoes VALUES (default, 'Banco de Dados', 12),
                               (default, 'Desenvolvimento Web', 12),
                               (default, 'Teste de Software', 12),
                               (default, 'UX/UI e Web Design', 12);
-                              
-                              
-SELECT * FROM profissoes;
-                              
-
-                              
-                              
-                              
-                              
-						
-                              
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-CREATE TABLE contrato(
-	id_contrato INT AUTO_INCREMENT,
-    valor FLOAT NOT NULL,
-    data_contrato DATETIME NOT NULL,
-    descricao VARCHAR(150) NOT NULL,
-    id_autonomo INT NOT NULL,
-    id_contratante INT NOT NULL,
-    PRIMARY KEY (id_contrato),
-    FOREIGN KEY (id_autonomo) REFERENCES autonomo(id_autonomo),
-    FOREIGN KEY (id_contratante) REFERENCES contratante(id_contratante)
-    
-	OBSERVAÇÕES:
-    /////////
-
-);
-*/
-/*
-
-	TABELAS COMENTADAS POIS AINDA NÃO TEMOS DEFINIÇÕES SOBRE ELAS AINDA.
-    //////////////////////////////////////////////////////////////
-
-CREATE TABLE curtida_post
-(
-	id_curtida_post INT AUTO_INCREMENT,
-    id_post INT NOT NULL,
-	id_curtida INT NOT NULL,
-    PRIMARY KEY (id_compartilhamento_post),
-	FOREIGN KEY (id_post) REFERENCES post(id_post),
-	FOREIGN KEY (id_curtida) REFERENCES curtida(id_curtida)
-);
-
-CREATE TABLE comentario_post
-(
-	id_comentario_post INT AUTO_INCREMENT,
-    id_post INT NOT NULL,
-	id_comentario INT NOT NULL,
-    PRIMARY KEY (id_compartilhamento_post),
-	FOREIGN KEY (id_post) REFERENCES post(id_post),
-	FOREIGN KEY (id_comentario) REFERENCES comentario(id_comentario)
-);
-
-CREATE TABLE compartilhamento_post
-(
-	id_compartilhamento_post INT AUTO_INCREMENT,
-    id_post INT NOT NULL,
-	id_compartilhamento INT NOT NULL,
-    PRIMARY KEY (id_compartilhamento_post),
-	FOREIGN KEY (id_post) REFERENCES post(id_post),
-	FOREIGN KEY (id_compartilhamento) REFERENCES compartilhamento(id_compartilhamento)
-);
-
-CREATE TABLE post
-(
-	id_post INT AUTO_INCREMENT,
-    conteudo VARCHAR(150),
-    caminho_arquivo VARCHAR(100),
-    id_autonomo INT NOT NULL,
-    PRIMARY KEY (id_post),
-    FOREIGN KEY (id_autonomo) REFERENCES autonomo(id_autonomo)
-);
-
-CREATE TABLE chat(
-	id_chat INT AUTO_INCREMENT,
-	id_automono INT NOT NULL,
-	id_cliente INT NOT NULL,
-    PRIMARY KEY (id_chat),
-	FOREIGN KEY (id_automono) REFERENCES autonomo(id_automono),
-	FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)	
-);
-
-CREATE TABLE mensagem(
-	id_mensagem INT AUTO_INCREMENT,
-	dt_mensagem DATETIME NOT NULL,
-	mensagem VARCHAR(80),
-	remetente VARCHAR(10),
-	PRIMARY KEY (id_mensagem)
-);
-CREATE TABLE dado_criptografado(
-	id_dado_criptografado INT AUTO_INCREMENT,
-	dado = VARCHAR(50),
-	PRIMARY KEY (id_dado_criptografado)
-	
-	
-	Separado das chaves de criptografia para diminuir risco
-    
-);
-
-
-CREATE TABLE criptografia(
-	id_criptografia INT AUTO_INCREMENT,
-	chave_secreta VARCHAR(),
-	vetor VARCHAR(),
-	nonce VARCHAR(),
-	id_dado INT NOT NULL,
-	PRIMARY KEY (id_criptografia),
-	FOREIGN KEY (id_dado) REFERENCES dado_criptografado(id_dado)	
-	
-	Modelo de tabela feito a partir dos elementos gerados pela cifra AES
-	Separado do dado criptografado para diminuir risco
-    
-);*/
-
-
-
