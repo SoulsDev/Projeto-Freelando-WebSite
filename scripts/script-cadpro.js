@@ -55,14 +55,22 @@ function nextPrev(n) {
     //     return false;
     // }
     // Ocultar a guia atual:
-    if(currentTab != 2){
+    if(currentTab < 2){
         x[currentTab].style.display = "none";
         x[currentTab].classList.remove("block");
+        currentTab = currentTab + n;
+    }else if (n == -1 && currentTab == 2){
+        x[currentTab].style.display = "none";
+        x[currentTab].classList.remove("block");
+        currentTab = currentTab + n;
+    }else if(n == 1 && currentTab == 2){
+        currentTab = currentTab + n;
     }
     // Aumentar ou diminuir a guia atual em 1:
-    currentTab = currentTab + n;
+
+
     // if you have reached the end of the form...
-    if (currentTab >= x.length) {
+    if (currentTab >= x.length ) {
         // se você chegou ao final do formulário ...
         document.getElementById("regForm").submit();
         return false;
