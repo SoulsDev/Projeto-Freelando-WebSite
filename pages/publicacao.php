@@ -18,13 +18,17 @@
     <title>Freelando</title>
 </head>
 
+
 <body>
+
+
+    <?php include "nav.html" ;?>
 
     <section class="hero">
         <div class="container">
             <div class="row flex-wrap no">
 
-                <?php include "nav.html" ;?>
+
 
 
                 <div class="col-lg-6 offset-lg-1 publicacao shadow-lg bg-white">

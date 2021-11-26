@@ -160,6 +160,7 @@ img {
     width: 30%;
     /* border-left: 4px solid #CECED0; */
     box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%) !important;
+    border-left: 2px #CECED0;
 }
 
 .sent_msg p {
@@ -248,7 +249,6 @@ img {
     height: 3px;
     position: absolute;
     width: 670px;
-    margin-top: 10px;
 }
 
 .messaging {
