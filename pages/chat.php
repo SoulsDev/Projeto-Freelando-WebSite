@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../medias/img/logo-tocha.svg" type="image/x-icon">
-    <title>Document</title>
+    <title>FreeLando | Tela chat</title>
 
     <!-- bootstrap -->
     <!-- Bootstrap -->
@@ -17,6 +17,13 @@
 </head>
 <body>
 
+
+    <?php
+    
+    include"nav.html";
+    
+    
+    ?>
 
 
     <div class="container">
@@ -33,54 +40,6 @@
                                <img src="../medias/img/semfoto.png" alt="sunil" class="img"> 
                                <span class="h1">Geraldão derivia</span>
                             </div>
-                        </div>
-                      </div>
-                      <div class="chat_list">
-                        <div class="chat_people">
-                            <div class="chat_img">
-                                <img src="../medias/img/semfoto.png" alt="sunil" class="img"> 
-                                <span class="h1">Lorem</span>
-                             </div>
-                        </div>
-                      </div>
-                      <div class="chat_list">
-                        <div class="chat_people">
-                            <div class="chat_img">
-                                <img src="../medias/img/semfoto.png" alt="sunil" class="img"> 
-                                <span class="h1">Lorem</span>
-                             </div>
-                        </div>
-                      </div>
-                      <div class="chat_list">
-                        <div class="chat_people">
-                            <div class="chat_img">
-                                <img src="../medias/img/semfoto.png" alt="sunil" class="img"> 
-                                <span class="h1">Lorem</span>
-                             </div>
-                        </div>
-                      </div>
-                      <div class="chat_list">
-                        <div class="chat_people">
-                            <div class="chat_img">
-                                <img src="../medias/img/semfoto.png" alt="sunil" class="img"> 
-                                <span class="h1">Lorem</span>
-                             </div>
-                        </div>
-                      </div>
-                      <div class="chat_list">
-                        <div class="chat_people">
-                            <div class="chat_img">
-                                <img src="../medias/img/semfoto.png" alt="sunil" class="img"> 
-                                <span class="h1">Lorem</span>
-                             </div>
-                        </div>
-                      </div>
-                      <div class="chat_list">
-                        <div class="chat_people">
-                            <div class="chat_img">
-                                <img src="../medias/img/semfoto.png" alt="sunil" class="img"> 
-                                <span class="h1">Lorem</span>
-                             </div>
                         </div>
                       </div>
                     </div>
@@ -117,7 +76,7 @@
 
                             <div class="borda">
                               <p><strong>Você</strong></p>
-                              <p style="color: #000;">Peça um orçamento ou faça perguntas sobre este profissional.</p>
+                              <p class="texto" style="color: #000;">Peça um orçamento ou faça perguntas sobre este profissional.</p>
                               <p class="hora d-flex justify-content-end">00:00</p>
                             </div>
                             

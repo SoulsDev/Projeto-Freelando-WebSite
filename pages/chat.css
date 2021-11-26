@@ -1,7 +1,11 @@
+body{
+  background-color: #F7F7F9 !important; 
+}
 .container{
   max-width: 900px;
   margin:auto;
 }
+
 img{ max-width:100%;}
 .inbox_people {
   background: #f8f8f8 none repeat scroll 0 0;
@@ -10,6 +14,9 @@ img{ max-width:100%;}
   width: 30%; 
   border-right:1px solid #FF6633;
 }
+
+
+
 .inbox_msg {
   border-radius: 15px;
   clear: both;
@@ -356,7 +363,7 @@ input[type="number"] {
 
 @keyframes modal {
   0%{
-    transform: translateY(50px);
+    transform: translateY(-50px);
     opacity: 0.2;
   }
   100%{
