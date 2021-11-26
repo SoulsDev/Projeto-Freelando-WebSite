@@ -7,13 +7,13 @@ function telaIndex() {
 }
 
 function telaCadastroContratante() {
-    window.location.href = "CadastroContratante.html";
+    window.location.href = "CadastroContratante.php";
 }
 
 function telaLogin() {
-    window.location.href = "telaLogin.html";
+    window.location.href = "telaLogin.php";
 }
 
 function telaCadastroProfissional() {
-    window.location.href = "CadastroProfissional.html";
+    window.location.href = "CadastroProfissional.php";
 }

@@ -5,11 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
+            "name": "Listen for Xdebug",
+            "type": "php",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://127.0.0.1:5501/pages/CadastroProfissional.html",
-            "webRoot": "${workspaceFolder}"
+            "port": 9003
         }
     ]
 }

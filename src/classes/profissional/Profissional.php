@@ -16,7 +16,7 @@ class Profissional{
     private string $numero;
     private string $complemento;
     
-    public function __construct(string $nome, string $cpf, string $dtNasc, string $genero, string $cep, string $uf, string $cidade, string $logradouro, string $numero, string $complemento, string $email, string $senha, string $numCelular){
+    public function __construct(string $nome, string $cpf, string $dtNasc, string $genero, string $cep, string $uf, string $cidade, string $logradouro, string $numero, string $complemento, string $email, string $senha){
         $this->nome = $nome;
         $this->cpf = $cpf;
         $this->dtNasc = $dtNasc;
@@ -29,7 +29,6 @@ class Profissional{
         $this->complemento = $complemento;
         $this->email = $email;
         $this->senha = $senha;
-        $this->numCelular = $numCelular;
         $this->dtRegistro =  date("Y-m-d H:i:s");
     } 
 
@@ -73,13 +72,6 @@ class Profissional{
     }
     public function setCep(string $cep) : void{
         $this->cep = $cep; 
-    }
-
-    public function getNumCelular() : string{
-        return  $this->numCelular;
-    }
-    public function setNumCelular(string $numCelular) : void{
-        $this->numCelular = $numCelular; 
     }
 
     public function getDtNacs() : string{
@@ -152,8 +144,7 @@ class Profissional{
         string $complemento, 
         string $email, 
         string $senha, 
-        string $numCelular, 
-        String $dtRegistro){
+        String $dtRegistro) : int{
 
         if($genero == 'Masculino'){
             $genero = 1;
@@ -180,30 +171,25 @@ class Profissional{
             $inserir->bindValue(13, $dtRegistro);
             $inserir->execute();    
             
+            $consulta = $con->prepare("SELECT n_id FROM autonomos WHERE c_cpf=?");
+            $consulta->bindValue(1, $cpf);
+            $consulta->execute();         
+        
+            while($row = $consulta->fetch(PDO::FETCH_BOTH)) {
+                $user_id =  $row['n_id']; 
+            }
+
+            return $user_id;
+
         }catch(PDOException $e){
             echo 'Erro'.$e->getMessage();
         }
-        // try{
-
-        //     include ('../conexao.php');
-        //     $consultar = $con->prepare("SELECT * FROM autonomo");
-        //     $consultar->execute();
-        //     $row = $consultar->rowCount();
-        //     $idContratante = $row + 1;
-        //     $idContratante+=1;
-        //     $inserir = $con->prepare("CALL Cadastrar_telefone_autonomo(?, ?)");
-        //     $inserir->bindValue(1, $numCelular);
-        //     $inserir->bindValue(2, $idContratante);
-        //     $inserir->execute();
-        // }catch(PDOException $e){
-        //     echo 'Erro'.$e->getMessage();
-        // }
     }   
 
     public static function consultaEmail($email) : bool{
         try{
             include('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
-            $consultar = $con->prepare("SELECT * FROM autonomo WHERE c_email_autonomo = ? ");
+            $consultar = $con->prepare("SELECT * FROM autonomos WHERE c_email = ? ");
             $consultar->bindValue(1, $email);
             $consultar->execute();
             $row = $consultar->rowCount();
@@ -217,16 +203,15 @@ class Profissional{
                 return false;
             }
 
-     }
-     catch(PDOException $e){
-          echo 'Erro'.$e->getMessage(); 
-     }
+        }catch(PDOException $e){
+            echo 'Erro'.$e->getMessage(); 
+        }
     }
 
     public static function consultaCpf($cpf) : bool{
         try{
             include('../conexao.php');
-            $consultar = $con->prepare("SELECT * FROM autonomo WHERE c_cpf_autonomo = ?");
+            $consultar = $con->prepare("SELECT * FROM autonomos WHERE c_cpf = ?");
             $consultar->bindValue(1, $cpf);
             $consultar->execute();
             $row = $consultar->rowCount();
@@ -245,4 +230,32 @@ class Profissional{
           echo 'Erro'.$e->getMessage(); 
      }
     }
+
+    public static function login(string $email, string $senha){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        $consulta = $con->prepare("CALL LOGIN_AUTONOMO(?, ?)");
+        $consulta->bindValue(1, $email);
+        $consulta->bindValue(2, $senha);
+        $consulta->execute();
+
+        while($row = $consulta->fetch(PDO::FETCH_BOTH)) {
+            if ($row['count(n_id)'] ==0){
+                return false;
+            }else{
+                return true;
+            }
+        }
+    }
+
+    public static function listar(string $email, string $senha){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        $consulta = $con->prepare("CALL LISTAR_AUTONOMO(?, ?)");
+        $consulta->bindValue(1, $email);
+        $consulta->bindValue(2, $senha);
+        $consulta->execute();
+
+        return $consulta;
+    }
+
+   
 } 
