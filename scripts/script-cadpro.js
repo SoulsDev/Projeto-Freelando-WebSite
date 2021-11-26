@@ -55,8 +55,10 @@ function nextPrev(n) {
     //     return false;
     // }
     // Ocultar a guia atual:
-    x[currentTab].style.display = "none";
-    x[currentTab].classList.remove("block");
+    if(currentTab != 2){
+        x[currentTab].style.display = "none";
+        x[currentTab].classList.remove("block");
+    }
     // Aumentar ou diminuir a guia atual em 1:
     currentTab = currentTab + n;
     // if you have reached the end of the form...
@@ -66,7 +68,23 @@ function nextPrev(n) {
         return false;
     }
     // Caso contrário, exiba a guia correta:
+    console.log(currentTab);
     showTab(currentTab);
+}
+
+
+function fixStepIndicator(n) {
+    // Esta função remove a classe "ativa" de todas as etapas ...
+    var i, x = document.getElementsByClassName("step");
+    for (i = 0; i < x.length; i++) {
+        x[i].className = x[i].className.replace(" active", "");
+    }
+    // ... e adiciona a classe "ativa" na etapa atual:
+    if (n < 2) {
+        x[n + 1].className = x[n + 1].className.replace("finish", "");
+    }
+
+    x[n].className += " active";
 }
 
 function validateForm() {
@@ -123,22 +141,8 @@ function validateForm() {
 }
 
 
-function fixStepIndicator(n) {
-    // Esta função remove a classe "ativa" de todas as etapas ...
-    var i, x = document.getElementsByClassName("step");
-    for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" active", "");
-    }
-    // ... e adiciona a classe "ativa" na etapa atual:
 
-    if (n < 3) {
-        x[n + 1].className = x[n + 1].className.replace(" finish", "");
-    }
-
-    x[n].className += " active";
-}
-
-function addCargo(){
+function addCargo() {
     profissao = document.getElementById('profissao');
     tempo_atuacao = document.getElementById('nivel_experiencia');
 
@@ -151,18 +155,18 @@ function addCargo(){
     link.innerHTML = profissao.options[profissao.selectedIndex].text;
 
     item = document.createElement('li');
-    item.setAttribute('id', 'item_'+indice);
+    item.setAttribute('id', 'item_' + indice);
     item.appendChild(link);
 
-    
+
     lista.appendChild(item);
 
-    document.getElementById("lista-cargos").value= document.getElementById("lista-cargos").value + profissao.value + "," + tempo_atuacao.value +";";
+    document.getElementById("lista-cargos").value = document.getElementById("lista-cargos").value + profissao.value + "," + tempo_atuacao.value + ";";
 }
 
 
 
-function addCurso(){
+function addCurso() {
     nivel_curso = document.getElementById('nivel_curso');
     nome_curso = document.getElementById('curso_extra');
     duracao = document.getElementById('cargahoraria_curso');
@@ -172,25 +176,25 @@ function addCurso(){
     indice = lista.children.length + 1;
 
     link = document.createElement('a');
-    link.setAttribute('name', 'curso_'+indice);
+    link.setAttribute('name', 'curso_' + indice);
     link.innerHTML = nome_curso.value;
 
     item = document.createElement('li');
-    item.setAttribute('id', 'curso_'+indice);
+    item.setAttribute('id', 'curso_' + indice);
     item.appendChild(link);
 
-    
+
     lista.appendChild(item);
-    document.getElementById("lista-cursos").value= document.getElementById("lista-cursos").value + nivel_curso.value + ","+ nome_curso.value + "," + duracao.value +";";
+    document.getElementById("lista-cursos").value = document.getElementById("lista-cursos").value + nivel_curso.value + "," + nome_curso.value + "," + duracao.value + ";";
 }
 
-function listarProfissoes(area_id){
+function listarProfissoes(area_id) {
     profissoes = document.getElementsByClassName("profissoes_dinamico");
     for (let item of profissoes) {
-        item.style.display="none";
+        item.style.display = "none";
         atributo = item.getAttribute('area');
-        if(atributo == area_id){
-            item.style.display="block";
+        if (atributo == area_id) {
+            item.style.display = "block";
         }
     }
 }

@@ -148,19 +148,6 @@
                     <p>⠀⠀⠀⠀</p>
 
                 </div>
-
-                <div class="step">
-                    <div class="circulo">
-                        <span>4</span>
-                    </div>
-
-                    <p>Confirmação</p>
-                    <p>e</p>
-                    <p>validação</p>
-
-                </div>
-
-
             </div>
 
             <!-- primeira parte do formulário -->
@@ -591,50 +578,6 @@
 
                         </ul>
 
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- quarta parte do formLário -->
-            <div class="tab">
-
-                <div class="container-4">
-                    <p>Adicione fotos ou vídeos para que as pessoas possam ver sua experiência e nível do seu serviço
-                    </p>
-
-                    <div class="container-zona-arquivo">
-
-                        <div class="container-arquivos-list">
-
-                            <!-- LISTA ARQUIVOS -->
-                            <ul class="arquivo-list">
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Exemplo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-
-                            </ul>
-
-                        </div>
-
-                        <div class="selecionar-arquivo">
-                            <img onclick="document.getElementById('files').click()" name="btnarquivo-add" id="btnarquivo-add" src="../medias/img/btn-add2.svg" style="cursor: pointer; margin-bottom: 3px;" alt="Carregar Arquivos">
-                            <input type="file" name="files[]" style="display:none;" id="files" multiple>
-                            <p>Carregue seus arquivos.</p>
-                            <p>pressionando o botão ou.</p>
-                            <p>solte-os aqui.</p>
-                        </div>
-
-                    </div>
-
-                    <div class="container-termos-uso">
-                        <input type="checkbox" id="termos" name="termos" checked>
-                        <label for="termos">Li estou de acordo com o <a style="color: #ff6d3c">Termo de Uso e Política
-                                de Privacidade</a></label>
                     </div>
 
                 </div>

@@ -48,12 +48,22 @@ $numCelular = str_replace(")", "", $numCelular);
 //     );
 
 
+// $recebe_foto1 = $_FILES['files'];
+
+// $destino = "../../imagens/";  
+
+// preg_match("/\.(jpg|jpeg|png|gif|mp4){1}$/i",$recebe_foto1['name'],$extencao1);
+
+// $img_nome1 = md5(uniqid(time())).".".$extencao1[1];
+
+// move_uploaded_file($recebe_foto1['tmp_name'], $destino.$img_nome1);  
+
+// var_dump($img_nome1);
 
 
-foreach($_FILES['files']['name'] as $id=>$val){
-    echo $_FILES['files']['name'][$id];
-
-}
+// foreach($_FILES['files']['name'] as $id=>$val){
+//      echo $_FILES['files']['name'][$id];
+// }
 
 
 // $contato_autonomo = new ContatoAutonomo($numCelular, $id);
