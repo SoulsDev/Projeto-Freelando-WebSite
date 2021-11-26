@@ -1,5 +1,7 @@
+
 body {
     background-color: #F7F7F9;
+    overflow-x:hidden;
 }
 
 ul {
@@ -14,19 +16,41 @@ p {
     margin: 0;
 }
 
+.conteudo {
+    margin-left: 190px;
+}
+
+.marg-cat {
+   margin-left: 75px;
+}
+
 .card {
     border-radius: 12px;
     box-shadow: 1px 1px 7px rgb(199, 199, 199);
-    
 }
 
 .icone-perfil {
-    margin: 20px 0 0 15px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .userName {
-    font-size: 15px;
-    margin: 15px 17px 0px 0px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.level {
+    font-size: 14px;
+    color: #5C01D2;
+    margin-left: 5px;
+}
+
+.icon-level {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .col-md-9 {
@@ -60,9 +84,6 @@ p {
     margin-right: 7px;
 }
 
-.serv {
-
-}
 
 .serv-1 {
     color: #fff;

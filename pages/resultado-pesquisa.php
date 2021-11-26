@@ -8,13 +8,15 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../bootstrap-5.1.3/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../css/styles_resultado-pesquisa.css">
+    <link rel="stylesheet" href="../css/teste.css">
 
     <title>Freelando</title>
 </head>
 <body>
+    <?php include "nav.html"; ?>
+
     <section class="hero">
-        <div class="container">
+        <div class="container conteudo">
             <div class="row">
 
                 <div class="card mb-3" style="max-width: 540px;">
@@ -22,7 +24,11 @@
                       <div class="col-md-3">
                         <div class="icone-perfil">
                             <img src="../medias/img/Group 133.svg" class="img-fluid rounded-start" alt="" width="80px">
-                            <p class="userName" >Robson Silva</p>
+                            <span class="userName">Robson Silva</span>
+                            <div class="icon-level">
+                                <img src="../medias/img/level-up.png" alt="" width="25px">
+                                <p class="level">Nível 28</p>
+                            </div>
                         </div>
                       </div>
                       <div class="col-md-9">
@@ -47,7 +53,7 @@
                   </div>
 
                   
-                  <div class="col-lg-3 order">
+                  <div class="col-lg-3 marg-cat">
                     <div class="categoria">
                         <div class="categoria-top">
                             <p>Navegue por categoria</p>
