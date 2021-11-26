@@ -34,6 +34,9 @@
         while($row = $dados->fetch(PDO::FETCH_BOTH)) {
             var_dump($row);
         }
+        echo $senha. "<br>";
+        echo $email. "<br>";
     //header('Location: integrador_para_back/test_login.php');
 ?>
+
 

@@ -49,51 +49,51 @@ $id= $profissional->inserirProfissional(
 
 
 
-// $contato_autonomo = new ContatoAutonomo($numCelular, $id);
+$contato_autonomo = new ContatoAutonomo($numCelular, $id);
 
-// $contato_autonomo->cadastrarContatoAutonomo(
-//     $contato_autonomo->getTelefone(),
-//     $contato_autonomo->getIdAutonomo(),
-// );
+$contato_autonomo->cadastrarContatoAutonomo(
+    $contato_autonomo->getTelefone(),
+    $contato_autonomo->getIdAutonomo(),
+);
 
-// $cursos = addslashes($_POST['cursos']);
-// $cargos = addslashes($_POST['cargos']);
+$cursos = addslashes($_POST['cursos']);
+$cargos = addslashes($_POST['cargos']);
 
-// $cursos = explode(';', $cursos);
-// $cargos = explode(';', $cargos);
+$cursos = explode(';', $cursos);
+$cargos = explode(';', $cargos);
 
-// $experiencia_profissional = new Cargo(0, 0, $id);
+$experiencia_profissional = new Cargo(0, 0, $id);
 
-// for($i=0; $i<(count($cargos)-1); $i++){
-//     $itens = explode(',', $cargos[$i]);
+for($i=0; $i<(count($cargos)-1); $i++){
+    $itens = explode(',', $cargos[$i]);
     
-//     $experiencia_profissional->setProfissao($itens[0]);
-//     $experiencia_profissional->setExperiencia($itens[1]);
+    $experiencia_profissional->setProfissao($itens[0]);
+    $experiencia_profissional->setExperiencia($itens[1]);
 
-//     $experiencia_profissional->cadastrarCargo(
-//         $experiencia_profissional->getProfissao(),
-//         $experiencia_profissional->getExperiencia(),
-//         $experiencia_profissional->getIdAutonomo()
-//     );
-// }
+    $experiencia_profissional->cadastrarCargo(
+        $experiencia_profissional->getProfissao(),
+        $experiencia_profissional->getExperiencia(),
+        $experiencia_profissional->getIdAutonomo()
+    );
+}
 
-// $dado_academico = new DadoAcademico('ensino', 'inicial', 'inicial', 0, $id);
+$dado_academico = new DadoAcademico('ensino', 'inicial', 'inicial', 0, $id);
 
-// for($i=0; $i<(count($cursos)-1); $i++){
-//     $itens = explode(',', $cursos[$i]);
+for($i=0; $i<(count($cursos)-1); $i++){
+    $itens = explode(',', $cursos[$i]);
 
-//     $dado_academico->setNivel($itens[0]);
-//     $dado_academico->setCurso($itens[1]);
-//     $dado_academico->setCargaHoraria($itens[2]);
+    $dado_academico->setNivel($itens[0]);
+    $dado_academico->setCurso($itens[1]);
+    $dado_academico->setCargaHoraria($itens[2]);
 
-//     $dado_academico->cadastrarDadoAcademico(
-//         $dado_academico->getEnsino(),
-//         $dado_academico->getNivel(),
-//         $dado_academico->getCurso(),
-//         $dado_academico->getCargaHoraria(),
-//         $dado_academico->getIdAutonomo()
-//     );
-// }
+    $dado_academico->cadastrarDadoAcademico(
+        $dado_academico->getEnsino(),
+        $dado_academico->getNivel(),
+        $dado_academico->getCurso(),
+        $dado_academico->getCargaHoraria(),
+        $dado_academico->getIdAutonomo()
+    );
+}
 
-header('Location: ../../../pages/telaLogin.php');
+//header('Location: ../../../pages/telaLogin.php');
 

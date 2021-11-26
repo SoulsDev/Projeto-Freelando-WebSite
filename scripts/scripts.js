@@ -3,7 +3,7 @@ function telaRegistrar() {
 }
 
 function telaIndex() {
-    window.location.href = "telaLogin.html";
+    window.location.href = "telaLogin.php";
 }
 
 function telaCadastroContratante() {
