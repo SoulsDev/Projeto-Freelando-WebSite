@@ -1,0 +1,32 @@
+* {}
+
+body {
+    background-color: #F7F7F9;
+}
+
+.container {
+    height: 90vh;
+    border-radius: 10px;
+    background-color: green;
+}
+
+.container-header {
+    height: 25vh;
+    border-bottom: 1px solid #FF6633;
+}
+
+.usuario-foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.usuario-foto img {
+    width: 80%;
+    height: 80%;
+}
+
+.dados-usuario {
+    margin-top: 4%;
+}
