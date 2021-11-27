@@ -5,9 +5,8 @@ body {
 }
 
 .container {
-    height: 90vh;
+    height: 80vh;
     border-radius: 10px;
-    background-color: green;
 }
 
 .container-header {
@@ -29,4 +28,14 @@ body {
 
 .dados-usuario {
     margin-top: 4%;
+}
+
+.container-interesses {
+    border: 1px solid #FF6633;
+    width: 90%;
+    height: 100px;
+}
+
+.container-interesses ul {
+    list-style: none;
 }
