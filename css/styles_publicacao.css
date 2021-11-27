@@ -156,11 +156,11 @@ img {
 .mesgs {
     border-radius: 0px 10px 10px 0px;
     float: left;
-    padding: 30px 15px 0 25px;
+    padding: 15px 15px 0 25px;
     width: 30%;
     /* border-left: 4px solid #CECED0; */
-    box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%) !important;
-    border-left: 2px #CECED0;
+    box-shadow: 0 1rem rem rgb(0 0 0 / 18%) !important;
+    border-left: 3px solid #CECED0;
 }
 
 .sent_msg p {
@@ -258,6 +258,7 @@ img {
 .msg_history {
     height: 90%;
     overflow-y: auto;
+    margin-top: 20px;
 }
 
 .postagem {
@@ -266,6 +267,10 @@ img {
     width: auto;
     height: auto;
     justify-content: center;
+}
+
+.title-postagem {
+    font-size: 15px;
 }
 
 .offset-lg-1 {

@@ -60,6 +60,10 @@ p {
     padding: 2px 0px 5px 15px;
 }
 
+.title-postagem {
+    font-size: 15px;
+}
+
 
 /* Cardbox Heading
   ---------------------------------- */
@@ -177,6 +181,11 @@ p {
 .cardbox .cardbox-item {
     position: relative;
     display: block;
+}
+
+.cardbox-img {
+    width: 100%;
+    height: 650px;
 }
 
 .cardbox .cardbox-item img {}
