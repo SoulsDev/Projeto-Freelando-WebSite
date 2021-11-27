@@ -8,11 +8,12 @@ body {
     margin-top: 200px;
     height: auto;
     border-radius: 10px;
+    width: 55vw !important;
 }
 
 .container-header {
     height: 25vh;
-    border-bottom: 1px solid #FF6633;
+    margin-top: 25px;
 }
 
 .usuario-foto {
@@ -27,36 +28,35 @@ body {
     height: 80%;
 }
 
-.dados-usuario {
-    margin-top: 4%;
-}
+.dados-usuario {}
 
-.container-interesses {
+.container-dados {
     border: 1px solid #FF6633;
     width: 90%;
     border: 1px solid #FF6633;
     border-radius: 10px;
     margin: 20px;
-    height: 100%;
-    padding: 5px;
+    height: auto;
+    padding: 2px;
 }
 
-.container-interesses ul {
+.container-dados ul {
     list-style: none;
-    margin: 0;
+    margin-bottom: 20px;
 }
 
-.container-interesses li {
+.container-dados li {
     margin-bottom: 5px;
+    margin-left: -20px;
 }
 
-.container-interesses h2 {
-    margin-left: 32px;
+.container-dados h2 {
     font-size: 18px;
+    margin-left: 12px;
 }
 
 .container-btn {
-    margin: 20px;
+    margin: 20px 20px 100px 20px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -69,7 +69,7 @@ body {
     padding: 5px 5px 5px 10px;
     color: #FF6633;
     border-radius: 20px;
-    padding: 5px;
+    padding: 5px 30px 5px 30px;
 }
 
 
@@ -81,22 +81,6 @@ body {
 *
 */
 
-body {
-    background-color: #F7F7F9;
-}
-
-ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-}
-
-p {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 17px;
-    margin: 0;
-}
-
 .hero {
     padding: 6.25rem 0px !important;
     margin: 0px !important;
@@ -104,35 +88,10 @@ p {
 
 .cardbox {
     border-radius: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     padding: 0px !important;
     border-radius: 10px;
-}
-
-
-/* ------------------------------- */
-
-.categoria {
-    border-radius: 5px;
-    box-sizing: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start;
-    justify-content: start;
-    margin-bottom: 20px;
-}
-
-.categoria-top {
-    color: #fff;
-    border-radius: 5px;
-    width: 100%;
-    background-color: #ff6d3c;
-    border-radius: 5px 5px 0px 0px;
-    padding: 2px 0px 5px 15px;
-}
-
-.categoria ul {
-    padding: 2px 0px 5px 15px;
+    width: 80%;
 }
 
 .title-postagem {
