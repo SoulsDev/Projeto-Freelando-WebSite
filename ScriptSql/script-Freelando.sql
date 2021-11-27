@@ -32,7 +32,7 @@ CREATE PROCEDURE LOGIN_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
 	SELECT count(n_id) FROM contratantes WHERE c_email = email AND c_senha = senha;
     
 CREATE PROCEDURE LISTAR_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
-	SELECT * FROM contratantes WHERE c_email = email AND c_senha = senha;
+	SELECT n_id, c_nome, c_email FROM contratantes WHERE c_email = email AND c_senha = senha;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,
@@ -62,12 +62,14 @@ CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
     
 CREATE PROCEDURE LOGIN_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
 	SELECT count(n_id) FROM autonomos WHERE c_email = email AND c_senha = senha;
-    
-CREATE PROCEDURE LISTAR_AUONOMOS (email VARCHAR(50), senha VARCHAR(70))
+
+DROP Procedure IF EXISTS LISTAR_AUTONOMO ;
+CREATE PROCEDURE LISTAR_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
 	SELECT * FROM autonomos 
 		INNER JOIN telefones_autonomo ON autonomos.n_id = telefones_autonomo.n_id_autonomo
 			INNER JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomo
-				INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo;
+				INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
+					WHERE autonomos.c_email = email AND autonomos.c_senha = senha;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
@@ -89,7 +91,7 @@ CREATE TABLE dados_academicos(
 	n_id INT AUTO_INCREMENT,
     c_ensino VARCHAR(25) NOT NULL,
     c_nivel VARCHAR(15) NOT NULL,
-    c_curso VARCHAR(15) NOT NULL,
+    c_curso VARCHAR(25) NOT NULL,
     n_carga_horaria INT NOT NULL,
     n_id_autonomo INT NOT NULL,
     PRIMARY KEY (n_id),
@@ -131,16 +133,16 @@ CREATE PROCEDURE LISTAR_PROFISSOES (id_area INT)
 DROP TABLE IF EXISTS dados_profissionais;
 CREATE TABLE dados_profissionais(
 	n_id INT AUTO_INCREMENT,
-    n_id_area INT NOT NULL,
     n_id_profissao INT NOT NULL,
     n_experiencia INT NOT NULL,
+    n_id_autonomo INT NOT NULL,
     PRIMARY KEY (n_id),
-    FOREIGN KEY (n_id_area) REFERENCES areas (n_id),
-    FOREIGN KEY (n_id_profissao) REFERENCES profissoes (n_id)
+    FOREIGN KEY (n_id_profissao) REFERENCES profissoes (n_id),
+    FOREIGN KEY (n_id_autonomo) REFERENCES autonomos (n_id)
 );
 
-CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (area_profissional VARCHAR(30), profissao VARCHAR(50), nivel_experiencia VARCHAR(50), id_autonomo INT)
-INSERT INTO dados_profissionais VALUES (default, area_profissional, profissao, nivel_experiencia, id_autonomo);
+CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (profissao VARCHAR(50), nivel_experiencia VARCHAR(50), id_autonomo INT)
+INSERT INTO dados_profissionais VALUES (default, profissao, nivel_experiencia, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
 INSERT INTO areas VALUES (default, 'Administração e Contabilidade'),

@@ -11,40 +11,19 @@ var today = new Date();
 
 birth_input.setAttribute('max', (today.getFullYear() - 18) + '-' + (today.getMonth() + 1) + '-' + today.getDate());
 
-// Validação e mascara para input CPF
-cpf_input.addEventListener('keydown', function(event) {
-    // Verifica se o que foi digitado não é um numero ou não é digito delete ou backspace
-    if (isNaN(event.key) && (event.keyCode !== 8 && event.keyCode !== 46)) {
-        // O caractere digitado não é adicionado ao input
-        event.preventDefault()
-    }
-    // A mascara só deve ser usada quando a tecla não for a tecla delete ou backspace
-    // Caso contrario fica num loop eterno
-    if (event.keyCode !== 8 && event.keyCode !== 46) {
-        if (cpf_input.value.length === 3 || cpf_input.value.length === 7) {
-            cpf_input.value = cpf_input.value + '.'
-        }
-        if (cpf_input.value.length === 11) cpf_input.value = cpf_input.value + '-'
-    }
-})
-
 
 function showTab(n) {
     // Esta função irá exibir a guia especificada do formulário ...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
-    x[n].classList.add("block");
     // ... e corrija os botões Anterior / Próximo:
 
-    if (n != 0) {
-        document.getElementById("prevRegistrar").style.display = "none";
-    } else {
-        document.getElementById("prevRegistrar").style.display = "inline";
-    }
+    // if (n != 0) {
+    //     document.getElementById("prevRegistrar").style.display = "none";
+    // } else {
+    //     document.getElementById("prevRegistrar").style.display = "inline";
+    // }
 
-
-
-    console.log("" + n);
 
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
@@ -77,18 +56,44 @@ function nextPrev(n) {
 
 
     // Ocultar a guia atual:
-    x[currentTab].style.display = "none";
-    x[currentTab].classList.remove("block");
+    if(currentTab < 2){
+        x[currentTab].style.display = "none";
+        x[currentTab].classList.remove("block");
+        currentTab = currentTab + n;
+    }else if (n == -1 && currentTab == 2){
+        x[currentTab].style.display = "none";
+        x[currentTab].classList.remove("block");
+        currentTab = currentTab + n;
+    }else if(n == 1 && currentTab == 2){
+        currentTab = currentTab + n;
+    }
     // Aumentar ou diminuir a guia atual em 1:
-    currentTab = currentTab + n;
+
+
     // if you have reached the end of the form...
-    if (currentTab >= x.length) {
+    if (currentTab >= x.length ) {
         // se você chegou ao final do formulário ...
         document.getElementById("regForm").submit();
         return false;
     }
     // Caso contrário, exiba a guia correta:
+    console.log(currentTab);
     showTab(currentTab);
+}
+
+
+function fixStepIndicator(n) {
+    // Esta função remove a classe "ativa" de todas as etapas ...
+    var i, x = document.getElementsByClassName("step");
+    for (i = 0; i < x.length; i++) {
+        x[i].className = x[i].className.replace(" active", "");
+    }
+    // ... e adiciona a classe "ativa" na etapa atual:
+    if (n < 2) {
+        x[n + 1].className = x[n + 1].className.replace("finish", "");
+    }
+
+    x[n].className += " active";
 }
 
 function validateForm() {
@@ -101,8 +106,6 @@ function validateForm() {
         y[i].children[1].style.border = "1px solid #000";
         y[i].children[2].style.display = "none";
     }
-
-    //AQUI ESTAVA COM UM CONFLITO
 
     for (i = 0; i < y.length; i++) {
 
@@ -128,7 +131,7 @@ function validateForm() {
             }
         }
         // validação de cpf deve pedir para ser do tamanho máximo do campo
-        if (y[i].children[1].id === 'cpf') {
+        if (y[i].children[0].id === 'cpf') {
             if (y[i].children[1].value.length === 14) {
                 valid = true;
             } else {
@@ -147,19 +150,62 @@ function validateForm() {
 }
 
 
-function fixStepIndicator(n) {
-    // Esta função remove a classe "ativa" de todas as etapas ...
-    var i, x = document.getElementsByClassName("step");
-    for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" active", "");
-    }
-    // ... e adiciona a classe "ativa" na etapa atual:
 
-    if (n < 3) {
-        x[n + 1].className = x[n + 1].className.replace(" finish", "");
-    }
+function addCargo() {
+    profissao = document.getElementById('profissao');
+    tempo_atuacao = document.getElementById('nivel_experiencia');
 
-    x[n].className += " active";
+    lista = document.getElementById('cargo_ul');
+
+    indice = lista.children.length + 1;
+
+    link = document.createElement('a');
+    link.setAttribute('name', 'cargo');
+    link.innerHTML = profissao.options[profissao.selectedIndex].text;
+
+    item = document.createElement('li');
+    item.setAttribute('id', 'item_' + indice);
+    item.appendChild(link);
+
+
+    lista.appendChild(item);
+
+    document.getElementById("lista-cargos").value = document.getElementById("lista-cargos").value + profissao.value + "," + tempo_atuacao.value + ";";
+}
+
+
+
+function addCurso() {
+    nivel_curso = document.getElementById('nivel_curso');
+    nome_curso = document.getElementById('curso_extra');
+    duracao = document.getElementById('cargahoraria_curso');
+
+    lista = document.getElementById('curso_ul');
+
+    indice = lista.children.length + 1;
+
+    link = document.createElement('a');
+    link.setAttribute('name', 'curso_' + indice);
+    link.innerHTML = nome_curso.value;
+
+    item = document.createElement('li');
+    item.setAttribute('id', 'curso_' + indice);
+    item.appendChild(link);
+
+
+    lista.appendChild(item);
+    document.getElementById("lista-cursos").value = document.getElementById("lista-cursos").value + nivel_curso.value + "," + nome_curso.value + "," + duracao.value + ";";
+}
+
+function listarProfissoes(area_id) {
+    profissoes = document.getElementsByClassName("profissoes_dinamico");
+    for (let item of profissoes) {
+        item.style.display = "none";
+        atributo = item.getAttribute('area');
+        if (atributo == area_id) {
+            item.style.display = "block";
+        }
+    }
 }
 
 
@@ -180,7 +226,6 @@ function meu_callback(conteudo) {
 
 
 function pesquisacep(valor) {
-
     //Nova variável "cep" somente com dígitos.
     var cep = valor.replace(/\D/g, '');
 

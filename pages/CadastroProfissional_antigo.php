@@ -1,3 +1,7 @@
+<?php 
+    include ('../src/classes/cargo/Cargo.php');
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -5,12 +9,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <meta charset="utf-8">
-    <link href="../css/style_cadpro.css" rel="stylesheet" type="text/css">
+    
     <title>FreeLando | Cadastro do profissional</title>
     <link rel="shortcut icon" href="../medias/img/Group.svg" type="image/x-icon">
 
-</head>
+    <link href="../css/style_cadpro.css" rel="stylesheet" type="text/css">
 
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../scripts/jquery.mask.js"></script>
+
+    <script>
+        $(document).ready(function(){
+        $("#cpf").mask("999.999.999-99", {placeholder: "___.___.___-__"});
+        $('#celular').mask('(00)00000-0000');
+        $('#cep').mask('00000-000');
+    })
+    </script>
+    
+
+</head>
+<script>
+    function checkEmail(){
+        let input = document.querySelector('#email');
+        let ajax=new XMLHttpRequest();
+        let params='email='+input.value;
+        ajax.open('POST','../src/classes/chamada_ajax/profissional_email_ajax.php');
+        ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        ajax.onreadystatechange=function(){
+            if(ajax.status===200 && ajax.readyState===4){
+                let json=ajax.responseText;
+                if(json ==  1){
+                    document.getElementById('error_message_email_div').innerHTML = "Este email já esta sendo utilizado"
+                    document.getElementById('error_message_email_div').style.display="block"
+                    input.style.border = "1px solid #dc3545";
+                    document.getElementById('nextBtn').disabled = true;
+                } else{
+                    document.getElementById('nextBtn').disabled = false;
+                    document.getElementById('error_message_email_div').style.display="none"
+                    input.style.border = "1px solid rgb(0, 0, 0);";
+                }
+            }
+        };
+        ajax.send(params);
+    }
+    function checkCPF(){
+        let input = document.querySelector('#cpf');
+        let ajax=new XMLHttpRequest();
+        var cpf = input.value;
+        cpf = cpf.replaceAll(".", "");
+        cpf = cpf.replace('-', '');
+        let params='cpf='+cpf;
+        ajax.open('POST','../src/classes/chamada_ajax/profissional_cpf_ajax.php');
+        ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        ajax.onreadystatechange=function(){
+            if(ajax.status===200 && ajax.readyState===4){
+                let json=ajax.responseText;
+                console.log(json);
+                if(json ==  1){
+                    document.getElementById('error_message_cpf_div').innerHTML = "Este CPF já esta sendo utilizado"
+                    document.getElementById('error_message_cpf_div').style.display="block"
+                    input.style.border = "1px solid #dc3545";
+                    document.getElementById('nextBtn').disabled = true;
+                } else{
+                    document.getElementById('nextBtn').disabled = false;
+                    document.getElementById('error_message_cpf_div').style.display="none"
+                    input.style.border = "1px solid rgb(0, 0, 0);";
+                }
+            }
+        };
+        ajax.send(params);
+    }
+</script>
 <body>
 
     <div class="area">
@@ -36,9 +106,11 @@
 
     <section>
 
-        <div class="margem" id="topo"> </div>
 
-        <form id="regForm" action="../src/classes/profssional/InsProfissional.php">
+        <div class="margem"> </div>
+
+        <form id="regForm" method="POST" action="../src/classes/profissional/InsProfissional.php">
+
 
 
             <div class="barra-line">
@@ -46,20 +118,15 @@
 
             </div>
 
-            <div id="Link" class="barra-progresso">
 
-
+            <div class="barra-progresso">
                 <div class="step">
-
-
                     <div class="circulo">
                         <span>1</span>
                     </div>
-
                     <p>Dados </p>
                     <p>pessoais</p>
                     <p>⠀⠀⠀⠀</p>
-
                 </div>
 
                 <div class="step">
@@ -98,6 +165,7 @@
 
             </div>
 
+
             <!-- primeira parte do formulário -->
             <div class="tab">
 
@@ -123,8 +191,8 @@
                         <div class="campos-input" id="cpf_form_div">
 
                             <labe for="cpf">CPF<span style="color: rgb(145, 145, 145)">*</span></labe>
-                            <input type="text" name="cpf" id="cpf" maxlength="14">
-                            <div class="invalid-feedback">
+                            <input type="text" name="cpf" id="cpf" maxlength="14" onblur="checkCPF(this.value)">
+                            <div id="error_message_cpf_div" class="invalid-feedback">
                                 Preencha com seu CPF
                             </div>
 
@@ -138,7 +206,6 @@
 
 
                             <select name="genero" id="genero">
-                                <option value="" disabled selected>Selecione</option>
                                 <option>Masculino</option>
                                 <option>Feminino</option>
                                 <option>Outros</option>
@@ -149,8 +216,7 @@
 
                         <div class="campos-input" id="dt_nasc_form_div">
 
-                            <labe for="data_nascimento">Data de Nascimento<span style="color: rgb(145, 145, 145)">*</span>
-                            </labe>
+                            <labe for="data_nascimento">Data de Nascimento<span style="color: rgb(145, 145, 145)">*</span></labe>
                             <input type="date" name="data_nascimento" id="data_nascimento">
 
                             <div class="invalid-feedback">
@@ -162,8 +228,8 @@
                         <div class="campos-input" id="email_form_div">
 
                             <labe for="email">Email<span style="color: rgb(145, 145, 145)">*</span></labe>
-                            <input type="email" name="email" id="email">
-                            <div class="invalid-feedback">
+                            <input type="email" name="email" id="email" onblur="checkEmail(this.value)">
+                            <div id="error_message_email_div" class="invalid-feedback">
                                 Preencha com seu email
                             </div>
 
@@ -193,6 +259,7 @@
 
 
                 </div>
+
 
                 <div class="formulario">
 
@@ -259,7 +326,11 @@
 
                 </div>
 
+
+
+
             </div>
+
 
             <!-- segunda parte do formulário -->
             <div class="tab">
@@ -276,17 +347,20 @@
 
                             <labe for="area_profissao">Área</labe>
 
-                            <select name="area_profissao" id="area_profissao">
-                                <option value="" disabled selected>Selecione</option>
-                                <option>Assistência Técnica</option>
-                                <option>Beleza</option>
-                                <option>Educação/aprendizagem</option>
-                                <option>Reforma/Manutenção</option>
-                                <option>Serviços Domésticos</option>
-                                <option>Eventos</option>
-                                <option>Tecnologia</option>
-
+                            <select name="area_profissao" id="area_profissao" onchange="listarProfissoes(this.value)">
+                                <option value="">Selecione</option>
+                                    <?php 
+                                        $listaArea = Cargo::listaArea();
+                                        while($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
+                                            ?>
+                                            <option value="<?php echo $row['n_id'];?>">
+                                                <?php echo $row['c_nome']; ?>
+                                            </option>
+                                        <?php
+                                        }
+                                        ?>
                             </select>
+
                             <div></div>
                         </div>
 
@@ -295,46 +369,21 @@
                             <labe for="profissao">Profissão<span style="color: rgb(145, 145, 145)">*</span></labe>
 
                             <select name="profissao" id="profissao">
-                                <option value="" disabled selected>Selecione</option>
-                                <option>Animador de festas</option>
-                                <option>Babá</option>
-                                <option>Barbeiro</option>
-                                <option>Cabeleireiro(a)</option>
-                                <option>Cantor</option>
-                                <option>Decorador</option>
-                                <option>Dedetizador</option>
-                                <option>Depilador(a)</option>
-                                <option>Desentupidor</option>
-                                <option>Desenvolvedor de software/aplicativos</option>
-                                <option>Desenvolvedor Web</option>
-                                <option>Designer de sobrancelhas</option>
-                                <option>Diarista</option>
-                                <option>DJ</option>
-                                <option>Editor de fotos</option>
-                                <option>Editor de vídeo</option>
-                                <option>Eletricista</option>
-                                <option>Empreiteiro</option>
-                                <option>Encanador</option>
-                                <option>Fotógrafo</option>
-                                <option>Jardineiro</option>
-                                <option>Lash designer</option>
-                                <option>Luthier</option>
-                                <option>Manicure/pedicure</option>
-                                <option>Maquiador(a)</option>
-                                <option>Marceneiro</option>
-                                <option>Músico</option>
-                                <option>Pedreiro</option>
-                                <option>Professor de Dança</option>
-                                <option>Professor de Ensino Fundamental</option>
-                                <option>Professor de Ensino Médio</option>
-                                <option>Professor de Idiomas</option>
-                                <option>Professor de Luta</option>
-                                <option>Professor de Música</option>
-                                <option>Professor de Tecnologia</option>
-                                <option>Técnico de informática</option>
-                                <option>Técnico em equipamentos eletrônicos</option>
-                                <option>Vidraceiro</option>
-                                <option>Web designer</option>
+                                <option value="">Selecione</option>
+                                <?php 
+                                    $listaArea = Cargo::listaProfissoes();
+                                    while($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
+                                        ?>
+                                        <option value="<?php echo $row['n_id']; ?>"
+                                        area="<?php echo $row['n_id_area']; ?>" 
+                                        class = "profissoes_dinamico"
+                                        style="display:none;"
+                                        ><?php 
+                                                echo $row['c_nome'];
+                                            ?></option>
+                                    <?php
+                                    }
+                                    ?>
                             </select>
                             <div></div>
 
@@ -345,15 +394,14 @@
                             <labe for="nivel_experiencia">Nível de experiência<span style="color: rgb(145, 145, 145)">*</span></labe>
 
                             <select name="nivel_experiencia" id="nivel_experiencia">
-                                <option value="" disabled selected>Selecione</option>
-                                <option>6 meses</option>
-                                <option>9 meses</option>
-                                <option>1 ano</option>
-                                <option>2 anos</option>
-                                <option>3 anos</option>
-                                <option>4 anos</option>
-                                <option>5 anos</option>
-                                <option>Mais</option>
+                                <option value=6>6 meses</option>
+                                <option value=9>9 meses</option>
+                                <option value=12>1 ano</option>
+                                <option value=24>2 ano</option>
+                                <option value=36>2 ano</option>
+                                <option value=48>3 ano</option>
+                                <option value=60>4 ano</option>
+                                <option value=61>Mais</option>
 
 
                             </select>
@@ -362,8 +410,7 @@
 
 
                         <div class="container-btn-form2">
-                            <img name="btncargo-cancelar" id="btncargo-cancelar" class="btn-deletecargo" src="../medias/img/btn-x.png" alt="adicionar">
-                            <img name="btncargo-add" id="btncargoadd" class="btn-addcargo" src="../medias/img/btn-add.png" alt="adicionar">
+                            <img name="btncargo-add" id="btncargoadd" class="btn-addcargo" src="../medias/img/btn-add.png" alt="adicionar"  onclick="addCargo();">
 
                         </div>
 
@@ -374,25 +421,21 @@
                         <div class="titulo-2">
                             <p>Cargos cadastrados</p>
                         </div>
-
-                        <ul class="cargo-list">
-
-
-                            <li>
-                                <a id="cargo" name="cargo">Exemplo
-                                    <img onclick="" id="cargo-apagar" name="cargo-apagar" style="cursor: pointer;"
-                                        src="../medias/img/btn-x2.svg">
-                                </a>
-                            </li>
+                        <input type="hidden" name="cargos" id="lista-cargos">
+                        <ul class="cargo-list" id="cargo_ul">
 
                         </ul>
 
+
+
+
+
                     </div>
 
+
+
+
                 </div>
-
-
-
 
             </div>
 
@@ -408,18 +451,17 @@
                             <p>Formação acadêmica</p>
                         </div>
 
-                        <div class="campos-input-pequeno" id="ensino_form_div">
+                        <div class="campos-input-pequeno"  id="ensino_form_div">
 
                             <labe for="ensino">Ensino<span style="color: rgb(145, 145, 145)">*</span></labe>
 
                             <select id="ensino" name="ensino">
-                                <option value="" disabled selected>Selecione</option>
                                 <option>Fundamental</option>
                                 <option>Médio</option>
                                 <option>Superior</option>
 
                             </select>
-                            <div></div>
+                           <div></div>
                         </div>
 
 
@@ -435,7 +477,7 @@
 
                             <labe for="instituicao">Instituição<span style="color: rgb(145, 145, 145)">*</span></labe>
 
-                            <input name="instituicao" id="instituicao" list="dtlist-instituicao" Placeholder="Insira sua Instituição">
+                            <input name="instituicao" id="instituicao" list="dtlist-instituicao">
                             <div class="invalid-feedback">
                                 Preencha este campo
                             </div>
@@ -446,7 +488,7 @@
                                 <option value="FMU">
                                 <option value="Safari">
                             </datalist>
-
+                            
                         </div>
 
 
@@ -454,7 +496,7 @@
 
                             <labe for="curso_graducao">Curso<span style="color: rgb(145, 145, 145)">*</span></labe>
 
-                            <input name="curso_graducao" id="curso_graducao" list="dtlist-curso_graducao" Placeholder="Insira o Curso">
+                            <input name="curso_graducao" id="curso_graducao" list="dtlist-curso_graducao">
                             <div class="invalid-feedback">
                                 Preencha este campo
                             </div>
@@ -482,7 +524,6 @@
                             <labe for="nivel_curso">Nível<span style="color: rgb(145, 145, 145)">*</span></labe>
 
                             <select name="nivel_curso" id="nivel_curso">
-                                <option value="" disabled selected>Selecione</option>
                                 <option>Tecnólogo</option>
                                 <option>Técnico</option>
 
@@ -494,20 +535,15 @@
 
                             <labe for="curso">Curso<span style="color: rgb(145, 145, 145)">*</span></labe>
 
-                            <input name="curso_graducao" id="curso_graducao" list="dtlist-curso_graducao" Placeholder="Insira o Curso">
-                            <div class="invalid-feedback">
-                                Preencha este campo
-                            </div>
-
-                            <datalist name="curso" id="curso">
+                            <select name="curso" id="curso">
                                 <option>Eletricista</option>
                                 <option>Desenvolvedor</option>
                                 <option>Mecânico Automotivo</option>
                                 <option>Pedreiro</option>
                                 <option>Manicure</option>
 
-                            </datalist>
-
+                            </select>
+                            <div></div>
                         </div>
 
                         <div class="campos-input-pequeno">
@@ -516,15 +552,14 @@
                             </labe>
 
                             <select name="cargahoraria_curso" id="cargahoraria_curso">
-                                <option value="" disabled selected>Selecione</option>
-                                <option>40 horas</option>
-                                <option>80 horas</option>
-                                <option>120 horas</option>
-                                <option>200 horas</option>
-                                <option>260 horas</option>
-                                <option>360 horas</option>
-                                <option>400 horas</option>
-                                <option>Mais</option>
+                                <option value=40>40 horas</option>
+                                <option value=80>80 horas</option>
+                                <option value=120>120 horas</option>
+                                <option value=200>200 horas</option>
+                                <option value=260>260 horas</option>
+                                <option value=360>360 horas</option>
+                                <option value=400>400 horas</option>
+                                <option value=401>Mais</option>
 
                             </select>
                             <div></div>
@@ -532,8 +567,7 @@
 
 
                         <div class="container-btn-form2">
-                            <img class="btn-deletecurso" src="../medias/img/btn-x.png" alt="adicionar">
-                            <img class="btn-addcurso" src="../medias/img/btn-add.png" alt="adicionar">
+                            <img class="btncurso-add btn-click" src="../medias/img/btn-add.png" alt="adicionar" onclick="addCurso()">
 
                         </div>
 
@@ -544,56 +578,50 @@
                         <div class="titulo-3">
                             <p>Cursos cadastrados</p>
                         </div>
-
-                        <!-- CAMPO DE ITENS DO CURSOS CADASTRADOS -->
-                        <ul class="curso-list">
-
-                            <li>
-                                <a id="curso" name="curso">Exemplo 1
-                                    <img onclick="" id="curso-apagar" name="curso-apagar" style="cursor: pointer;"
-                                        src="../medias/img/btn-x2.svg">
-                                </a>
-                            </li>
-
+                        <input type="hidden" name="cursos" id="lista-cursos">
+                        <ul class="curso-list" id="curso_ul">
+                            
                         </ul>
-
                     </div>
+
+
 
                 </div>
 
             </div>
 
-            <!-- quarta parte do formLário -->
-            <div class="tab">
 
+
+
+
+            <!-- quarta parte do foormário -->
+            <div class="tab">
                 <div class="container-4">
-                    <p>Adicione fotos ou vídeos para que as pessoas possam ver sua experiência e nível do seu serviço
-                    </p>
+                    <h1>Adicione fotos ou vídeos para que as pessoas possam ver sua experiência e nível do seu serviço
+                    </h1>
 
                     <div class="container-zona-arquivo">
 
-                        <div class="container-arquivos-list">
-
-                            <!-- LISTA ARQUIVOS -->
-                            <ul class="arquivo-list">
-
-                                <li>
-                                    <a id="arquivo" name="arquivo">Exemplo.png</a>
-                                    <img onclick="" id="arquivo-apagar" name="arquivo-apagar" style="cursor: pointer;" src="../medias/img/btn-x2-small.svg">
-                                </li>
-
-                            </ul>
+                        <div class="arquivos-list">
 
                         </div>
 
                         <div class="selecionar-arquivo">
-                            <img onclick="" name="btnarquivo-add" id="btnarquivo-add" src="../medias/img/btn-add2.svg" style="cursor: pointer; margin-bottom: 3px;" alt="Carregar Arquivos">
+                            <img name="btnarquivo-add btn-click" id="btnmedia-add" src="../medias/img/btn-add2.png" alt="Carregar Arquivos">
                             <p>Carregue seus arquivos.</p>
                             <p>pressionando o botão ou.</p>
                             <p>solte-os aqui.</p>
                         </div>
 
                     </div>
+                </div>
+                </p>
+            </div>
+
+
+
+
+
 
                     <div class="container-termos-uso">
                         <input type="checkbox" id="termos" name="termos" checked>
@@ -606,19 +634,13 @@
                         </label>
                     </div>
 
-                </div>
 
-            </div>
 
             <!-- botões -->
             <div class="container-btns">
 
-                <button class="botao-cancelar" id="prevRegistrar" type="button" onclick="telaRegistrar()">Voltar</button>
                 <button class="botao-cancelar" type="button" id="prevBtn" onclick="nextPrev(-1)">Voltar</button>
-
-                <a href="#topo">
-                    <button href="#" class="botao-avancar" type="button" id="nextBtn" onclick="nextPrev(1)">Avançar</button>
-                </a>
+                <button class="botao-avancar" type="button" id="nextBtn" onclick="nextPrev(1)">Avançar</button>
 
             </div>
 
@@ -677,11 +699,10 @@
 
         </form>
 
-    </section>
 
+    </section>
     <script src="../scripts/script-cadpro.js"></script>
     <script src="../scripts/scripts.js"></script>
-
 </body>
 
 </html>
