@@ -46,5 +46,8 @@ input{
 }
 
 .form-perfil{
-    
+    height: 424px;
+    white-space: nowrap;
+    overflow-y: scroll;
+    text-overflow: Ellipsis; 
 }
