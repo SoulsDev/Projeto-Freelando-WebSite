@@ -51,3 +51,11 @@ input{
     overflow-y: scroll;
     text-overflow: Ellipsis; 
 }
+
+.clicavel:hover{
+    cursor: pointer;
+}
+
+.fonte-violeta{
+    color:blueviolet;
+}
