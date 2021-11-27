@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    background-color: #F7F7F9;
+}
+
+.perfil-fundo{
+    margin-top: 60px;
+    margin-bottom: 50px;
+    width: 790px;
+    height: 600px;
+    border: 2px solid orange;
+}
+
+.foto-perfil{
+    width: 150px;
+    height: 130px;
+    border-radius: 50%;
+}
+
+.exibicao-perfil{
+    display: flex;
+    align-items: center;
+}
+
+.menu-perfil{
+    background-color: blueviolet;
+    width: 10px;
+}
+
+
+.menu-item-perfil{
+    margin-left: 8px;
+}
+
+
+form{
+    margin-top: 30px;
+}
+
+input{
+    margin-bottom: 10px;
+}
+
+.form-perfil{
+    
+}
