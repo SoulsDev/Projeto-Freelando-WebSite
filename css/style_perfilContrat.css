@@ -45,6 +45,10 @@ input{
     margin-bottom: 10px;
 }
 
-.form-perfil{
-    
+.clicavel:hover{
+    cursor: pointer;
+}
+
+.fonte-violeta{
+    color:blueviolet;
 }
