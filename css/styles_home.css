@@ -23,7 +23,7 @@ p {
 }
 
 .hero {
-    padding: 6.25rem 0px !important;
+    /* padding: 6.25rem 0px !important; */
     margin: 0px !important;
 }
 
@@ -188,7 +188,7 @@ p {
     height: 650px;
 }
 
-.cardbox .cardbox-item img {}
+/* .cardbox .cardbox-item img {} */
 
 .img-responsive {
     display: block;

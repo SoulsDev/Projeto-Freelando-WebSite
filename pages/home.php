@@ -17,6 +17,11 @@
 
 <body>
 
+    <?php
+        
+        include"nav.html";
+    ?>
+
     <section class="hero">
         <div class="container">
             <div class="row">
