@@ -38,12 +38,12 @@
                     <p>Eletricista | lorem | Lorem </p>
                     <p>300 seguidores</p>
 
-                    <div class="d-flex flex-row align-items-center justify-content-start">
+                    <div class="d-flex flex-row align-items-center justify-content-start flex-nowrap">
 
                         <img class="btn m-10" src="../medias/img/btn-seguir.svg">
                         <img class="btn m-10" src="../medias/img/btn-chat.svg">
 
-                        <div class="m-10">
+                        <div class="m-10 d-flex flex-nowrap ">
                             <img class="btn " src="../medias/img/star.svg">
                             <img class="btn " src="../medias/img/star.svg">
                             <img class="btn " src="../medias/img/star.svg">
