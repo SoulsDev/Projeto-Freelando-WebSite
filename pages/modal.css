@@ -86,14 +86,14 @@
 
 .modal-2 {
     background-color: #fff;
-    height: 80vh;
-    width: 60%;
+    height: auto;
+    width: 50%;
     min-width: 300px;
     border-radius: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
-    padding-top: 80px;
+    padding: 10px 10px 30px 10px;
 }
 
 .container-2 {
@@ -204,7 +204,8 @@
     border: 1px solid #5d00d2;
     border-radius: 5px;
     color: #5d00d2;
-    padding: 1px 25px 1px 25px;
+    padding: 5px 35px 5px 35px;
+    width: 140px;
 }
 
 .confirmar {
@@ -213,7 +214,8 @@
     border: 1px solid;
     border-radius: 5px;
     color: #fff;
-    padding: 1px 25px 1px 25px;
+    padding: 5px 35px 5px 35px;
+    width: 140px;
     margin-left: 15px;
 }
 
