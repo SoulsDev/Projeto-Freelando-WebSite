@@ -1,4 +1,4 @@
-.modal-container{
+.modal-container {
     background: rgba(0, 0, 0, .5);
     width: 100vw;
     height: 100vh;
@@ -6,11 +6,13 @@
     top: 0px;
     left: 0px;
     z-index: 200;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-  }
-  .modal{
+    padding: auto;
+}
+
+.modal {
     background-color: #fff;
     height: 52vh;
     width: 40%;
@@ -21,20 +23,23 @@
     flex-direction: column;
     padding-top: 20px;
 }
-.h1-pu{
+
+.h1-pu {
     text-align: center;
     font-size: 25px;
     padding-bottom: 20px;
     border-bottom: 1px solid #E2670E;
     color: #000;
 }
-.caixa-de-texto{
+
+.caixa-de-texto {
     display: flex;
     justify-content: center;
     padding-top: 10px;
     height: 60%;
 }
-.caixa{
+
+.caixa {
     height: 90%;
     width: 95%;
     overflow: none;
@@ -48,7 +53,8 @@
 .caixa::-webkit-input-placeholder {
     color: #3A3838;
 }
-.botao-publicar{
+
+.botao-publicar {
     background: #E2670E;
     border: none;
     border-radius: 10px;
@@ -56,24 +62,15 @@
     color: #fff;
     padding: 3px;
 }
-.botao-close{
-    position: absolute;
-    left: 470px;
-    top: 15px;
+
+.botao-close {
     cursor: pointer;
 }
 
 
-
-
-
-
-
-
-
 /* modal 2 */
 
-.modal-container-2{
+.modal-container-2 {
     background: rgba(0, 0, 0, .5);
     width: 100vw;
     height: 100vh;
@@ -84,8 +81,9 @@
     display: none;
     justify-content: center;
     align-items: center;
-  }
-  .modal-2{
+}
+
+.modal-2 {
     background-color: #fff;
     height: 80vh;
     width: 60%;
@@ -96,8 +94,6 @@
     flex-direction: column;
     padding-top: 80px;
 }
-
-
 
 .container-2 {
     display: flex;
@@ -177,26 +173,31 @@
     margin-left: 5px;
     cursor: pointer;
 }
-.label{
+
+.label {
     display: block;
     padding: 10px 0 2px 0;
 }
-.input{
+
+.input {
     width: 250px;
 }
-.botao-close-2{
+
+.botao-close-2 {
     position: absolute;
     left: 722px;
     top: 15px;
     cursor: pointer;
 }
-.botao-publi{
+
+.botao-publi {
     display: flex;
     justify-content: end;
     margin-right: 75px;
     font-size: 15px;
 }
-.cancelar{
+
+.cancelar {
     border: none;
     background: none;
     border: 1px solid #5d00d2;
@@ -205,10 +206,10 @@
     padding: 1px 25px 1px 25px;
 }
 
-.confirmar{
+.confirmar {
     border: none;
     background: #E2670E;
-    border: 1px solid ;
+    border: 1px solid;
     border-radius: 5px;
     color: #fff;
     padding: 1px 25px 1px 25px;
@@ -216,16 +217,9 @@
 }
 
 
-
-
-
-
-
-
 /* modal-3 */
 
-
-.modal-container-3{
+.modal-container-3 {
     background: rgba(0, 0, 0, .5);
     width: 100vw;
     height: 100vh;
@@ -236,8 +230,9 @@
     display: none;
     justify-content: center;
     align-items: center;
-  }
-  .modal-3{
+}
+
+.modal-3 {
     background-color: #fff;
     height: auto;
     width: 50%;
@@ -247,7 +242,6 @@
     flex-direction: column;
     padding-top: 20px;
 }
-
 
 .container-3 {
     display: flex;
@@ -335,22 +329,25 @@
     cursor: pointer;
 }
 
-.label-2{
+.label-2 {
     display: block;
 }
-.input-2{
+
+.input-2 {
     width: 250px;
     height: 20px;
     font-size: 15px;
 }
-.botao-publi-2{
+
+.botao-publi-2 {
     display: flex;
     justify-content: end;
     margin-right: 20px;
     margin-bottom: 10px;
     font-size: 15px;
 }
-.botao-close-3{
+
+.botao-close-3 {
     position: absolute;
     left: 598px;
     top: 8px;
@@ -358,11 +355,9 @@
 }
 
 
-
-
 /* modal-4 */
 
-.modal-container-4{
+.modal-container-4 {
     background: rgba(0, 0, 0, .5);
     width: 100vw;
     height: 100vh;
@@ -373,8 +368,9 @@
     display: none;
     justify-content: center;
     align-items: center;
-  }
-  .modal-4{
+}
+
+.modal-4 {
     background-color: #fff;
     height: auto;
     width: 45%;
@@ -386,8 +382,7 @@
     padding-top: 20px;
 }
 
-
-.caixa-de-texto-4{
+.caixa-de-texto-4 {
     display: flex;
     justify-content: center;
     padding-top: 10px;
@@ -395,7 +390,8 @@
     padding-left: 15px;
     padding-right: 50px;
 }
-.caixa-4{
+
+.caixa-4 {
     height: 80px;
     width: 95%;
     overflow: none;
@@ -408,7 +404,8 @@
 .caixa-4::-webkit-input-placeholder {
     color: #3A3838;
 }
-.h1{
+
+.h1 {
     text-align: left;
     font-size: 25px;
     padding-bottom: 10px;
@@ -416,24 +413,31 @@
     padding-left: 25px;
     color: #696969;
 }
-.endereco{
+
+.endereco {
     text-align: left;
     margin-top: 20px;
     padding-left: 28px;
     color: #000;
 }
-.cep-texto, .numero-texto{
+
+.cep-texto,
+.numero-texto {
     text-align: left;
     padding-bottom: 10px;
     color: #000;
 }
-.cep-texto{
+
+.cep-texto {
     padding-left: 28px;
 }
-.numero-texto{
+
+.numero-texto {
     padding-left: 35px;
 }
-.cep, .numero{
+
+.cep,
+.numero {
     text-align: left;
     margin-bottom: 10px;
     color: #000;
@@ -441,30 +445,43 @@
     padding: 5px;
     border: 1px solid #000;
 }
-.cep{
+
+.cep {
     margin-left: 6px;
 }
-.numero{
+
+.numero {
     margin-left: 6px;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0; 
-}
-input[type=number] {
-    -moz-appearance:textfield;
+    margin: 0;
 }
 
-.botao-publi-4{
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.botao-publi-4 {
     display: flex;
     margin-left: 28px;
     font-size: 15px;
     margin-bottom: 20px;
 }
-.botao-close-4{
+
+.botao-close-4 {
     position: absolute;
     left: 525px;
     top: 15px;
     cursor: pointer;
+}
+
+.ativo {
+    display: flex;
+}
+
+.absolute {
+    position: relative;
 }

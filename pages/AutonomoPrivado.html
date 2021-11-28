@@ -11,6 +11,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../bootstrap-5.1.3/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../css/styles_autonomopv.css">
+    <link rel="stylesheet" href="modal.css">
 </head>
 
 <body>
@@ -27,7 +28,7 @@
 
                 <div class="col-3 dados-usuario d-flex flex-column justify-content-center ">
                     <div class="d-flex align-items-end justify-content-end">
-                        <a href=""><img class="img-fluid link" src="../medias/img/editar.svg" alt="User"></a>
+                        <a href=""><img id="edit-dadospessoais" name="edit-dadospessoais" onclick="" class="img-fluid link" src="../medias/img/editar.svg" alt="User"></a>
                     </div>
 
 
@@ -50,7 +51,7 @@
 
 
                     <div class="d-flex align-items-end justify-content-end">
-                        <a href=""><img class="img-fluid link" src="../medias/img/editar.svg" alt="User"></a>
+                        <a href=""><img id="edit-interesses" name="edit-interesses" onclick="" class="img-fluid link" src="../medias/img/editar.svg" alt="User"></a>
                     </div>
 
                     <h2>Interesses:</h2>
@@ -68,7 +69,7 @@
                 <div class="container-dados">
 
                     <div class="d-flex align-items-end justify-content-end">
-                        <a href=""><img class="img-fluid link" src="../medias/img/editar.svg" alt="User"></a>
+                        <a href=""><img id="edit-formacoes" name="edit-formacoes" onclick="" class="img-fluid link" src="../medias/img/editar.svg" alt="User"></a>
                     </div>
 
                     <h2>Cursos & Formações:</h2>
@@ -88,7 +89,7 @@
 
 
                 <div class="container-btn">
-                    <button type="button" class="btn-publicacao">Adicionar Publicação</button>
+                    <button id="novo-publicacao" name="novo-publicacao" onclick="" type="button" class="btn-publicacao">Adicionar Publicação</button>
                 </div>
 
                 <div class="cardbox shadow-lg bg-white">
@@ -220,10 +221,417 @@
     </div>
 
 
+    <!-- MODAL -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
+    <!-- modal da publicação -->
+    <div id="modal-publicacao" class="modal-container  ">
+        <div class=" modal ">
+            <div class="conteudo-modal ">
+
+                <div name="btn-fechar" class=" d-flex justify-content-end align-items-end position-absolute" style="width: 98%;">
+                    <img src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
+                </div>
+
+
+                <h1 class="h1-pu ">Nova publicação</h1>
+            </div>
+            <div class="caixa-de-texto ">
+                <textarea name="caixa-texto " id="caixa " rows="7 " class="caixa " placeholder="Descrição da publicação "></textarea>
+            </div>
+            <button class="botao-publicar ">Publicar</button>
+        </div>
+
+    </div>
+
+
+    <!-- modal 2 -->
+    <div id="modal-interesse" class="modal-container-2 ">
+
+        <div class="modal-2 ">
+
+            <div class="conteudo-modal-2 ">
+
+
+                <div name="btn-fechar" class=" d-flex justify-content-end align-items-end position-absolute" style="width: 98%;">
+                    <img src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
+                </div>
+
+
+
+                <div class="tab ">
+
+                    <div class="container-2 ">
+
+                        <div class="formulario-2 ">
+
+                            <div class="titulo-2 ">
+                                <p>Interesse</p>
+                            </div>
+
+                            <div class="campos-input-pequeno ">
+
+
+                                <label class="label " for="area_profissao ">Área</label>
+
+                                <select name="area_profissao " id="area_profissao " class="input ">
+                                    <option style="width: 100%; " value=" " disabled selected>Selecione</option>
+                                    <option>Assistência Técnica</option>
+                                    <option>Beleza</option>
+                                    <option>Educação/aprendizagem</option>
+                                    <option>Reforma/Manutenção</option>
+                                    <option>Serviços Domésticos</option>
+                                    <option>Eventos</option>
+                                    <option>Tecnologia</option>
+
+                                </select>
+                                <div></div>
+                            </div>
+
+                            <div class="campos-input-pequeno ">
+
+                                <label class="label " for="profissao ">Profissão<span
+                                        style="color: rgb(145, 145, 145) ">*</span></label>
+
+                                <select name="profissao " id="profissao " class="input ">
+                                    <option value=" " disabled selected>Selecione</option>
+                                    <option>Animador de festas</option>
+                                    <option>Babá</option>
+                                    <option>Barbeiro</option>
+                                    <option>Cabeleireiro(a)</option>
+                                    <option>Cantor</option>
+                                    <option>Decorador</option>
+                                    <option>Dedetizador</option>
+                                    <option>Depilador(a)</option>
+                                    <option>Desentupidor</option>
+                                    <option>Desenvolvedor de software/aplicativos</option>
+                                    <option>Desenvolvedor Web</option>
+                                    <option>Designer de sobrancelhas</option>
+                                    <option>Diarista</option>
+                                    <option>DJ</option>
+                                    <option>Editor de fotos</option>
+                                    <option>Editor de vídeo</option>
+                                    <option>Eletricista</option>
+                                    <option>Empreiteiro</option>
+                                    <option>Encanador</option>
+                                    <option>Fotógrafo</option>
+                                    <option>Jardineiro</option>
+                                    <option>Lash designer</option>
+                                    <option>Luthier</option>
+                                    <option>Manicure/pedicure</option>
+                                    <option>Maquiador(a)</option>
+                                    <option>Marceneiro</option>
+                                    <option>Músico</option>
+                                    <option>Pedreiro</option>
+                                    <option>Professor de Dança</option>
+                                    <option>Professor de Ensino Fundamental</option>
+                                    <option>Professor de Ensino Médio</option>
+                                    <option>Professor de Idiomas</option>
+                                    <option>Professor de Luta</option>
+                                    <option>Professor de Música</option>
+                                    <option>Professor de Tecnologia</option>
+                                    <option>Técnico de informática</option>
+                                    <option>Técnico em equipamentos eletrônicos</option>
+                                    <option>Vidraceiro</option>
+                                    <option>Web designer</option>
+                                </select>
+                                <div></div>
+
+                            </div>
+
+                            <div class="campos-input-pequeno ">
+
+                                <labe class="label " for="nivel_experiencia ">Nível de experiência<span style="color: rgb(145, 145, 145) ">*</span></labe>
+
+                                <select name="nivel_experiencia " id="nivel_experiencia " class="input ">
+                                    <option value=" " disabled selected>Selecione</option>
+                                    <option>6 meses</option>
+                                    <option>9 meses</option>
+                                    <option>1 ano</option>
+                                    <option>2 anos</option>
+                                    <option>3 anos</option>
+                                    <option>4 anos</option>
+                                    <option>5 anos</option>
+                                    <option>Mais</option>
+
+
+                                </select>
+                                <div></div>
+                            </div>
+
+
+                            <div class="container-btn-form2 ">
+                                <img name="btncargo-cancelar " id="btncargo-cancelar " class="btn-deletecargo " src="../medias/img/btn-x.png " alt="adicionar ">
+                                <img name="btncargo-add " id="btncargoadd " class="btn-addcargo " src="../medias/img/btn-add.png " alt="adicionar ">
+
+                            </div>
+
+                        </div>
+
+                        <div class="formulario-2 ">
+
+                            <div class="titulo-2 ">
+                                <p>Cargos cadastrados</p>
+                            </div>
+
+                            <ul class="cargo-list ">
+
+
+                                <li>
+                                    <a id="cargo " name="cargo ">Exemplo
+                                        <img onclick=" " id="cargo-apagar " name="cargo-apagar "
+                                            style="cursor: pointer; " src="../medias/img/btn-x2.svg ">
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="botao-publi ">
+                        <button class="cancelar ">Cancelar</button>
+                        <button class="confirmar ">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- modal-3 -->
+    <div id="modal-formacao" class="modal-container-3  ">
+        <div class=" modal-3 ">
+            <div class=" conteudo-modal-3 ">
+
+
+                <div name="btn-fechar" class=" d-flex justify-content-end align-items-end position-absolute" style="width: 98%;">
+                    <img src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
+                </div>
+
+
+                <div class=" tab ">
+
+                    <div class=" container-3 ">
+
+                        <div class=" formulario-3 ">
+
+                            <div class=" titulo-3 ">
+                                <p>Formação acadêmica</p>
+                            </div>
+
+                            <div class=" campos-input-pequeno " id=" ensino_form_div ">
+
+                                <labe class=" label-2 " for=" ensino ">Ensino<span style=" color: rgb(145, 145, 145) ">*</span>
+                                </labe>
+
+                                <select class=" input-2 " id=" ensino " name=" ensino ">
+                                    <option value=" " disabled selected>Selecione</option>
+                                    <option>Fundamental</option>
+                                    <option>Médio</option>
+                                    <option>Superior</option>
+
+                                </select>
+                                <div></div>
+                            </div>
+
+
+                        </div>
+
+                        <div class=" formulario-3 ">
+
+                            <div class=" titulo-3 ">
+                                <p>Graduação</p>
+                            </div>
+
+                            <div class=" campos-input-pequeno " id=" graducao_form_div ">
+
+                                <labe class=" label-2 " for=" instituicao ">Instituição<span style=" color: rgb(145, 145, 145) ">*</span></labe>
+
+                                <input class=" input-2 " name=" instituicao " id=" instituicao " list=" dtlist-instituicao " Placeholder=" Insira sua Instituição ">
+                                <div class=" invalid-feedback ">
+                                    Preencha este campo
+                                </div>
+                                <datalist id=" dtlist-instituicao ">
+                                    <option value=" USP ">
+                                    <option value=" UNIP ">
+                                    <option value=" UNINOVE ">
+                                    <option value=" FMU ">
+                                    <option value=" Safari ">
+                                </datalist>
+
+                            </div>
+
+
+                            <div class=" campos-input-pequeno ">
+
+                                <labe class=" label-2 " for=" curso_graducao ">Curso<span style=" color: rgb(145, 145, 145) ">*</span></labe>
+
+                                <input class=" input-2 " name=" curso_graducao " id=" curso_graducao " list=" dtlist-curso_graducao " Placeholder=" Insira o Curso ">
+                                <div class=" invalid-feedback ">
+                                    Preencha este campo
+                                </div>
+                                <datalist id=" dtlist-curso_graducao ">
+                                    <option value=" Exemplo ">
+                                    <option value=" Exemplo2 ">
+                                    <option value=" Exemplo3 ">
+                                    <option value=" Exemplo4 ">
+
+
+                                </datalist>
+                            </div>
+
+
+                        </div>
+
+                        <div class=" formulario-4 ">
+
+                            <div class=" titulo-4 ">
+                                <p>Cursos</p>
+                            </div>
+
+                            <div class=" campos-input-pequeno ">
+
+                                <labe class=" label " for=" nivel_curso ">Nível<span style=" color: rgb(145, 145, 145) ">*</span>
+                                </labe>
+
+                                <select class=" input " name=" nivel_curso " id=" nivel_curso ">
+                                    <option value=" " disabled selected>Selecione</option>
+                                    <option>Tecnólogo</option>
+                                    <option>Técnico</option>
+
+                                </select>
+                                <div></div>
+                            </div>
+
+                            <div class=" campos-input-pequeno ">
+
+                                <labe class=" label " for=" curso ">Curso<span style=" color: rgb(145, 145, 145) ">*</span>
+                                </labe>
+
+                                <input class=" input " name=" curso_graducao " id=" curso_graducao " list=" dtlist-curso_graducao " Placeholder=" Insira o Curso ">
+                                <div class=" invalid-feedback ">
+                                    Preencha este campo
+                                </div>
+
+                                <datalist name=" curso " id=" curso ">
+                                    <option>Eletricista</option>
+                                    <option>Desenvolvedor</option>
+                                    <option>Mecânico Automotivo</option>
+                                    <option>Pedreiro</option>
+                                    <option>Manicure</option>
+
+                                </datalist>
+
+                            </div>
+
+                            <div class=" campos-input-pequeno ">
+
+                                <labe class=" label " for=" cargahoraria_curso ">Carga horária<span style=" color: rgb(145, 145, 145) ">*</span>
+                                </labe>
+
+                                <select class=" input " name=" cargahoraria_curso " id=" cargahoraria_curso ">
+                                    <option value=" " disabled selected>Selecione</option>
+                                    <option>40 horas</option>
+                                    <option>80 horas</option>
+                                    <option>120 horas</option>
+                                    <option>200 horas</option>
+                                    <option>260 horas</option>
+                                    <option>360 horas</option>
+                                    <option>400 horas</option>
+                                    <option>Mais</option>
+
+                                </select>
+                                <div></div>
+                            </div>
+
+
+                            <div class=" container-btn-form2 ">
+                                <img class=" btn-deletecurso " src=" ../medias/img/btn-x.png " alt=" adicionar ">
+                                <img class=" btn-addcurso " src=" ../medias/img/btn-add.png " alt=" adicionar ">
+
+                            </div>
+
+                        </div>
+
+                        <div class=" formulario-4 ">
+
+                            <div class=" titulo-4 ">
+                                <p>Cursos cadastrados</p>
+                            </div> -->
+
+                            <!-- CAMPO DE ITENS DO CURSOS CADASTRADOS -->
+                            <ul class=" curso-list ">
+
+                                <li>
+                                    <a id=" curso " name=" curso ">Exemplo 1
+                                        <img onclick=" " id=" curso-apagar " name=" curso-apagar "
+                                            style=" cursor: pointer; " src=" ../medias/img/btn-x2.svg ">
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class=" botao-publi-2 ">
+                    <button class=" cancelar ">Cancelar</button>
+                    <button class=" confirmar ">Confirmar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- modal-4 -->
+    <div id="modal-dadospessoais" class=" modal-container-4  ">
+        <div class=" modal-4 ">
+
+            <div name="btn-fechar" class=" conteudo-modal ">
+
+                <div class=" d-flex justify-content-end align-items-end position-absolute" style="width: 98%;">
+                    <img src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
+                </div>
+
+
+                <h1 class=" h1 ">Mudar foto de perfil</h1>
+            </div>
+            <div class=" caixa-de-texto-4 ">
+                <textarea name=" caixa-texto " id=" caixa " rows=" 5 " class=" caixa-4 " placeholder=" Eletricista | Lorem | Lorem | Lorem | Lorem "></textarea>
+            </div>
+
+
+            <div class=" input-4 ">
+                <p class=" endereco ">
+                    <strong>
+                        Endereço
+                    </strong>
+                </p>
+
+                <span class=" cep-texto ">CEP</span><input type=" number " name=" cep " id=" cep " class=" cep ">
+                <br>
+                <span class=" numero-texto ">N°</span><input type=" number " name=" numero " id=" numero " class=" numero ">
+            </div>
+
+
+
+            <div class=" botao-publi-4 ">
+                <button class=" cancelar ">Cancelar</button>
+                <button class=" confirmar ">Confirmar</button>
+            </div>
+
+        </div>
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
 
 </body>
 
