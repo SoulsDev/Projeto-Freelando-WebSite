@@ -34,6 +34,10 @@ body {
     padding: 0px !important;
 }
 
+.m-10 {
+    margin-right: 10px !important;
+}
+
 .line {
     content: '';
     height: 1px;

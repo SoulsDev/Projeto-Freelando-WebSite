@@ -17,7 +17,7 @@
     height: 52vh;
     width: 40%;
     min-width: 300px;
-    border-radius: 25px;
+    border-radius: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -37,6 +37,7 @@
     justify-content: center;
     padding-top: 10px;
     height: 60%;
+    resize: none !important;
 }
 
 .caixa {
@@ -88,7 +89,7 @@
     height: 80vh;
     width: 60%;
     min-width: 300px;
-    border-radius: 25px;
+    border-radius: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -236,7 +237,7 @@
     background-color: #fff;
     height: auto;
     width: 50%;
-    border-radius: 25px;
+    border-radius: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -375,7 +376,7 @@
     height: auto;
     width: 45%;
     min-width: 300px;
-    border-radius: 25px;
+    border-radius: 10px;
     position: relative;
     display: flex;
     flex-direction: column;

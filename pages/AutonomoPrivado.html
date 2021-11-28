@@ -28,7 +28,7 @@
 
                 <div class="col-3 dados-usuario d-flex flex-column justify-content-center ">
                     <div class="d-flex align-items-end justify-content-end">
-                        <a href=""><img id="edit-dadospessoais" name="edit-dadospessoais" onclick="" class="img-fluid link" src="../medias/img/editar.svg" alt="User"></a>
+                        <img id="edit-dadospessoais" name="edit-dadospessoais" class="btn p-0" src="../medias/img/editar.svg" alt="User">
                     </div>
 
 
@@ -51,7 +51,7 @@
 
 
                     <div class="d-flex align-items-end justify-content-end">
-                        <a href=""><img id="edit-interesses" name="edit-interesses" onclick="" class="img-fluid link" src="../medias/img/editar.svg" alt="User"></a>
+                        <img id="edit-interesses" class="img-fluid btn p-0" src="../medias/img/editar.svg" alt="User">
                     </div>
 
                     <h2>Interesses:</h2>
@@ -69,7 +69,7 @@
                 <div class="container-dados">
 
                     <div class="d-flex align-items-end justify-content-end">
-                        <a href=""><img id="edit-formacoes" name="edit-formacoes" onclick="" class="img-fluid link" src="../medias/img/editar.svg" alt="User"></a>
+                        <img id="edit-formacoes" name="edit-formacoes" class="img-fluid btn p-0" src="../medias/img/editar.svg" alt="User">
                     </div>
 
                     <h2>Cursos & Formações:</h2>
@@ -224,19 +224,22 @@
     <!-- MODAL -->
 
     <!-- modal da publicação -->
-    <div id="modal-publicacao" class="modal-container  ">
-        <div class=" modal ">
+    <div id="modal-publicacao" class="modal-container">
+        <div class="modal">
             <div class="conteudo-modal ">
 
-                <div name="btn-fechar" class=" d-flex justify-content-end align-items-end position-absolute" style="width: 98%;">
-                    <img src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
-                </div>
+
 
 
                 <h1 class="h1-pu ">Nova publicação</h1>
             </div>
             <div class="caixa-de-texto ">
-                <textarea name="caixa-texto " id="caixa " rows="7 " class="caixa " placeholder="Descrição da publicação "></textarea>
+                <textarea name="caixa-texto " id="caixa " rows="7 " class="caixa " placeholder="Descrição da publicação ">
+
+
+                </textarea>
+
+
             </div>
             <button class="botao-publicar ">Publicar</button>
         </div>
@@ -244,18 +247,17 @@
     </div>
 
 
-    <!-- modal 2 -->
-    <div id="modal-interesse" class="modal-container-2 ">
+    <!-- modal interesse -->
+    <div id="modal-interesse" class="modal-container-2">
 
-        <div class="modal-2 ">
+        <div class="modal-2">
 
-            <div class="conteudo-modal-2 ">
+            <div class="conteudo-modal-2">
 
 
-                <div name="btn-fechar" class=" d-flex justify-content-end align-items-end position-absolute" style="width: 98%;">
-                    <img src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
+                <div class=" d-flex justify-content-end align-items-end position-absolute" style="width: 98%;">
+                    <img name="btn-fechar" src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
                 </div>
-
 
 
                 <div class="tab ">
@@ -399,13 +401,13 @@
 
 
     <!-- modal-3 -->
-    <div id="modal-formacao" class="modal-container-3  ">
+    <div id="modal-formacao" class="modal-container-3">
         <div class=" modal-3 ">
             <div class=" conteudo-modal-3 ">
 
 
-                <div name="btn-fechar" class=" d-flex justify-content-end align-items-end position-absolute" style="width: 98%;">
-                    <img src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
+                <div class=" d-flex justify-content-end align-items-end position-absolute" style="width: 98%;">
+                    <img name="btn-fechar" src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
                 </div>
 
 
@@ -588,13 +590,13 @@
 
 
     <!-- modal-4 -->
-    <div id="modal-dadospessoais" class=" modal-container-4  ">
+    <div id="modal-dadospessoais" class=" modal-container-4">
         <div class=" modal-4 ">
 
-            <div name="btn-fechar" class=" conteudo-modal ">
+            <div class=" conteudo-modal ">
 
                 <div class=" d-flex justify-content-end align-items-end position-absolute" style="width: 98%;">
-                    <img src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
+                    <img name="btn-fechar" src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
                 </div>
 
 
@@ -629,9 +631,10 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
+        <script src="../scripts/modal_autonomopv.js"></script>
 
 </body>
 
