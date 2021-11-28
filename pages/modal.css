@@ -244,6 +244,12 @@
     align-items: center;
 }
 
+.anexo-img {
+    position: relative;
+    top: -30px;
+    right: -10px;
+}
+
 .modal-3 {
     background-color: #fff;
     height: auto;
