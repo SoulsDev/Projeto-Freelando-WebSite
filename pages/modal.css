@@ -98,9 +98,9 @@
 
 .container-2 {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0px 60px;
+    padding: 20px 20px;
 }
 
 .formulario-2 {
@@ -110,7 +110,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin: 0;
-    width: 45%;
+    width: 48%;
     margin-bottom: 15px;
 }
 
@@ -194,8 +194,8 @@
 .botao-publi {
     display: flex;
     justify-content: end;
-    margin-right: 75px;
     font-size: 15px;
+    margin-right: 20px;
 }
 
 .cancelar {
