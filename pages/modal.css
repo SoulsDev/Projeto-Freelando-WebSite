@@ -376,13 +376,13 @@
 .modal-4 {
     background-color: #fff;
     height: auto;
-    width: 45%;
+    width: 40%;
     min-width: 300px;
     border-radius: 10px;
     position: relative;
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    padding: 20px 20px 20px 50px;
 }
 
 .caixa-de-texto-4 {
@@ -390,16 +390,14 @@
     justify-content: center;
     padding-top: 10px;
     height: auto;
-    padding-left: 15px;
-    padding-right: 50px;
+    padding-right: 30px;
 }
 
 .caixa-4 {
     height: 80px;
-    width: 95%;
+    width: 100%;
     overflow: none;
     background: #ECE6E6;
-    padding: 10px;
     border: none;
     outline: none;
 }
@@ -411,36 +409,30 @@
 .h1 {
     text-align: left;
     font-size: 25px;
-    padding-bottom: 10px;
-    padding-top: 20px;
-    padding-left: 25px;
     color: #696969;
 }
 
 .endereco {
     text-align: left;
     margin-top: 20px;
-    padding-left: 28px;
     color: #000;
 }
 
 .cep-texto,
 .numero-texto {
     text-align: left;
-    padding-bottom: 10px;
     color: #000;
 }
 
-.cep-texto {
-    padding-left: 28px;
-}
+.cep-texto {}
 
 .numero-texto {
-    padding-left: 35px;
+    margin-right: 8px;
 }
 
 .cep,
 .numero {
+    height: 25px;
     text-align: left;
     margin-bottom: 10px;
     color: #000;
@@ -469,9 +461,9 @@ input[type=number] {
 
 .botao-publi-4 {
     display: flex;
-    margin-left: 28px;
     font-size: 15px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .botao-close-4 {
