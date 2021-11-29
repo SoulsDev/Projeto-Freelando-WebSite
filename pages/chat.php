@@ -9,7 +9,7 @@
 
     <!-- bootstrap -->
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../bootstrap-5.1.3/dist/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="../bootstrap-5.1.3/dist/css/bootstrap.css"> -->
 
 
     <!-- style css -->
@@ -18,12 +18,15 @@
 </head>
 <body>
 
-
+  <?php
+    
+  include"navbar.html";
+  
+  
+  ?>
 
   
     <div class="container">
-
-
         <div class="card-body d-flex justify-content-center">
             <div class="messaging">
                 <div class="inbox_msg">

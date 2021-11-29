@@ -22,6 +22,14 @@
 <body>
     
 
+    <?php
+    
+    include"navbar.html";
+    
+    
+    ?>
+    
+
     <section class="hero">
         <div class="container">
             <div class="row d-flex justify-content-center">

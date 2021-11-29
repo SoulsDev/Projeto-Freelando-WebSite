@@ -15,6 +15,14 @@
 
 <body>
     
+    <?php
+    
+    include"navbar.html";
+    
+    
+    ?>
+
+    
     <div class="container bg-white shadow-lg ">
 
         <div class="row">
