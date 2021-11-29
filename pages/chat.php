@@ -14,18 +14,13 @@
 
     <!-- style css -->
     <link rel="stylesheet" href="chat.css">
+
 </head>
 <body>
 
 
-    <?php
-    
-    include"nav.html";
-    
-    
-    ?>
 
-
+  
     <div class="container">
 
 

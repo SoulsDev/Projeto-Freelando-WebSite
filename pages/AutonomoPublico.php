@@ -14,16 +14,10 @@
 </head>
 
 <body>
-
-    <?php
-    
-        include"nav.html";
-    ?>
     
     <div class="container bg-white shadow-lg ">
 
         <div class="row">
-
 
             <div class=" row container-header ">
 

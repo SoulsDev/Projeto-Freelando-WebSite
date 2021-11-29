@@ -17,9 +17,12 @@
 
 <body>
 
+
     <?php
-        
-        include"nav.html";
+    
+    include"navbar.html";
+    
+    
     ?>
 
     <section class="hero">
