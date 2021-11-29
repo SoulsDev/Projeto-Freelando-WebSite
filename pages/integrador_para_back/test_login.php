@@ -5,7 +5,7 @@
 
 <body>
     <?php
-        echo $_SESSION['tipo'];
+        var_dump($_SESSION);
     ?>
     <a href="logoff.php">
         logoff

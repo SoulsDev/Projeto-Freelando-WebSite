@@ -95,5 +95,5 @@ for($i=0; $i<(count($cursos)-1); $i++){
     );
 }
 
-//header('Location: ../../../pages/telaLogin.php');
+header('Location: ../../../pages/telaLogin.php');
 

@@ -8,7 +8,6 @@ class Profissional{
     private string $cpf;
     private string $genero;
     private string $dtNasc;
-    private string $numCelular;
     private string $cep;
     private string $cidade;
     private string $uf;
@@ -249,7 +248,25 @@ class Profissional{
 
     public static function listar(string $email, string $senha){
         include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
-        $consulta = $con->prepare("CALL LISTAR_AUTONOMO(?, ?)");
+        // TODO caso a procedure seja concertada trocar a consulta.
+        //$consulta = $con->prepare("CALL LISTAR_AUTONOMO(?, ?)");
+        $consulta = $con->prepare("SELECT 
+                                        n_id,
+                                        c_nome,
+                                        c_cpf,
+                                        c_genero,
+                                        d_nascimento,
+                                        c_cep,
+                                        c_uf,
+                                        c_cidade,
+                                        c_logradouro,
+                                        n_numero_autonomo,
+                                        c_complemento,
+                                        c_email,
+                                        d_registro,
+                                        d_alteracao        
+         FROM autonomos WHERE c_email= ? AND c_senha= ?");
+         
         $consulta->bindValue(1, $email);
         $consulta->bindValue(2, $senha);
         $consulta->execute();

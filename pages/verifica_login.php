@@ -22,21 +22,35 @@
         // TODO verificar se aq iremos pegar todos os dados do usuário
         $dados = Contratante::listar($email, $senha);
         while($row = $dados->fetch(PDO::FETCH_BOTH)) {
-            var_dump($row);
+            $_SESSION['id_usuario'] = $row['n_id'];
+            $_SESSION['nome_usuario'] = $row['c_nome'];
+            $_SESSION['email_usuario'] = $row['c_email'];
         }
         //$_SESSION['tipo'] = 'contratante';
-        //header('Location: integrador_para_back/test_login.php');
+        header('Location: integrador_para_back/test_login.php');
         exit;
     }
     // TODO verificar se aq iremos pegar todos os dados do usuário
     //$_SESSION['tipo'] = 'autonomo';
     $dados = Profissional::listar($email, $senha);
         while($row = $dados->fetch(PDO::FETCH_BOTH)) {
-            var_dump($row);
+            $_SESSION['id_usuario'] = $row['n_id'];
+            $_SESSION['nome_usuario'] = $row['c_nome'];
+            $_SESSION['email_usuario'] = $row['c_email'];
+            $_SESSION['cpf_usuario'] = $row['c_cpf'];
+            $_SESSION['genero_usuario'] = $row['c_genero'];
+            $_SESSION['nascimento_usuario'] = $row['d_nascimento'];
+            $_SESSION['cep_usuario'] = $row['c_cep'];
+            $_SESSION['uf_usuario'] = $row['c_uf'];
+            $_SESSION['cidade_usuario'] = $row['c_cidade'];
+            $_SESSION['rua_usuario'] = $row['c_logradouro'];
+            $_SESSION['numero_endereco_usuario'] = $row['n_numero_autonomo'];
+            $_SESSION['complemento_endereco_usuario'] = $row['c_complemento'];
+            $_SESSION['registro_usuario'] = $row['d_registro'];
+            $_SESSION['alteracao_usuario'] = $row['d_alteracao'];
         }
-        echo $senha. "<br>";
-        echo $email. "<br>";
-    //header('Location: integrador_para_back/test_login.php');
+    header('Location: integrador_para_back/postagem.php');
 ?>
+
 
 
