@@ -18,11 +18,8 @@
 <body>
 
 
-    <?php
-    
+    <?php  
     include"navbar.html";
-    
-    
     ?>
 
     <section class="hero">
