@@ -22,7 +22,7 @@ img {
 
 .recent_heading {
     float: left;
-    width: 40%;
+    width: 30%;
 }
 
 .srch_bar {
@@ -144,7 +144,7 @@ img {
 .time_date {
     color: #8a8a8b;
     display: block;
-    font-size: 12px;
+    font-size: 10px;
     margin: 8px 0 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -156,11 +156,11 @@ img {
 .mesgs {
     border-radius: 0px 10px 10px 0px;
     float: left;
-    padding: 30px 15px 0 25px;
+    padding: 15px 15px 0 25px;
     width: 30%;
     /* border-left: 4px solid #CECED0; */
-    box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%) !important;
-    border-left: 2px #CECED0;
+    box-shadow: 0 1rem rem rgb(0 0 0 / 18%) !important;
+    border-left: 3px solid #CECED0;
 }
 
 .sent_msg p {
@@ -256,8 +256,9 @@ img {
 }
 
 .msg_history {
-    height: 90%;
+    height: 85%;
     overflow-y: auto;
+    margin-top: 20px;
 }
 
 .postagem {
@@ -266,6 +267,10 @@ img {
     width: auto;
     height: auto;
     justify-content: center;
+}
+
+.title-postagem {
+    font-size: 15px;
 }
 
 .offset-lg-1 {
@@ -303,7 +308,7 @@ p {
 }
 
 .hero {
-    padding: 6.25rem 0px !important;
+    /* padding: 6.25rem 0px !important; */
     margin: 0px !important;
 }
 
@@ -463,7 +468,7 @@ p {
     height: 650px;
 }
 
-.cardbox .cardbox-item img {}
+/* .cardbox .cardbox-item img {} */
 
 .img-responsive {
     display: block;
@@ -483,7 +488,7 @@ p {
 /* Cardbox Base
   ---------------------------------- */
 
-.cardbox-base {}
+/* .cardbox-base {} */
 
 .cardbox-base ul {
     margin: 10px 0px 10px 15px!important;
