@@ -34,11 +34,11 @@ var yourMsm = document.getElementById("inputMsm").value;
 
 const addMsm = (text) => {
     const item = document.createElement('div');
-    item.classList.add('received_withd_msg');
+    item.classList.add('outgoing_msg');
     item.innerHTML = `
-    <div class="borda" style="margin-bottom: 20px;">
+    <div class="sent_msg" style="margin-bottom: 20px;">
         <p><strong>Você</strong></p>
-        <p class="texto" style="color: #000;">${text}</p>
+        <p style="color: #000;">${text}</p>
         <p class="hora d-flex justify-content-end">00:00</p>
     </div>
     `;
@@ -51,13 +51,22 @@ addMsm(yourMsm);
 
 const recebeMsm = () => {
     const item = document.createElement('div');
-    item.classList.add('outgoing_msg');
+    item.classList.add('received_withd_msg');
     item.innerHTML = `
-    <div class="sent_msg" style="margin-bottom: 20px;">
-        <p><strong>Jubileu</strong></p>
-        <p style="color: #000;">Hello World</p>
+    <div class="borda" style="margin-bottom: 20px;">
+        <p><strong>Você</strong></p>
+        <p class="texto" style="color: #000;">${text}</p>
         <p class="hora d-flex justify-content-end">00:00</p>
     </div>
     `;
     document.getElementById('msm').appendChild(item);
 }
+
+
+var input = document.getElementById("inputMsm");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   btn.click();
+  }
+});

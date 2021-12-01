@@ -79,10 +79,10 @@ img{ max-width:100%;}
 
 .imagem-chat{
     margin-left: 30px;
-}
+}outgoing_msg
 
 .foto-perfil{
-    border-bottom: 1px solid #FF6633;
+    border-bottom: 2px solid #FF6633;
 }
 
 .imagem-perfil{
@@ -190,7 +190,7 @@ margin-bottom: 20px;
 }
 .input_msg_write{
     padding-left: 20px;
-    margin-top: 70px;
+    margin-top: 8px;
 }
 
 

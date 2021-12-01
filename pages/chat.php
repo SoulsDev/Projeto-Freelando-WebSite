@@ -8,13 +8,31 @@
   <link rel="shortcut icon" href="../medias/img/logo-tocha.svg" type="image/x-icon">
   <title>FreeLando | Tela chat</title>
 
-  <!-- bootstrap -->
   <!-- Bootstrap -->
   <link rel="stylesheet" href="../bootstrap-5.1.3/dist/css/bootstrap.css">
 
 
   <!-- style css -->
   <link rel="stylesheet" href="../css/chat.css">
+
+  <!-- Script -->
+  <script type="text/javascript">
+		function ajax(){
+			var req = new XMLHttpRequest();
+			req.onreadystatechange = function(){
+				if (req.readyState == 4 && req.status == 200) {
+						document.getElementById('carregaMsm').innerHTML = req.responseText;
+				}
+			}
+			req.open('GET', 'atualizaChat.php', true);
+			req.send();
+		}
+	
+		setInterval(function(){ajax();}, 1000);
+
+ 
+	</script>
+
 </head>
 
 <body>
@@ -37,7 +55,7 @@
           <div class="inbox_people">
             <div class="inbox_chat">
               <div class="chat_list active_chat">
-                <div class="chat_people">
+                <div class="chat_people mb-2">
                   <div class="chat_img">
                     <img src="../medias/img/semfoto.png" alt="sunil" class="img">
                     <span class="h1">Geraldão derivia</span>
@@ -49,7 +67,7 @@
 
 
 
-          <div class="imagem-chat row">
+          <div class="imagem-chat row" style="border-bottom: #FF6633 solid 1px;">
             <div class="foto-perfil d-flex align-items-center">
               <img src="../medias/img/semfoto.png" alt="sunil" width="100px" height="100px" class="imagem-perfil">
               <div class="conteudo">
@@ -67,22 +85,20 @@
           </div>
 
 
-          <div class="mesgs">
-            <div class="msg_history">
+          <div class="mesgs" >
+            <div class="msg_history" >
               <div class="incoming_msg">
 
               </div>
               <div class="incoming_msg">
 
 
-                <div id="msm">
+                <div id="msm" style="overflow-y: scroll; height: 290px;">
 
                   <!-- Sua mensagem -->
                   <div class="received_withd_msg">
-                    <div class="borda">
-                      <p><strong>Você</strong></p>
-                      <p class="texto" style="color: #000;">Peça um orçamento ou faça perguntas sobre este profissional.</p>
-                      <p class="hora d-flex justify-content-end">00:00</p>
+                    <div class="borda" id="carregaMsm">
+
                     </div>
                   </div>
 
@@ -90,7 +106,7 @@
                   <!-- Mensagem da pessoa -->
                   <div class="outgoing_msg">
                     <div class="sent_msg">
-                      <p><strong>Jubileu</strong></p>
+                      <p><strong>Você</strong></p>
                       <p style="color: #000;">Hello World</p>
                       <p class="hora d-flex justify-content-end">00:00</p>
                     </div>
@@ -108,11 +124,31 @@
                       <img class="fa fa-search form-control-feedback img" src="../medias/img/aperto-de-mao 1.svg" alt="mão" id="enviar" onclick="enviar()">
                     </button>
 
-                    <input type="text" class="write_msg" id="inputMsm">
+                    <form action="chat.php" method="post">
 
-                    <button class="msg_send_btn" type="button" id="enviarMsm">
-                      <img src="../medias/img/enviar.svg" alt="icone">
-                    </button>
+                      <input type="text" class="write_msg" id="inputMsm" name="mensagem">
+
+                      <button class="msg_send_btn" type="button" id="enviarMsm">
+                        <img src="../medias/img/enviar.svg" alt="icone">
+                      </button>
+
+                    </form>
+                    <?php 
+                    
+                      include_once('../src/classes/conexao/mongo_con.php');
+                      $colecao = $mongo_db->chat;
+
+                      $nome = 'Teste';
+                      $mensagem = $_POST['mensagem'];
+
+                      $result = $colecao->insertOne( 
+                        [ 
+                            'nome' => $nome, 
+                            'mensagem' => $mensagem
+                        ]
+                      );
+
+                    ?>
                   </div>
                 </div>
               </div>
