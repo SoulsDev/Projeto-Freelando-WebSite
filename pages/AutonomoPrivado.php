@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include_once('../src/classes/postagem/Postagem.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>João Franco | Freelando</title>
+    <title id="titulo">João Franco | Freelando</title>
 
     <link rel="shortcut icon" href="../medias/img/Group.svg" type="image/x-icon">
     <!-- Bootstrap -->
@@ -40,9 +44,15 @@
                     </div>
 
 
-                    <h1>Aorem</h1>
+                    <h1><?php echo $_SESSION['nome_usuario']; ?></h1>
                     <p>Eletricista | lorem | Lorem </p>
-                    <p>300 seguidores <strong>Rua do lírio</strong></p>
+                    <p>300 seguidores <strong><?php 
+                        echo $_SESSION['rua_usuario']." ". 
+                        $_SESSION['numero_endereco_usuario']. " ". 
+                        $_SESSION['complemento_endereco_usuario']. ", ". 
+                        $_SESSION['cidade_usuario']. "-".
+                        $_SESSION['uf_usuario'];
+                        ?></strong></p>
 
                 </div>
 
@@ -99,7 +109,10 @@
                 <div class="container-btn">
                     <button id="novo-publicacao" name="novo-publicacao" onclick="" type="button" class="btn-publicacao">Adicionar Publicação</button>
                 </div>
-
+                <?php
+                    foreach(Postagem::listarMinhasPostagens($_SESSION['id_usuario']) as $postagem){
+                        $convertido_para_array = iterator_to_array($postagem);
+                ?>  
                 <div class="cardbox shadow-lg bg-white">
 
                     <div class="cardbox-heading">
@@ -111,8 +124,8 @@
                             </div>
 
                             <div class="media-body">
-                                <p class="m-0">João Franco</p>
-                                <small><span><i class="icon ion-md-time"></i> 10 horas atrás</span></small>
+                                <p class="m-0"><?php echo $convertido_para_array['autonomo'] ?></p>
+                                <small><span><i class="icon ion-md-time"></i><?php echo $convertido_para_array['dt_registro'] ?></span></small>
                             </div>
 
                             <div class="d-flex mr-3">
@@ -123,8 +136,7 @@
                         </div>
 
                         <div class="media m-0">
-                            <p class="m-0 title-postagem">Olá, se precisar de um eletricista pode contar comigo. Entre em contato!
-                            </p>
+                            <p class="m-0 title-postagem"><?php echo $convertido_para_array['conteudo'] ?></p>
                         </div>
 
 
@@ -134,8 +146,28 @@
                     <!--/ cardbox-heading -->
 
                     <div class="cardbox-item">
-                        <img class="img-fluid cardbox-img" src="../medias/img/eletrica.png" alt="Image">
-                    </div>
+                            <?php
+                                if(isset($convertido_para_array['arquivo_path'])){
+                                    $ext = explode('.', $convertido_para_array['arquivo_path']);
+
+                                    if ($ext[3] == "mp4"){
+                                        ?>
+                                        <video width="320" height="240" controls>
+                                            <source src="<?php echo $convertido_para_array['arquivo_path'];?>" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <?php
+                                    }else{
+                                        ?>
+                                        <img 
+                                            src="<?php echo $convertido_para_array['arquivo_path'];?>" 
+                                            alt="Image"
+                                            class="img-fluid cardbox-img">
+                                    <?php
+                                    }                                    
+                                }
+                            ?>
+                        </div>
                     <!--/ cardbox-item -->
                     <div class="cardbox-base">
                         <ul class="d-flex align-items-center">
@@ -157,75 +189,11 @@
 
 
                 </div>
-
-                <div class="cardbox shadow-lg bg-white">
-
-                    <div class="cardbox-heading">
-
-                        <!--/ dropdown -->
-                        <div class="media m-0">
-                            <div class="d-flex mr-3">
-                                <a href=""><img class="img-fluid rounded-circle" src="../medias/img/user.png" alt="User"></a>
-                            </div>
-
-                            <div class="media-body">
-                                <p class="m-0">João Franco</p>
-                                <small><span><i class="icon ion-md-time"></i> 10 horas atrás</span></small>
-                            </div>
-
-                            <div class="d-flex mr-3">
-                                <a href=""><img class="img-fluid link" src="../medias/img/link-2.svg" alt="User"></a>
-                            </div>
-
-
-                        </div>
-
-                        <div class="media m-0">
-                            <p class="m-0 title-postagem">Olá, se precisar de um eletricista pode contar comigo. Entre em contato!
-                            </p>
-                        </div>
-
-
-
-                        <!--/ media -->
-                    </div>
-                    <!--/ cardbox-heading -->
-
-                    <div class="cardbox-item">
-                        <img class="img-fluid cardbox-img" src="../medias/img/eletrica.png" alt="Image">
-                    </div>
-                    <!--/ cardbox-item -->
-                    <div class="cardbox-base">
-                        <ul class="d-flex align-items-center">
-
-                            <li>
-                                <a href=""><img class="img-fluid" src="../medias/img/like.png" alt="User"></a>
-                            </li>
-
-                            <li>
-                                <a href=""><img class="img-fluid" src="../medias/img/comentarios.png" alt="User"></a>
-                            </li>
-
-
-
-                        </ul>
-
-                    </div>
-
-
-
-                </div>
-
-
-
-
-
-
+                <?php
+                    }
+                ?>
             </div>
-
-
         </div>
-
     </div>
 
 
@@ -235,28 +203,27 @@
     <div id="modal-publicacao" class="modal-container">
         <div class="modal">
             <div class="conteudo-modal ">
-
                 <div class=" d-flex justify-content-end align-items-end w-100">
                     <img name="btn-fechar" src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
                 </div>
-
-
-
 
                 <h1 class="h1-pu ">Nova publicação</h1>
 
                 <div class="line-modal"></div>
             </div>
-            <div class="caixa-de-texto flex-column">
-                <textarea name="caixa-texto " id="caixa " rows="7 " class="caixa " placeholder="Descrição da publicação ">
-                </textarea>
-                <div class="d-flex w-100 position-relative anexo-img">
-                    <img class="btn m-0 p-0 " src="../medias/img/anexo-imagem.svg">
+            <form method="POST" action="../src/classes/postagem/InsPostagem.php" enctype="multipart/form-data">
+                <div class="caixa-de-texto flex-column">
+                    <textarea name="caixa-texto" id="caixa " rows="7 " class="caixa " placeholder="Descrição da publicação "></textarea>
+                    <input type="file" id="file" name="file" style="display:none;">
+                    <div class="d-flex w-100 position-relative anexo-img" id="anexar_arquivo">
+                        <img class="btn m-0 p-0 " src="../medias/img/anexo-imagem.svg">
+                    </div>
+                    
                 </div>
-            </div>
 
 
-            <button class="botao-publicar ">Publicar</button>
+                <button class="botao-publicar ">Publicar</button>
+            </form>
         </div>
 
     </div>
@@ -648,15 +615,36 @@
 
 
 
+        <script>
+            window.onload = function(){
+                document.getElementById('username').innerHTML = '<?php echo $_SESSION['nome_usuario'] ?>';
+                document.getElementById('titulo').innerHTML = '<?php echo $_SESSION['nome_usuario']." | Freelando" ?>';
+                
+            }
 
+            input_file = document.getElementById('file');
+            document.getElementById('anexar_arquivo').addEventListener('click', () => {
+                input_file.click();
+            })
+
+            input_file.addEventListener('change', ()=> {
+                if(input_file.files <= 0){
+                    return;
+                }
+
+                var reader = new FileReader();
+
+                reader.onload = () => {
+                    document.getElementById('imagem').src = reader.result;
+                }
+
+                reader.readAsDataURL(input_file.files[0]);
+            })
+        </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
         <script src="../scripts/modal_autonomopv.js"></script>
 
 </body>
-
-
-
-
 </html>

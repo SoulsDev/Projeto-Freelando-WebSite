@@ -27,7 +27,7 @@
             $_SESSION['email_usuario'] = $row['c_email'];
         }
         //$_SESSION['tipo'] = 'contratante';
-        header('Location: integrador_para_back/test_login.php');
+        header('Location: home.php');
         exit;
     }
     // TODO verificar se aq iremos pegar todos os dados do usuário
@@ -49,7 +49,7 @@
             $_SESSION['registro_usuario'] = $row['d_registro'];
             $_SESSION['alteracao_usuario'] = $row['d_alteracao'];
         }
-    header('Location: integrador_para_back/postagem.php');
+    header('Location: home.php');
 ?>
 
 

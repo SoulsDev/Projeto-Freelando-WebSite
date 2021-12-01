@@ -17,3 +17,11 @@ function telaLogin() {
 function telaCadastroProfissional() {
     window.location.href = "CadastroProfissional.php";
 }
+
+function logoff() {
+    window.location.href = "logoff.php";
+}
+
+function profile(){
+    window.location.href = "AutonomoPrivado.php";
+}

@@ -99,4 +99,15 @@ class Postagem{
         }
     }
 
+    public static function listarMinhasPostagens(int $autonomo_id){
+        try{
+            include_once('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao/mongo_con.php');
+            $colecao = $mongo_db->postagem;
+            return $colecao->find(array('autonomo'=>$autonomo_id));
+
+        }catch(PDOException $e){
+            echo 'Erro'.$e->getMessage();
+        }
+    }
+
 } 

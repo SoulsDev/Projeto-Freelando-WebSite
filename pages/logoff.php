@@ -6,5 +6,5 @@
     unset($_SESSION['email_usuario']);
 
     session_destroy();
-    header('Location: ../telaLogin.php');
+    header('Location: telaLogin.php');
 ?>
