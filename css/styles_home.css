@@ -22,12 +22,6 @@ p {
     margin: 0;
 }
 
-.hero {
-    /* padding: 6.25rem 0px !important; */
-    /* margin: 0px !important; */
-    /* margin-top: 200px; */
-}
-
 .cardbox {
     border-radius: 3px;
     margin-bottom: 20px;
@@ -188,6 +182,7 @@ p {
     width: 100%;
     height: 650px;
 }
+
 
 /* .cardbox .cardbox-item img {} */
 
@@ -375,6 +370,11 @@ p {
     opacity: 1;
     -webkit-animation: flash 1.5s;
     animation: flash 1.5s;
+}
+
+.container-pai {
+    padding-left: 430px !important;
+    padding-right: 430px !important;
 }
 
 @-webkit-keyframes flash {
