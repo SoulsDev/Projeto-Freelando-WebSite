@@ -22,8 +22,9 @@
     include"navbar.html";
     ?>
 
-    <div class="container-pai">
-        <div class="container p-0">
+    <div class="container-pai" style="padding-left: 430px !important;
+    padding-right: 430px !important;">
+        <div class="container p-0" >
             <div class="row">
 
                 <div class="col-lg-8 offset-lg-2 p-0 m-0 publicacao">

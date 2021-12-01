@@ -372,11 +372,6 @@ p {
     animation: flash 1.5s;
 }
 
-.container-pai {
-    padding-left: 430px !important;
-    padding-right: 430px !important;
-}
-
 @-webkit-keyframes flash {
     0% {
         opacity: .4;
