@@ -1,14 +1,19 @@
 <?php
 class Postagem{
     private int $autonomo_id;
-    private $conteudo;
+    private string $conteudo;
+    private string $arquivo;
     private string $dtRegistro;
 
-    public function __construct(int $autonomo_id, $conteudo)
+    public function __construct(int $autonomo_id, string $conteudo, string $arquivo = NULL)
     {
         $this->autonomo_id = $autonomo_id;
         $this->conteudo = $conteudo;
         $this->dtRegistro =  date("Y-m-d H:i:s");
+
+        if($arquivo){
+            $this->arquivo = $arquivo;
+        }
     } 
 
 
@@ -42,18 +47,41 @@ class Postagem{
         $this->dtRegistro = $dtRegistro; 
     }
 
+    public function getArquivo() : string
+    {
+        return  $this->arquivo;
+    }
 
-    public function inserirPostagem(int $autonomo_id, $conteudo, String $dtRegistro){
+    public function setArquivo(string $arquivo) : void
+    {
+        $this->arquivo = $arquivo; 
+    }
+
+
+
+    public function inserirPostagem(int $autonomo_id, string $conteudo, string $dtRegistro, string $arquivo = NULL){
         try{
             include_once('../conexao/mongo_con.php');
             $colecao = $mongo_db->postagem;
-            $result = $colecao->insertOne( 
-                [ 
-                    'autonomo' => $autonomo_id, 
-                    'conteudo' => $conteudo,
-                    'dt_registro' => $dtRegistro
-                ]
-            );          
+
+            if($arquivo){
+                $result = $colecao->insertOne( 
+                    [ 
+                        'autonomo' => $autonomo_id, 
+                        'conteudo' => $conteudo,
+                        'arquivo_path' => $arquivo,
+                        'dt_registro' => $dtRegistro
+                    ]
+                );  
+            }else{
+                $result = $colecao->insertOne( 
+                    [ 
+                        'autonomo' => $autonomo_id, 
+                        'conteudo' => $conteudo,
+                        'dt_registro' => $dtRegistro
+                    ]
+                );  
+            }         
 
         }catch(PDOException $e){
             echo 'Erro'.$e->getMessage();
@@ -64,7 +92,7 @@ class Postagem{
         try{
             include_once('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao/mongo_con.php');
             $colecao = $mongo_db->postagem;
-            return $colecao->find([]);
+            return $colecao->find();
 
         }catch(PDOException $e){
             echo 'Erro'.$e->getMessage();

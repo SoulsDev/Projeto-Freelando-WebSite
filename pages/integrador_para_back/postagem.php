@@ -23,9 +23,6 @@
                             
                                 <textarea name="postagem_corpo" class="form-control" id="postagem_corpo" cols="30" rows="10"></textarea>
                                 <input type="file" id="file" name="file">
-                                <div style="width:12px; height: 12px; background-color:black; color: white; padding:5px; border-radius:10px; cursor:pointer" id='a'>
-                                    +
-                                </div>
                             <img src="" alt="" id="imagem">
                             <input type="hidden" name="autonomo_id" value= <?php echo $_SESSION['id_usuario'] ?>>
                             
