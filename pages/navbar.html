@@ -64,8 +64,8 @@
         align-items: center !important;
         justify-content: space-evenly !important;
         flex-direction: row !important;
-        padding-left: 300px;
-        padding-right: 300px;
+        padding-left: 430px;
+        padding-right: 430px;
     }
     
     .container-opçoes {
@@ -73,6 +73,7 @@
         flex-direction: row !important;
         justify-content: space-around !important;
         align-items: end !important;
+        flex-wrap: nowrap;
     }
     
     .foto-user-navi {
@@ -85,6 +86,9 @@
         margin-bottom: 0.5rem !important;
         margin-right: 1rem !important;
         font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+        font-size: 15px;
+        flex-wrap: nowrap;
+        white-space: nowrap;
     }
     
     .chat-user-navi {
@@ -161,6 +165,15 @@
             padding-right: 0px;
         }
     }
+    
+    @media (max-width: 645px) {
+        .logo {
+            display: flex;
+        }
+        .imagem {
+            display: none;
+        }
+    }
     /* Landscape phones and smaller */
     
     @media (max-width: 480px) {
@@ -169,11 +182,25 @@
         }
         .foto-user-navi {
             padding: 0 !important;
-            margin-right: 1rem !important;
+            margin-right: 0rem !important;
         }
         .container-nave {
             padding-left: 0px;
             padding-right: 0px;
+        }
+        .input-pesquisa {
+            width: 180px !important;
+        }
+        .container-lupa {
+            width: 175px !important;
+            display: flex !important;
+            justify-content: end !important;
+            position: absolute !important;
+        }
+        .chat-user-navi {
+            padding: 0 !important;
+            margin-bottom: 0.25rem !important;
+            margin-right: 0.2rem !important;
         }
     }
 </style>
@@ -190,7 +217,7 @@
 
 
             <div class="logo">
-                <img src="../medias/img/logo-tocha.svg" style="margin-bottom: 1rem !important;" alt="logo" height="50px" width="200px">
+                <img src="../medias/img/logo-tocha.svg" style="margin-bottom: 1rem !important;" alt="logo" height="50px" width="50px">
 
             </div>
 
