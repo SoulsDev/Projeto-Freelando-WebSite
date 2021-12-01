@@ -13,7 +13,7 @@
     <title>Freelando</title>
 </head>
 <body>
-    <?php include "nav.html"; ?>
+    <?php include "navbar.html"; ?>
 
     <section class="hero">
         <div class="container conteudo">

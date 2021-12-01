@@ -1,0 +1,498 @@
+.modal-container {
+    background: rgba(0, 0, 0, .5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+}
+
+.modal {
+    background-color: #fff;
+    height: auto;
+    width: 40%;
+    min-width: 300px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 30px 10px;
+}
+
+.line-modal {
+    content: '';
+    height: 1px;
+    width: 100%;
+    background-color: #E2670E;
+    position: absolute;
+    margin-left: -10px;
+}
+
+.h1-pu {
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 20px;
+    color: #000;
+}
+
+.caixa-de-texto {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    height: 60%;
+    resize: none !important;
+}
+
+.caixa {
+    height: 90%;
+    width: 95%;
+    overflow: none;
+    background: #ECE6E6;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.caixa::-webkit-input-placeholder {
+    color: #3A3838;
+}
+
+.botao-publicar {
+    background: #E2670E;
+    border: none;
+    border-radius: 10px;
+    margin: 0 12px 0 12px;
+    color: #fff;
+    padding: 3px;
+    margin-top: 20px;
+}
+
+.botao-close {
+    cursor: pointer;
+}
+
+
+/* modal 2 */
+
+.modal-container-2 {
+    background: rgba(0, 0, 0, .5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-2 {
+    background-color: #fff;
+    height: auto;
+    width: 50%;
+    min-width: 300px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 30px 10px;
+}
+
+.container-2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px 20px;
+}
+
+.formulario-2 {
+    box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    width: 48%;
+    margin-bottom: 15px;
+}
+
+.formulario-2 .titulo-2 {
+    align-self: flex-start;
+    width: 100%;
+    border-bottom: #E2670E solid 1px;
+    color: #ABA9A9;
+    text-align: left;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.formulario-2 .titulo-2 p {
+    text-align: left;
+    margin: 10px 0px 10px 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.cargo-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 80%;
+    list-style: none;
+    padding: 10px;
+    justify-content: center;
+    align-items: baseline;
+    align-content: center;
+}
+
+.cargo-list li {
+    height: 25px;
+    border: 1px solid #5d00d2;
+    border-radius: 15px;
+    padding: 2px;
+    padding-left: 18px;
+    padding-right: 5px;
+    color: #5d00d2;
+    font-size: normal;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.container-btn-form2 {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    margin: 15px 1px 10px 5px;
+    justify-content: flex-end;
+}
+
+.btn-deletecargo {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.btn-addcargo {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.label {
+    display: block;
+    padding: 10px 0 2px 0;
+}
+
+.input {
+    width: 250px;
+}
+
+.botao-close-2 {
+    position: absolute;
+    left: 722px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.botao-publi {
+    display: flex;
+    justify-content: end;
+    font-size: 15px;
+    margin-right: 20px;
+}
+
+.cancelar {
+    border: none;
+    background: none;
+    border: 1px solid #5d00d2;
+    border-radius: 5px;
+    color: #5d00d2;
+    padding: 5px 35px 5px 35px;
+    width: 140px;
+}
+
+.confirmar {
+    border: none;
+    background: #E2670E;
+    border: 1px solid;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px 35px 5px 35px;
+    width: 140px;
+    margin-left: 15px;
+}
+
+
+/* modal-3 */
+
+.modal-container-3 {
+    background: rgba(0, 0, 0, .5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.anexo-img {
+    position: relative;
+    top: -30px;
+    right: -10px;
+}
+
+.modal-3 {
+    background-color: #fff;
+    height: auto;
+    width: 55%;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 15px 10px;
+}
+
+.container-3 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    /* padding: 50px; */
+    width: 100%;
+}
+
+.formulario-3 {
+    box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 40%;
+    height: 28vh;
+    margin-bottom: 30px;
+    margin: 13px;
+}
+
+.formulario-4 {
+    box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 40%;
+    height: auto;
+    margin-bottom: 30px;
+    margin: 13px;
+}
+
+.formulario-3 .titulo-3,
+.formulario-4 .titulo-4 {
+    align-self: flex-start;
+    width: 100%;
+    border-bottom: #E2670E solid 1px;
+    color: #ABA9A9;
+    text-align: left;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.formulario-3 .titulo-3 p,
+.formulario-4 .titulo-4 p {
+    text-align: left;
+    margin: 10px 0px 10px 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-deletecurso {
+    cursor: pointer;
+}
+
+.btn-addcurso {
+    /* margin-right: 20px; */
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.curso-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 80%;
+    list-style: none;
+    padding: 10px;
+    justify-content: center;
+    align-items: baseline;
+    align-content: center;
+}
+
+.curso-list li {
+    height: 25px;
+    border: 1px solid #5d00d2;
+    border-radius: 15px;
+    padding: 2px;
+    padding-left: 18px;
+    padding-right: 5px;
+    color: #5d00d2;
+    font-size: normal;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.label-2 {
+    display: block;
+}
+
+.input-2 {
+    width: 250px;
+    height: 20px;
+    font-size: 15px;
+}
+
+.botao-publi-2 {
+    display: flex;
+    justify-content: end;
+    width: 80%;
+    margin-left: 12%;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.botao-close-3 {
+    position: absolute;
+    left: 598px;
+    top: 8px;
+    cursor: pointer;
+}
+
+
+/* modal-4 */
+
+.modal-container-4 {
+    background: rgba(0, 0, 0, .5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-4 {
+    background-color: #fff;
+    height: auto;
+    width: 40%;
+    min-width: 300px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 20px 50px;
+}
+
+.caixa-de-texto-4 {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    height: auto;
+    padding-right: 30px;
+}
+
+.caixa-4 {
+    height: 80px;
+    width: 100%;
+    overflow: none;
+    background: #ECE6E6;
+    border: none;
+    outline: none;
+}
+
+.caixa-4::-webkit-input-placeholder {
+    color: #3A3838;
+}
+
+.h1 {
+    text-align: left;
+    font-size: 25px;
+    color: #696969;
+}
+
+.endereco {
+    text-align: left;
+    margin-top: 20px;
+    color: #000;
+}
+
+.cep-texto,
+.numero-texto {
+    text-align: left;
+    color: #000;
+}
+
+.cep-texto {}
+
+.numero-texto {
+    margin-right: 8px;
+}
+
+.cep,
+.numero {
+    height: 25px;
+    text-align: left;
+    margin-bottom: 10px;
+    color: #000;
+    border-radius: 8px;
+    padding: 5px;
+    border: 1px solid #000;
+}
+
+.cep {
+    margin-left: 6px;
+}
+
+.numero {
+    margin-left: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.botao-publi-4 {
+    display: flex;
+    font-size: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.botao-close-4 {
+    position: absolute;
+    left: 525px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.ativo {
+    display: flex;
+}
+
+.absolute {
+    position: relative;
+}

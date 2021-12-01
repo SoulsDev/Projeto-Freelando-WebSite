@@ -20,13 +20,19 @@
 
 
 <body>
+    
 
-
-    <?php include "nav.html" ;?>
+    <?php
+    
+    include"navbar.html";
+    
+    
+    ?>
+    
 
     <section class="hero">
         <div class="container">
-            <div class="row flex-wrap no">
+            <div class="row d-flex justify-content-center">
 
 
 
@@ -40,12 +46,16 @@
                             <!--/ dropdown -->
                             <div class="media m-0">
                                 <div class="d-flex mr-3">
-                                    <a href=""><img class="img-fluid rounded-circle" src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/4.jpg" alt="User"></a>
+                                    <a href=""><img class="img-fluid rounded-circle" src="../medias/img/user.png" alt="User"></a>
                                 </div>
 
                                 <div class="media-body">
                                     <p class="m-0">João Franco</p>
+
                                     <small><span><i class="icon ion-md-time"></i> 10 horas atrás</span></small>
+
+
+
                                 </div>
 
                                 <div class="d-flex mr-3">
@@ -53,6 +63,11 @@
                                 </div>
 
 
+                            </div>
+
+                            <div class="media m-0">
+                                <p class="m-0 title-postagem">Olá, se precisar de um eletricista pode contar comigo. Entre em contato!
+                                </p>
                             </div>
 
 
@@ -92,33 +107,35 @@
 
                 <div class="col-lg-1 mesgs shadow-lg bg-white ">
 
-                    <button class="fechar-botao" type="button">
-                        <img class="fa fa-search form-control-feedback img" src="../medias/img/btnclose.svg" alt="mão"
-                            id="enviar" onclick="enviar()">
-                    </button>
+                    <div class=" d-flex justify-content-end align-items-end  w-100">
+                        <img name="btn-fechar" src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
+                    </div>
 
 
                     <div class="msg_history">
                         <div class="incoming_msg">
-                            <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                            <div class="incoming_msg_img"> <img src="../medias/img/user-minato.png" alt="sunil"> </div>
                             <div class="received_msg">
                                 <div class="received_withd_msg">
-                                    <p>Test which is a new approach to have all solutions
+                                    <p>Duvido realizar um serviço mais rápido que o meu
                                     </p>
-                                    <span class="time_date"> 11:01 AM | June 9</span>
+                                    <span class="time_date"> 22:01 AM | Ontem</span>
                                 </div>
                             </div>
                         </div>
 
+
+
                         <div class="incoming_msg">
-                            <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                            <div class="incoming_msg_img"> <img class="rounded-circle user_img" src="../medias/img/user-levi.png" alt="sunil"> </div>
                             <div class="received_msg">
                                 <div class="received_withd_msg">
-                                    <p>Test, which is a new approach to have</p>
-                                    <span class="time_date"> 11:01 AM | Yesterday</span>
+                                    <p>É melhor voce trabalhar direito</p>
+                                    <span class="time_date"> 10:58 AM | Hoje</span>
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="incoming_msg">
                             <div class="incoming_msg_img"> <img class="rounded-circle user_img" src="../medias/img/user-sla.png" alt="sunil"> </div>
@@ -137,6 +154,17 @@
                                 <div class="received_withd_msg">
                                     <p>Meu mestre pode ajudar vc com geração de energia.</p>
                                     <span class="time_date"> 11:01 AM | Hoje</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img"> <img src="../medias/img/user-cav.png" alt="sunil"> </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>Glória ao sol irmãos!!</p>
+                                    <span class="time_date"> 09:28 AM | Hoje</span>
                                 </div>
                             </div>
                         </div>
