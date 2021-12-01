@@ -1,5 +1,6 @@
 <?php 
     //include_once('../src/classes/contratante/validaContratante.php');
+    session_start();    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -8,10 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prototipo tela de postagem</title>
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet" href="../bootstrap-5.1.3/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../css/styles.css">
+    
 
 
 </head>
@@ -21,14 +19,15 @@
             <div class="row justify-content-md-center h-100">
                 <div class="card-wrapper">
                     <div class="card fat">
-                        <form method="POST" action="../../src/classes/postagem/InsPostagem.php">
-                            <div class="form-group">
+                        <form method="POST" action="../../src/classes/postagem/InsPostagem.php" enctype="multipart/form-data">
+                            
                                 <textarea name="postagem_corpo" class="form-control" id="postagem_corpo" cols="30" rows="10"></textarea>
-                            </div>
-                            <input type="hidden" name="autonomo_id" value="1">
-                            <div class="form-group">
+                                <input type="file" id="file" name="file">
+                            <img src="" alt="" id="imagem">
+                            <input type="hidden" name="autonomo_id" value= <?php echo $_SESSION['id_usuario'] ?>>
+                            
                                 <input type="submit" value="enviar">
-                            </div>
+                            
                         </form>
                     </div>
                 </div>
@@ -38,15 +37,30 @@
 </section>
 
 
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="../scripts/scripts.js"></script>
-    <script src="../scripts/form_validation.js"></script>
-
 </body>
+<script>
+    input_file = document.getElementById("file");
+    button = document.getElementById("a");
+    
+    button.addEventListener('click', () => {
+        input_file.click();
+    })
+    
 
-</html>
+    input_file.addEventListener('change', ()=> {
+
+        if(input_file.files <= 0){
+            return;
+        }
+        
+        var reader = new FileReader();
+
+        reader.onload = () => {
+            document.getElementById('imagem').src = reader.result;
+        }
+
+        reader.readAsDataURL(input_file.files[0]);
+    })
+
+</script>
 </html>
