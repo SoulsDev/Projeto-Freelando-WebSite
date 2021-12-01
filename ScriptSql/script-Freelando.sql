@@ -57,7 +57,7 @@ CREATE TABLE autonomos(
 );
 CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), imagem_perfil VARCHAR(100), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
 									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(70), registro DATETIME) 
-	INSERT INTO autonomos VALUES (default, nome, imagem_perfil,cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro, null);
+	INSERT INTO autonomos VALUES (default, nome, imagem_perfil, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro, null);
     
 CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
 	SELECT * FROM autonomos WHERE c_cpf = cpf;
@@ -67,10 +67,10 @@ CREATE PROCEDURE LOGIN_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
 
 DROP Procedure IF EXISTS LISTAR_AUTONOMO ;
 CREATE PROCEDURE LISTAR_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
-	SELECT * FROM autonomos 
-		INNER JOIN telefones_autonomo ON autonomos.n_id = telefones_autonomo.n_id_autonomo
-			INNER JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomo
-				INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
+	SELECT * FROM autonomos
+		LEFT JOIN telefones_autonomo ON autonomos.n_id = telefones_autonomo.n_id_autonomo
+		LEFT JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomo
+			LEFT JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
 					WHERE autonomos.c_email = email AND autonomos.c_senha = senha;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
