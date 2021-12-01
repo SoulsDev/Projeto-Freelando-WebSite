@@ -22,8 +22,8 @@
     include"navbar.html";
     ?>
 
-    <div class="container-pai" style="padding-left: 430px !important;
-    padding-right: 430px !important;">
+    <div class="container-pai" style="padding-left: 15% !important;
+    padding-right: 15% !important;">
         <div class="container p-0" >
             <div class="row">
 
