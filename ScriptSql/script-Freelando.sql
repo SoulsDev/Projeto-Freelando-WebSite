@@ -16,14 +16,15 @@ DROP TABLE IF EXISTS contratantes;
 CREATE TABLE contratantes(
 	n_id INT AUTO_INCREMENT ,
     c_nome VARCHAR(35) NOT NULL,
+    c_imagem_perfil VARCHAR(100) NOT NULL,
     c_email VARCHAR(50) NOT NULL,
     c_senha VARCHAR(70) NOT NULL,
     d_registro DATETIME NOT NULL,
     d_modificacao DATETIME,
     PRIMARY KEY(n_id)
 );
-CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), email VARCHAR(50), senha VARCHAR(70), registro DATETIME) 
-	INSERT INTO contratantes VALUES (default, nome, email, senha, registro, null);
+CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), imagem_perfil VARCHAR(100), email VARCHAR(50), senha VARCHAR(70), registro DATETIME) 
+	INSERT INTO contratantes VALUES (default, nome, imagem_perfil, email, senha, registro, null);
     
 CREATE PROCEDURE SELECIONA_CONTRATANTE_EMAIL (email VARCHAR(50))
 	SELECT * FROM contratantes WHERE c_email_contratante = email;
@@ -37,6 +38,7 @@ CREATE PROCEDURE LISTAR_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
 CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,
     c_nome VARCHAR(35) NOT NULL,
+    c_imagem_perfil VARCHAR(100),
     c_cpf CHAR(11) NOT NULL,
     c_genero SMALLINT NOT NULL,
     d_nascimento DATE NOT NULL,
@@ -53,9 +55,9 @@ CREATE TABLE autonomos(
     /* data de alteração dos dados, por exemplo cursos, interesses */ 
     PRIMARY KEY (n_id)
 );
-CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
+CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), imagem_perfil VARCHAR(100), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
 									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(70), registro DATETIME) 
-	INSERT INTO autonomos VALUES (default, nome, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro, null);
+	INSERT INTO autonomos VALUES (default, nome, imagem_perfil, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro, null);
     
 CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
 	SELECT * FROM autonomos WHERE c_cpf = cpf;
@@ -65,10 +67,10 @@ CREATE PROCEDURE LOGIN_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
 
 DROP Procedure IF EXISTS LISTAR_AUTONOMO ;
 CREATE PROCEDURE LISTAR_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
-	SELECT * FROM autonomos 
-		INNER JOIN telefones_autonomo ON autonomos.n_id = telefones_autonomo.n_id_autonomo
-			INNER JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomo
-				INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
+	SELECT * FROM autonomos
+		LEFT JOIN telefones_autonomo ON autonomos.n_id = telefones_autonomo.n_id_autonomo
+		LEFT JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomo
+			LEFT JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
 					WHERE autonomos.c_email = email AND autonomos.c_senha = senha;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
