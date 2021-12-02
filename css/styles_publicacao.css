@@ -157,7 +157,7 @@ img {
     border-radius: 0px 10px 10px 0px;
     float: left;
     padding: 15px 15px 0 25px;
-    width: 30%;
+    width: 33%;
     /* border-left: 4px solid #CECED0; */
     box-shadow: 0 1rem rem rgb(0 0 0 / 18%) !important;
     border-left: 3px solid #CECED0;
@@ -310,6 +310,8 @@ p {
 .hero {
     /* padding: 6.25rem 0px !important; */
     margin: 0px !important;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 .cardbox {
@@ -468,6 +470,7 @@ p {
     height: 650px;
 }
 
+
 /* .cardbox .cardbox-item img {} */
 
 .img-responsive {
@@ -487,6 +490,7 @@ p {
 
 /* Cardbox Base
   ---------------------------------- */
+
 
 /* .cardbox-base {} */
 
