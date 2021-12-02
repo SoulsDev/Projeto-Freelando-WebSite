@@ -23,7 +23,7 @@
 
     <?php
     
-    include"navbar.html";
+    include"navbar.php";
     
     
     ?>
@@ -35,7 +35,7 @@
             <div class=" row container-header ">
 
                 <div class="col-3 usuario-foto d-flex flex-column justify-content-center">
-                    <img src="../medias/img/usuario-autonomo.png">
+                    <img src="<?php echo $_SESSION['foto_perfil'] ?>">
                 </div>
 
                 <div class="col-3 dados-usuario d-flex flex-column justify-content-center ">
@@ -120,11 +120,11 @@
                         <!--/ dropdown -->
                         <div class="media m-0">
                             <div class="d-flex mr-3">
-                                <a href=""><img class="img-fluid rounded-circle" src="../medias/img/user.png" alt="User"></a>
+                                <a href=""><img class="img-fluid rounded-circle" src="<?php echo $_SESSION['foto_perfil'] ?>" alt="User"></a>
                             </div>
 
                             <div class="media-body">
-                                <p class="m-0"><?php echo $convertido_para_array['autonomo'] ?></p>
+                                <p class="m-0"><?php echo $_SESSION['nome_usuario'];?></p>
                                 <small><span><i class="icon ion-md-time"></i><?php echo $convertido_para_array['dt_registro'] ?></span></small>
                             </div>
 

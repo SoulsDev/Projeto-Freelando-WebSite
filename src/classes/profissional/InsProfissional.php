@@ -33,6 +33,7 @@ $profissional = new Profissional($nome, $cpf, $dtNasc, $genero, $cep, $uf, $cida
 
 $id= $profissional->inserirProfissional(
         $profissional->getNome(), 
+        $profissional->getFotoPerfil(), 
         $profissional->getCpf(), 
         $profissional->getDtNacs(), 
         $profissional->getGenero(), 
@@ -80,6 +81,7 @@ for($i=0; $i<(count($cargos)-1); $i++){
 $dado_academico = new DadoAcademico('ensino', 'inicial', 'inicial', 0, $id);
 
 for($i=0; $i<(count($cursos)-1); $i++){
+    
     $itens = explode(',', $cursos[$i]);
 
     $dado_academico->setNivel($itens[0]);

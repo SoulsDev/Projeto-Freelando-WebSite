@@ -1,6 +1,7 @@
 <?php
     session_start();
     include_once('../src/classes/postagem/Postagem.php');
+    include_once('../src/classes/profissional/Profissional.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,7 +23,7 @@
 
 
     <?php  
-    include"navbar.html";
+    include"navbar.php";
 
     ?>
 
@@ -39,15 +40,18 @@
                     <div class="cardbox shadow-lg bg-white">
 
                         <div class="cardbox-heading">
-
+                            <?php
+                                $autor = Profissional::getProfissional($convertido_para_array['autonomo']);
+                                
+                            ?>
                             <!--/ dropdown -->
                             <div class="media m-0">
                                 <div class="d-flex mr-3">
-                                    <a href=""><img class="img-fluid rounded-circle" src="../medias/img/user.png" alt="User"></a>
+                                    <a href=""><img class="img-fluid rounded-circle" src="<?php echo $autor['c_imagem_perfil'] ?>" alt="User"></a>
                                 </div>
 
                                 <div class="media-body">
-                                    <p class="m-0"><?php echo $convertido_para_array['autonomo'];?></p>
+                                    <p class="m-0"><?php echo $autor['c_nome'];?></p>
                                     <small><span><i class="icon ion-md-time"></i><?php echo $convertido_para_array['dt_registro'];?></span></small>
                                 </div>
 

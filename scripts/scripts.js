@@ -6,6 +6,10 @@ function telaIndex() {
     window.location.href = "telaLogin.php";
 }
 
+function telaHome() {
+    window.location.href = "home.php";
+}
+
 function telaCadastroContratante() {
     window.location.href = "CadastroContratante.php";
 }
