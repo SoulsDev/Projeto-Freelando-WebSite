@@ -106,7 +106,7 @@
                 <!--/ col-lg-6 -->
 
 
-                <div class="col-lg-7 mesgs shadow-lg bg-white m-0 p-0" >
+                <div class="col-lg-7 mesgs shadow-lg bg-white m-0 p-0" style=" width: 33%;" >
 
                     <div class=" d-flex justify-content-end align-items-end  w-100">
                         <img name="btn-fechar" src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
