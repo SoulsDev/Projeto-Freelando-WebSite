@@ -258,7 +258,6 @@ img {
 .msg_history {
     height: 85%;
     overflow-y: auto;
-    margin-top: 20px;
 }
 
 .postagem {

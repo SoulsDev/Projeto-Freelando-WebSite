@@ -32,7 +32,7 @@
 
     <section style="padding-left: 15% !important;
     padding-right: 15% !important;">
-        <div class="container m-0 p-0">
+        <div class="container p-0">
             <div class="row d-flex justify-content-start">
 
 
@@ -108,12 +108,12 @@
 
                 <div class="col-lg-7 mesgs shadow-lg bg-white m-0 p-0" style=" width: 33%;" >
 
-                    <div class=" d-flex justify-content-end align-items-end  w-100">
+                    <div class=" d-flex justify-content-end align-items-end  w-100 p-2">
                         <img name="btn-fechar" src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
                     </div>
 
 
-                    <div class="msg_history">
+                    <div class="msg_history p-3 m-0">
                         <div class="incoming_msg">
                             <div class="incoming_msg_img"> <img src="../medias/img/user-minato.png" alt="sunil"> </div>
                             <div class="received_msg">
