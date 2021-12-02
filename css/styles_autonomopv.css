@@ -5,10 +5,9 @@ body {
 }
 
 .container {
-    /* margin-top: 200px; */
     height: auto;
     border-radius: 10px;
-    width: 1220px !important;
+    width: 70vw !important;
 }
 
 .container-header {

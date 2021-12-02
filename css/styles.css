@@ -59,7 +59,6 @@ body.my-login-page {
 .my-login-page .btn.btn-block {
     padding: 12px 10px;
 }
-
 .my-login-page .footer {
     margin: 40px 0;
     color: #888;
@@ -437,3 +436,4 @@ section {
     height: 90vh;
     width: 90vh;
 }
+

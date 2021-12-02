@@ -31,33 +31,32 @@
 
     ?>
 
-    <div class="conteudo-perfil">
+    <div class="conteudo-perfil ">
 
-        <div class="container perfil-fundo">
+        <div class="container perfil-fundo shadow-lg" style="background-color:#fff;">
 
             <div class="row align-items-center d-flex flex-row"
-                style="border-bottom: solid 2px orange; padding:20px; padding-left: 0px;">
-
+                style="border-bottom: solid 2px #ff6d3c; padding:20px; padding-left: 0px;">
                 <img src="../medias/img/asta.jpg" alt="sunil" class="foto-perfil">
-                <span class="h3" style="width: 200px;">Asta</span>
+                <span class="h3 arial" style="width: 200px;">Asta</span>
 
             </div>
 
             <div class="row">
 
-                <div class="col-md-3" style="border-right: solid orange 2px; padding-top: 22px;" id="links_ativos">
+                <div class="col-md-3" style="border-right: solid #ff6d3c 2px; padding-top: 22px;" id="links_ativos">
 
                     <div class="d-flex flex-row clicavel" onclick="TornarAtivo(0)">
                         <div class="menu-perfil" style="margin-left: -12px;"></div>
-                        <div class="menu-item-perfil fonte-violeta h5">Dados pessoais</div>
+                        <div class="menu-item-perfil fonte-violeta h5 verdana">Dados pessoais</div>
                     </div>
                     <div class="d-flex flex-row clicavel" onclick="TornarAtivo(1)">
                         <div style="margin-left: -12px;"></div>
-                        <div class="menu-item-perfil h5">Senha de acesso</div>
+                        <div class="menu-item-perfil h5 verdana">Senha de acesso</div>
                     </div>
                     <div class="d-flex flex-row clicavel" onclick="TornarAtivo(2)">
                         <div  style="margin-left: -12px;"></div>
-                        <div class="menu-item-perfil h5">Endereço</div>
+                        <div class="menu-item-perfil h5 verdana">Endereço</div>
                     </div>
 
                 </div>
@@ -67,16 +66,17 @@
                     <form action="" name="contrata1" style="padding-right: 150px;">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="nome" class="h5">Nome</label>
-                                <input class="form-control" type="text" id="nome" name="nome">
+                                <label for="nome" class="h5 verdana">Nome</label>
+                                <input class="form-control outline" type="text" id="nome" name="nome">
                             </div>
 
                             <div class="form-group">
-                                <label for="email" class="h5">Email</label>
-                                <input class="form-control" type="email" id="email" name="email">
+                                <label for="email" class="h5 verdana">Email</label>
+                                <input class="form-control outline" type="email" id="email" name="email">
                             </div>
 
-                            <button class="btn btn-primary" type="submit" style="background-color: blueviolet; width: 100px;">Confirmar</button>
+                            <button class="btn verdana outline" type="submit" style="background-color: #ff6d3c; width: 100px; border: none; color: #fff
+                            ;">Confirmar</button>
                         </div>
                     </form>
                     
@@ -85,17 +85,17 @@
                     <form action="" name="contrata2" style="padding-right: 150px;" class="d-none">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="nome" class="h5">Senha</label>
-                                <input class="form-control" type="password" id="senha" name="senha">
+                                <label for="nome" class="h5 verdana">Senha</label>
+                                <input class="form-control outline" type="password" id="senha" name="senha">
                             </div>
 
                             <div class="form-group">
-                                <label for="email" class="h5">Nova senha</label>
-                                <input class="form-control" type="password" id="confirmsenha" name="confirmsenha">
+                                <label for="email" class="h5 verdana">Nova senha</label>
+                                <input class="form-control outline" type="password" id="confirmsenha" name="confirmsenha">
                             </div>
 
-                            <button type="submit" class="btn btn-primary" type="submit" style="background-color: blueviolet; 
-                            width: 100px;">Confirmar</button>
+                            <button type="submit" class="btn verdana outline" type="submit" style="background-color: #ff6d3c; width: 100px; border: none; color: #fff
+                            ;">Confirmar</button>
                         </div>
                     </form>
 
@@ -106,8 +106,8 @@
                         <div class="row ">
 
                             <div class="form-group col-md-3" id="cep_form_div">
-                                <labe for="cep" class="h5">CEP<span style="color: rgb(145, 145, 145)">*</span></labe>
-                                <input class="form-control" type="text" name="cep" id="cep" onblur="pesquisacep(this.value);">
+                                <label for="cep" class="h5 verdana">CEP<span style="color: rgb(145, 145, 145)">*</span></label>
+                                <input class="form-control outline" type="text" name="cep" id="cep" onblur="pesquisacep(this.value);">
                             </div>
 
                             <div class="invalid-feedback">
@@ -115,8 +115,8 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <labe for="cidade" class="h5">Cidade<span style="color: rgb(145, 145, 145)">*</span></labe>
-                                <input class="form-control" type="text" name="cidade" id="cidade" disabled>
+                                <labe for="cidade" class="h5 verdana">Cidade<span style="color: rgb(145, 145, 145)">*</span></labe>
+                                <input class="form-control outline" type="text" name="cidade" id="cidade" disabled>
                                 <div></div>
                             </div>
                         </div>
@@ -126,16 +126,16 @@
 
                         <div class="row ">
                             <div class="form-group col-md-3">
-                                <labe for="uf" class="h5">UF<span style="color: rgb(145, 145, 145)">*</span></labe>
-                                <input class="form-control" type="text" name="uf" id="uf" disabled>
+                                <labe for="uf" class="h5 verdana">UF<span style="color: rgb(145, 145, 145)">*</span></labe>
+                                <input class="form-control outline" type="text" name="uf" id="uf" disabled>
                         
                                 <div></div>
                             </div>
 
                             <div class="form-group col-md-6">
 
-                                <labe for="logradouro" class="h5">Logradouro<span style="color: rgb(145, 145, 145)">*</span></labe>
-                                <input class="form-control" type="text" name="logradouro" id="logradouro" disabled>
+                                <labe for="logradouro" class="h5 verdana">Logradouro<span style="color: rgb(145, 145, 145)">*</span></labe>
+                                <input class="form-control outline" type="text" name="logradouro" id="logradouro" disabled>
                                 <div></div>
     
                             </div>
@@ -145,22 +145,22 @@
 
                         <div class="row ">
                             <div class="form-group col-md-3" id="numero_form_div">
-                                <labe for="numero" class="h5">Número<span style="color: rgb(145, 145, 145)">*</span></labe>
-                                <input class="form-control" type="text" name="numero" id="numero">
-                                <div class="invalid-feedback">
+                                <labe for="numero" class="h5 verdana">Número<span style="color: rgb(145, 145, 145)">*</span></labe>
+                                <input class="form-control outline" type="text" name="numero" id="numero">
+                                <div class="invalid-feedback verdana">
                                     Preencha este campo
                                 </div>
                             </div>
 
                             <div class="form-group col-md-6">
-                                <labe for="complemento" class="h5">Complemento</labe>
-                                <input class="form-control" type="text" name="complemento" id="complemento">
+                                <labe for="complemento" class="h5 verdana">Complemento</labe>
+                                <input class="form-control outline" type="text" name="complemento" id="complemento">
                                 <div></div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" type="submit" style="background-color: blueviolet; 
-                        width: 100px;">Confirmar</button>
+                        <button type="submit" class="btn verdana outline" type="submit" style="background-color: #ff6d3c; width: 100px; border: none; color: #fff
+                        ;">Confirmar</button>
                     </form>
                 </div>
             </div>
