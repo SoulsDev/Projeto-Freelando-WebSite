@@ -10,6 +10,11 @@ img {
     border-right: 1px solid #c4c4c4;
 }
 
+.container-geral {
+    padding-left: 15% !important;
+    padding-right: 15% !important;
+}
+
 .inbox_msg {
     border: 1px solid #c4c4c4;
     clear: both;
@@ -715,9 +720,10 @@ p {
         width: 100% !important;
         border: none !important;
         border-radius: 0px 0px 10px 10px;
-        margin-bottom: 100px !important;
-        border-top: 4px solid #CECED0;
         padding-bottom: 10px !important;
+    }
+    .msg_history {
+        border-top: 4px solid #CECED0;
     }
     .container-fechar {
         display: none !important;
@@ -746,6 +752,10 @@ p {
     .cardbox-img {
         height: 550px !important;
     }
+    .container-geral {
+        padding-left: 10% !important;
+        padding-right: 10% !important;
+    }
 }
 
 
@@ -754,5 +764,9 @@ p {
 @media (max-width: 480px) {
     .cardbox-img {
         height: 450px !important;
+    }
+    .container-geral {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
     }
 }

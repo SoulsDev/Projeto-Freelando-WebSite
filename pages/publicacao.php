@@ -30,8 +30,7 @@
     ?>
 
 
-        <section style="padding-left: 15% !important;
-    padding-right: 15% !important;">
+        <section class="container-geral" style="">
             <div class="container p-0">
                 <div class="row d-flex justify-content-start conteudo-geral bg-white shadow-lg border-radius p-0 m-0">
 

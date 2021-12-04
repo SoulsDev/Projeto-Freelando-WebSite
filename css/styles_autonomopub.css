@@ -21,11 +21,12 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    width: 250px !important;
 }
 
 .usuario-foto img {
-    width: 80%;
-    height: 80%;
+    width: 200px;
+    height: 200px;
 }
 
 .btn {
