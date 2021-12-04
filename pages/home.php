@@ -24,7 +24,7 @@
 
     <div class="" style="padding-left: 15% !important;
     padding-right: 15% !important;">
-        <div class="container p-0" >
+        <div class="container p-0">
             <div class="row">
 
                 <div class="col-lg-8 offset-lg-2 p-0 m-0 publicacao">
@@ -207,7 +207,7 @@
 
                 </div>
                 <!--/ col-lg-6 -->
-                <div class="col-lg-4 order ">
+                <div class="col-lg-4 order categoria-p0">
                     <div class="shadow-lg  categoria">
 
                         <div class="categoria-top">

@@ -114,7 +114,7 @@ img {
 
 .incoming_msg_img {
     display: inline-block;
-    width: 15%;
+    width: auto;
 }
 
 .received_msg {
@@ -128,6 +128,10 @@ img {
 .user_img {
     width: 40px !important;
     height: 40px !important;
+}
+
+.border-radius {
+    border-radius: 10px !important;
 }
 
 .received_withd_msg p {
@@ -461,7 +465,6 @@ p {
     position: relative;
     display: block;
     width: 100%;
-    height: 650px;
 }
 
 .cardbox-img {
@@ -689,5 +692,67 @@ p {
     }
     .publicacao {
         order: 1;
+    }
+}
+
+
+/* Wider than desktop /
+@media (min-width: 1200px) { }
+
+/* Landscape phone to desktop */
+
+@media (max-width: 1199px) {
+    .conteudo-geral {
+        flex-direction: column!important;
+    }
+    .publicacao {
+        order: 0 !important;
+        width: 100% !important;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .mesgs {
+        order: 1 !important;
+        width: 100% !important;
+        border: none !important;
+        border-radius: 0px 0px 10px 10px;
+        margin-bottom: 100px !important;
+        border-top: 4px solid #CECED0;
+        padding-bottom: 10px !important;
+    }
+    .container-fechar {
+        display: none !important;
+    }
+}
+
+
+/* Landscape phone to landscape tablet */
+
+@media (max-width: 979px) {}
+
+
+/* Small desktop */
+
+@media (min-width: 980px) and (max-width: 1199px) {}
+
+
+/* Portrait tablet to landscape tablet */
+
+@media (min-width: 768px) and (max-width: 979px) {}
+
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {
+    .cardbox-img {
+        height: 550px !important;
+    }
+}
+
+
+/* Landscape phones and smaller */
+
+@media (max-width: 480px) {
+    .cardbox-img {
+        height: 450px !important;
     }
 }
