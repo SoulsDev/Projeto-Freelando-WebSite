@@ -21,7 +21,7 @@
 			var req = new XMLHttpRequest();
 			req.onreadystatechange = function(){
 				if (req.readyState == 4 && req.status == 200) {
-						document.getElementById('carregaMsm').innerHTML = req.responseText;
+						document.getElementById('outgoing_msg').innerHTML = req.responseText;
 				}
 			}
 			req.open('GET', 'atualizaChat.php', true);
@@ -95,21 +95,17 @@
 
                 <div id="msm" style="overflow-y: scroll; height: 290px;">
 
-                  <!-- Sua mensagem -->
-                  <div class="received_withd_msg">
+                  <!--  mensagem da pessoa -->
+                  <div class="received_withd_msg" style="margin-bottom: 10px;">
                     <div class="borda" id="carregaMsm">
 
                     </div>
                   </div>
 
 
-                  <!-- Mensagem da pessoa -->
-                  <div class="outgoing_msg">
-                    <div class="sent_msg">
-                      <p><strong>Você</strong></p>
-                      <p style="color: #000;">Hello World</p>
-                      <p class="hora d-flex justify-content-end">00:00</p>
-                    </div>
+                  <!-- Sua mensagem -->
+                  <div class="outgoing_msg d-flex flex-column align-items-end" style="padding-right: 20px;" id="outgoing_msg">
+
                   </div>
 
                 </div>
@@ -140,11 +136,13 @@
 
                       $nome = 'Teste';
                       $mensagem = $_POST['mensagem'];
+                      $dtRegistro =  date("H:i");
 
                       $result = $colecao->insertOne( 
                         [ 
                             'nome' => $nome, 
-                            'mensagem' => $mensagem
+                            'mensagem' => $mensagem,
+                            'h_mensagem' => $dtRegistro
                         ]
                       );
 
