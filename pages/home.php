@@ -27,15 +27,18 @@
 
     ?>
 
-    <section class="hero">
-        <div class="container">
+    <div class="" style="padding-left: 15% !important;
+    padding-right: 15% !important;">
+        <div class="container p-0">
             <div class="row">
 
-                <div class="col-lg-6 offset-lg-2 publicacao">
+                <div class="col-lg-8 offset-lg-2 p-0 m-0 publicacao">
                     <?php
                             foreach(Postagem::listarPostagens() as $postagem){
                                 $convertido_para_array = iterator_to_array($postagem);
                     ?>
+
+               
 
                     <div class="cardbox shadow-lg bg-white">
 
@@ -117,7 +120,7 @@
 
                 </div>
                 <!--/ col-lg-6 -->
-                <div class="col-lg-3 order ">
+                <div class="col-lg-4 order categoria-p0">
                     <div class="shadow-lg  categoria">
 
                         <div class="categoria-top">
@@ -147,7 +150,7 @@
             <!--/ row -->
         </div>
         <!--/ container -->
-    </section>
+    </div>
 
     <script>
     window.onload = function(){

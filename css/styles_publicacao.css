@@ -10,6 +10,11 @@ img {
     border-right: 1px solid #c4c4c4;
 }
 
+.container-geral {
+    padding-left: 15% !important;
+    padding-right: 15% !important;
+}
+
 .inbox_msg {
     border: 1px solid #c4c4c4;
     clear: both;
@@ -114,7 +119,7 @@ img {
 
 .incoming_msg_img {
     display: inline-block;
-    width: 15%;
+    width: auto;
 }
 
 .received_msg {
@@ -128,6 +133,10 @@ img {
 .user_img {
     width: 40px !important;
     height: 40px !important;
+}
+
+.border-radius {
+    border-radius: 10px !important;
 }
 
 .received_withd_msg p {
@@ -157,7 +166,7 @@ img {
     border-radius: 0px 10px 10px 0px;
     float: left;
     padding: 15px 15px 0 25px;
-    width: 30%;
+    width: 33%;
     /* border-left: 4px solid #CECED0; */
     box-shadow: 0 1rem rem rgb(0 0 0 / 18%) !important;
     border-left: 3px solid #CECED0;
@@ -258,7 +267,6 @@ img {
 .msg_history {
     height: 85%;
     overflow-y: auto;
-    margin-top: 20px;
 }
 
 .postagem {
@@ -310,6 +318,8 @@ p {
 .hero {
     /* padding: 6.25rem 0px !important; */
     margin: 0px !important;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 .cardbox {
@@ -460,13 +470,13 @@ p {
     position: relative;
     display: block;
     width: 100%;
-    height: 650px;
 }
 
 .cardbox-img {
     width: 100%;
     height: 650px;
 }
+
 
 /* .cardbox .cardbox-item img {} */
 
@@ -487,6 +497,7 @@ p {
 
 /* Cardbox Base
   ---------------------------------- */
+
 
 /* .cardbox-base {} */
 
@@ -686,5 +697,76 @@ p {
     }
     .publicacao {
         order: 1;
+    }
+}
+
+
+/* Wider than desktop /
+@media (min-width: 1200px) { }
+
+/* Landscape phone to desktop */
+
+@media (max-width: 1199px) {
+    .conteudo-geral {
+        flex-direction: column!important;
+    }
+    .publicacao {
+        order: 0 !important;
+        width: 100% !important;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .mesgs {
+        order: 1 !important;
+        width: 100% !important;
+        border: none !important;
+        border-radius: 0px 0px 10px 10px;
+        padding-bottom: 10px !important;
+    }
+    .msg_history {
+        border-top: 4px solid #CECED0;
+    }
+    .container-fechar {
+        display: none !important;
+    }
+}
+
+
+/* Landscape phone to landscape tablet */
+
+@media (max-width: 979px) {}
+
+
+/* Small desktop */
+
+@media (min-width: 980px) and (max-width: 1199px) {}
+
+
+/* Portrait tablet to landscape tablet */
+
+@media (min-width: 768px) and (max-width: 979px) {}
+
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {
+    .cardbox-img {
+        height: 550px !important;
+    }
+    .container-geral {
+        padding-left: 10% !important;
+        padding-right: 10% !important;
+    }
+}
+
+
+/* Landscape phones and smaller */
+
+@media (max-width: 480px) {
+    .cardbox-img {
+        height: 450px !important;
+    }
+    .container-geral {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
     }
 }

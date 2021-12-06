@@ -7,19 +7,40 @@ body {
     background-color: #F7F7F9;
 
 }
+.arial{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.verdana{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 .conteudo-perfil {
     width: 100%;
-    padding-left: 205px;
-    padding-right: 205px;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 
+.outline:focus{
+    box-shadow: 0 0 0 0;
+    border-color: #ff6d3c;
+    outline: 0;
+}
+.outline{
+    border-radius: 5px;
+}
+
+
+.outline:focus,
+.btn-outline-light-pink.focus {
+    box-shadow: 0 0 0 0rem rgba(248, 249, 250, 0.5);
+}
+
 .perfil-fundo {
-    margin-top: 60px;
     margin-bottom: 50px;
     height: 600px;
-    border: 2px solid orange;
+    border: 2px solid #ff6d3c;
+    border-radius: 10px;
 }
 
 .foto-perfil {
@@ -34,8 +55,8 @@ body {
 }
 
 .menu-perfil {
-    background-color: blueviolet;
-    width: 10px;
+    background-color: #5C01D2;
+    width: 7px;
 }
 
 
@@ -65,4 +86,60 @@ input {
 
 .fonte-violeta {
     color: blueviolet;
+}
+
+
+
+
+/* SCROLLBAR CUSTOMIZADO*/
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #ff6d3c;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+.hover13 figure:hover img {
+    opacity: 1;
+    -webkit-animation: flash 1.5s;
+    animation: flash 1.5s;
+}
+
+@-webkit-keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
 }

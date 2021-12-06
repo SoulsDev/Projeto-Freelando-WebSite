@@ -181,22 +181,23 @@ section {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 /* media do login e registrar */
-@media (max-width: 360px){
-    .botaoRegistrar{
+
+@media (max-width: 360px) {
+    .botaoRegistrar {
         font-size: 23px;
     }
-    .botaoRegistrar2{
+    .botaoRegistrar2 {
         font-size: 23px;
     }
-    .botaoLogin{
+    .botaoLogin {
         font-size: 23px;
     }
-    .botaoLogin2{
+    .botaoLogin2 {
         font-size: 23px;
     }
 }
-
 
 .row {
     align-items: center;
@@ -436,4 +437,20 @@ section {
 .container-cadprof {
     height: 90vh;
     width: 90vh;
+}
+
+.btn-pp {
+    color: #5d00d2 !important;
+}
+
+.btn-pp:hover {
+    color: #fff!important;
+}
+
+.btn-sp {
+    color: #5d00d2 !important;
+}
+
+.btn-sp:hover {
+    color: #fff!important;
 }

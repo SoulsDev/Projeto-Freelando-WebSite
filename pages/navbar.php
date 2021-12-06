@@ -6,6 +6,8 @@
         border: 1px solid #515151 !important;
         opacity: 50% !important;
         margin: 0 !important;
+        margin-right: 0.5rem !important;
+        margin-left: 0.5rem !important;
     }
     
     .btn-navi {
@@ -33,7 +35,7 @@
     }
     
     .container-lupa {
-        width: 293px !important;
+        width: 300px !important;
         display: flex !important;
         justify-content: end !important;
         position: absolute !important;
@@ -62,10 +64,10 @@
     .container-nave {
         display: flex !important;
         align-items: center !important;
-        justify-content: space-evenly !important;
+        justify-content: space-between !important;
         flex-direction: row !important;
-        padding-left: 300px;
-        padding-right: 300px;
+        padding-left: 15%;
+        padding-right: 15%;
     }
     
     .container-opçoes {
@@ -73,6 +75,7 @@
         flex-direction: row !important;
         justify-content: space-around !important;
         align-items: end !important;
+        flex-wrap: nowrap;
     }
     
     .foto-user-navi {
@@ -85,6 +88,9 @@
         margin-bottom: 0.5rem !important;
         margin-right: 1rem !important;
         font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+        font-size: 15px;
+        flex-wrap: nowrap;
+        white-space: nowrap;
     }
     
     .chat-user-navi {
@@ -130,10 +136,6 @@
             padding: 0 !important;
             margin-right: 1rem !important;
         }
-        .container-nave {
-            padding-left: 0px;
-            padding-right: 0px;
-        }
     }
     /* Portrait tablet to landscape tablet */
     
@@ -146,8 +148,8 @@
             margin-right: 1rem !important;
         }
         .container-nave {
-            padding-left: 0px;
-            padding-right: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
         }
     }
     /* Landscape phone to portrait tablet */
@@ -156,13 +158,18 @@
         .nome-user-navi {
             display: none !important;
         }
-        .foto-user-navi {
-            padding: 0 !important;
-            margin-right: 1rem !important;
-        }
         .container-nave {
-            padding-left: 0px;
-            padding-right: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+    
+    @media (max-width: 645px) {
+        .logo {
+            display: flex;
+        }
+        .imagem {
+            display: none;
         }
     }
     /* Landscape phones and smaller */
@@ -173,11 +180,25 @@
         }
         .foto-user-navi {
             padding: 0 !important;
-            margin-right: 1rem !important;
+            margin-right: 0rem !important;
         }
         .container-nave {
             padding-left: 0px;
             padding-right: 0px;
+        }
+        .input-pesquisa {
+            width: 180px !important;
+        }
+        .container-lupa {
+            width: 182px !important;
+            display: flex !important;
+            justify-content: end !important;
+            position: absolute !important;
+        }
+        .chat-user-navi {
+            padding: 0 !important;
+            margin-bottom: 0.25rem !important;
+            margin-right: 0.2rem !important;
         }
     }
 
@@ -194,7 +215,8 @@
 
 
             <div class="logo clicavel" onclick="telaHome()">
-                <img src="../medias/img/logo-tocha.svg" style="margin-bottom: 1rem !important;" alt="logo" height="50px" width="200px">
+                <img src="../medias/img/logo-tocha.svg" style="margin-bottom: 1rem !important;" alt="logo" height="50px" width="200px"> 
+                <!-- width 50 -->
 
             </div>
 
@@ -226,7 +248,7 @@
                 ?>
                 
 
-                <img src="../medias/img/balao-de-fala.svg" alt="balao" width="33px" height="33px" class="btn-navi chat-user-navi">
+                <a href="chat.php"><img src="../medias/img/balao-de-fala.svg" alt="balao" width="33px" height="33px" class="btn-navi chat-user-navi"></a>
 
                 <img src="../medias/img/sair_2.png" alt="saida" width="33px" height="33px" class="btn-navi mb-1 p-0 " onclick="logoff()">
             </div>
