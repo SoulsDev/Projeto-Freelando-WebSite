@@ -26,6 +26,10 @@ function logoff() {
     window.location.href = "logoff.php";
 }
 
-function profile(){
+function profile_contratante(){
+    window.location.href = "perfilContratante.php";
+}
+
+function profile_autonomo(){
     window.location.href = "AutonomoPrivado.php";
 }

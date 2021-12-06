@@ -21,17 +21,18 @@
         }
         $dados = Contratante::listar($email, $senha);
         while($row = $dados->fetch(PDO::FETCH_BOTH)) {
+            $_SESSION['tipo'] = 'contratante';
             $_SESSION['id_usuario'] = $row['n_id'];
             $_SESSION['nome_usuario'] = $row['c_nome'];
             $_SESSION['email_usuario'] = $row['c_email'];
-            // TODO adicionar campo no banco
-            //$_SESSION['foto_perfil'] = $row['c_imagem_perfil'];
+            $_SESSION['foto_perfil'] = $row['c_imagem_perfil'];
         }
         header('Location: home.php');
         exit;
     }
     $dados = Profissional::listar($email, $senha);
         while($row = $dados->fetch(PDO::FETCH_BOTH)) {
+            $_SESSION['tipo'] = 'autonomo';
             $_SESSION['id_usuario'] = $row['n_id'];
             $_SESSION['nome_usuario'] = $row['c_nome'];
             $_SESSION['foto_perfil'] = $row['c_imagem_perfil'];

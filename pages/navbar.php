@@ -211,9 +211,20 @@
 
 
             <div class="container-opçoes">
-                <img src="<?php echo $_SESSION['foto_perfil']; ?>" alt="usuario" width="40px" height="40px" class="btn-navi foto-user-navi">
-
-                <p class="btn-navi nome-user-navi" id="username" onclick="profile()"><?php echo $_SESSION['nome_usuario']; ?></p>
+                <?php
+                if($_SESSION['tipo'] == "contratante"){
+                    ?>
+                        <img src="<?php echo $_SESSION['foto_perfil']; ?>" onclick="profile_contratante()" alt="usuario" width="40px" height="40px" class="btn-navi foto-user-navi" id="profile_photo">
+                        <p class="btn-navi nome-user-navi" id="username" onclick="profile_contratante()"><?php echo $_SESSION['nome_usuario']; ?></p>
+                    <?php
+                }else{
+                    ?>
+                    <img src="<?php echo $_SESSION['foto_perfil']; ?>" onclick="profile_autonomo()" alt="usuario" width="40px" height="40px" class="btn-navi foto-user-navi" id="profile_photo">
+                    <p class="btn-navi nome-user-navi" id="username" onclick="profile_autonomo()"><?php echo $_SESSION['nome_usuario']; ?></p>
+                    <?php
+                }
+                ?>
+                
 
                 <img src="../medias/img/balao-de-fala.svg" alt="balao" width="33px" height="33px" class="btn-navi chat-user-navi">
 

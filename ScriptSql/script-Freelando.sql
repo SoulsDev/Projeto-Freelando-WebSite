@@ -31,9 +31,9 @@ CREATE PROCEDURE SELECIONA_CONTRATANTE_EMAIL (email VARCHAR(50))
     
 CREATE PROCEDURE LOGIN_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
 	SELECT count(n_id) FROM contratantes WHERE c_email = email AND c_senha = senha;
-    
+
 CREATE PROCEDURE LISTAR_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
-	SELECT n_id, c_nome, c_email FROM contratantes WHERE c_email = email AND c_senha = senha;
+	SELECT n_id, c_nome, c_email c_imagem_perfil FROM contratantes WHERE c_email = email AND c_senha = senha;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,

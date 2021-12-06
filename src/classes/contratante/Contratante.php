@@ -1,6 +1,7 @@
 <?php
 class Contratante{
     private string $nome;
+    private string $foto_perfil;
     private string $email;
     private string $senha;
     private string $dtRegistro;
@@ -12,6 +13,7 @@ class Contratante{
         $this->nome = $nome;
         $this->email = $email;
         $this->senha = $senha; 
+        $this->foto_perfil = '../medias/img/icone_padrao.jpg';
         $this->dtRegistro =  date("Y-m-d H:i:s");
         $this->dtAlteracao =  date("Y-m-d H:i:s");
     } 
@@ -22,6 +24,13 @@ class Contratante{
     }
     public function setNome(string $nome) : void{
         $this->nome = $nome; 
+    }
+
+    public function getFotoPerfil() : string{
+        return  $this->foto_perfil;
+    }
+    public function setFotoPerfil(string $foto_perfil) : void{
+        $this->foto_perfil = $foto_perfil; 
     }
 
     public function getEmail() : string{
@@ -53,14 +62,15 @@ class Contratante{
     }
 
 
-    public function inserirContratante(string $nome, string $email, string $senha, String $dtRegistro){
+    public function inserirContratante(string $nome, string $foto_perfil, string $email, string $senha, String $dtRegistro){
         try{
             include ('../conexao.php');
-            $inserir = $con->prepare("CALL Cadastrar_Contratante(?, ?, ?, ?)");
+            $inserir = $con->prepare("CALL Cadastrar_Contratante(?, ?, ?, ?, ?)");
             $inserir->bindValue(1, $nome);
-            $inserir->bindValue(2, $email);
-            $inserir->bindValue(3, $senha);
-            $inserir->bindValue(4, $dtRegistro);
+            $inserir->bindValue(2, $foto_perfil);
+            $inserir->bindValue(3, $email);
+            $inserir->bindValue(4, $senha);
+            $inserir->bindValue(5, $dtRegistro);
             $inserir->execute();    
             
         }catch(PDOException $e){
