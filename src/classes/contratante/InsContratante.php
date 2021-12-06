@@ -17,7 +17,12 @@ if($consulta){
      header('Location: ../../../pages/CadastroContratante.php');
 }
 else{
-     $contratante->inserirContratante($contratante->getNome(), $contratante->getEmail(), $contratante->getSenha(), $contratante->getDataRegistro(), $contratante->getDataAlteracao());
+     $contratante->inserirContratante($contratante->getNome(),
+                                   $contratante->getFotoPerfil(), 
+                                   $contratante->getEmail(), 
+                                   $contratante->getSenha(), 
+                                   $contratante->getDataRegistro(), 
+                                   $contratante->getDataAlteracao());
      header('Location: ../../../pages/telaLogin.php');
 }
 

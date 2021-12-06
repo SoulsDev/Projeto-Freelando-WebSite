@@ -6,6 +6,10 @@ function telaIndex() {
     window.location.href = "telaLogin.php";
 }
 
+function telaHome() {
+    window.location.href = "home.php";
+}
+
 function telaCadastroContratante() {
     window.location.href = "CadastroContratante.php";
 }
@@ -16,4 +20,16 @@ function telaLogin() {
 
 function telaCadastroProfissional() {
     window.location.href = "CadastroProfissional.php";
+}
+
+function logoff() {
+    window.location.href = "logoff.php";
+}
+
+function profile_contratante(){
+    window.location.href = "perfilContratante.php";
+}
+
+function profile_autonomo(){
+    window.location.href = "AutonomoPrivado.php";
 }

@@ -1,6 +1,7 @@
 <?php
 class Profissional{
     private string $nome;
+    private string $foto_perfil;
     private string $email;
     private string $senha;
     private string $dtRegistro;
@@ -17,6 +18,7 @@ class Profissional{
     
     public function __construct(string $nome, string $cpf, string $dtNasc, string $genero, string $cep, string $uf, string $cidade, string $logradouro, string $numero, string $complemento, string $email, string $senha){
         $this->nome = $nome;
+        $this->foto_perfil = '../medias/img/icone_padrao.jpg';
         $this->cpf = $cpf;
         $this->dtNasc = $dtNasc;
         $this->genero = $genero;
@@ -36,6 +38,13 @@ class Profissional{
     }
     public function setComplemento(string $complemento) : void{
         $this->complemento = $complemento; 
+    }
+
+    public function getFotoPerfil() : string{
+        return  $this->foto_perfil;
+    }
+    public function setFotoPerfil(string $foto_perfil) : void{
+        $this->foto_perfil = $foto_perfil; 
     }
 
     public function getNumero() : string{
@@ -132,6 +141,7 @@ class Profissional{
 
     public function inserirProfissional(
         string $nome, 
+        string $foto,
         string $cpf, 
         string $dtNasc, 
         string $genero, 
@@ -154,20 +164,21 @@ class Profissional{
 
         try{
             include ('../conexao.php');
-            $inserir = $con->prepare("CALL Cadastrar_Autonomo(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $inserir = $con->prepare("CALL Cadastrar_Autonomo(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $inserir->bindValue(1, $nome);
-            $inserir->bindValue(2, $cpf);
-            $inserir->bindValue(3, $dtNasc);
-            $inserir->bindValue(4, $genero);
-            $inserir->bindValue(5, $cep);
-            $inserir->bindValue(6, $uf);
-            $inserir->bindValue(7, $cidade);
-            $inserir->bindValue(8, $logradouro);
-            $inserir->bindValue(9, $numero);
-            $inserir->bindValue(10, $complemento);
-            $inserir->bindValue(11, $email);
-            $inserir->bindValue(12, $senha);
-            $inserir->bindValue(13, $dtRegistro);
+            $inserir->bindValue(2, $foto);
+            $inserir->bindValue(3, $cpf);
+            $inserir->bindValue(4, $dtNasc);
+            $inserir->bindValue(5, $genero);
+            $inserir->bindValue(6, $cep);
+            $inserir->bindValue(7, $uf);
+            $inserir->bindValue(8, $cidade);
+            $inserir->bindValue(9, $logradouro);
+            $inserir->bindValue(10, $numero);
+            $inserir->bindValue(11, $complemento);
+            $inserir->bindValue(12, $email);
+            $inserir->bindValue(13, $senha);
+            $inserir->bindValue(14, $dtRegistro);
             $inserir->execute();    
             
             $consulta = $con->prepare("SELECT n_id FROM autonomos WHERE c_cpf=?");
@@ -248,11 +259,10 @@ class Profissional{
 
     public static function listar(string $email, string $senha){
         include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
-        // TODO caso a procedure seja concertada trocar a consulta.
-        //$consulta = $con->prepare("CALL LISTAR_AUTONOMO(?, ?)");
         $consulta = $con->prepare("SELECT 
                                         n_id,
                                         c_nome,
+                                        c_imagem_perfil,
                                         c_cpf,
                                         c_genero,
                                         d_nascimento,
@@ -272,6 +282,21 @@ class Profissional{
         $consulta->execute();
 
         return $consulta;
+    }
+
+    public static function getProfissional(int $id){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        $consulta = $con->prepare("SELECT 
+                                        c_nome,
+                                        c_imagem_perfil      
+         FROM autonomos WHERE n_id= ?");
+         
+        $consulta->bindValue(1, $id);
+        $consulta->execute();
+
+        while($row = $consulta->fetch(PDO::FETCH_BOTH)) {
+            return $row;
+        }
     }
 
    

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +31,7 @@
 
     <?php 
     
-    include "navbar.html";
+    include "navbar.php";
 
     ?>
 
@@ -38,8 +42,8 @@
             <div class="row align-items-center d-flex flex-row"
                 style="border-bottom: solid 2px orange; padding:20px; padding-left: 0px;">
 
-                <img src="../medias/img/asta.jpg" alt="sunil" class="foto-perfil">
-                <span class="h3" style="width: 200px;">Asta</span>
+                <img src="<?php echo $_SESSION['foto_perfil'] ?>" alt="sunil" class="foto-perfil">
+                <span class="h3" style="width: 200px;"><?php echo $_SESSION['nome_usuario'] ?></span>
 
             </div>
 
@@ -68,12 +72,12 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nome" class="h5">Nome</label>
-                                <input class="form-control" type="text" id="nome" name="nome">
+                                <input class="form-control" type="text" id="nome" name="nome" value="<?php echo $_SESSION['nome_usuario'] ?>">
                             </div>
 
                             <div class="form-group">
                                 <label for="email" class="h5">Email</label>
-                                <input class="form-control" type="email" id="email" name="email">
+                                <input class="form-control" type="email" id="email" name="email" value="<?php echo $_SESSION['email_usuario'] ?>">
                             </div>
 
                             <button class="btn btn-primary" type="submit" style="background-color: blueviolet; width: 100px;">Confirmar</button>
