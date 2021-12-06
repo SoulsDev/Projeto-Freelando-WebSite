@@ -26,8 +26,8 @@
         }
         
         .usuario-foto img {
-            height: 250px !important;
-            width: 250px !important;
+            height: 230px !important;
+            width: 230px !important;
         }
         
         .btn {
@@ -426,7 +426,7 @@
                 opacity: 1;
             }
         }
-        /* Author
+        /* MEDIA QUERIES
   ---------------------------------- */
         
         @media ( max-width:991px) {}
