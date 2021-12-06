@@ -10,7 +10,7 @@ USE freelando;
 		tipoDeDado_conteudo - nome das tabelas removido para simplificar os atributos;
 ////////////////////////////////////
 */
-
+		
 
 DROP TABLE IF EXISTS contratantes;
 CREATE TABLE contratantes(
@@ -146,6 +146,32 @@ CREATE TABLE dados_profissionais(
 CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (profissao VARCHAR(50), nivel_experiencia VARCHAR(50), id_autonomo INT)
 INSERT INTO dados_profissionais VALUES (default, profissao, nivel_experiencia, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
+/*
+	PROCEDURES PARA O FILTRO DE PESQUISA;
+*/
+
+CREATE PROCEDURE FILTRAR_AUTONOMO_AREA (area VARCHAR(75))
+	SELECT autonomos.n_id, autonomos.c_nome, autonomos.c_imagem_perfil, areas.c_nome, profissoes.c_nome FROM autonomos
+		INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
+			INNER JOIN profissoes ON profissoes.n_id = dados_profissionais.n_id_profissoes
+				INNER JOIN areas ON areas.n_id = profissoes.n_id_profissoes
+					WHERE areas.c_nome LIKE area OR profissoes.c_nome LIKE area;
+                
+CREATE PROCEDURE FILTRA_AUTONOMO_FORMACAO (formacao VARCHAR(75))
+	SELECT autonomos.n_id, autonomos.c_nome, autonomos.c_imagem_perfil, areas.c_nome, profissoes.c_nome FROM autonomos
+		INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
+				INNER JOIN profissoes ON profissoes.n_id = dados_profissionais.n_id_profissoes
+					INNER JOIN areas ON areas.n_id = profissoes.n_id_profissoes
+						INNER JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomos
+							WHERE dados_academicos.c_ensino LIKE formacao;
+                            
+CREATE PROCEDURE FILTRA_AUTONOMO_NOME (nome VARCHAR(75))
+	SELECT autonomos.n_id, autonomos.c_nome, autonomos.c_imagem_perfil, areas.c_nome, profissoes.c_nome FROM autonomos
+		INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
+				INNER JOIN profissoes ON profissoes.n_id = dados_profissionais.n_id_profissoes
+					INNER JOIN areas ON areas.n_id = profissoes.n_id_profissoes
+							WHERE autonomos.nome LIKE nome;
+
 
 INSERT INTO areas VALUES (default, 'Administração e Contabilidade'),
 						 (default, 'Advogados e Leis'),
