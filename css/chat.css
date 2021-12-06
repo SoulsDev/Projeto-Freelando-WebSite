@@ -4,6 +4,7 @@ body{
 .container{
   max-width: 900px;
   margin:auto;
+  padding: 0;
 }
 
 img{ max-width:100%;}
@@ -297,7 +298,7 @@ margin-bottom: 20px;
   position: fixed;
   top: 0px;
   left: 0px;
-  z-index: 200;
+  z-index: 10000000000000;
   display: none;
   justify-content: center;
   align-items: center;

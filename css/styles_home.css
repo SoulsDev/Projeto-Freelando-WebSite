@@ -22,12 +22,6 @@ p {
     margin: 0;
 }
 
-.hero {
-    /* padding: 6.25rem 0px !important; */
-    /* margin: 0px !important; */
-    /* margin-top: 200px; */
-}
-
 .cardbox {
     border-radius: 3px;
     margin-bottom: 20px;
@@ -188,6 +182,7 @@ p {
     width: 100%;
     height: 650px;
 }
+
 
 /* .cardbox .cardbox-item img {} */
 
@@ -396,14 +391,50 @@ p {
 }
 
 
-/* Author
-  ---------------------------------- */
+/* Wider than desktop /
+@media (min-width: 1200px) {  }
 
-@media ( max-width:991px) {
+/ Landscape phone to desktop /
+@media (max-width: 1199px) {  }
+
+/* Landscape phone to landscape tablet */
+
+@media (max-width: 979px) {}
+
+
+/* Small desktop */
+
+@media (min-width: 980px) and (max-width: 1199px) {}
+
+
+/* Portrait tablet to landscape tablet */
+
+@media (max-width: 979px) {
+    .categoria-p0 {
+        padding: 0px !important;
+    }
     .categoria {
         order: 0;
     }
     .publicacao {
         order: 1;
+    }
+}
+
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {
+    .cardbox-img {
+        height: 550px;
+    }
+}
+
+
+/* Landscape phones and smaller */
+
+@media (max-width: 480px) {
+    .cardbox-img {
+        height: 450px;
     }
 }

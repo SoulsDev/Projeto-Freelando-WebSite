@@ -31,9 +31,9 @@ CREATE PROCEDURE SELECIONA_CONTRATANTE_EMAIL (email VARCHAR(50))
     
 CREATE PROCEDURE LOGIN_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
 	SELECT count(n_id) FROM contratantes WHERE c_email = email AND c_senha = senha;
-    
+
 CREATE PROCEDURE LISTAR_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
-	SELECT n_id, c_nome, c_email FROM contratantes WHERE c_email = email AND c_senha = senha;
+	SELECT n_id, c_nome, c_email c_imagem_perfil FROM contratantes WHERE c_email = email AND c_senha = senha;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,
@@ -55,7 +55,8 @@ CREATE TABLE autonomos(
     /* data de alteração dos dados, por exemplo cursos, interesses */ 
     PRIMARY KEY (n_id)
 );
-CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), imagem_perfil VARCHAR(100), cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
+
+CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), imagem_perfil VARCHAR(50) ,cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
 									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(70), registro DATETIME) 
 	INSERT INTO autonomos VALUES (default, nome, imagem_perfil, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro, null);
     
@@ -73,7 +74,6 @@ CREATE PROCEDURE LISTAR_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
 			LEFT JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
 					WHERE autonomos.c_email = email AND autonomos.c_senha = senha;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
-
 
 DROP TABLE IF EXISTS telefones_autonomo;
 CREATE TABLE telefones_autonomo(

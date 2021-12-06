@@ -383,11 +383,10 @@
                                 <option value=9>9 meses</option>
                                 <option value=12>1 ano</option>
                                 <option value=24>2 ano</option>
-                                <option value=36>2 ano</option>
-                                <option value=48>3 ano</option>
-                                <option value=60>4 ano</option>
-                                <option value=72>5 anos</option>
-                                <option value=73>Mais</option>
+                                <option value=36>3 ano</option>
+                                <option value=48>4 ano</option>
+                                <option value=60>5 anos</option>
+                                <option value=61>Mais</option>
 
 
                             </select>

@@ -7,6 +7,7 @@ class Postagem{
 
     public function __construct(int $autonomo_id, string $conteudo, string $arquivo = NULL)
     {
+        date_default_timezone_set ("America/Sao_Paulo");
         $this->autonomo_id = $autonomo_id;
         $this->conteudo = $conteudo;
         $this->dtRegistro =  date("Y-m-d H:i:s");
@@ -92,7 +93,21 @@ class Postagem{
         try{
             include_once('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao/mongo_con.php');
             $colecao = $mongo_db->postagem;
-            return $colecao->find();
+            $options = ['sort' => ['dt_registro' => -1]];
+            return $colecao->find(array(), $options);
+
+        }catch(PDOException $e){
+            echo 'Erro'.$e->getMessage();
+        }
+    }
+
+    public static function listarMinhasPostagens(int $autonomo_id){
+        try{
+            include('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao/mongo_con.php');
+            $colecao = $mongo_db->postagem;
+            $options = ['sort' => ['dt_registro' => -1]];
+            
+            return $colecao->find(array('autonomo'=>$autonomo_id), $options);
 
         }catch(PDOException $e){
             echo 'Erro'.$e->getMessage();

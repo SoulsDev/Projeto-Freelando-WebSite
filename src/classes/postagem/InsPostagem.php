@@ -1,8 +1,9 @@
 <?php 
 include_once('Postagem.php');
+session_start();
 
-$autonomo_id = $_POST['autonomo_id'];
-$conteudo = $_POST['postagem_corpo'];
+$autonomo_id = $_SESSION['id_usuario'];
+$conteudo = $_POST['caixa-texto'];
 
 if(is_uploaded_file($_FILES['file']['tmp_name'])) {
 
@@ -27,7 +28,7 @@ if(is_uploaded_file($_FILES['file']['tmp_name'])) {
   
       move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
   
-      $caminho_relativo = "../../medias_usuario/videos/".basename($_new_name).".". $FileType;
+      $caminho_relativo = "../medias_usuario/videos/".basename($_new_name).".". $FileType;
     }else{
       $target_dir = "C:/xampp/htdocs/Projeto-Freelando-WebSite/medias_usuario/fotos/";
       $target_file = $target_dir . basename($_new_name).".". $FileType;
@@ -41,7 +42,7 @@ if(is_uploaded_file($_FILES['file']['tmp_name'])) {
   
       move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
   
-      $caminho_relativo = "../../medias_usuario/fotos/".basename($_new_name).".". $FileType;
+      $caminho_relativo = "../medias_usuario/fotos/".basename($_new_name).".". $FileType;
     }
 
     $Postagem = new Postagem($autonomo_id, $conteudo, $caminho_relativo);
@@ -54,4 +55,4 @@ if(is_uploaded_file($_FILES['file']['tmp_name'])) {
 
 
 
-header('Location: ../../../pages/integrador_para_back/listar_postagem.php');
+header('Location: ../../../pages/AutonomoPrivado.php');
