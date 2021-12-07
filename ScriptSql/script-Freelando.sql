@@ -10,7 +10,7 @@ USE freelando;
 		tipoDeDado_conteudo - nome das tabelas removido para simplificar os atributos;
 ////////////////////////////////////
 */
-		
+
 
 DROP TABLE IF EXISTS contratantes;
 CREATE TABLE contratantes(
@@ -18,13 +18,19 @@ CREATE TABLE contratantes(
     c_nome VARCHAR(35) NOT NULL,
     c_imagem_perfil VARCHAR(100) NOT NULL,
     c_email VARCHAR(50) NOT NULL,
+	c_cep VARCHAR(8),
+    c_uf CHAR(2),
+    c_cidade VARCHAR(50),
+    c_logradouro VARCHAR(100),
+    n_numero_contratante INT,
+    c_complemento VARCHAR(20),
     c_senha VARCHAR(70) NOT NULL,
     d_registro DATETIME NOT NULL,
     d_modificacao DATETIME,
     PRIMARY KEY(n_id)
 );
 CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), imagem_perfil VARCHAR(100), email VARCHAR(50), senha VARCHAR(70), registro DATETIME) 
-	INSERT INTO contratantes VALUES (default, nome, imagem_perfil, email, senha, registro, null);
+	INSERT INTO contratantes VALUES (default, nome, imagem_perfil, email, null, null, null, null, null, null, senha, registro, null);
     
 CREATE PROCEDURE SELECIONA_CONTRATANTE_EMAIL (email VARCHAR(50))
 	SELECT * FROM contratantes WHERE c_email_contratante = email;
@@ -47,7 +53,7 @@ CREATE TABLE autonomos(
     c_cidade VARCHAR(50) NOT NULL,
     c_logradouro VARCHAR(100) NOT NULL,
     n_numero_autonomo INT NOT NULL,
-    c_complemento VARCHAR(5) NOT NULL,
+    c_complemento VARCHAR(20) NOT NULL,
     c_email VARCHAR(25) NOT NULL,
     c_senha VARCHAR(70) NOT NULL,
     d_registro DATETIME NOT NULL,
@@ -197,7 +203,7 @@ CREATE PROCEDURE FILTRA_AUTONOMO_NOME (nome VARCHAR(75))
 		INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
 				INNER JOIN profissoes ON profissoes.n_id = dados_profissionais.n_id_profissoes
 					INNER JOIN areas ON areas.n_id = profissoes.n_id_profissoes
-							WHERE autonomos.nome LIKE nome;
+							WHERE autonomos.nome LIKE nome; 
 
 
 INSERT INTO areas VALUES (default, 'Administração e Contabilidade'),
