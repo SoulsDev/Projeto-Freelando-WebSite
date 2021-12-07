@@ -114,6 +114,11 @@ CREATE TABLE dados_academicos(
 DROP PROCEDURE IF EXISTS CADASTRAR_DADO_ACADEMICO;
 CREATE PROCEDURE CADASTRAR_DADO_ACADEMICO (ensino VARCHAR(25), nivel VARCHAR(15), curso VARCHAR(25), carga_horaria INT, id_autonomo INT)
 	INSERT INTO dados_academicos VALUES (default, ensino, nivel, curso, carga_horaria, id_autonomo);
+    
+DROP PROCEDURE IF EXISTS ATUALIZAR_DADOS_ACADEMICOS;
+CREATE PROCEDURE ATUALIZAR_DADOS_ACADEMICOS (id_autonomo INT, ensino VARCHAR(25), nivel VARCHAR(15), curso VARCHAR(25), carga_horaria INT)
+	UPDATE dados_academicos SET c_ensino = ensino, c_nivel = nivel, c_curso = curso, n_carga_horaria = carga_horaria
+		WHERE n_id_autonomo = id_autonomo;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
@@ -157,8 +162,13 @@ CREATE TABLE dados_profissionais(
 );
 
 DROP PROCEDURE IF EXISTS CADASTRAR_DADO_PROFISSIONAL;
-CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (profissao VARCHAR(50), nivel_experiencia VARCHAR(50), id_autonomo INT)
-INSERT INTO dados_profissionais VALUES (default, profissao, nivel_experiencia, id_autonomo);
+CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (profissao VARCHAR(50), nivel_experiencia INT, id_autonomo INT)
+	INSERT INTO dados_profissionais VALUES (default, profissao, nivel_experiencia, id_autonomo);
+    
+DROP PROCEDURE IF EXISTS ATUALIZAR_DADOS_PROFISSIONAIS;
+CREATE PROCEDURE ATUALIZAR_DADOS_PPROFISSIONAIS (id_autonomo INT, id_profissao VARCHAR(50), experiencia VARCHAR(50))
+	UPDATE dados_profissionais SET n_id_profissao = id_profissao, n_experiencia = experiencia
+		WHERE n_id_autonomo = id_autonomo;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 /*
 	PROCEDURES PARA O FILTRO DE PESQUISA;
