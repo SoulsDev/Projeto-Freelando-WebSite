@@ -127,4 +127,30 @@ class Contratante{
 
         return $consulta;
     }
+
+    public static function alterar_endereco(int $id, string $cep, string $uf, string $cidade, string $logradouro, int $numero_contratante, string $complemento = null){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        $consulta = $con->prepare("CALL ALTERAR_ENDERECO(?, ?, ?, ?, ?, ?, ?)");
+        $consulta->bindValue(1, $id);
+        $consulta->bindValue(2, $cep);
+        $consulta->bindValue(3, $uf);
+        $consulta->bindValue(4, $cidade);
+        $consulta->bindValue(5, $logradouro);
+        $consulta->bindValue(6, $numero_contratante);
+        $consulta->bindValue(7, $complemento);
+        $consulta->execute();
+
+        return $consulta;
+    }
+
+    public static function alterar_dados_pessoais(int $id, string $nome, string $email){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        $consulta = $con->prepare("CALL ALTERAR_DADOS_PESSOAIS(?, ?, ?)");
+        $consulta->bindValue(1, $id);
+        $consulta->bindValue(2, $nome);
+        $consulta->bindValue(3, $email);
+        $consulta->execute();
+
+        return $consulta;
+    }
 } 
