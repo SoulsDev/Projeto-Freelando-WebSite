@@ -35,7 +35,11 @@
             <div class=" row container-header ">
 
                 <div class="col-3 usuario-foto d-flex flex-column justify-content-center">
-                    <img src="<?php echo $_SESSION['foto_perfil'] ?>">
+                    <img src="<?php echo $_SESSION['foto_perfil'] ?>"alt="sunil" class="foto-perfil" id="current_photo">
+                <form action="../src/classes/profissional/AlteraFoto.php" method="POST" id="form_photo" enctype="multipart/form-data" style="display:none;">
+                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id_usuario'] ?>">
+                    <input type="file" name="file" id="file">
+                </form>
                 </div>
 
                 <div class="col-3 dados-usuario d-flex flex-column justify-content-center ">
@@ -646,5 +650,15 @@
         <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
         <script src="../scripts/modal_autonomopv.js"></script>
 
+        <script>
+            document.getElementById('current_photo').addEventListener('click', function(){
+                document.getElementById('file').click();
+            })
+
+            document.getElementById('file').addEventListener('change', function(){
+                document.getElementById('form_photo').submit();
+            })
+
+        </script>
 </body>
 </html>
