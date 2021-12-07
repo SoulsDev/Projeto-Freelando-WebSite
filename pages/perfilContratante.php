@@ -42,8 +42,11 @@
             <div class="row align-items-center d-flex flex-row"
                 style="border-bottom: solid 2px orange; padding:20px; padding-left: 0px;">
 
-                <img src="<?php echo $_SESSION['foto_perfil'] ?>" alt="sunil" class="foto-perfil">
-
+                <img src="<?php echo $_SESSION['foto_perfil'] ?>" alt="sunil" class="foto-perfil" id="current_photo">
+                <form action="../src/classes/contratante/AlteraFoto.php" method="POST" id="form_photo" enctype="multipart/form-data" style="display:none;">
+                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id_usuario'] ?>">
+                    <input type="file" name="file" id="file">
+                </form>
                 <span class="h3 arial" style="width: 200px;"><?php echo $_SESSION['nome_usuario'] ?></span>
                 <!-- style="border-bottom: solid 2px #ff6d3c; padding:20px; padding-left: 0px;"> -->
             </div>
@@ -250,6 +253,15 @@ document.getElementById('formulario_alterar_endereco').addEventListener('click',
     document.getElementById('uf').disabled = false;
     document.getElementById('formulario_endereco').submit();    
 })
+
+document.getElementById('current_photo').addEventListener('click', function(){
+    document.getElementById('file').click();
+})
+
+document.getElementById('file').addEventListener('change', function(){
+    document.getElementById('form_photo').submit();
+})
+
 
 </script>
 

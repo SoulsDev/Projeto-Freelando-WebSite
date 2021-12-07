@@ -168,4 +168,14 @@ class Contratante{
         }
         
     }
+
+    public static function alterar_foto(int $id, string $foto){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        
+        $alteracao = $con->prepare("CALL ALTERAR_FOTO(?, ?)");
+        $alteracao->bindValue(1, $id);
+        $alteracao->bindValue(2, $foto);
+        $alteracao->execute();
+        return $alteracao;
+    }
 } 
