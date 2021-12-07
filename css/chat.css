@@ -425,24 +425,26 @@ input[type="number"] {
 }
 
 @media (max-width:400px){
-  .received_withd_msg {
-    width: 50%;
-    padding-left: 0px;
-  }
-  .mesgs {
-    padding: 0;
-    width: auto;
-  }
-  .mesgs {
-    width: auto;
-  }
-  .h1{
-    display: none;
-  }
   .img {
     border-radius: 50%;
     width: 20px;
     height: 20px;
+  }
+  .inbox_people{
+    display: flex;
+  }
+  .imagem-chat, .imagem-perfil, .received_withd_msg, .outgoing_msg, .type_msg{
+    display: none;
+  }
+  .inbox_people, .inbox_chat{
+    background: #f8f8f8 none repeat scroll 0 0;
+    float: left;
+    overflow: hidden;
+    width: 400%;
+    border: none;
+  }
+  .inbox_msg{
+    display: flex !important;
   }
 }
 

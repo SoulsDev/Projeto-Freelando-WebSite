@@ -61,3 +61,8 @@ const recebeMsm = () => {
     `;
     document.getElementById('msm').appendChild(item);
 }
+
+
+function mudarTela(){
+    var chat = document.getElementById("chat");
+}
