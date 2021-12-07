@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -40,7 +40,7 @@
         <div class="container perfil-fundo shadow-lg" style="background-color:#fff;">
 
             <div class="row align-items-center d-flex flex-row"
-                style="border-bottom: solid 2px orange; padding:20px; padding-left: 0px;">
+                style="border-bottom: solid 2px #ff6d3c; padding:20px; padding-left: 0px;">
 
                 <img src="<?php echo $_SESSION['foto_perfil'] ?>" alt="sunil" class="foto-perfil">
 
@@ -57,7 +57,7 @@
 
             <div class="row">
 
-                <div class="col-md-3" style="border-right: solid #ff6d3c 2px; padding-top: 22px;" id="links_ativos">
+                <div class="col-md-3 borda" id="links_ativos">
 
                     <div class="d-flex flex-row clicavel" onclick="TornarAtivo(0)">
                         <div class="menu-perfil" style="margin-left: -12px;"></div>
@@ -76,7 +76,7 @@
 
                 <div class="col-md-9 form-perfil">
                     
-                    <form action="" name="contrata1" style="padding-right: 150px;">
+                    <form action="" name="contrata1" class="form">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nome" class="h5 verdana">Nome</label>
@@ -98,7 +98,7 @@
                     
 
                     
-                    <form action="" name="contrata2" style="padding-right: 150px;" class="d-none">
+                    <form action="" name="contrata2" class="d-none form">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nome" class="h5 verdana">Senha</label>

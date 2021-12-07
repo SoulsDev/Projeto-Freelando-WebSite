@@ -17,6 +17,10 @@ img{ max-width:100%;}
 }
 
 
+.voltar{
+  display: none;
+}
+
 
 .inbox_msg {
   border-radius: 15px;
@@ -433,9 +437,12 @@ input[type="number"] {
   .inbox_people{
     display: flex;
   }
+
+
   .imagem-chat, .imagem-perfil, .received_withd_msg, .outgoing_msg, .type_msg{
-    display: none;
+    display: flex;
   }
+
   .inbox_people, .inbox_chat{
     background: #f8f8f8 none repeat scroll 0 0;
     float: left;
@@ -443,8 +450,67 @@ input[type="number"] {
     width: 400%;
     border: none;
   }
-  .inbox_msg{
-    display: flex !important;
+
+  .contatos{
+    display: inline !important;
+  }
+  .imagem-chat{
+    margin: 0;
+  }
+  .input_msg_write{
+    padding: 10px;
+  }
+  .mesgs{
+    padding: 0;
+    padding-top: 15px;
+  }
+
+  .active-chat{
+    display: none !important;
+  }
+  .mesgs{
+    padding: x;
+  }
+  .voltar{
+    display: inline;
+  }
+  .outgoing_msg{
+    padding-left: 15px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .input_msg_write{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .has-search .form-control-feedback{
+    position: absolute;
+    z-index: 0;
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    line-height: 2.375rem;
+    text-align: center;
+    cursor: pointer;
+    color: #aaa;
+    margin-top: 15px;
+    margin-left: 0;
+    padding-left: 5px;
+  }
+  #enviarMsm{
+    position: absolute;
+    z-index: 0;
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    line-height: 2.375rem;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 80px;
+    margin-left: 0;
+    margin-right: 8px;
+    padding-left: 10px;
   }
 }
 
