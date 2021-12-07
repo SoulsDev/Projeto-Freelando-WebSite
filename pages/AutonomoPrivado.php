@@ -38,7 +38,7 @@
                     <img src="<?php echo $_SESSION['foto_perfil'] ?>"alt="sunil" class="foto-perfil" id="current_photo">
                 <form action="../src/classes/profissional/AlteraFoto.php" method="POST" id="form_photo" enctype="multipart/form-data" style="display:none;">
                     <input type="hidden" name="user_id" value="<?php echo $_SESSION['id_usuario'] ?>">
-                    <input type="file" name="file" id="file">
+                    <input type="file" name="user_photo" id="user_photo">
                 </form>
                 </div>
 
@@ -603,9 +603,11 @@
                     </strong>
                 </p>
 
-                <span class=" cep-texto ">CEP</span><input type=" number " name=" cep " id=" cep " class=" cep ">
+                <span class=" cep-texto ">CEP</span><input type=" number " name="cep" id="cep" class=" cep ">
                 <br>
-                <span class=" numero-texto ">N°</span><input type=" number " name=" numero " id=" numero " class=" numero ">
+                <span class=" numero-texto ">N°</span><input type=" number " name="numero" id="numero" class=" numero ">
+                <br>
+                <span class=" numero-texto ">Complemento</span><input type="text" name="complemento" id="complemento" class=" numero">
             </div>
 
 
@@ -652,10 +654,10 @@
 
         <script>
             document.getElementById('current_photo').addEventListener('click', function(){
-                document.getElementById('file').click();
+                document.getElementById('user_photo').click();
             })
 
-            document.getElementById('file').addEventListener('change', function(){
+            document.getElementById('user_photo').addEventListener('change', function(){
                 document.getElementById('form_photo').submit();
             })
 

@@ -1,7 +1,7 @@
 <?php
     include ('Profissional.php');
 
-    if(is_uploaded_file($_FILES['file']['tmp_name'])) {
+    if(is_uploaded_file($_FILES['use_photo']['tmp_name'])) {
         session_start();
         $id = $_POST['user_id'];
 
@@ -17,12 +17,12 @@
         // Output the 36 character UUID.
         $_new_name = vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
     
-        $FileType = strtolower(pathinfo($_FILES['file']['name'],PATHINFO_EXTENSION));
+        $FileType = strtolower(pathinfo($_FILES['use_photo']['name'],PATHINFO_EXTENSION));
     
         $target_dir = "C:/xampp/htdocs/Projeto-Freelando-WebSite/medias_usuario/fotos/";
         $target_file = $target_dir . basename($_new_name).".". $FileType;
     
-        move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
+        move_uploaded_file($_FILES["use_photo"]["tmp_name"], $target_file);
     
         $caminho_relativo = "../medias_usuario/fotos/".basename($_new_name).".". $FileType;
     
