@@ -10,7 +10,7 @@ USE freelando;
 		tipoDeDado_conteudo - nome das tabelas removido para simplificar os atributos;
 ////////////////////////////////////
 */
-		
+
 
 DROP TABLE IF EXISTS contratantes;
 CREATE TABLE contratantes(
@@ -18,13 +18,19 @@ CREATE TABLE contratantes(
     c_nome VARCHAR(35) NOT NULL,
     c_imagem_perfil VARCHAR(100) NOT NULL,
     c_email VARCHAR(50) NOT NULL,
+	c_cep VARCHAR(8),
+    c_uf CHAR(2),
+    c_cidade VARCHAR(50),
+    c_logradouro VARCHAR(100),
+    n_numero_contratante INT,
+    c_complemento VARCHAR(20),
     c_senha VARCHAR(70) NOT NULL,
     d_registro DATETIME NOT NULL,
     d_modificacao DATETIME,
     PRIMARY KEY(n_id)
 );
 CREATE PROCEDURE CADASTRAR_CONTRATANTE (nome VARCHAR(35), imagem_perfil VARCHAR(100), email VARCHAR(50), senha VARCHAR(70), registro DATETIME) 
-	INSERT INTO contratantes VALUES (default, nome, imagem_perfil, email, senha, registro, null);
+	INSERT INTO contratantes VALUES (default, nome, imagem_perfil, email, null, null, null, null, null, null, senha, registro, null);
     
 CREATE PROCEDURE SELECIONA_CONTRATANTE_EMAIL (email VARCHAR(50))
 	SELECT * FROM contratantes WHERE c_email_contratante = email;
@@ -33,7 +39,30 @@ CREATE PROCEDURE LOGIN_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
 	SELECT count(n_id) FROM contratantes WHERE c_email = email AND c_senha = senha;
 
 CREATE PROCEDURE LISTAR_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
-	SELECT n_id, c_nome, c_email c_imagem_perfil FROM contratantes WHERE c_email = email AND c_senha = senha;
+	SELECT n_id, c_nome, c_email, c_imagem_perfil, c_cep, c_uf, c_cidade, c_logradouro, n_numero_contratante FROM contratantes WHERE c_email = email AND c_senha = senha;
+    
+CREATE PROCEDURE ALTERAR_ENDERECO (id int,cep VARCHAR(8), uf CHAR(2), cidade VARCHAR(50), logradouro VARCHAR(100), numero_contratante INT, complemento VARCHAR(20))
+	UPDATE contratantes SET c_cep = cep, 
+							c_uf = uf, 
+                            c_cidade = cidade,
+                            c_logradouro = logradouro,
+                            n_numero_contratante = numero_contratante,
+                            c_complemento = complemento
+						WHERE n_id = id;
+					
+CREATE PROCEDURE ALTERAR_DADOS_PESSOAIS (id int, nome VARCHAR(35), email VARCHAR(50))
+	UPDATE contratantes SET c_nome = nome,
+							c_email = email
+						WHERE n_id = id;
+                        
+CREATE PROCEDURE ALTERAR_FOTO (id int, foto VARCHAR(100))
+	UPDATE contratantes SET c_imagem_perfil = foto
+						WHERE n_id = id;
+                        
+CREATE PROCEDURE ALTERAR_SENHA (id int, senha VARCHAR(70))
+	UPDATE contratantes SET c_senha = senha
+						WHERE n_id = id;
+                        
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,
@@ -47,7 +76,7 @@ CREATE TABLE autonomos(
     c_cidade VARCHAR(50) NOT NULL,
     c_logradouro VARCHAR(100) NOT NULL,
     n_numero_autonomo INT NOT NULL,
-    c_complemento VARCHAR(5) NOT NULL,
+    c_complemento VARCHAR(20) NOT NULL,
     c_email VARCHAR(25) NOT NULL,
     c_senha VARCHAR(70) NOT NULL,
     d_registro DATETIME NOT NULL,
@@ -146,9 +175,6 @@ CREATE TABLE dados_profissionais(
 CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (profissao VARCHAR(50), nivel_experiencia VARCHAR(50), id_autonomo INT)
 INSERT INTO dados_profissionais VALUES (default, profissao, nivel_experiencia, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
-/*
-	PROCEDURES PARA O FILTRO DE PESQUISA;
-*/
 
 CREATE PROCEDURE FILTRAR_AUTONOMO_AREA (area VARCHAR(75))
 	SELECT autonomos.n_id, autonomos.c_nome, autonomos.c_imagem_perfil, areas.c_nome, profissoes.c_nome FROM autonomos
@@ -170,7 +196,7 @@ CREATE PROCEDURE FILTRA_AUTONOMO_NOME (nome VARCHAR(75))
 		INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
 				INNER JOIN profissoes ON profissoes.n_id = dados_profissionais.n_id_profissoes
 					INNER JOIN areas ON areas.n_id = profissoes.n_id_profissoes
-							WHERE autonomos.nome LIKE nome;
+							WHERE autonomos.nome LIKE nome; 
 
 
 INSERT INTO areas VALUES (default, 'Administração e Contabilidade'),
