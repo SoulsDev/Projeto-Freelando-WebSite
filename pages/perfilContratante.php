@@ -92,13 +92,30 @@
                     
 
                     
-                    <form action="" name="contrata2" style="padding-right: 150px;" class="d-none">
+                    <form action="../src/classes/contratante/AlteraSenha.php" name="contrata2" style="padding-right: 150px;" class="d-none" method="POST">
                         <input type="hidden" name="user_id" value=<?php echo $_SESSION['id_usuario'] ?>>   
+                        <input type="hidden" name="user_email" value="<?php echo $_SESSION['email_usuario'] ?>">   
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nome" class="h5 verdana">Senha</label>
                                 <input class="form-control outline" type="password" id="senha" name="senha">
                             </div>
+                            
+                                <?php 
+                                    
+                                    if(isset($_SESSION['erro'])){
+                                        if(array_key_exists('erro', $_SESSION)){
+                                            ?>
+                                            <div class="invalid-feedback" style="display: block">
+                                            <?php
+                                                echo $_SESSION['erro'];
+                                            ?>
+                                            </div>
+                                            <?php
+                                        }
+                                    }
+                                ?>
+                            
 
                             <div class="form-group">
                                 <label for="email" class="h5 verdana">Nova senha</label>

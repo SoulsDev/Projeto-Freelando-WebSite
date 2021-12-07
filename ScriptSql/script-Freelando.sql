@@ -59,6 +59,10 @@ CREATE PROCEDURE ALTERAR_FOTO (id int, foto VARCHAR(100))
 	UPDATE contratantes SET c_imagem_perfil = foto
 						WHERE n_id = id;
                         
+CREATE PROCEDURE ALTERAR_SENHA (id int, senha VARCHAR(70))
+	UPDATE contratantes SET c_senha = senha
+						WHERE n_id = id;
+                        
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,
