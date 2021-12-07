@@ -33,7 +33,7 @@ CREATE PROCEDURE LOGIN_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
 	SELECT count(n_id) FROM contratantes WHERE c_email = email AND c_senha = senha;
 
 CREATE PROCEDURE LISTAR_CONTRATANTE (email VARCHAR(50), senha VARCHAR(70))
-	SELECT n_id, c_nome, c_email c_imagem_perfil FROM contratantes WHERE c_email = email AND c_senha = senha;
+	SELECT n_id, c_nome, c_email, c_imagem_perfil FROM contratantes WHERE c_email = email AND c_senha = senha;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,
@@ -56,23 +56,33 @@ CREATE TABLE autonomos(
     PRIMARY KEY (n_id)
 );
 
+DROP PROCEDURE IF EXISTS CADASTRAR_AUTONOMO;
 CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), imagem_perfil VARCHAR(50) ,cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
 									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(70), registro DATETIME) 
 	INSERT INTO autonomos VALUES (default, nome, imagem_perfil, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro, null);
     
+DROP PROCEDURE IF EXISTS VALIDA_AUTONOMO_CPF;
 CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
 	SELECT * FROM autonomos WHERE c_cpf = cpf;
     
+DROP PROCEDURE IF EXISTS LOGIN_AUTONOMO;
 CREATE PROCEDURE LOGIN_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
 	SELECT count(n_id) FROM autonomos WHERE c_email = email AND c_senha = senha;
 
-DROP Procedure IF EXISTS LISTAR_AUTONOMO ;
+DROP PROCEDURE IF EXISTS LISTAR_AUTONOMO;
 CREATE PROCEDURE LISTAR_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
 	SELECT * FROM autonomos
 		LEFT JOIN telefones_autonomo ON autonomos.n_id = telefones_autonomo.n_id_autonomo
 		LEFT JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomo
 			LEFT JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
 					WHERE autonomos.c_email = email AND autonomos.c_senha = senha;
+                    
+DROP PROCEDURE IF EXISTS ATUALIZAR_AUTONOMO;
+CREATE PROCEDURE ATUALIZAR_AUTONOMO (id INT, nome VARCHAR(35), imagem_perfil VARCHAR(50) ,cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
+									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(70), alteracao DATETIME)
+	UPDATE autonomos SET c_nome = nome, c_imagem_perfil = imagem_perfil, d_nascimento = nascimento, c_genero = genero, c_cep = cep, c_uf = uf, c_cidade = cidade, c_logradouro = logradouro, n_numero_autonomo = numero, c_complemento = complemento, c_email = email, c_senha = senha, d_alteracao = alteracao
+		WHERE n_id = id;
+	
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
 DROP TABLE IF EXISTS telefones_autonomo;
@@ -83,6 +93,8 @@ CREATE TABLE telefones_autonomo(
     PRIMARY KEY (n_id),
 	FOREIGN KEY (n_id_autonomo) REFERENCES autonomos(n_id)
 );
+
+DROP PROCEDURE IF EXISTS CADASTRAR_TELEFONE_AUTONOMO;
 CREATE PROCEDURE CADASTRAR_TELEFONE_AUTONOMO (telefone VARCHAR(17), id_autonomo INT)
 	INSERT INTO telefones_autonomo VALUES (default, telefone, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -99,7 +111,7 @@ CREATE TABLE dados_academicos(
     PRIMARY KEY (n_id),
     FOREIGN KEY (n_id_autonomo) REFERENCES autonomos(n_id)
 );
-
+DROP PROCEDURE IF EXISTS CADASTRAR_DADO_ACADEMICO;
 CREATE PROCEDURE CADASTRAR_DADO_ACADEMICO (ensino VARCHAR(25), nivel VARCHAR(15), curso VARCHAR(25), carga_horaria INT, id_autonomo INT)
 	INSERT INTO dados_academicos VALUES (default, ensino, nivel, curso, carga_horaria, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -112,6 +124,7 @@ CREATE TABLE areas(
     PRIMARY KEY (n_id)
 );
 
+DROP PROCEDURE IF EXISTS LISTAR_AREAS;
 CREATE PROCEDURE LISTAR_AREAS ()
 	SELECT * FROM areas;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -126,7 +139,7 @@ CREATE TABLE profissoes(
     FOREIGN KEY (n_id_area) REFERENCES areas (n_id)
 );
 
-
+DROP PROCEDURE IF EXISTS LISTAR_PROFISSOES;
 CREATE PROCEDURE LISTAR_PROFISSOES (id_area INT)
 	SELECT * FROM profissoes WHERE n_id_area = id_area;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -143,13 +156,14 @@ CREATE TABLE dados_profissionais(
     FOREIGN KEY (n_id_autonomo) REFERENCES autonomos (n_id)
 );
 
+DROP PROCEDURE IF EXISTS CADASTRAR_DADO_PROFISSIONAL;
 CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (profissao VARCHAR(50), nivel_experiencia VARCHAR(50), id_autonomo INT)
 INSERT INTO dados_profissionais VALUES (default, profissao, nivel_experiencia, id_autonomo);
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 /*
 	PROCEDURES PARA O FILTRO DE PESQUISA;
 */
-
+DROP PROCEDURE IF EXISTS FILTRAR_AUTONOMO_AREA;
 CREATE PROCEDURE FILTRAR_AUTONOMO_AREA (area VARCHAR(75))
 	SELECT autonomos.n_id, autonomos.c_nome, autonomos.c_imagem_perfil, areas.c_nome, profissoes.c_nome FROM autonomos
 		INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
@@ -157,6 +171,8 @@ CREATE PROCEDURE FILTRAR_AUTONOMO_AREA (area VARCHAR(75))
 				INNER JOIN areas ON areas.n_id = profissoes.n_id_profissoes
 					WHERE areas.c_nome LIKE area OR profissoes.c_nome LIKE area;
                 
+                
+DROP PROCEDURE IF EXISTS FILTRAR_AUTONOMO_FORMACAO;
 CREATE PROCEDURE FILTRA_AUTONOMO_FORMACAO (formacao VARCHAR(75))
 	SELECT autonomos.n_id, autonomos.c_nome, autonomos.c_imagem_perfil, areas.c_nome, profissoes.c_nome FROM autonomos
 		INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
@@ -165,6 +181,7 @@ CREATE PROCEDURE FILTRA_AUTONOMO_FORMACAO (formacao VARCHAR(75))
 						INNER JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomos
 							WHERE dados_academicos.c_ensino LIKE formacao;
                             
+DROP PROCEDURE IF EXISTS FILTRAR_AUTONOMO_NOME;
 CREATE PROCEDURE FILTRA_AUTONOMO_NOME (nome VARCHAR(75))
 	SELECT autonomos.n_id, autonomos.c_nome, autonomos.c_imagem_perfil, areas.c_nome, profissoes.c_nome FROM autonomos
 		INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
@@ -306,3 +323,10 @@ INSERT INTO profissoes VALUES (default, 'Banco de Dados', 12),
                               (default, 'Desenvolvimento Web', 12),
                               (default, 'Teste de Software', 12),
                               (default, 'UX/UI e Web Design', 12);
+                              
+                              
+INSERT INTO contratantes VALUES (default, 'Guilherme Rodrigues Da Silva', '../medias/img/icone_padrao.jpg', 'oguilhermerodrigues2002@gmail.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2021-12-06 22:18:36', 'NULL'),
+								(default, 'Mark Zuckerberg', '../medias/img/icone_padrao.jpg', 'marquinhos@email.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2021-12-06 22:21:07', 'NULL'),
+                                (default, 'Bill Gates', '../medias/img/icone_padrao.jpg', 'billygato@email.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2021-12-06 22:21:53', 'NULL'),
+                                (default, 'Bolsonaro', '../medias/img/icone_padrao.jpg', 'ilovelula2022@email.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2021-12-06 22:22:25', 'NULL'),
+                                (default, 'Lula', '../medias/img/icone_padrao.jpg', 'ilovemyself2022@email.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2021-12-06 22:22:39', 'NULL');
