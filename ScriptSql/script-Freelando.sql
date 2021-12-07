@@ -190,14 +190,14 @@ CREATE PROCEDURE FILTRA_AUTONOMO_FORMACAO (formacao VARCHAR(75))
 					INNER JOIN areas ON areas.n_id = profissoes.n_id_profissoes
 						INNER JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomos
 							WHERE dados_academicos.c_ensino LIKE formacao;
-                            
+drop procedure FILTRA_AUTONOMO_NOME ;
 CREATE PROCEDURE FILTRA_AUTONOMO_NOME (nome VARCHAR(75))
-	SELECT autonomos.n_id, autonomos.c_nome, autonomos.c_imagem_perfil, areas.c_nome, profissoes.c_nome FROM autonomos
-		INNER JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
-				INNER JOIN profissoes ON profissoes.n_id = dados_profissionais.n_id_profissoes
-					INNER JOIN areas ON areas.n_id = profissoes.n_id_profissoes
-							WHERE autonomos.nome LIKE nome; 
-
+	SELECT autonomos.n_id, autonomos.c_nome, autonomos.c_imagem_perfil, areas.c_nome as curso_nome, profissoes.c_nome as profissao_nome FROM autonomos
+		left JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
+				left JOIN profissoes ON profissoes.n_id = dados_profissionais.n_id_profissao
+					left JOIN areas ON areas.n_id = profissoes.n_id
+							WHERE autonomos.c_nome LIKE CONCAT('%', nome , '%'); 
+select * from autonomos;
 
 INSERT INTO areas VALUES (default, 'Administração e Contabilidade'),
 						 (default, 'Advogados e Leis'),
