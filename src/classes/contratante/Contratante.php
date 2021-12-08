@@ -130,7 +130,7 @@ class Contratante{
 
     public static function alterar_endereco(int $id, string $cep, string $uf, string $cidade, string $logradouro, int $numero_contratante, string $complemento = null){
         include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
-        $alteracao = $con->prepare("CALL ALTERAR_ENDERECO(?, ?, ?, ?, ?, ?, ?)");
+        $alteracao = $con->prepare("CALL ALTERAR_ENDERECO_CONTRATANTE(?, ?, ?, ?, ?, ?, ?)");
         $alteracao->bindValue(1, $id);
         $alteracao->bindValue(2, $cep);
         $alteracao->bindValue(3, $uf);
@@ -145,7 +145,7 @@ class Contratante{
 
     public static function alterar_dados_pessoais(int $id, string $nome, string $email){
         include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
-        $alteracao = $con->prepare("CALL ALTERAR_DADOS_PESSOAIS(?, ?, ?)");
+        $alteracao = $con->prepare("CALL ALTERAR_DADOS_PESSOAIS_CONTRATANTE(?, ?, ?)");
         $alteracao->bindValue(1, $id);
         $alteracao->bindValue(2, $nome);
         $alteracao->bindValue(3, $email);
@@ -158,7 +158,7 @@ class Contratante{
         include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
         $consulta = Contratante::login($email, $senha_antiga);
         if($consulta){
-            $alteracao = $con->prepare("CALL ALTERAR_SENHA(?, ?)");
+            $alteracao = $con->prepare("CALL ALTERAR_SENHA_CONTRATANTE(?, ?)");
             $alteracao->bindValue(1, $id);
             $alteracao->bindValue(2, $senha_nova);
             $alteracao->execute();
@@ -172,7 +172,7 @@ class Contratante{
     public static function alterar_foto(int $id, string $foto){
         include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
         
-        $alteracao = $con->prepare("CALL ALTERAR_FOTO(?, ?)");
+        $alteracao = $con->prepare("CALL ALTERAR_FOTO_CONTRATANTE(?, ?)");
         $alteracao->bindValue(1, $id);
         $alteracao->bindValue(2, $foto);
         $alteracao->execute();

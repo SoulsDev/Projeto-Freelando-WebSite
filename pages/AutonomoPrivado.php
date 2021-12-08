@@ -1,6 +1,9 @@
 <?php
     session_start();
-    include_once('../src/classes/postagem/Postagem.php');
+    include('../src/classes/postagem/Postagem.php');
+    include('../src/classes/profissional/Profissional.php');
+    include('../src/classes/cargo/Cargo.php');
+    include('../src/classes/dado_academico/DadoAcademico.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +38,14 @@
             <div class=" row container-header ">
 
                 <div class="col-3 usuario-foto d-flex flex-column justify-content-center">
-                    <img src="<?php echo $_SESSION['foto_perfil'] ?>">
+                    <img src="<?php echo $_SESSION['foto_perfil'] ?>"alt="sunil" class="foto-perfil rounded-circle" id="current_photo">
+                <form action="../src/classes/profissional/AlteraFoto.php" method="POST" id="form_photo" enctype="multipart/form-data" style="display:none;">
+                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id_usuario'] ?>">
+                    <input type="file" name="user_photo" id="user_photo">
+                </form>
                 </div>
 
-                <div class="col-3 dados-usuario d-flex flex-column justify-content-center ">
+                <div class="col-7 dados-usuario d-flex flex-column justify-content-center ">
                     <div class="d-flex align-items-end justify-content-end">
                         <img id="edit-dadospessoais" name="edit-dadospessoais" class="btn p-0" src="../medias/img/editar.svg" alt="User">
                     </div>
@@ -46,7 +53,7 @@
 
                     <h1><?php echo $_SESSION['nome_usuario']; ?></h1>
                     <p>Eletricista | lorem | Lorem </p>
-                    <p>300 seguidores <strong><?php 
+                    <p>300 seguidores <strong><br><?php 
                         echo $_SESSION['rua_usuario']." ". 
                         $_SESSION['numero_endereco_usuario']. " ". 
                         $_SESSION['complemento_endereco_usuario']. ", ". 
@@ -73,12 +80,19 @@
                     </div>
 
                     <h2>Interesses:</h2>
-
-
                     <ul>
-                        <li>Eletricidade</li>
-                        <li>Manutenção de equipamentos</li>
-                        <li>Experiente</li>
+                        <?php
+                        $consulta = Profissional::listar_minhas_experiencias($_SESSION['id_usuario']);
+                        while($row = $consulta->fetch(PDO::FETCH_BOTH)) {
+                            ?>
+                            <li>
+                            <?php
+                                echo $row['c_nome'];
+                            ?>
+                            </li>
+                            <?php
+                        }
+                        ?>
                     </ul>
 
 
@@ -93,9 +107,18 @@
                     <h2>Cursos & Formações:</h2>
 
                     <ul>
-                        <li>Eletricidade</li>
-                        <li>Manutenção de equipamentos</li>
-                        <li>Experiente</li>
+                        <?php
+                        $consulta = Profissional::listar_meus_conhecimentos($_SESSION['id_usuario']);
+                        while($row = $consulta->fetch(PDO::FETCH_BOTH)) {
+                            ?>
+                            <li>
+                            <?php
+                                echo $row['c_curso'];
+                            ?>
+                            </li>
+                            <?php
+                        }
+                        ?>
                     </ul>
 
 
@@ -257,15 +280,18 @@
 
                                 <label class="label " for="area_profissao ">Área</label>
 
-                                <select name="area_profissao " id="area_profissao " class="input ">
+                                <select name="area_profissao" id="area_profissao " class="input" onchange="listarProfissoes(this.value)">
                                     <option style="width: 100%; " value=" " disabled selected>Selecione</option>
-                                    <option>Assistência Técnica</option>
-                                    <option>Beleza</option>
-                                    <option>Educação/aprendizagem</option>
-                                    <option>Reforma/Manutenção</option>
-                                    <option>Serviços Domésticos</option>
-                                    <option>Eventos</option>
-                                    <option>Tecnologia</option>
+                                    <?php 
+                                        $listaArea = Cargo::listaArea();
+                                        while($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
+                                    ?>
+                                        <option value="<?php echo $row['n_id'];?>">
+                                            <?php echo $row['c_nome']; ?>
+                                        </option>
+                                    <?php
+                                        }
+                                    ?>
 
                                 </select>
                                 <div></div>
@@ -273,50 +299,25 @@
 
                             <div class="campos-input-pequeno ">
 
-                                <label class="label " for="profissao ">Profissão<span
+                                <label class="label " for="profissao">Profissão<span
                                         style="color: rgb(145, 145, 145) ">*</span></label>
 
-                                <select name="profissao " id="profissao " class="input ">
+                                <select name="profissao" id="profissao" class="input ">
                                     <option value=" " disabled selected>Selecione</option>
-                                    <option>Animador de festas</option>
-                                    <option>Babá</option>
-                                    <option>Barbeiro</option>
-                                    <option>Cabeleireiro(a)</option>
-                                    <option>Cantor</option>
-                                    <option>Decorador</option>
-                                    <option>Dedetizador</option>
-                                    <option>Depilador(a)</option>
-                                    <option>Desentupidor</option>
-                                    <option>Desenvolvedor de software/aplicativos</option>
-                                    <option>Desenvolvedor Web</option>
-                                    <option>Designer de sobrancelhas</option>
-                                    <option>Diarista</option>
-                                    <option>DJ</option>
-                                    <option>Editor de fotos</option>
-                                    <option>Editor de vídeo</option>
-                                    <option>Eletricista</option>
-                                    <option>Empreiteiro</option>
-                                    <option>Encanador</option>
-                                    <option>Fotógrafo</option>
-                                    <option>Jardineiro</option>
-                                    <option>Lash designer</option>
-                                    <option>Luthier</option>
-                                    <option>Manicure/pedicure</option>
-                                    <option>Maquiador(a)</option>
-                                    <option>Marceneiro</option>
-                                    <option>Músico</option>
-                                    <option>Pedreiro</option>
-                                    <option>Professor de Dança</option>
-                                    <option>Professor de Ensino Fundamental</option>
-                                    <option>Professor de Ensino Médio</option>
-                                    <option>Professor de Idiomas</option>
-                                    <option>Professor de Luta</option>
-                                    <option>Professor de Música</option>
-                                    <option>Professor de Tecnologia</option>
-                                    <option>Técnico de informática</option>
-                                    <option>Técnico em equipamentos eletrônicos</option>
-                                    <option>Vidraceiro</option>
-                                    <option>Web designer</option>
+                                    <?php 
+                                        $listaArea = Cargo::listaProfissoes();
+                                        while($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
+                                            ?>
+                                            <option value="<?php echo $row['n_id']; ?>"
+                                            area="<?php echo $row['n_id_area']; ?>" 
+                                            class = "profissoes_dinamico"
+                                            style="display:none;"
+                                            ><?php 
+                                                    echo $row['c_nome'];
+                                                ?></option>
+                                    <?php
+                                        }
+                                    ?>
                                 </select>
                                 <div></div>
 
@@ -326,16 +327,16 @@
 
                                 <labe class="label " for="nivel_experiencia ">Nível de experiência<span style="color: rgb(145, 145, 145) ">*</span></labe>
 
-                                <select name="nivel_experiencia " id="nivel_experiencia " class="input ">
+                                <select name="nivel_experiencia " id="nivel_experiencia" class="input ">
                                     <option value=" " disabled selected>Selecione</option>
-                                    <option>6 meses</option>
-                                    <option>9 meses</option>
-                                    <option>1 ano</option>
-                                    <option>2 anos</option>
-                                    <option>3 anos</option>
-                                    <option>4 anos</option>
-                                    <option>5 anos</option>
-                                    <option>Mais</option>
+                                    <option value=6>6 meses</option>
+                                    <option value=9>9 meses</option>
+                                    <option value=12>1 ano</option>
+                                    <option value=24>2 ano</option>
+                                    <option value=36>3 ano</option>
+                                    <option value=48>4 ano</option>
+                                    <option value=60>5 anos</option>
+                                    <option value=61>Mais</option>
 
 
                                 </select>
@@ -344,37 +345,48 @@
 
 
                             <div class="container-btn-form2 ">
-                                <img name="btncargo-cancelar " id="btncargo-cancelar " class="btn-deletecargo " src="../medias/img/btn-x.png " alt="adicionar ">
-                                <img name="btncargo-add " id="btncargoadd " class="btn-addcargo " src="../medias/img/btn-add.png " alt="adicionar ">
+                                <img name="btncargo-cancelar" id="btncargo-cancelar" class="btn-deletecargo" src="../medias/img/btn-x.png " alt="adicionar ">
+                                <img name="btncargo-add " id="btncargoadd " class="btn-addcargo " src="../medias/img/btn-add.png " alt="adicionar " onclick="addCargo();">
 
                             </div>
 
                         </div>
 
                         <div class="formulario-2 ">
-
+                            
                             <div class="titulo-2 ">
                                 <p>Cargos cadastrados</p>
                             </div>
-
-                            <ul class="cargo-list ">
-
-
-                                <li>
-                                    <a id="cargo " name="cargo ">Exemplo
-                                        <img onclick=" " id="cargo-apagar " name="cargo-apagar "
+                            <form action="../src/classes/cargo/AdicionaCargo.php" method="POST">
+                            <ul class="cargo-list" id="cargo_ul">
+                                <input type="hidden" name="cargos" id="lista-cargos">
+                                <input type="hidden" name="id" value="<?php echo $_SESSION['id_usuario'] ?>">
+                                <?php
+                                    $experiencias = Cargo::listaMinhaExperiencias($_SESSION['id_usuario']);
+                                    
+                                    while($row = $experiencias->fetch(PDO::FETCH_BOTH)) {
+                                        ?>
+                                            <li>
+                                                <a id="cargo " name="cargo "> <?php echo $row['c_nome']; ?>
+                                                </a>
+                                            </li>
+                                        <?php
+                                    }
+                                ?>
+                                    <!-- <a id="cargo " name="cargo ">Exemplo
+                                         <img onclick=" " id="cargo-apagar " name="cargo-apagar "
                                             style="cursor: pointer; " src="../medias/img/btn-x2.svg ">
-                                    </a>
-                                </li>
-
+                                    </a> -->
                             </ul>
 
                         </div>
                     </div>
                     <div class="botao-publi ">
-                        <button class="cancelar ">Cancelar</button>
-                        <button class="confirmar ">Confirmar</button>
+                        <button class="cancelar" id="cancelar_cargo">Cancelar</button>
+                        
+                        <input type="submit" class="confirmar" value="confirmar">
                     </div>
+                    </form>
                 </div>
             </div>
 
@@ -392,7 +404,9 @@
                     <img name="btn-fechar" src=" ../medias/img/btnclose.svg " alt=" botao " class=" botao-close ">
                 </div>
 
+                <form action="../src/classes/dado_academico/AdicionaDadoAcademico.php" method="POST">
 
+                <input type="hidden" name="id" value="<?php echo $_SESSION['id_usuario'] ?>">
                 <div class=" tab ">
 
                     <div class=" container-3 ">
@@ -403,12 +417,12 @@
                                 <p>Formação acadêmica</p>
                             </div>
 
-                            <div class=" campos-input-pequeno " id=" ensino_form_div ">
+                            <div class=" campos-input-pequeno " id="ensino_form_div ">
 
                                 <labe class=" label-2 " for=" ensino ">Ensino<span style=" color: rgb(145, 145, 145) ">*</span>
                                 </labe>
 
-                                <select class=" input-2 " id=" ensino " name=" ensino ">
+                                <select class=" input-2 " id="ensino" name=" ensino ">
                                     <option value=" " disabled selected>Selecione</option>
                                     <option>Fundamental</option>
                                     <option>Médio</option>
@@ -450,11 +464,11 @@
 
                                 <labe class=" label-2 " for=" curso_graducao ">Curso<span style=" color: rgb(145, 145, 145) ">*</span></labe>
 
-                                <input class=" input-2 " name=" curso_graducao " id=" curso_graducao " list=" dtlist-curso_graducao " Placeholder=" Insira o Curso ">
+                                <input class=" input-2 " name=" curso_graducao " id="curso_graducao" list=" dtlist-curso_graducao " Placeholder=" Insira o Curso ">
                                 <div class=" invalid-feedback ">
                                     Preencha este campo
                                 </div>
-                                <datalist id=" dtlist-curso_graducao ">
+                                <datalist id="dtlist-curso_graducao">
                                     <option value=" Exemplo ">
                                     <option value=" Exemplo2 ">
                                     <option value=" Exemplo3 ">
@@ -475,10 +489,10 @@
 
                             <div class=" campos-input-pequeno ">
 
-                                <labe class=" label " for=" nivel_curso ">Nível<span style=" color: rgb(145, 145, 145) ">*</span>
+                                <labe class="label" for="nivel_curso">Nível<span style=" color: rgb(145, 145, 145) ">*</span>
                                 </labe>
 
-                                <select class=" input " name=" nivel_curso " id=" nivel_curso ">
+                                <select class="input" name="nivel_curso" id="nivel_curso">
                                     <option value=" " disabled selected>Selecione</option>
                                     <option>Tecnólogo</option>
                                     <option>Técnico</option>
@@ -489,15 +503,15 @@
 
                             <div class=" campos-input-pequeno ">
 
-                                <labe class=" label " for=" curso ">Curso<span style=" color: rgb(145, 145, 145) ">*</span>
+                                <labe class=" label " for="curso">Curso<span style=" color: rgb(145, 145, 145) ">*</span>
                                 </labe>
 
-                                <input class=" input " name=" curso_graducao " id=" curso_graducao " list=" dtlist-curso_graducao " Placeholder=" Insira o Curso ">
+                                <input class=" input " name="curso_profissionalizante" id="curso_profissionalizante" list="curso" Placeholder=" Insira o Curso" value="">
                                 <div class=" invalid-feedback ">
                                     Preencha este campo
                                 </div>
 
-                                <datalist name=" curso " id=" curso ">
+                                <datalist name="curso" id="curso">
                                     <option>Eletricista</option>
                                     <option>Desenvolvedor</option>
                                     <option>Mecânico Automotivo</option>
@@ -510,19 +524,19 @@
 
                             <div class=" campos-input-pequeno ">
 
-                                <labe class=" label " for=" cargahoraria_curso ">Carga horária<span style=" color: rgb(145, 145, 145) ">*</span>
+                                <labe class=" label " for="cargahoraria_curso">Carga horária<span style=" color: rgb(145, 145, 145) ">*</span>
                                 </labe>
 
-                                <select class=" input " name=" cargahoraria_curso " id=" cargahoraria_curso ">
+                                <select class=" input " name="cargahoraria_curso" id="cargahoraria_curso">
                                     <option value=" " disabled selected>Selecione</option>
-                                    <option>40 horas</option>
-                                    <option>80 horas</option>
-                                    <option>120 horas</option>
-                                    <option>200 horas</option>
-                                    <option>260 horas</option>
-                                    <option>360 horas</option>
-                                    <option>400 horas</option>
-                                    <option>Mais</option>
+                                    <option value="40">40 horas</option>
+                                    <option value="80">80 horas</option>
+                                    <option value="120">120 horas</option>
+                                    <option value="200">200 horas</option>
+                                    <option value="260">260 horas</option>
+                                    <option value="360">360 horas</option>
+                                    <option value="400">400 horas</option>
+                                    <option value="102">Mais</option>
 
                                 </select>
                                 <div></div>
@@ -531,7 +545,7 @@
 
                             <div class=" container-btn-form2 ">
                                 <img class=" btn-deletecurso " src=" ../medias/img/btn-x.png " alt=" adicionar ">
-                                <img class=" btn-addcurso " src=" ../medias/img/btn-add.png " alt=" adicionar ">
+                                <img class=" btn-addcurso " src=" ../medias/img/btn-add.png " alt=" adicionar " onclick="addCurso()">
 
                             </div>
 
@@ -543,15 +557,24 @@
                                 <p>Cursos cadastrados</p>
                             </div>
                             <!-- CAMPO DE ITENS DO CURSOS CADASTRADOS -->
-                            <ul class=" curso-list ">
-
-                                <li>
-                                    <a id=" curso " name=" curso ">Exemplo 1
+                            <input type="hidden" name="cursos" id="lista-cursos">
+                            <ul class=" curso-list " id="curso_ul">
+                                <?php
+                                    $experiencias = DadoAcademico::listaMeusDados($_SESSION['id_usuario']);
+                                    
+                                    while($row = $experiencias->fetch(PDO::FETCH_BOTH)) {
+                                        ?>
+                                            <li>
+                                                <a id=" curso " name=" curso "> <?php echo $row['c_nome']; ?>
+                                                </a>
+                                            </li>
+                                        <?php
+                                    }
+                                ?>
+                                    <!-- <a id=" curso " name=" curso ">Exemplo 1
                                         <img onclick=" " id=" curso-apagar " name=" curso-apagar "
                                             style=" cursor: pointer; " src=" ../medias/img/btn-x2.svg ">
-                                    </a>
-                                </li>
-
+                                    </a> -->
                             </ul>
 
                         </div>
@@ -560,12 +583,13 @@
                     </div>
 
                     <div class=" botao-publi-2 ">
-                        <button class=" cancelar ">Cancelar</button>
-                        <button class=" confirmar ">Confirmar</button>
+                        <button class=" cancelar" id="cancelar_curso">Cancelar</button>
+                        <input type="submit" value="confirmar" class="confirmar">
                     </div>
 
 
                 </div>
+            </form>
 
 
             </div>
@@ -585,37 +609,86 @@
                 </div>
 
 
-                <h1 class=" h1 ">Mudar foto de perfil</h1>
+                <!-- <h1 class=" h1 ">Mudar foto de perfil</h1>
             </div>
             <div class=" caixa-de-texto-4 ">
                 <textarea name=" caixa-texto " id=" caixa " rows=" 5 " class=" caixa-4 " placeholder=" Eletricista | Lorem | Lorem | Lorem | Lorem "></textarea>
-            </div>
+            </div> -->
+
+            <form action="../src/classes/profissional/AlteraEndereco.php" method="POST">
+                <div class=" input-4 ">
+                    <p class=" endereco ">
+                        <strong>
+                            Endereço
+                        </strong>
+                    </p>
+
+                    <span class=" cep-texto ">CEP</span><input type=" number " name="cep" id="cep" class=" cep" value="<?php echo $_SESSION['cep_usuario'] ?>">
+                    <br>
+                    <span class=" numero-texto ">N°</span><input type=" number " name="numero" id="numero" class=" numero" value="<?php echo $_SESSION['numero_endereco_usuario'] ?>">
+                    <br>
+                    <span class=" numero-texto ">Complemento</span><input type="text" name="complemento" id="complemento" class=" numero" value="<?php echo $_SESSION['complemento_endereco_usuario'] ?>">
+                    <input class="form-control outline" type="hidden" name="logradouro" id="logradouro" value="<?php echo $_SESSION['rua_usuario']; ?>">
+                    <input class="form-control outline" type="hidden" name="uf" id="uf" value="<?php echo $_SESSION['uf_usuario']; ?>">
+                    <input class="form-control outline" type="hidden" name="cidade" id="cidade" value="<?php echo $_SESSION['cidade_usuario']; ?>">
+                </div>
 
 
-            <div class=" input-4 ">
-                <p class=" endereco ">
-                    <strong>
-                        Endereço
-                    </strong>
-                </p>
 
-                <span class=" cep-texto ">CEP</span><input type=" number " name=" cep " id=" cep " class=" cep ">
-                <br>
-                <span class=" numero-texto ">N°</span><input type=" number " name=" numero " id=" numero " class=" numero ">
-            </div>
-
-
-
-            <div class=" botao-publi-4 ">
-                <button class=" cancelar ">Cancelar</button>
-                <button class=" confirmar ">Confirmar</button>
-            </div>
-
+                <div class=" botao-publi-4 ">
+                    <button class=" cancelar ">Cancelar</button>
+                    <input type="submit" class="confirmar" value="Confirmar">
+                </div>
+            </form>
         </div>
 
 
 
         <script>
+            function meu_callback(conteudo) {
+                if (!("erro" in conteudo)) {
+                    //Atualiza os campos com os valores.
+                    document.getElementById('logradouro').value = (conteudo.logradouro);
+                    // TODO adicionar o input pra podermos fazer o radar
+                    //document.getElementById('bairro').value=(conteudo.bairro);
+                    document.getElementById('cidade').value = (conteudo.localidade);
+                    document.getElementById('uf').value = (conteudo.uf);
+                } //end if.
+                else {
+                    //CEP não Encontrado.
+                    alert("CEP não encontrado.");
+                }
+            }
+
+
+            function pesquisacep(valor) {
+                //Nova variável "cep" somente com dígitos.
+                var cep = valor.replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if (validacep.test(cep)) {
+
+                        var script = document.createElement('script');
+
+                        //Sincroniza com o callback.
+                        script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                        //Insere script no documento e carrega o conteúdo.
+                        document.body.appendChild(script);
+
+                    } //end if.
+                    else {
+                        alert("Formato de CEP inválido.");
+                    }
+                }
+            }
+
             window.onload = function(){
                 document.getElementById('username').innerHTML = '<?php echo $_SESSION['nome_usuario'] ?>';
                 document.getElementById('titulo').innerHTML = '<?php echo $_SESSION['nome_usuario']." | Freelando" ?>';
@@ -645,6 +718,85 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
         <script src="../scripts/modal_autonomopv.js"></script>
+
+        <script>
+            function listarProfissoes(area_id) {
+                profissoes = document.getElementsByClassName("profissoes_dinamico");
+                for (let item of profissoes) {
+                    item.style.display = "none";
+                    atributo = item.getAttribute('area');
+                    if (atributo == area_id) {
+                        item.style.display = "block";
+                    }
+                }
+            }
+
+            document.getElementById('current_photo').addEventListener('click', function(){
+                document.getElementById('user_photo').click();
+            })
+
+            document.getElementById('user_photo').addEventListener('change', function(){
+                document.getElementById('form_photo').submit();
+            })
+
+            function addCargo() {
+                profissao = document.getElementById('profissao');
+                tempo_atuacao = document.getElementById('nivel_experiencia');
+
+                lista = document.getElementById('cargo_ul');
+
+                indice = lista.children.length + 1;
+
+                link = document.createElement('a');
+                link.setAttribute('name', 'cargo');
+                link.innerHTML = profissao.options[profissao.selectedIndex].text;
+
+                item = document.createElement('li');
+                item.setAttribute('id', 'item_' + indice);
+                item.appendChild(link);
+
+
+                lista.appendChild(item);
+
+                document.getElementById("lista-cargos").value = document.getElementById("lista-cargos").value + profissao.value + "," + tempo_atuacao.value + ";";
+            }
+
+
+
+            function addCurso() {
+                nivel_curso = document.getElementById('nivel_curso');
+                nome_curso = document.getElementById('curso_profissionalizante');
+                duracao = document.getElementById('cargahoraria_curso');
+
+                lista = document.getElementById('curso_ul');
+
+                indice = lista.children.length + 1;
+
+                link = document.createElement('a');
+                link.setAttribute('name', 'curso_' + indice);
+                link.innerHTML = nome_curso.value;
+
+                item = document.createElement('li');
+                item.setAttribute('id', 'curso_' + indice);
+                item.appendChild(link);
+
+
+                lista.appendChild(item);
+                document.getElementById("lista-cursos").value = document.getElementById("lista-cursos").value + nivel_curso.value + "," + nome_curso.value + "," + duracao.value + ";";
+            }
+            
+            document.getElementById("cancelar_cargo").addEventListener("click", function(event){
+                event.preventDefault();
+                document.getElementById('lista-cargos').value="";
+                document.getElementById('modal-interesse').classList.remove('ativo');
+            });
+
+            document.getElementById("cancelar_curso").addEventListener("click", function(event){
+                event.preventDefault();
+                document.getElementById('lista-cursos').value="";
+                document.getElementById('modal-interesse').classList.remove('ativo');
+            });
+        </script>
 
 </body>
 </html>
