@@ -97,20 +97,18 @@
 
                   <!--  mensagem da pessoa -->
                   <div class="received_withd_msg" style="margin-bottom: 10px;">
-                    <div class="borda" id="carregaMsm">
+                      <div class="borda" id="carregaMsm">
 
-                    </div>
+                      </div>
                   </div>
 
 
-                  <!-- Sua mensagem -->
+                    <!-- Sua mensagem -->
                   <div class="outgoing_msg d-flex flex-column align-items-end" style="padding-right: 20px;" id="outgoing_msg">
 
                   </div>
 
                 </div>
-
-
                 <!-- Input da mensagem -->
                 <div class="type_msg">
                   <div class="input_msg_write form-group has-search">
@@ -124,7 +122,7 @@
 
                       <input type="text" class="write_msg" id="inputMsm" name="mensagem">
 
-                      <button class="msg_send_btn" type="button" id="enviarMsm">
+                      <button class="msg_send_btn"  type="button" id="enviarMsm">
                         <img src="../medias/img/enviar.svg" alt="icone">
                       </button>
 
@@ -134,7 +132,7 @@
                       include_once('../src/classes/conexao/mongo_con.php');
                       $colecao = $mongo_db->chat;
 
-                      $nome = 'Teste';
+                      $nome = $_SESSION['nome_usuario'];
                       $mensagem = $_POST['mensagem'];
                       $dtRegistro =  date("H:i");
 
