@@ -114,6 +114,16 @@ CREATE PROCEDURE LISTAR_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
 			LEFT JOIN dados_profissionais ON autonomos.n_id = dados_profissionais.n_id_autonomo
 					WHERE autonomos.c_email = email AND autonomos.c_senha = senha;
                     
+DROP PROCEDURE IF EXISTS ALTERAR_ENDERECO_AUTONOMO;        
+CREATE PROCEDURE ALTERAR_ENDERECO_AUTONOMO (id int,cep VARCHAR(8), uf CHAR(2), cidade VARCHAR(50), logradouro VARCHAR(100), numero_autonomo INT, complemento VARCHAR(20))
+	UPDATE autonomos SET c_cep = cep, 
+							c_uf = uf, 
+                            c_cidade = cidade,
+                            c_logradouro = logradouro,
+                            n_numero_autonomo = numero_autonomo,
+                            c_complemento = complemento
+						WHERE n_id = id;
+                    
 DROP PROCEDURE IF EXISTS ALTERAR_FOTO_AUTONOMO;                        
 CREATE PROCEDURE ALTERAR_FOTO_AUTONOMO (id int, foto VARCHAR(100))
 	UPDATE autonomos SET c_imagem_perfil = foto
@@ -149,6 +159,11 @@ CREATE TABLE dados_academicos(
 DROP PROCEDURE IF EXISTS CADASTRAR_DADO_ACADEMICO;
 CREATE PROCEDURE CADASTRAR_DADO_ACADEMICO (ensino VARCHAR(25), nivel VARCHAR(15), curso VARCHAR(25), carga_horaria INT, id_autonomo INT)
 	INSERT INTO dados_academicos VALUES (default, ensino, nivel, curso, carga_horaria, id_autonomo);
+    
+DROP PROCEDURE IF EXISTS LISTAR_DADO_DO_ACADEMICO;
+CREATE PROCEDURE LISTAR_DADO_DO_ACADEMICO (id_autonomo INT)
+	SELECT c_curso from dados_academicos
+        WHERE n_id_autonomo = id_autonomo;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
@@ -194,6 +209,13 @@ CREATE TABLE dados_profissionais(
 DROP PROCEDURE IF EXISTS CADASTRAR_DADO_PROFISSIONAL;
 CREATE PROCEDURE CADASTRAR_DADO_PROFISSIONAL (profissao VARCHAR(50), nivel_experiencia VARCHAR(50), id_autonomo INT)
 	INSERT INTO dados_profissionais VALUES (default, profissao, nivel_experiencia, id_autonomo);
+    
+DROP PROCEDURE IF EXISTS LISTAR_DADO_DO_PROFISSIONAL;
+CREATE PROCEDURE LISTAR_DADO_DO_PROFISSIONAL (id_autonomo INT)
+	SELECT dados_profissionais.n_experiencia, profissoes.c_nome from dados_profissionais
+		INNER JOIN profissoes ON dados_profissionais.n_id_profissao = profissoes.n_id
+        WHERE dados_profissionais.n_id_autonomo = id_autonomo;
+    
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 
 DROP PROCEDURE IF EXISTS FILTRAR_AUTONOMO_AREA;

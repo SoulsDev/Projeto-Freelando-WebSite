@@ -76,6 +76,21 @@ class Cargo{
             echo 'Erro'.$e->getMessage(); 
         }
     }
+
+    public static function listaMinhaExperiencias(int $id){
+        try{
+            include('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+            $listar = $con->prepare("CAll LISTAR_DADO_DO_PROFISSIONAL(?)");
+            $listar->bindValue(1, $id);
+            $listar->execute();  
+
+            return $listar;
+            
+
+        }catch(PDOException $e){
+            echo 'Erro'.$e->getMessage(); 
+        }
+    }
 }
 
 ?>

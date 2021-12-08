@@ -299,6 +299,21 @@ class Profissional{
         }
     }
 
+    public static function alterar_endereco(int $id, string $cep, string $uf, string $cidade, string $logradouro, int $numero_autonomo, string $complemento = null){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        $alteracao = $con->prepare("CALL ALTERAR_ENDERECO_AUTONOMO(?, ?, ?, ?, ?, ?, ?)");
+        $alteracao->bindValue(1, $id);
+        $alteracao->bindValue(2, $cep);
+        $alteracao->bindValue(3, $uf);
+        $alteracao->bindValue(4, $cidade);
+        $alteracao->bindValue(5, $logradouro);
+        $alteracao->bindValue(6, $numero_autonomo);
+        $alteracao->bindValue(7, $complemento);
+        $alteracao->execute();
+
+        return $alteracao;
+    }
+
     public static function alterar_foto(int $id, string $foto){
         include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
         
@@ -309,5 +324,22 @@ class Profissional{
         return $alteracao;
     }
 
+    public static function listar_minhas_experiencias(int $id){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        
+        $consulta = $con->prepare("CALL LISTAR_DADO_DO_PROFISSIONAL(?)");
+        $consulta->bindValue(1, $id);
+        $consulta->execute();
+        return $consulta;
+    }
+
+    public static function listar_meus_conhecimentos(int $id){
+        include ('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+        
+        $consulta = $con->prepare("CALL LISTAR_DADO_DO_ACADEMICO(?)");
+        $consulta->bindValue(1, $id);
+        $consulta->execute();
+        return $consulta;
+    }
    
 } 
