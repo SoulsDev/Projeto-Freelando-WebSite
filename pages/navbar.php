@@ -236,12 +236,12 @@
                 <?php
                 if($_SESSION['tipo'] == "contratante"){
                     ?>
-                        <img src="<?php echo $_SESSION['foto_perfil']; ?>" onclick="profile_contratante()" alt="usuario" width="40px" height="40px" class="btn-navi foto-user-navi" id="profile_photo">
+                        <img src="<?php echo $_SESSION['foto_perfil']; ?>" onclick="profile_contratante()" alt="usuario" width="40px" height="40px" class="btn-navi foto-user-navi" id="profile_photo" style="border-radius: 50%;">
                         <p class="btn-navi nome-user-navi" id="username" onclick="profile_contratante()"><?php echo $_SESSION['nome_usuario']; ?></p>
                     <?php
                 }else{
                     ?>
-                    <img src="<?php echo $_SESSION['foto_perfil']; ?>" onclick="profile_autonomo()" alt="usuario" width="40px" height="40px" class="btn-navi foto-user-navi" id="profile_photo">
+                    <img src="<?php echo $_SESSION['foto_perfil']; ?>" onclick="profile_autonomo()" alt="usuario" width="40px" height="40px" class="btn-navi foto-user-navi" id="profile_photo" style="border-radius: 50%;">
                     <p class="btn-navi nome-user-navi" id="username" onclick="profile_autonomo()"><?php echo $_SESSION['nome_usuario']; ?></p>
                     <?php
                 }

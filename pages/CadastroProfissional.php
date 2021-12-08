@@ -1,5 +1,5 @@
-<?php 
-    include ('../src/classes/cargo/Cargo.php');
+<?php
+include('../src/classes/cargo/Cargo.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <meta charset="utf-8">
-    
+
     <title>FreeLando | Cadastro do profissional</title>
     <link rel="shortcut icon" href="../medias/img/Group.svg" type="image/x-icon">
     <!-- Jquery -->
@@ -17,60 +17,63 @@
     <script src="../scripts/jquery.mask.js"></script>
 
     <script>
-        $(document).ready(function(){
-        $("#cpf").mask("999.999.999-99", {placeholder: "___.___.___-__"});
-        $('#celular').mask('(00)00000-0000');
-        $('#cep').mask('00000-000');
-    })
+        $(document).ready(function() {
+            $("#cpf").mask("999.999.999-99", {
+                placeholder: "___.___.___-__"
+            });
+            $('#celular').mask('(00)00000-0000');
+            $('#cep').mask('00000-000');
+        })
     </script>
 
     <link href="../css/style_cadpro.css" rel="stylesheet" type="text/css">
 </head>
 <script>
-    function checkEmail(){
+    function checkEmail() {
         let input = document.querySelector('#email');
-        let ajax=new XMLHttpRequest();
-        let params='email='+input.value;
-        ajax.open('POST','../src/classes/chamada_ajax/profissional_email_ajax.php');
-        ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-        ajax.onreadystatechange=function(){
-            if(ajax.status===200 && ajax.readyState===4){
-                let json=ajax.responseText;
-                if(json ==  1){
+        let ajax = new XMLHttpRequest();
+        let params = 'email=' + input.value;
+        ajax.open('POST', '../src/classes/chamada_ajax/profissional_email_ajax.php');
+        ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        ajax.onreadystatechange = function() {
+            if (ajax.status === 200 && ajax.readyState === 4) {
+                let json = ajax.responseText;
+                if (json == 1) {
                     document.getElementById('error_message_email_div').innerHTML = "Este email já esta sendo utilizado"
-                    document.getElementById('error_message_email_div').style.display="block"
+                    document.getElementById('error_message_email_div').style.display = "block"
                     input.style.border = "1px solid #dc3545";
                     document.getElementById('nextBtn').disabled = true;
-                } else{
+                } else {
                     document.getElementById('nextBtn').disabled = false;
-                    document.getElementById('error_message_email_div').style.display="none"
+                    document.getElementById('error_message_email_div').style.display = "none"
                     input.style.border = "1px solid rgb(0, 0, 0);";
                 }
             }
         };
         ajax.send(params);
     }
-    function checkCPF(){
+
+    function checkCPF() {
         let input = document.querySelector('#cpf');
-        let ajax=new XMLHttpRequest();
+        let ajax = new XMLHttpRequest();
         var cpf = input.value;
         cpf = cpf.replaceAll(".", "");
         cpf = cpf.replace('-', '');
-        let params='cpf='+cpf;
-        ajax.open('POST','../src/classes/chamada_ajax/profissional_cpf_ajax.php');
-        ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-        ajax.onreadystatechange=function(){
-            if(ajax.status===200 && ajax.readyState===4){
-                let json=ajax.responseText;
+        let params = 'cpf=' + cpf;
+        ajax.open('POST', '../src/classes/chamada_ajax/profissional_cpf_ajax.php');
+        ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        ajax.onreadystatechange = function() {
+            if (ajax.status === 200 && ajax.readyState === 4) {
+                let json = ajax.responseText;
                 console.log(json);
-                if(json ==  1){
+                if (json == 1) {
                     document.getElementById('error_message_cpf_div').innerHTML = "Este CPF já esta sendo utilizado"
-                    document.getElementById('error_message_cpf_div').style.display="block"
+                    document.getElementById('error_message_cpf_div').style.display = "block"
                     input.style.border = "1px solid #dc3545";
                     document.getElementById('nextBtn').disabled = true;
-                } else{
+                } else {
                     document.getElementById('nextBtn').disabled = false;
-                    document.getElementById('error_message_cpf_div').style.display="none"
+                    document.getElementById('error_message_cpf_div').style.display = "none"
                     input.style.border = "1px solid rgb(0, 0, 0);";
                 }
             }
@@ -78,6 +81,7 @@
         ajax.send(params);
     }
 </script>
+
 <body>
 
     <div class="area">
@@ -332,16 +336,16 @@
 
                             <select name="area_profissao" id="area_profissao" onchange="listarProfissoes(this.value)">
                                 <option value="" disabled selected>Selecione</option>
-                                    <?php 
-                                        $listaArea = Cargo::listaArea();
-                                        while($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
-                                            ?>
-                                            <option value="<?php echo $row['n_id'];?>">
-                                                <?php echo $row['c_nome']; ?>
-                                            </option>
-                                        <?php
-                                        }
-                                        ?>
+                                <?php
+                                $listaArea = Cargo::listaArea();
+                                while ($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
+                                ?>
+                                    <option value="<?php echo $row['n_id']; ?>">
+                                        <?php echo $row['c_nome']; ?>
+                                    </option>
+                                <?php
+                                }
+                                ?>
 
                             </select>
                             <div></div>
@@ -353,20 +357,16 @@
 
                             <select name="profissao" id="profissao">
                                 <option value="" disabled selected>Selecione</option>
-                                <?php 
-                                    $listaArea = Cargo::listaProfissoes();
-                                    while($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
-                                        ?>
-                                        <option value="<?php echo $row['n_id']; ?>"
-                                        area="<?php echo $row['n_id_area']; ?>" 
-                                        class = "profissoes_dinamico"
-                                        style="display:none;"
-                                        ><?php 
-                                                echo $row['c_nome'];
-                                            ?></option>
-                                    <?php
-                                    }
-                                    ?>
+                                <?php
+                                $listaArea = Cargo::listaProfissoes();
+                                while ($row = $listaArea->fetch(PDO::FETCH_BOTH)) {
+                                ?>
+                                    <option value="<?php echo $row['n_id']; ?>" area="<?php echo $row['n_id_area']; ?>" class="profissoes_dinamico" style="display:none;"><?php
+                                                                                                                                                                            echo $row['c_nome'];
+                                                                                                                                                                            ?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                             <div></div>
 

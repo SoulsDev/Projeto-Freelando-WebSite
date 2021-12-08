@@ -35,7 +35,7 @@
             <div class=" row container-header ">
 
                 <div class="col-3 usuario-foto d-flex flex-column justify-content-center">
-                    <img src="<?php echo $_SESSION['foto_perfil'] ?>">
+                    <img src="<?php echo $_SESSION['foto_perfil'] ?>" style="border-radius: 50%;">
                 </div>
 
                 <div class="col-3 dados-usuario d-flex flex-column justify-content-center ">
@@ -45,7 +45,7 @@
 
 
                     <h1><?php echo $_SESSION['nome_usuario']; ?></h1>
-                    <p>Eletricista | lorem | Lorem </p>
+                    <p>Designer</p>
                     <p>300 seguidores <strong><?php 
                         echo $_SESSION['rua_usuario']." ". 
                         $_SESSION['numero_endereco_usuario']. " ". 

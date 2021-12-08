@@ -166,30 +166,6 @@
     </script>
 
     <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
-
-    <?php
-    if($_SESSION['tipo'] == "contratante"){
-        ?>
-    <script> 
-        
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            }
-        }
-        function showPosition(position) {
-            alert('Latitude: ' + position.coords.latitude + 
-            '<br>Longitude: ' + position.coords.longitude);
-        }
-        window.onload = function(){
-            alert(getLocation());
-            
-        }
-
-    </script>;
-    <?php
-    }
-?>
 </body>
 
 

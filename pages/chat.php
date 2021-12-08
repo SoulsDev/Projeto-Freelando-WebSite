@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,11 +25,6 @@
     <?php
     include"navbar.php";
     ?>
-
-
-    
-
-  
 
 
   <div class="container">
