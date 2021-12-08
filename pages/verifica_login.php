@@ -27,6 +27,12 @@
             $_SESSION['nome_usuario'] = $row['c_nome'];
             $_SESSION['email_usuario'] = $row['c_email'];
             $_SESSION['foto_perfil'] = $row['c_imagem_perfil'];
+            $_SESSION['cep_usuario'] = $row['c_cep'];
+            $_SESSION['uf_usuario'] = $row['c_uf'];
+            $_SESSION['cidade_usuario'] = $row['c_cidade'];
+            $_SESSION['rua_usuario'] = $row['c_logradouro'];
+            $_SESSION['numero_endereco_usuario'] = $row['n_numero_contratante'];
+            $_SESSION['complemento_endereco_usuario'] = $row['c_complemento'];
         }
         header('Location: home.php');
         exit;
