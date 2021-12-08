@@ -40,7 +40,7 @@
         <div class="container perfil-fundo shadow-lg" style="background-color:#fff;">
 
             <div class="row align-items-center d-flex flex-row"
-                style="border-bottom: solid 2px orange; padding:20px; padding-left: 0px;">
+                style="border-bottom: solid 2px #ff6d3c; padding:20px; padding-left: 0px;">
 
                 <img src="<?php echo $_SESSION['foto_perfil'] ?>" alt="sunil" class="foto-perfil" id="current_photo">
                 <form action="../src/classes/contratante/AlteraFoto.php" method="POST" id="form_photo" enctype="multipart/form-data" style="display:none;">

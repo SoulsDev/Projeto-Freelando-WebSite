@@ -1,9 +1,8 @@
 <?php
     $servidor_bd_sql = "Localhost";
     $usuario_bd_sql = "root";
-    //$senha_bd_sql = "root";
-    //$senha_bd_sql = "";
-    $senha_bd_sql = "Cyh941069833*";
+    $senha_bd_sql = "root";
+    //$senha_bd_sql = "Cyh941069833*";
     $banco = "freelando";
 
     try {

@@ -52,8 +52,8 @@
 
 
                     <h1><?php echo $_SESSION['nome_usuario']; ?></h1>
-                    <p>Eletricista | lorem | Lorem </p>
-                    <p>300 seguidores <strong><br><?php 
+                    <p>Designer</p>
+                    <p>300 seguidores <strong><?php 
                         echo $_SESSION['rua_usuario']." ". 
                         $_SESSION['numero_endereco_usuario']. " ". 
                         $_SESSION['complemento_endereco_usuario']. ", ". 

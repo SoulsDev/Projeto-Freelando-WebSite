@@ -3,13 +3,13 @@
                                 margin: 0;
                                 padding: 0;
                             }
-                            
+
                             .margem {
                                 content: '';
                                 height: 40px;
                                 width: 100%;
                             }
-                            
+
                             #regForm {
                                 background-color: #ffffff;
                                 margin: auto;
@@ -21,27 +21,27 @@
                                 flex-direction: column;
                                 align-items: center;
                             }
-                            
+
                             input:checked {
                                 background-color: #5d00d2;
                             }
-                            
+
                             p {
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 font-size: 13px;
                             }
-                            
+
                             span {
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 font-size: 13px;
                             }
-                            
+
                             h1 {
                                 font-family: Arial, Helvetica, sans-serif;
                                 text-align: center;
                                 margin-bottom: 20px;
                             }
-                            
+
                             input {
                                 padding: 10px;
                                 width: 100%;
@@ -50,12 +50,12 @@
                                 border: 1px solid #aaaaaa;
                                 border-radius: 0.25rem;
                             }
-                            
+
                             input.invalid {
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 background-color: #ffdddd;
                             }
-                            
+
                             select {
                                 width: 200px;
                                 height: 20px;
@@ -65,15 +65,16 @@
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 font-size: 17px;
                             }
-                            
+
                             .tab {
                                 display: none;
                                 align-self: center;
                                 margin-left: 20px;
                                 margin-right: 20px;
                             }
+
                             /* BOTÕES  */
-                            
+
                             .container-btns {
                                 display: flex;
                                 flex-wrap: wrap;
@@ -86,7 +87,7 @@
                                 padding-left: 100px;
                                 padding-right: 100px;
                             }
-                            
+
                             .botao-avancar {
                                 background-color: #ff6d3c;
                                 color: #ffffff;
@@ -100,7 +101,7 @@
                                 margin-bottom: 20px;
                                 margin: 10px;
                             }
-                            
+
                             .botao-cancelar {
                                 background-color: #ffff;
                                 color: #5d00d2;
@@ -115,16 +116,17 @@
                                 margin: 10px;
                                 box-sizing: none !important;
                             }
-                            
+
                             button:hover {
                                 opacity: 0.8;
                             }
-                            
+
                             #prevBtn {
                                 background-color: #ffff;
                             }
+
                             /* BARRA PROGRESSO E PASSOS */
-                            
+
                             .barra-progresso {
                                 padding: 20px;
                                 width: 50vw;
@@ -132,7 +134,7 @@
                                 flex-direction: row;
                                 align-items: center;
                             }
-                            
+
                             .barra-line {
                                 position: absolute;
                                 width: 50vw;
@@ -140,7 +142,7 @@
                                 flex-direction: column;
                                 align-items: center;
                             }
-                            
+
                             .line {
                                 margin-top: 50px;
                                 content: '';
@@ -148,15 +150,15 @@
                                 height: 7px;
                                 background-color: #ff6d3c;
                             }
-                            
+
                             .step {
-                                width: 25%;
+                                width: 33%;
                                 display: flex;
                                 flex-direction: column;
                                 align-items: center;
                                 z-index: 1;
                             }
-                            
+
                             .step .circulo {
                                 height: 60px;
                                 width: 60px;
@@ -174,36 +176,37 @@
                                 padding-bottom: 5px;
                                 margin-bottom: 5px;
                             }
-                            
+
                             .step .circulo span {
                                 font-size: 20px;
                                 margin: 0;
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                             }
-                            
+
                             .step p {
                                 margin: 0;
                                 font-size: 13px;
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                             }
-                            
+
                             .step.active .circulo {
                                 background-color: #ff6d3c;
                                 color: white;
                                 opacity: 1;
                             }
-                            
+
                             .step.finish .circulo {
                                 background-color: #ff6d3c;
                                 color: white;
                             }
-                            
+
                             .step.finish .circulo {
                                 background-color: #ff6d3c;
                                 color: white;
                             }
+
                             /* FORMULARIO PASSO 1 */
-                            
+
                             .formulario {
                                 box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
                                 display: flex;
@@ -212,7 +215,7 @@
                                 width: 100%;
                                 margin-bottom: 45px;
                             }
-                            
+
                             .formulario .titulo {
                                 width: 100%;
                                 border-bottom: #ABA9A9 solid 1px;
@@ -221,26 +224,27 @@
                                 font-size: 15px;
                                 margin-bottom: 10px;
                             }
-                            
+
                             .formulario .titulo p {
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 text-align: left;
                                 margin: 10px 0px 10px 25px;
                             }
-                            
+
                             #cidade,
                             #uf,
                             #logradouro {
                                 background-color: rgb(230, 230, 230);
                             }
+
                             /* FORMULARIO PASSO 2 */
-                            
+
                             .container-2 {
                                 display: flex;
                                 justify-content: space-around;
                                 flex-wrap: wrap;
                             }
-                            
+
                             .formulario-2 {
                                 box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
                                 margin: 0;
@@ -251,7 +255,7 @@
                                 width: 45%;
                                 margin-bottom: 45px;
                             }
-                            
+
                             .formulario-2 .titulo-2 {
                                 align-self: flex-start;
                                 width: 100%;
@@ -262,13 +266,13 @@
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 margin-bottom: 10px;
                             }
-                            
+
                             .formulario-2 .titulo-2 p {
                                 text-align: left;
                                 margin: 10px 0px 10px 25px;
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                             }
-                            
+
                             .cargo-list {
                                 display: flex;
                                 flex-direction: row;
@@ -281,7 +285,7 @@
                                 align-items: baseline;
                                 align-content: center;
                             }
-                            
+
                             .cargo-list li {
                                 height: 25px;
                                 border: 1px solid #5d00d2;
@@ -295,7 +299,7 @@
                                 margin: 4px;
                                 cursor: pointer;
                             }
-                            
+
                             .container-btn-form2 {
                                 display: flex;
                                 flex-direction: row;
@@ -303,25 +307,26 @@
                                 margin-bottom: 30px;
                                 justify-content: flex-end;
                             }
-                            
+
                             .btn-deletecargo {
                                 margin-left: 5px;
                                 cursor: pointer;
                             }
-                            
+
                             .btn-addcargo {
                                 margin-left: 5px;
                                 cursor: pointer;
                             }
+
                             /* FORMULARIO PASSO 3*/
-                            
+
                             .container-3 {
                                 display: flex;
                                 justify-content: space-around;
                                 flex-wrap: wrap;
                                 align-content: center;
                             }
-                            
+
                             .formulario-3 {
                                 box-shadow: 0px 0px 9px 4px rgb(148 145 145 / 53%);
                                 margin: 0;
@@ -332,7 +337,7 @@
                                 width: 45%;
                                 margin-bottom: 30px;
                             }
-                            
+
                             .formulario-3 .titulo-3 {
                                 align-self: flex-start;
                                 width: 100%;
@@ -343,23 +348,23 @@
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 margin-bottom: 10px;
                             }
-                            
+
                             .formulario-3 .titulo-3 p {
                                 text-align: left;
                                 margin: 10px 0px 10px 25px;
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                             }
-                            
+
                             .btn-deletecurso {
                                 cursor: pointer;
                             }
-                            
+
                             .btn-addcurso {
                                 margin-right: 20px;
                                 margin-left: 5px;
                                 cursor: pointer;
                             }
-                            
+
                             .curso-list {
                                 display: flex;
                                 flex-direction: row;
@@ -372,7 +377,7 @@
                                 align-items: baseline;
                                 align-content: center;
                             }
-                            
+
                             .curso-list li {
                                 height: 25px;
                                 border: 1px solid #5d00d2;
@@ -386,8 +391,9 @@
                                 margin: 4px;
                                 cursor: pointer;
                             }
+
                             /* FORMULARIO PASSO 4 */
-                            
+
                             .container-4 {
                                 display: flex;
                                 flex-direction: column;
@@ -396,7 +402,7 @@
                                 align-content: center;
                                 padding: 0px 50px 0px 50px;
                             }
-                            
+
                             .container-4 p {
                                 text-align: center;
                                 font-size: 25px;
@@ -404,7 +410,7 @@
                                 margin-bottom: 30px;
                                 word-break: break-word;
                             }
-                            
+
                             .container-zona-arquivo {
                                 border: 2px dashed #5d00d2;
                                 height: 50vh;
@@ -416,7 +422,7 @@
                                 padding: 10px;
                                 padding-top: 20px;
                             }
-                            
+
                             .container-arquivos-list {
                                 display: flex;
                                 flex-direction: column;
@@ -426,21 +432,21 @@
                                 justify-content: center;
                                 padding: 5px;
                             }
-                            
+
                             .selecionar-arquivo {
                                 display: flex;
                                 flex-direction: column;
                                 width: 50%;
                                 align-items: center;
                             }
-                            
+
                             .selecionar-arquivo p {
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 text-align: center;
                                 margin: 0;
                                 font-size: 15px;
                             }
-                            
+
                             .conteudo-formulario {
                                 margin: 0px 0px 0px 0px;
                                 display: flex;
@@ -451,7 +457,7 @@
                                 align-items: flex-start;
                                 margin-left: 25px;
                             }
-                            
+
                             .arquivo-list {
                                 width: 100%;
                                 height: 100%;
@@ -460,7 +466,7 @@
                                 overflow-y: scroll;
                                 overflow-x: hidden;
                             }
-                            
+
                             .arquivo-list li {
                                 height: 22px;
                                 border: 1px solid #5d00d2;
@@ -477,22 +483,24 @@
                                 flex-wrap: nowrap;
                                 justify-content: space-between;
                             }
+
                             /* TERMOS DE USO */
-                            
+
                             .container-termos-uso {
                                 margin-top: 10px;
                             }
-                            
+
                             .container-termos-uso input {
                                 width: auto;
                             }
-                            
+
                             .container-termos-uso label {
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 text-align: center;
                             }
+
                             /* MODAL TERMOS DE USO */
-                            
+
                             .modal-container {
                                 background: rgba(0, 0, 0, .5);
                                 width: 100vw;
@@ -505,11 +513,11 @@
                                 justify-content: center;
                                 align-items: center;
                             }
-                            
+
                             .modal-container.ativo {
                                 display: flex;
                             }
-                            
+
                             .modal {
                                 background-color: #fff;
                                 width: 60%;
@@ -521,8 +529,9 @@
                                 align-items: center;
                                 overflow: scroll;
                             }
+
                             /* MODAL PERGUNTAS */
-                            
+
                             .modal-container2 {
                                 background: rgba(0, 0, 0, .5);
                                 width: 100vw;
@@ -535,11 +544,11 @@
                                 justify-content: center;
                                 align-items: center;
                             }
-                            
+
                             .modal-container2.ativo {
                                 display: flex;
                             }
-                            
+
                             .modal2 {
                                 background-color: #fff;
                                 width: 55%;
@@ -549,7 +558,7 @@
                                 align-items: center;
                                 border-radius: 5px;
                             }
-                            
+
                             .modal2 .titulo {
                                 display: flex;
                                 background-color: #5d00d2;
@@ -562,17 +571,17 @@
                                 border-radius: 5px 5px 0px 0px;
                                 margin-bottom: 15px;
                             }
-                            
+
                             .modal2 .titulo h2 {
                                 font-family: Arial, Helvetica, sans-serif;
                                 font-size: 18px;
                             }
-                            
+
                             .modal2 .titulo p {
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 font-size: 15px;
                             }
-                            
+
                             .modal2 p {
                                 align-self: flex-start;
                                 font-size: 18px;
@@ -580,17 +589,17 @@
                                 margin-left: 10px;
                                 margin-bottom: 10px;
                             }
-                            
+
                             .modal2 input {
                                 width: 98%;
                                 align-self: center;
                                 margin-bottom: 10px;
                             }
-                            
+
                             .modal2 input:focus {
                                 outline: none;
                             }
-                            
+
                             .modal2 button {
                                 background-color: #ffff;
                                 color: #5d00d2;
@@ -606,8 +615,9 @@
                                 align-self: flex-start;
                                 margin-left: 10px;
                             }
+
                             /* DADOS DE INPUT */
-                            
+
                             .campos-input {
                                 display: flex;
                                 flex-direction: column;
@@ -617,7 +627,7 @@
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 font-size: 13px;
                             }
-                            
+
                             .campos-input input {
                                 width: 250px;
                                 height: 25px;
@@ -627,11 +637,11 @@
                                 outline: none;
                                 border-radius: 5px;
                             }
-                            
+
                             .campos-input input:focus {
                                 border-color: rgb(7, 7, 7);
                             }
-                            
+
                             .campos-input select {
                                 width: 250px;
                                 height: 25px;
@@ -641,17 +651,17 @@
                                 outline: none;
                                 border-radius: 5px;
                             }
-                            
+
                             .campos-input select:focus {
                                 border-color: rgb(7, 7, 7);
                             }
-                            
+
                             .campos-input datalist {
                                 font-size: small;
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 font-size: 13px;
                             }
-                            
+
                             .campos-input-pequeno {
                                 display: flex;
                                 flex-direction: column;
@@ -661,7 +671,7 @@
                                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                                 font-size: 13px;
                             }
-                            
+
                             .campos-input-pequeno input {
                                 width: 250px;
                                 height: 25px;
@@ -671,11 +681,11 @@
                                 outline: none;
                                 border-radius: 5px;
                             }
-                            
+
                             .campos-input-pequeno input:focus {
                                 border-color: rgb(7, 7, 7);
                             }
-                            
+
                             .campos-input-pequeno select {
                                 width: 250px;
                                 height: 25px;
@@ -685,60 +695,67 @@
                                 outline: none;
                                 border-radius: 5px;
                             }
-                            
+
                             .campos-input-pequeno select:focus {
                                 border-color: rgb(7, 7, 7);
                             }
-                            
+
                             .campos-input-pequeno datalist {
                                 font-size: small;
                             }
+
                             /* SCROLLBAR CUSTOMIZADO*/
                             /* width */
-                            
-                             ::-webkit-scrollbar {
+
+                            ::-webkit-scrollbar {
                                 width: 5px;
                                 background-color: transparent;
                             }
+
                             /* Track */
-                            
-                             ::-webkit-scrollbar-track {
+
+                            ::-webkit-scrollbar-track {
                                 border-radius: 10px;
                                 background-color: transparent;
                             }
+
                             /* Handle */
-                            
-                             ::-webkit-scrollbar-thumb {
+
+                            ::-webkit-scrollbar-thumb {
                                 background: #ff6d3c;
                                 border-radius: 10px;
                             }
+
                             /* Handle on hover */
-                            
+
                             .hover13 figure:hover img {
                                 opacity: 1;
                                 -webkit-animation: flash 1.5s;
                                 animation: flash 1.5s;
                             }
-                            
+
                             @-webkit-keyframes flash {
                                 0% {
                                     opacity: .4;
                                 }
+
                                 100% {
                                     opacity: 1;
                                 }
                             }
-                            
+
                             @keyframes flash {
                                 0% {
                                     opacity: .4;
                                 }
+
                                 100% {
                                     opacity: 1;
                                 }
                             }
+
                             /* EFEITO BACKGROUND */
-                            
+
                             .area {
                                 position: fixed;
                                 background: #5d00d2;
@@ -747,7 +764,7 @@
                                 height: 100%;
                                 z-index: -1;
                             }
-                            
+
                             .circles {
                                 position: absolute;
                                 top: 0;
@@ -755,7 +772,7 @@
                                 width: 100%;
                                 height: 100%;
                             }
-                            
+
                             .circles li {
                                 position: absolute;
                                 display: block;
@@ -767,14 +784,14 @@
                                 bottom: -150px;
                                 left: 200px;
                             }
-                            
+
                             .circles li:nth-child(1) {
                                 left: 25%;
                                 width: 80px;
                                 height: 80px;
                                 animation-delay: 0s;
                             }
-                            
+
                             .circles li:nth-child(2) {
                                 left: 10%;
                                 width: 20px;
@@ -782,14 +799,14 @@
                                 animation-delay: 2s;
                                 animation-duration: 12s;
                             }
-                            
+
                             .circles li:nth-child(3) {
                                 left: 70%;
                                 width: 20px;
                                 height: 20px;
                                 animation-delay: 4s;
                             }
-                            
+
                             .circles li:nth-child(4) {
                                 left: 40%;
                                 width: 60px;
@@ -797,28 +814,28 @@
                                 animation-delay: 0s;
                                 animation-duration: 18s;
                             }
-                            
+
                             .circles li:nth-child(5) {
                                 left: 65%;
                                 width: 20px;
                                 height: 20px;
                                 animation-delay: 0s;
                             }
-                            
+
                             .circles li:nth-child(6) {
                                 left: 75%;
                                 width: 110px;
                                 height: 110px;
                                 animation-delay: 3s;
                             }
-                            
+
                             .circles li:nth-child(7) {
                                 left: 35%;
                                 width: 150px;
                                 height: 150px;
                                 animation-delay: 7s;
                             }
-                            
+
                             .circles li:nth-child(8) {
                                 left: 50%;
                                 width: 2px;
@@ -826,7 +843,7 @@
                                 animation-delay: 15s;
                                 animation-duration: 5s;
                             }
-                            
+
                             .circles li:nth-child(9) {
                                 left: 20%;
                                 width: 15px;
@@ -834,7 +851,7 @@
                                 animation-delay: 2s;
                                 animation-duration: 35s;
                             }
-                            
+
                             .circles li:nth-child(10) {
                                 left: 85%;
                                 width: 150px;
@@ -842,73 +859,85 @@
                                 animation-delay: 0s;
                                 animation-duration: 11s;
                             }
-                            
+
                             @keyframes animate {
                                 0% {
                                     transform: translateY(0) rotate(0deg);
                                     opacity: 1;
                                     border-radius: 0;
                                 }
+
                                 100% {
                                     transform: translateY(-1000px) rotate(720deg);
                                     opacity: 0;
                                     border-radius: 50%;
                                 }
                             }
-                            
+
                             .text-step {
                                 width: 100px;
                                 text-align: center;
                             }
-                            
+
                             .invalid-feedback {
                                 display: none;
                                 color: #dc3545;
                                 font-size: 0.875em;
                             }
+
                             /* MEDIA QUERIES */
-                            
+
                             @media (max-width: 1200px) {
                                 .container-2 {
                                     flex-direction: column;
                                     align-items: center;
                                 }
+
                                 .formulario-2 {
                                     width: 70%;
                                 }
+
                                 .container-3 {
                                     flex-direction: column;
                                     align-items: center;
                                 }
+
                                 .formulario-3 {
                                     width: 60%;
                                 }
+
                                 .container-btns {
                                     padding-left: 15px;
                                     padding-right: 15px;
                                 }
+
                                 .container-4 p {
                                     font-size: 20px;
                                 }
+
                                 .selecionar-arquivo p {
                                     font-size: 14px;
                                 }
                             }
+
                             /* Wider than desktop */
-                            
+
                             @media (max-width: 1200px) {
                                 .conteudo-formulario {
                                     justify-content: center;
                                 }
+
                                 .container-2 {
                                     flex-direction: column;
                                 }
+
                                 .container-3 {
                                     flex-direction: column;
                                 }
                             }
+
                             /* Landscape phone to desktop */
-                            
+
                             @media (max-width: 1199px) {
                                 .container-zona-arquivo {
                                     flex-direction: column;
@@ -916,106 +945,133 @@
                                     padding: 10px;
                                     padding-top: 20px;
                                 }
+
                                 .container-arquivos-list {
                                     order: 2;
                                     border: none;
                                     width: 80%;
                                     border-top: 1px solid #000;
                                 }
+
                                 .container-4 p {
                                     font-size: 20px;
                                 }
+
                                 .selecionar-arquivo p {
                                     font-size: 14px;
                                 }
                             }
+
                             /* Landscape phone to landscape tablet */
-                            
+
                             @media (max-width: 979px) {
                                 #regForm {
                                     width: 70vw;
                                 }
+
                                 .line {
                                     width: 70vw;
                                 }
+
                                 .barra-progresso {
                                     width: 70vw;
                                 }
                             }
+
                             /* Small desktop */
-                            
+
                             @media (min-width: 980px) and (max-width: 1199px) {}
+
                             /* Portrait tablet to landscape tablet */
-                            
+
                             @media (min-width: 768px) and (max-width: 979px) {}
+
                             /* Landscape phone to portrait tablet */
-                            
+
                             @media (max-width: 670px) {
                                 #regForm {
                                     width: 100vw;
                                 }
+
                                 .barra-line {
                                     width: 100vw;
                                 }
+
                                 .line {
                                     width: 100vw;
                                 }
+
                                 .barra-progresso {
                                     width: 100vw;
                                 }
+
                                 .conteudo-formulario {
                                     justify-content: center;
                                 }
+
                                 .formulario-2 {
                                     width: 90%;
                                     flex-direction: column;
                                     align-items: center;
                                 }
+
                                 .formulario-3 {
                                     width: 90%;
                                     flex-direction: column;
                                     align-items: center;
                                 }
+
                                 .container-zona-arquivo {
                                     width: 90vw;
                                 }
+
                                 .container-4 {
                                     padding: 0px;
                                 }
+
                                 .container-4 p {
                                     font-size: 25px;
                                 }
+
                                 .selecionar-arquivo p {
                                     display: none;
                                 }
                             }
+
                             /* Landscape phones and smaller */
-                            
+
                             @media (max-width: 350px) {
                                 .formulario-2 {
                                     width: 100vw;
                                 }
+
                                 .formulario-3 {
                                     width: 100vw;
                                 }
+
                                 .step .circulo {
                                     height: 50px;
                                     width: 50px;
                                 }
+
                                 .step.active .circulo {
                                     height: 50px;
                                     width: 50px;
                                     padding: 0px;
                                 }
+
                                 .step p {
                                     display: none;
                                 }
+
                                 .line {
                                     margin-top: 40px;
                                 }
+
                                 .container-4 p {
                                     font-size: 20px;
                                 }
+
                                 .selecionar-arquivo p {
                                     display: none;
                                 }
