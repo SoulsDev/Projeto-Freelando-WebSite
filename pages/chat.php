@@ -32,13 +32,13 @@
   <div class="container">
 
 
-    <div class="card-body d-flex justify-content-center p-0">
+    <div class="card-body d-flex justify-content-center p-0 ">
       <div class="messaging">
         <div class="inbox_msg">
           <div class="inbox_people">
-            <div class="inbox_chat">
-              <div class="chat_list active_chat">
-                <div class="chat_people">
+            <div class="inbox_chat contatos" id="chat">
+              <div class="chat_list">
+                <div class="chat_people" id="pessoa-contato">
                   <div class="chat_img">
                     <img src="../medias/img/semfoto.png" alt="sunil" class="img">
                     <span class="h1">Geraldão derivia</span>
@@ -52,7 +52,17 @@
 
           <div class="imagem-chat row">
             <div class="foto-perfil d-flex align-items-center">
+
+              <svg onclick="voltar()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left voltar" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+              </svg>
+
+
               <img src="../medias/img/semfoto.png" alt="sunil" width="100px" height="100px" class="imagem-perfil">
+
+
+
+
               <div class="conteudo">
                 <span class="h1 h1-1">Geraldão derivia</span>
                 <span class="span">Dj</span>
@@ -60,9 +70,8 @@
 
 
 
-
+              
             </div>
-
 
 
           </div>

@@ -63,6 +63,17 @@ const recebeMsm = () => {
 }
 
 
-function mudarTela(){
-    var chat = document.getElementById("chat");
+function modalAtiva(modalID) {
+    const modal = document.getElementById(modalID);
+    modal.classList.add('active-chat');
+}
+
+const contato = document.getElementById('pessoa-contato');
+contato.addEventListener('click', () => modalAtiva('chat'));
+
+
+function voltar(){
+
+    const modal = document.getElementById('chat');
+    modal.classList.remove('active-chat');
 }
