@@ -1,5 +1,3 @@
-* {}
-
 body {
     background-color: #F7F7F9;
 }
@@ -241,7 +239,11 @@ body {
     height: 650px;
 }
 
-.cardbox .cardbox-item img {}
+.foto-perfil {
+    width: 150px;
+    height: 130px;
+    border-radius: 50%;
+}
 
 .img-responsive {
     display: block;

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     // Verifica se as variaveis do post estão preenchidas
     include ('../src/classes/profissional/Profissional.php');
     include ('../src/classes/contratante/Contratante.php');
@@ -8,7 +9,7 @@
     // Realiza o primeiro teste de login enviando o email, senha e tabela a ser pesquisada
 
     $acesso = Profissional::login($email, $senha);
-    session_start();
+    
 
     // caso não haja resultado na primera busca ele segue para a segunda
     if(!$acesso){
