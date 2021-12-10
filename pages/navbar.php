@@ -224,11 +224,13 @@
 
 
             <div class="container-pesquisa ">
-                <input type="text" name="pesquisa" class="input-pesquisa ">
+                <form action="resultado-pesquisa.php" method="POST" id="form_search">
+                    <input type="text" name="pesquisa" class="input-pesquisa ">
 
-                <div class="container-lupa">
-                    <img src="../medias/img/lupinha.svg" class="lupa">
-                </div>
+                    <div class="container-lupa">
+                        <img src="../medias/img/lupinha.svg" class="lupa" onclick="document.getElementById('form_search').submit()">
+                    </div>
+                </form>
             </div>
 
 

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    include('../src/classes/filtro_pesquisa/Filtro.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,18 +21,22 @@
 
     <section class="hero">
         <div class="container conteudo">
-            <div class="row">
+            <?php
+                $busca = Filtro::BuscarPorNome($_POST['pesquisa']);
 
+                while($row = $busca->fetch(PDO::FETCH_BOTH)) {
+                    ?>
+            <div class="row">
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                       <div class="col-md-3">
                         <div class="icone-perfil">
-                            <img src="../medias/img/Group 133.svg" class="img-fluid rounded-start" alt="" width="80px">
-                            <span class="userName">Robson Silva</span>
-                            <div class="icon-level">
+                            <img src="<?php echo $row['c_imagem_perfil'] ?>" class="img-fluid rounded-start" alt="" width="80px">
+                            <span class="userName"><?php echo $row['c_nome'] ?></span>
+                            <!-- <div class="icon-level">
                                 <img src="../medias/img/level-up.png" alt="" width="25px">
                                 <p class="level">Nível 28</p>
-                            </div>
+                            </div> -->
                         </div>
                       </div>
                       <div class="col-md-9">
@@ -51,8 +59,6 @@
                       </div>
                     </div>
                   </div>
-
-                  
                   <div class="col-lg-3 marg-cat">
                     <div class="categoria">
                         <div class="categoria-top">
@@ -75,6 +81,11 @@
 
 
             </div>
+                    <?php
+                }
+            ?>
+
+            
         </div>
         <!--/ container -->
     </section>
