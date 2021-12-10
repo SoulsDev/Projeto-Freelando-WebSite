@@ -234,7 +234,7 @@ CREATE PROCEDURE FILTRA_AUTONOMO_FORMACAO (formacao VARCHAR(75))
 					INNER JOIN areas ON areas.n_id = profissoes.n_id_profissoes
 						INNER JOIN dados_academicos ON autonomos.n_id = dados_academicos.n_id_autonomos
 							WHERE dados_academicos.c_ensino LIKE formacao;
-                            
+
 drop procedure FILTRA_AUTONOMO_NOME ;
 CREATE PROCEDURE FILTRA_AUTONOMO_NOME (nome VARCHAR(75))
 	SELECT autonomos.n_id, autonomos.c_nome, autonomos.c_imagem_perfil, areas.c_nome as curso_nome, profissoes.c_nome as profissao_nome FROM autonomos
