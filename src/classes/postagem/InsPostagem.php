@@ -36,15 +36,15 @@ if (is_uploaded_file($_FILES['file']['tmp_name'])) {
 
   if ($FileType == "mp4") {
     $target_dir = "C:/xampp/htdocs/Projeto-Freelando-WebSite/medias_usuario/videos/";
-    $target_file = $target_dir . basename($_new_name) . "." . $FileType;
+    $target_file = $target_dir . basename($img_nome) . "." . $FileType;
     //$uploadOk = 1;
 
     move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
 
-    $caminho_relativo = "../medias_usuario/videos/" . basename($_new_name) . "." . $FileType;
+    $caminho_relativo = "../medias_usuario/videos/" . basename($img_nome) . "." . $FileType;
   } else {
     $target_dir = "C:/xampp/htdocs/Projeto-Freelando-WebSite/medias_usuario/fotos/";
-    $target_file = $target_dir . basename($_new_name) . "." . $FileType;
+    $target_file = $target_dir . basename($img_nome) . "." . $FileType;
     //$uploadOk = 1;
     // Allow certain file formats
     if (

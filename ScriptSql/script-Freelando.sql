@@ -377,3 +377,9 @@ INSERT INTO profissoes VALUES (default, 'Banco de Dados', 12),
                               (default, 'Desenvolvimento Web', 12),
                               (default, 'Teste de Software', 12),
                               (default, 'UX/UI e Web Design', 12);
+
+INSERT INTO contratantes VALUES (default, 'Guilherme Rodrigues Da Silva', '../medias/img/icone_padrao.jpg', 'oguilhermerodrigues2002@gmail.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2021-12-06 22:18:36', 'NULL'),
+								(default, 'Mark Zuckerberg', '../medias/img/icone_padrao.jpg', 'marquinhos@email.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2021-12-06 22:21:07', 'NULL'),
+                                (default, 'Bill Gates', '../medias/img/icone_padrao.jpg', 'billygato@email.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2021-12-06 22:21:53', 'NULL'),
+                                (default, 'Bolsonaro', '../medias/img/icone_padrao.jpg', 'ilovelula2022@email.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2021-12-06 22:22:25', 'NULL'),
+                                (default, 'Lula', '../medias/img/icone_padrao.jpg', 'ilovemyself2022@email.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', '2021-12-06 22:22:39', 'NULL');

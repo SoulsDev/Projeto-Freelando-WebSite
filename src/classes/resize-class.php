@@ -71,7 +71,7 @@
 				$optimalWidth  = $optionArray['optimalWidth'];
 				$optimalHeight = $optionArray['optimalHeight'];
 
-
+				echo "dsa";
 				// *** Resample - create image canvas of x, y size
 				$this->imageResized = imagecreatetruecolor($optimalWidth, $optimalHeight);
 				imagecopyresampled($this->imageResized, $this->image, 0, 0, 0, 0, $optimalWidth, $optimalHeight, $this->width, $this->height);
