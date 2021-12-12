@@ -14,9 +14,10 @@ session_start();
   <!-- Bootstrap -->
   <link rel="stylesheet" href="../bootstrap-5.1.3/dist/css/bootstrap.css">
 
-
   <!-- style css -->
   <link rel="stylesheet" href="../css/chat.css">
+
+  <script src="../scripts/jquery.js"></script>
 
   <!-- Script -->
   <script type="text/javascript">
@@ -32,9 +33,15 @@ session_start();
 		}
 	
 		setInterval(function(){ajax();}, 1000);
-
- 
 	</script>
+
+  <script>
+      $('#msm').ready(function() {
+
+        $('#msm').scrollTop($('#msm').height());
+
+      });
+  </script>
 
 </head>
 
@@ -42,6 +49,8 @@ session_start();
 
     <?php
     include"navbar.php";
+    include('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+    $consulta = $con->query('select c_nome, c_imagem_perfil, n_id from autonomos');
     ?>
 
 
@@ -51,32 +60,48 @@ session_start();
     <div class="card-body d-flex justify-content-center p-0">
       <div class="messaging">
         <div class="inbox_msg">
+
+
           <div class="inbox_people">
             <div class="inbox_chat">
               <div class="chat_list active_chat">
-                <div class="chat_people mb-2">
-                  <div class="chat_img">
-                    <img src="../medias/img/semfoto.png" alt="sunil" class="img">
-                    <span class="h1">Geraldão derivia</span>
+              <?php while($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){?>
+                <a href="chat.php?id=<?php echo $exibe['n_id'];?>">
+                <div class="chat_people mb-2" style="cursor: pointer;">
+                  <div class="chat_img" id="contato">
+                    <img src="<?php echo $exibe['c_imagem_perfil'];?>" alt="sunil" class="img">
+                    <span id="nomeContato" class="h1"><?php echo $exibe['c_nome'];?></span>
+                    <input value="<?php $exibe['n_id']; ?>" type="hidden" name="idContato">
                   </div>
                 </div>
+                </a>
+              <?php }?>
               </div>
             </div>
           </div>
 
 
 
-          <div class="imagem-chat row" style="border-bottom: #FF6633 solid 1px;">
+          <div class="imagem-chat row">
+            
+            <?php 
+
+            $id = $_GET['id'];
+
+            if(!isset($id)){
+              header("Location:chat.php");
+            }else{
+              $consulta = $con->query("select * from autonomos where n_id = '$id'");
+              $autonomo = $consulta->fetch(PDO::FETCH_ASSOC);
+            }
+            ?>
+
             <div class="foto-perfil d-flex align-items-center">
-              <img src="../medias/img/semfoto.png" alt="sunil" width="100px" height="100px" class="imagem-perfil">
+              <img src="<?php echo $autonomo['c_imagem_perfil']; ?>" alt="sunil" width="100px" height="100px" class="imagem-perfil">
               <div class="conteudo">
-                <span class="h1 h1-1">Geraldão derivia</span>
-                <span class="span">Dj</span>
+                <span class="h1 h1-1"><?php echo $autonomo['c_nome']; ?></span>
+                <span class="span"><?php echo 'SIM';?></span>
               </div>
-
-
-
-
             </div>
 
 
@@ -92,7 +117,7 @@ session_start();
               <div class="incoming_msg">
 
 
-                <div id="msm" style="overflow-y: scroll; height: 290px;">
+                <div id="msm" style="overflow: scroll; height: 290px;">
 
                   <!--  mensagem da pessoa -->
                   <div class="received_withd_msg" style="margin-bottom: 10px;">
@@ -104,6 +129,8 @@ session_start();
 
                     <!-- Sua mensagem -->
                   <div class="outgoing_msg d-flex flex-column align-items-end" style="padding-right: 20px;" id="outgoing_msg">
+
+
 
                   </div>
 
@@ -117,33 +144,15 @@ session_start();
                       <img class="fa fa-search form-control-feedback img" src="../medias/img/aperto-de-mao 1.svg" alt="mão" id="enviar" onclick="enviar()">
                     </button>
 
-                    <form action="chat.php" method="post">
+                    <form id="formMsm">
 
                       <input type="text" class="write_msg" id="inputMsm" name="mensagem">
 
-                      <button class="msg_send_btn"  type="button" id="enviarMsm">
+                      <button class="msg_send_btn"  type="submit" id="enviarMsm">
                         <img src="../medias/img/enviar.svg" alt="icone">
                       </button>
 
                     </form>
-                    <?php 
-                    
-                      include_once('../src/classes/conexao/mongo_con.php');
-                      $colecao = $mongo_db->chat;
-
-                      $nome = $_SESSION['nome_usuario'];
-                      $mensagem = $_POST['mensagem'];
-                      $dtRegistro =  date("H:i");
-
-                      $result = $colecao->insertOne( 
-                        [ 
-                            'nome' => $nome, 
-                            'mensagem' => $mensagem,
-                            'h_mensagem' => $dtRegistro
-                        ]
-                      );
-
-                    ?>
                   </div>
                 </div>
               </div>
@@ -187,14 +196,13 @@ session_start();
             </div>
           </div>
 
-          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-          </script>
+
+
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
           </script>
 
           <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
-
 
 
           <script src="../scripts/chat.js" defer></script>

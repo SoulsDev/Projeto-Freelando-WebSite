@@ -11,6 +11,11 @@ class Chat{
             echo 'Erro'.$e->getMessage();
         }
     }
+
+    // public static function listarContatos(){
+    //     include('C:/xampp/htdocs/Projeto-Freelando-WebSite/src/classes/conexao.php');
+
+    // }
 }
 
 

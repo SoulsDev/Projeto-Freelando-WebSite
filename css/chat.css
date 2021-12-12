@@ -83,7 +83,8 @@ img{ max-width:100%;}
 }
 
 .foto-perfil{
-    border-bottom: 2px solid #FF6633;
+    border-bottom: 1px solid #FF6633;
+    padding-bottom: 10px;
 }
 
 .imagem-perfil{

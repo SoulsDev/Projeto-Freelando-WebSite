@@ -14,7 +14,54 @@ function fechar() {
     document.getElementById('input-preco').value = '';
 }
 
-/*     
+
+$('#formMsm').submit(function (e) {
+    e.preventDefault();
+
+    var mensagem = $('#inputMsm').val();
+
+    //console.log(mensagem);
+
+    $.ajax({
+
+        url: 'http://localhost/Projeto-Freelando-WebSite/pages/inserir.php',
+        method: 'POST',
+        data: { mensagem: mensagem },
+        dataType: 'json'
+
+    }).done(function (result) {
+        $('#inputMsm').val('');
+        $("#msm").ready(function(){
+            $("#msm").animate({ scrollTop: 10000000 }, 3000);
+            });
+        console.log(result);
+    });
+
+});
+
+$("#msm").ready(function(){
+    $("#msm").animate({ scrollTop: 10000000 }, 3000);
+    });
+
+
+// function getMensagem() {
+//     $.ajax({
+//         url: 'http://localhost/Projeto-Freelando-WebSite/pages/atualizaExibicaoChat.php',
+//         method: 'GET',
+//         dataType: 'json'
+//     }).done(function (result) {
+//         console.log(result);
+//         $('.outgoing_msg').prepend();
+//     });
+// }
+
+// getMensagem();
+
+
+
+
+
+/*
                <div class="borda">
                       <p><strong>Você</strong></p>
                       <p class="texto" style="color: #000;">Peça um orçamento ou faça perguntas sobre este profissional.</p>
@@ -23,50 +70,46 @@ function fechar() {
                 </div>
 */
 
-var btn = document.getElementById('enviarMsm');
+// var btn = document.getElementById('enviarMsm');
 
-btn.onclick = function(){
-
-
-var yourMsm = document.getElementById("inputMsm").value;
+// btn.onclick = function(){
 
 
+//     document.getElementById("falso").setAttribute("value","verdadeiro");
 
-const addMsm = (text) => {
-    const item = document.createElement('div');
-    item.classList.add('outgoing_msg');
-    item.innerHTML = `
-    <div class="sent_msg" style="margin-bottom: 20px;">
-        <p><strong>Você</strong></p>
-        <p style="color: #000;">${text}</p>
-        <p class="hora d-flex justify-content-end">00:00</p>
-    </div>
-    `;
-    document.getElementById('msm').appendChild(item);
-}
+//     document.getElementById("formMsm").submit();
 
-addMsm(yourMsm);
+// }
 
-}
+// window.onload(function(){
 
-const recebeMsm = () => {
-    const item = document.createElement('div');
-    item.classList.add('received_withd_msg');
-    item.innerHTML = `
-    <div class="borda" style="margin-bottom: 20px;">
-        <p><strong>Você</strong></p>
-        <p class="texto" style="color: #000;">${text}</p>
-        <p class="hora d-flex justify-content-end">00:00</p>
-    </div>
-    `;
-    document.getElementById('msm').appendChild(item);
-}
+//     document.getElementById("falso").setAttribute("value","falso");
 
 
-var input = document.getElementById("inputMsm");
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-   event.preventDefault();
-   btn.click();
-  }
-});
+// });
+
+// const recebeMsm = () => {
+//     const item = document.createElement('div');
+//     item.classList.add('received_withd_msg');
+//     item.innerHTML = `
+//     <div class="borda" style="margin-bottom: 20px;">
+//         <p><strong>Você</strong></p>
+//         <p class="texto" style="color: #000;">${text}</p>
+//         <p class="hora d-flex justify-content-end">00:00</p>
+//     </div>
+//     `;
+//     document.getElementById('msm').appendChild(item);
+// }
+
+
+// var input = document.getElementById("inputMsm");
+// input.addEventListener("keyup", function(event) {
+//   if (event.keyCode === 13) {
+//    event.preventDefault();
+//    btn.click();
+//   }
+// });
+
+
+
+

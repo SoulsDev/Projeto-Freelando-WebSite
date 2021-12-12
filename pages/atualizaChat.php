@@ -6,11 +6,6 @@ $chat = new Chat();
 
 $row = $chat->listarChat();
 
-// $a = count((array)$row);
-
-//for($i = 0; $i < count((array)$row); $i++){
-
-
 foreach ($row as $key) {
         echo '<div class="sent_msg" style="margin-bottom: 10px;" id="sent_msg">';
                 echo "<p><strong>".$key['nome']."</strong></p>";
@@ -18,9 +13,4 @@ foreach ($row as $key) {
                 echo '<p class="hora d-flex justify-content-end">'.$key['h_mensagem'].'</p>';
         echo '</div>';
 }
-
-
-//}
-
-
 ?>
