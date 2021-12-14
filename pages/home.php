@@ -45,16 +45,15 @@
                         <div class="cardbox-heading">
                             <?php
                                 $autor = Profissional::getProfissional($convertido_para_array['autonomo']);
-                                
                             ?>
                             <!--/ dropdown -->
                             <div class="media m-0">
                                 <div class="d-flex mr-3">
-                                    <a href=""><img class="img-fluid rounded-circle" src="<?php echo $autor['c_imagem_perfil'] ?>" alt="User"></a>
+                                    <a href="AutonomoPublico.php?id=<?php echo $convertido_para_array['autonomo'] ?>"><img class="img-fluid rounded-circle" src="<?php echo $autor['c_imagem_perfil'] ?>" alt="User"></a>
                                 </div>
 
                                 <div class="media-body">
-                                    <p class="m-0"><?php echo $autor['c_nome'];?></p>
+                                <a href="AutonomoPublico.php?id=<?php echo $convertido_para_array['autonomo'] ?>"><p class="m-0"><?php echo $autor['c_nome'];?></p></a>
                                     <small><span><i class="icon ion-md-time"></i><?php echo $convertido_para_array['dt_registro'];?></span></small>
                                 </div>
 

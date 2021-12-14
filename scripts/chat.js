@@ -76,6 +76,10 @@ $("#msm").ready(function(){
 
 
 //     document.getElementById("falso").setAttribute("value","verdadeiro");
+// btn.onclick = function() {
+
+
+//     var yourMsm = document.getElementById("inputMsm").value;
 
 //     document.getElementById("formMsm").submit();
 
@@ -109,7 +113,42 @@ $("#msm").ready(function(){
 //    btn.click();
 //   }
 // });
+    // const addMsm = (text) => {
+    //     const item = document.createElement('div');
+    //     item.classList.add('outgoing_msg');
+    //     item.innerHTML = `
+    // <div class="sent_msg" style="margin-bottom: 20px;">
+    //     <p><strong>Você</strong></p>
+    //     <p style="color: #000;">${text}</p>
+    //     <p class="hora d-flex justify-content-end">00:00</p>
+    // </div>
+    // `;
+    //     document.getElementById('msm').appendChild(item);
+    // }
+
+    // addMsm(yourMsm);
 
 
 
 
+var input = document.getElementById("inputMsm");
+input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        btn.click();
+    }
+});
+
+function modalAtiva(modalID) {
+    const modal = document.getElementById(modalID);
+    modal.classList.add('active-chat');
+}
+
+const contato = document.getElementById('pessoa-contato');
+contato.addEventListener('click', () => modalAtiva('chat'));
+
+
+function voltar() {
+    const modal = document.getElementById('chat');
+    modal.classList.remove('active-chat');
+}

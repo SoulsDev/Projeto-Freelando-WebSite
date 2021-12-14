@@ -4,6 +4,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,12 +17,13 @@
 
     <title>Freelando</title>
 </head>
+
 <body>
     <?php include "navbar.php"; ?>
 
-    <section class="hero">
-        <div class="container conteudo">
-            <?php
+
+    <div class="container conteudo d-flex row p-0 m-0 justify-content-between">
+    <?php
                 $busca = Filtro::BuscarPorNome($_POST['pesquisa']);
 
                 while($row = $busca->fetch(PDO::FETCH_BOTH)) {
@@ -31,8 +33,10 @@
                     <div class="row g-0">
                       <div class="col-md-3">
                         <div class="icone-perfil">
-                            <img src="<?php echo $row['c_imagem_perfil'] ?>" class="img-fluid rounded-start" alt="" width="80px">
+                            <a href="AutonomoPublico.php?id=<?php echo $row['n_id'] ?>" style="text-decoration: none; color: #000;">
+                            <img src="<?php echo $row['c_imagem_perfil'] ?>" class="img-fluid rounded-start" alt="" width="80px"> <br>
                             <span class="userName"><?php echo $row['c_nome'] ?></span>
+                            </a>
                             <!-- <div class="icon-level">
                                 <img src="../medias/img/level-up.png" alt="" width="25px">
                                 <p class="level">Nível 28</p>
@@ -41,13 +45,6 @@
                       </div>
                       <div class="col-md-9">
                         <div class="card-body">
-                          <h5 class="card-title">Eletricista residencial a 10 anos</h5>
-                            <p class="card-text serv">Serviços: 
-                                <span class="serv-1">Manutenção</span> 
-                                <span class="serv-2">Eletricidade</span>
-                                <span class="loc fw-bolder">Perto de você</span>
-                            </p>
-
                             <p class="card-text icons-int">
                                 <span class="seguir">seguir</span> 
                                 <img class="icon-chat1" src="../medias/img/chat-1.svg" alt="" width="30px">
@@ -59,7 +56,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 marg-cat">
+                  <!-- <div class="col-lg-3 marg-cat">
                     <div class="categoria">
                         <div class="categoria-top">
                             <p>Navegue por categoria</p>
@@ -69,17 +66,36 @@
                                 <a>Construção/ Reforma</a>
                             </li>
                             <li>
-                                <a>Design/Tecnologia</a>
+                                <a>Odontologia</a>
                             </li>
                             <li>
                                 <a>Mecânica</a>
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
     
 
 
+        </div>
+
+
+        <div class="col-lg-4 p-0 catego">
+            <div class="categoria">
+                <div class="categoria-top">
+                    <p>Navegue por categoria</p>
+                </div>
+                <ul>
+                    <li>
+                        <a>Construção/ Reforma</a>
+                    </li>
+                    <li>
+                        <a>Design/Tecnologia</a>
+                    </li>
+                    <li>
+                        <a>Mecânica</a>
+                    </li>
+                </ul>
             </div>
                     <?php
                 }
@@ -87,8 +103,13 @@
 
             
         </div>
-        <!--/ container -->
-    </section>
+
+
+
+
+    </div>
+    <!--/ container -->
+
 
 
 
@@ -101,6 +122,7 @@
 
     <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
 
-    
+
 </body>
+
 </html>

@@ -57,9 +57,6 @@ if (is_uploaded_file($_FILES['file']['tmp_name'])) {
 
     move_uploaded_file($recebe_foto['tmp_name'], $destino.$img_nome);
 
-    $resizeObj = new resize($destino.$img_nome);
-    $resizeObj->resizeImage(600, 480, 'crop');
-    $resizeObj->saveImage($destino . $img_nome, 100);
 
     $caminho_relativo = "../src/classes/media/".$img_nome;
   }
