@@ -72,7 +72,7 @@
 
                 <div class="col-md-9 form-perfil">
                     
-                    <form action="../src/classes/contratante/AlteraDadosPessoais.php" name="contrata1" style="padding-right: 150px;" method="POST">
+                    <form action="../src/classes/contratante/AlteraDadosPessoais.php" name="contrata1" class="formulario" style="padding-right: 150px;" method="POST">
                         <input type="hidden" name="user_id" value="<?php echo $_SESSION['id_usuario'] ?>">
                         <div class="form-row">
                             <div class="form-group">
@@ -95,7 +95,7 @@
                     
 
                     
-                    <form action="../src/classes/contratante/AlteraSenha.php" name="contrata2" style="padding-right: 150px;" class="d-none" method="POST">
+                    <form action="../src/classes/contratante/AlteraSenha.php" name="contrata2" style="padding-right: 150px;" class="d-none formulario" method="POST">
                         <input type="hidden" name="user_id" value=<?php echo $_SESSION['id_usuario'] ?>>   
                         <input type="hidden" name="user_email" value="<?php echo $_SESSION['email_usuario'] ?>">   
                         <div class="form-row">
@@ -132,7 +132,7 @@
 
 
 
-                    <form action="../src/classes/contratante/AlteraEndereco.php" name="contrata3" class="d-none" method="POST" id="formulario_endereco">
+                    <form action="../src/classes/contratante/AlteraEndereco.php" name="contrata3" class="d-none formulario" method="POST" id="formulario_endereco">
                         <input type="hidden" name="user_id" value=<?php echo $_SESSION['id_usuario'] ?>>
                         <div class="row ">
 

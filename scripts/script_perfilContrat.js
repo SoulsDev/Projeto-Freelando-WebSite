@@ -13,12 +13,14 @@ function TornarAtivo(indice){
     div_pai.children[indice].children[0].classList.add('menu-perfil');
     div_pai.children[indice].children[1].classList.add('fonte-violeta');
     
-    formularios = document.getElementsByTagName('form');
+    formularios = document.getElementsByClassName('formulario');
 
     for(i=0; i<formularios.length; i++){
         if(!(formularios[i].classList.contains('d-none'))){
+
             formularios[i].classList.add('d-none')
         }
+        
     }    
     formularios[indice].classList.remove('d-none');
 }

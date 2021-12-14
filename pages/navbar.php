@@ -42,7 +42,7 @@
     }
     
     .lupa {
-        margin-top: 6px !important;
+        margin-top: -25px !important;
         border-left: 2px solid #515151 !important;
         border-radius: 0px !important;
         padding-left: 4px !important;
