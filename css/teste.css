@@ -1,7 +1,8 @@
-
 body {
     background-color: #F7F7F9;
-    overflow-x:hidden;
+    overflow-x: hidden;
+    margin-left: 15% !important;
+    margin-right: 15% !important;
 }
 
 ul {
@@ -16,17 +17,8 @@ p {
     margin: 0;
 }
 
-.conteudo {
-    margin-left: 15%;
-}
-
-.marg-cat {
-   margin-left: 75px;
-}
-
 .card {
-    border-radius: 12px;
-    box-shadow: 1px 1px 7px rgb(199, 199, 199);
+    border-radius: 10px;
 }
 
 .icone-perfil {
@@ -66,10 +58,6 @@ p {
     font-size: 15px;
 }
 
-.icons-int {
-    margin: 20px 0px 0px 175px;
-}
-
 .seguir {
     color: #fff;
     font-size: 12px;
@@ -83,7 +71,6 @@ p {
 .icon-chat1 {
     margin-right: 7px;
 }
-
 
 .serv-1 {
     color: #fff;
@@ -116,7 +103,6 @@ p {
     margin: 0px !important;
 }
 
-
 .categoria {
     border-radius: 5px;
     box-shadow: 1px 1px 7px rgb(199, 199, 199);
@@ -141,7 +127,6 @@ p {
     padding: 2px 0px 5px 15px;
 }
 
-
 @-webkit-keyframes flash {
     0% {
         opacity: .4;
@@ -161,14 +146,82 @@ p {
 }
 
 
-/* Author
-  ---------------------------------- */
+/* Wider than desktop */
 
-@media ( max-width:991px) {
-    .categoria {
-        order: 0;
+@media (min-width: 1200px) {}
+
+
+/* Landscape phone to desktop */
+
+@media (max-width: 1199px) {
+    .container {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
-    .publicacao {
-        order: 1;
+    .card {
+        width: 100% !important;
+        order: 2 !important;
+    }
+    .catego {
+        width: 100% !important;
     }
 }
+
+
+/* Landscape phone to landscape tablet */
+
+@media (max-width: 989px) {}
+
+
+/* Small desktop */
+
+@media (min-width: 980px) and (max-width: 1199px) {}
+
+
+/* Portrait tablet to landscape tablet */
+
+@media (min-width: 768px) and (max-width: 979px) {}
+
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {
+    body {
+        margin-left: 10% !important;
+        margin-right: 10% !important;
+    }
+}
+
+@media (max-width: 680px) {
+    body {
+        margin-left: 1% !important;
+        margin-right: 1% !important;
+    }
+    .result {
+        flex-direction: column !important;
+    }
+    .titulo-result {
+        justify-content: center !important;
+    }
+    .servico-result {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+    }
+    .acoes-result {
+        justify-content: center !important;
+    }
+    .col-md-9 {
+        border-left: none;
+        border-top: 1.5px solid #E2670E;
+    }
+    .conteudo {
+        justify-content: center !important;
+        align-items: center !important;
+    }
+}
+
+
+/* Landscape phones and smaller */
+
+@media (max-width: 480px) {}

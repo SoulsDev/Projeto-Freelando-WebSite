@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -53,7 +53,7 @@
 
             <div class="row">
 
-                <div class="col-md-3" style="border-right: solid #ff6d3c 2px; padding-top: 22px;" id="links_ativos">
+                <div class="col-md-3 borda" id="links_ativos">
 
                     <div class="d-flex flex-row clicavel" onclick="TornarAtivo(0)">
                         <div class="menu-perfil" style="margin-left: -12px;"></div>

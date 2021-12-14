@@ -4,6 +4,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,12 +17,13 @@
 
     <title>Freelando</title>
 </head>
+
 <body>
     <?php include "navbar.php"; ?>
 
-    <section class="hero">
-        <div class="container conteudo">
-            <?php
+
+    <div class="container conteudo d-flex row p-0 m-0 justify-content-between">
+    <?php
                 $busca = Filtro::BuscarPorNome($_POST['pesquisa']);
 
                 while($row = $busca->fetch(PDO::FETCH_BOTH)) {
@@ -75,6 +77,25 @@
     
 
 
+        </div>
+
+
+        <div class="col-lg-4 p-0 catego">
+            <div class="categoria">
+                <div class="categoria-top">
+                    <p>Navegue por categoria</p>
+                </div>
+                <ul>
+                    <li>
+                        <a>Construção/ Reforma</a>
+                    </li>
+                    <li>
+                        <a>Design/Tecnologia</a>
+                    </li>
+                    <li>
+                        <a>Mecânica</a>
+                    </li>
+                </ul>
             </div>
                     <?php
                 }
@@ -82,8 +103,13 @@
 
             
         </div>
-        <!--/ container -->
-    </section>
+
+
+
+
+    </div>
+    <!--/ container -->
+
 
 
 
@@ -96,6 +122,7 @@
 
     <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
 
-    
+
 </body>
+
 </html>
