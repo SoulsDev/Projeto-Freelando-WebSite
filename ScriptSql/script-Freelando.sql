@@ -71,6 +71,9 @@ CREATE PROCEDURE ALTERAR_SENHA_CONTRATANTE (id int, senha VARCHAR(70))
 	UPDATE contratantes SET c_senha = senha
 						WHERE n_id = id;
                         
+	SELECT n_id, c_nome, c_email, c_imagem_perfil FROM contratantes WHERE c_email = email AND c_senha = senha;
+    
+    drop procedure LISTAR_CONTRATANTE;
 /*/////////////////////////////////////////////////////////////////////////////////////////////*/
 CREATE TABLE autonomos(
 	n_id INT AUTO_INCREMENT,
@@ -85,6 +88,7 @@ CREATE TABLE autonomos(
     c_logradouro VARCHAR(100) NOT NULL,
     n_numero_autonomo INT NOT NULL,
     c_complemento VARCHAR(20) NOT NULL,
+    c_complemento VARCHAR(30) NOT NULL,
     c_email VARCHAR(25) NOT NULL,
     c_senha VARCHAR(70) NOT NULL,
     d_registro DATETIME NOT NULL,
@@ -95,7 +99,7 @@ CREATE TABLE autonomos(
 
 DROP PROCEDURE IF EXISTS CADASTRAR_AUTONOMO;
 CREATE PROCEDURE CADASTRAR_AUTONOMO (nome VARCHAR(35), imagem_perfil VARCHAR(50) ,cpf VARCHAR(11), nascimento DATE, genero SMALLINT, cep VARCHAR(8), uf CHAR(2), cidade VARCHAR (50), 
-									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (5), email VARCHAR(25), senha VARCHAR(70), registro DATETIME) 
+									 logradouro VARCHAR(100), numero INT, complemento VARCHAR (30), email VARCHAR(25), senha VARCHAR(70), registro DATETIME) 
 	INSERT INTO autonomos VALUES (default, nome, imagem_perfil, cpf, genero, nascimento, cep, uf, cidade, logradouro, numero, complemento, email, senha, registro, null);
 
 DROP PROCEDURE IF EXISTS VALIDA_AUTONOMO_CPF;    
@@ -103,6 +107,9 @@ CREATE PROCEDURE VALIDA_AUTONOMO_CPF (cpf VARCHAR(11))
 	SELECT * FROM autonomos WHERE c_cpf = cpf;
 
 DROP PROCEDURE IF EXISTS LOGIN_AUTONOMO;        
+    SELECT * FROM contratantes;
+    use freelando;
+    
 CREATE PROCEDURE LOGIN_AUTONOMO (email VARCHAR(50), senha VARCHAR(70))
 	SELECT count(n_id) FROM autonomos WHERE c_email = email AND c_senha = senha;
 

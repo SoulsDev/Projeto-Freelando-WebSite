@@ -526,17 +526,42 @@
                         align-items: center;
                         justify-content: center;
                     }
+                    .container-2 {
+                        flex-direction: column !important;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .formulario-2 {
+                        width: 70%;
+                    }
                     .formulario-3 {
-                        width: 80%;
+                        width: 70%;
                     }
                     .formulario-4 {
-                        width: 80%;
+                        width: 70%;
+                    }
+                    .modal-3 {
+                        height: auto;
+                        margin-top: 350px !important;
+                    }
+                    .modal-container-3 {
+                        overflow-y: scroll;
+                        position: fixed !important;
                     }
                 }
                 /* Landscape phones and smaller */
                 
                 @media (max-width: 480px) {
                     .modal-4 {
+                        width: 95%;
+                    }
+                    .formulario-3 {
+                        width: 95%;
+                    }
+                    .formulario-4 {
+                        width: 95%;
+                    }
+                    .formulario-2 {
                         width: 95%;
                     }
                 }

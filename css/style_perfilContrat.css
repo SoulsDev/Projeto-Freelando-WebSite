@@ -74,12 +74,16 @@ input {
 }
 
 .form-perfil {
-    height: 424px;
+    height: 400px;
     /* white-space: nowrap;
     overflow-y: scroll;
     text-overflow: Ellipsis;  */
 }
 
+.borda{
+    border-right: solid #ff6d3c 2px; 
+    padding-top: 22px;
+}
 .clicavel:hover {
     cursor: pointer;
 }
@@ -141,5 +145,33 @@ input {
     }
     100% {
         opacity: 1;
+    }
+}
+
+.form{
+   padding-right: 150px;
+}
+
+
+
+
+
+/* responsividade */
+
+
+@media (max-width:800px){
+    .borda{
+        border-right: none; 
+        padding-top: 22px;
+    }
+    .form{
+        padding-right:0;
+    }
+
+    .perfil-fundo {
+        margin-bottom: 50px;
+        height: 950px;
+        border: 2px solid #ff6d3c;
+        border-radius: 10px;
     }
 }

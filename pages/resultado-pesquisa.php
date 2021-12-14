@@ -4,6 +4,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,70 +17,83 @@
 
     <title>Freelando</title>
 </head>
+
 <body>
     <?php include "navbar.php"; ?>
 
-    <section class="hero">
-        <div class="container conteudo">
-            <?php
+
+    <div class="container conteudo d-flex row p-0 m-0 justify-content-between">
+    <?php
                 $busca = Filtro::BuscarPorNome($_POST['pesquisa']);
 
                 while($row = $busca->fetch(PDO::FETCH_BOTH)) {
                     ?>
-            <div class="row">
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                      <div class="col-md-3">
-                        <div class="icone-perfil">
-                            <img src="<?php echo $row['c_imagem_perfil'] ?>" class="img-fluid rounded-start" alt="" width="80px">
-                            <span class="userName"><?php echo $row['c_nome'] ?></span>
-                            <!-- <div class="icon-level">
-                                <img src="../medias/img/level-up.png" alt="" width="25px">
-                                <p class="level">Nível 28</p>
-                            </div> -->
-                        </div>
-                      </div>
-                      <div class="col-md-9">
-                        <div class="card-body">
-                          <h5 class="card-title">Eletricista residencial a 10 anos</h5>
-                            <p class="card-text serv">Serviços: 
-                                <span class="serv-1">Manutenção</span> 
-                                <span class="serv-2">Eletricidade</span>
-                                <span class="loc fw-bolder">Perto de você</span>
-                            </p>
 
-                            <p class="card-text icons-int">
-                                <span class="seguir">seguir</span> 
-                                <img class="icon-chat1" src="../medias/img/chat-1.svg" alt="" width="30px">
-                                <img src="../medias/img/star-1.svg" alt="" width="20px">
-                                <img src="../medias/img/star-1.svg" alt="" width="20px">
-                                <img src="../medias/img/star-1.svg" alt="" width="20px">
-                            </p>
+
+
+        <div class="card col-lg-7 shadow-lg m-0 p-0 d-flex flex-nowrap" style="">
+
+
+
+
+            <div class=" result d-flex nowrap">
+                <div class="col-md-3 d-flex flex-nowrap justify-content-center p-0">
+                    <div class="icone-perfil">
+                    <img src="<?php echo $row['c_imagem_perfil'] ?>" class="img-fluid rounded-start" alt="" width="80px">
+                            <span class="userName"><?php echo $row['c_nome'] ?></span>
+                        <div class="icon-level">
+                            <img src="../medias/img/level-up.png" alt="" width="25px">
+                            <p class="level">Nível 28</p>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3 marg-cat">
-                    <div class="categoria">
-                        <div class="categoria-top">
-                            <p>Navegue por categoria</p>
-                        </div>
-                        <ul>
-                            <li>
-                                <a>Construção/ Reforma</a>
-                            </li>
-                            <li>
-                                <a>Design/Tecnologia</a>
-                            </li>
-                            <li>
-                                <a>Mecânica</a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
-    
 
 
+                <div class="col-md-9 d-flex flex-nowrap p-0">
+
+                    <div class="card-body d-flex flex-column flex-nowrap">
+                        <h5 class="card-title d-flex flex-row flex-nowrap titulo-result">Eletricista residencial a 10 anos
+                        </h5>
+                        <p class="card-text serv d-flex justify-content-start flex-nowrap align-items-center servico-result">
+                            Serviços:
+                            <span class="serv-1 mx-1 my-1 px-3">Manutenção</span>
+                            <span class="serv-2 mx-1 my-1 px-3">Eletricidade</span>
+                            <span class="loc fw-bolder my-1">Perto de você</span>
+                        </p>
+
+                        <p class="card-text icons-int d-flex flex-row justify-content-start flex-nowrap mt-2 acoes-result mt-3">
+                            <span class="seguir px-4">seguir</span>
+                            <img class="icon-chat1" src="../medias/img/chat-1.svg" alt="" width="30px">
+                            <img src="../medias/img/star-1.svg" alt="" width="20px">
+                            <img src="../medias/img/star-1.svg" alt="" width="20px">
+                            <img src="../medias/img/star-1.svg" alt="" width="20px">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+        <div class="col-lg-4 p-0 catego">
+            <div class="categoria">
+                <div class="categoria-top">
+                    <p>Navegue por categoria</p>
+                </div>
+                <ul>
+                    <li>
+                        <a>Construção/ Reforma</a>
+                    </li>
+                    <li>
+                        <a>Design/Tecnologia</a>
+                    </li>
+                    <li>
+                        <a>Mecânica</a>
+                    </li>
+                </ul>
             </div>
                     <?php
                 }
@@ -87,8 +101,13 @@
 
             
         </div>
-        <!--/ container -->
-    </section>
+
+
+
+
+    </div>
+    <!--/ container -->
+
 
 
 
@@ -101,6 +120,7 @@
 
     <script src="../bootstrap-5.1.3/dist/js/bootstrap.min.js"></script>
 
-    
+
 </body>
+
 </html>
