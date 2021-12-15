@@ -3,9 +3,7 @@ Uma rede social que facilita a divulgação de profissionais
 
 ---
 
-<img src='" width="50%" align="center" />
-          
-          
+<img src="https://user-images.githubusercontent.com/80166983/146112025-e0b80376-419f-41f3-b01d-3547f757b0f8.png" width="100%" align="center" />
 
 <p align="center">
     <strong><a href="https://landingpage-freelando.vercel.app/" target="_blank" rel="noopener noreferrer">Conheça a proposta</a></strong>
@@ -38,11 +36,11 @@ Uma rede social que facilita a divulgação de profissionais
 
 ### Desktop
 
-
+<img src="https://user-images.githubusercontent.com/80166983/146111592-118176ba-284b-4812-a087-0124169e8453.png" width="" align="center" />
 
 ### Mobile
 
-
+<img src="https://user-images.githubusercontent.com/80166983/146111602-066295cf-8841-4134-9915-d1b005444be1.png" width="" align="center" />
 
 ## Rodando
 
