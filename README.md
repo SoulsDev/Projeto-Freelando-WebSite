@@ -50,7 +50,7 @@ Como rodar o projeto localmente.
 
 1. Baixe um software para simular um servidr local. Exemplo o [xampp](https://www.apachefriends.org/download.html).
 2. Clone o repositorio na pasta HTDOCS (se estiver usando o XAMPP)
-3. Tenha em mente que para evitar erros apararente, voce deve previamente ter os bnco de dados MySql instalado e com a Base de Dados configurada com o script disponivel no repositorio, além disso tenha tambem o mongoDb instalado e com ele deixe um a colectin com o nome freelando configurada.
+3. Tenha em mente que para evitar erros apararente, voce deve previamente ter os banco de dados MySql instalado e com a Base de Dados configurada com o script disponivel no repositorio, além disso tenha tambem o mongoDb instalado e com ele deixe um a colection com o nome freelando configurada.
 4. Vá para `http://localhost/nomeDaPasta`
 
 
